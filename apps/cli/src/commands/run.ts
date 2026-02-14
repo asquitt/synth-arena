@@ -1,3 +1,4 @@
+import { watch } from "node:fs";
 import chalk from "chalk";
 import ora from "ora";
 import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
@@ -12,6 +13,7 @@ interface RunOptions {
   concurrency: string;
   config?: string;
   output: string;
+  watch?: boolean;
 }
 
 function buildScorers(configs: ScorerConfig[]): Scorer[] {
@@ -78,6 +80,24 @@ export async function runCommand(opts: RunOptions): Promise<void> {
     console.log(JSON.stringify(run, null, 2));
   } else {
     printTable(run);
+  }
+
+  // Watch mode: re-run on config file changes
+  if (opts.watch) {
+    const watchPath = opts.config ?? "syntharena.yaml";
+    console.log(chalk.dim(`\n  Watching ${watchPath} for changes... (Ctrl+C to stop)\n`));
+
+    let debounce: ReturnType<typeof setTimeout> | null = null;
+    watch(watchPath, () => {
+      if (debounce) clearTimeout(debounce);
+      debounce = setTimeout(() => {
+        console.log(chalk.yellow(`\n  Config changed, re-running evaluation...\n`));
+        runCommand({ ...opts, watch: false }).catch(console.error);
+      }, 500);
+    });
+
+    // Keep process alive
+    await new Promise(() => {});
   }
 }
 

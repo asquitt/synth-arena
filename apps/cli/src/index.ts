@@ -30,6 +30,7 @@ program
   .option("-c, --concurrency <count>", "Max concurrent evaluations", "5")
   .option("--config <path>", "Path to evaluation config file")
   .option("--output <format>", "Output format (table, json, csv)", "table")
+  .option("-w, --watch", "Watch config file and re-run on changes")
   .action(runCommand);
 
 program
