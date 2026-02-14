@@ -96,6 +96,7 @@ function printTable(run: EvaluationRun): void {
   console.log(`  Pass Rate:        ${passColor(`${(summary.overallPassRate * 100).toFixed(1)}%`)}`);
   console.log(`  pass@k:           ${chalk.cyan(`${(summary.passAtK * 100).toFixed(1)}%`)}`);
   console.log(`  pass^k:           ${chalk.cyan(`${(summary.passToTheK * 100).toFixed(1)}%`)}`);
+  console.log(`  G-pass@k:         ${chalk.cyan(`${(summary.gPassAtK * 100).toFixed(1)}%`)}`);
   console.log(`  Total Cost:       ${chalk.yellow(`$${summary.totalCost.toFixed(4)}`)}`);
   console.log(`  Avg Tokens:       ${chalk.dim(String(Math.round(summary.avgTokensPerScenario)))}`);
   console.log(`  Total Duration:   ${chalk.dim(`${summary.totalDuration}ms`)}`);

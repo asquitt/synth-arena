@@ -53,6 +53,7 @@ export async function replayCommand(opts: ReplayOptions): Promise<void> {
     console.log(chalk.gray(`Pass rate: ${(run.summary.overallPassRate * 100).toFixed(1)}%`));
     console.log(chalk.gray(`pass@k: ${(run.summary.passAtK * 100).toFixed(1)}%`));
     console.log(chalk.gray(`pass^k: ${(run.summary.passToTheK * 100).toFixed(1)}%`));
+    console.log(chalk.gray(`G-pass@k: ${(run.summary.gPassAtK * 100).toFixed(1)}%`));
     return;
   }
 

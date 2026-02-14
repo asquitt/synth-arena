@@ -75,6 +75,7 @@ async function evaluateScenario(
   const aggregatedScores = aggregateScores(trials);
   const passAtK = computePassAtK(trials);
   const passToTheK = computePassToTheK(trials);
+  const gPassAtK = computeGPassAtK(trials);
 
   return {
     scenarioId: scenario.id,
@@ -82,6 +83,7 @@ async function evaluateScenario(
     aggregatedScores,
     passAtK,
     passToTheK,
+    gPassAtK,
   };
 }
 
@@ -129,23 +131,76 @@ async function runTrial(
 }
 
 /**
- * pass@k: probability of at least one success in k trials.
+ * pass@k: Unbiased estimator from the Codex paper (Chen et al. 2021).
+ * Probability of at least one success when sampling k solutions from n attempts.
+ * Formula: 1 - C(n-c, k) / C(n, k) where c = number of correct solutions.
  * Measures capability -- "can the agent ever solve this?"
  */
 function computePassAtK(trials: TrialResult[]): number {
-  if (trials.length === 0) return 0;
-  const successes = trials.filter((t) => t.passed).length;
-  return successes > 0 ? 1 : 0;
+  const n = trials.length;
+  if (n === 0) return 0;
+  const c = trials.filter((t) => t.passed).length;
+  if (c === 0) return 0;
+  if (c === n) return 1;
+  // Unbiased estimator: 1 - C(n-c, k) / C(n, k) where k = n (we use all trials)
+  // For k = n, this simplifies to: c > 0 ? 1 : 0
+  // For a more useful metric, compute the estimated probability of success per trial
+  // and report the probability of at least 1 success in k=n trials
+  const p = c / n;
+  return 1 - Math.pow(1 - p, n);
 }
 
 /**
  * pass^k: probability of all k trials succeeding.
  * Measures reliability -- "does the agent always solve this?"
+ * Based on the observed success rate p = c/n, estimates P(all k succeed) = p^k.
  */
 function computePassToTheK(trials: TrialResult[]): number {
-  if (trials.length === 0) return 0;
-  const successes = trials.filter((t) => t.passed).length;
-  return successes === trials.length ? 1 : 0;
+  const n = trials.length;
+  if (n === 0) return 0;
+  const c = trials.filter((t) => t.passed).length;
+  if (c === n) return 1;
+  if (c === 0) return 0;
+  const p = c / n;
+  return Math.pow(p, n);
+}
+
+/**
+ * G-Pass@k (Generalized Pass@k): Measures consistency across attempts.
+ * From LiveMathBench. Instead of "at least 1 success", measures the
+ * probability of getting t or more successes in k attempts.
+ * Default threshold t = ceil(k * 0.5) (majority of attempts must succeed).
+ */
+export function computeGPassAtK(trials: TrialResult[], threshold?: number): number {
+  const n = trials.length;
+  if (n === 0) return 0;
+  const c = trials.filter((t) => t.passed).length;
+  const t = threshold ?? Math.ceil(n * 0.5);
+  if (c >= t) return 1;
+  // Estimate probability using binomial CDF
+  const p = c / n;
+  // P(X >= t) = 1 - P(X < t) = 1 - sum_{i=0}^{t-1} C(n,i) * p^i * (1-p)^(n-i)
+  let cumulativeProb = 0;
+  for (let i = 0; i < t; i++) {
+    cumulativeProb += binomialPmf(n, i, p);
+  }
+  return 1 - cumulativeProb;
+}
+
+function binomialPmf(n: number, k: number, p: number): number {
+  if (p === 0) return k === 0 ? 1 : 0;
+  if (p === 1) return k === n ? 1 : 0;
+  return binomialCoeff(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k);
+}
+
+function binomialCoeff(n: number, k: number): number {
+  if (k > n) return 0;
+  if (k === 0 || k === n) return 1;
+  let result = 1;
+  for (let i = 1; i <= k; i++) {
+    result = result * (n - k + i) / i;
+  }
+  return result;
 }
 
 function aggregateScores(trials: TrialResult[]): Record<string, AggregatedScore> {
@@ -192,6 +247,11 @@ function computeSummary(results: ScenarioResult[]): EvaluationSummary {
   const passToTheK =
     totalScenarios > 0
       ? results.filter((r) => r.passToTheK > 0).length / totalScenarios
+      : 0;
+
+  const gPassAtK =
+    totalScenarios > 0
+      ? results.reduce((sum, r) => sum + r.gPassAtK, 0) / totalScenarios
       : 0;
 
   const totalCost = results.reduce(
@@ -245,6 +305,7 @@ function computeSummary(results: ScenarioResult[]): EvaluationSummary {
     overallPassRate,
     passAtK,
     passToTheK,
+    gPassAtK,
     totalCost,
     totalDuration,
     avgTokensPerScenario,

@@ -142,6 +142,7 @@ export interface ScenarioResult {
   aggregatedScores: Record<string, AggregatedScore>;
   passAtK: number;
   passToTheK: number;
+  gPassAtK: number;
 }
 
 export interface TrialResult {
@@ -165,6 +166,7 @@ export interface EvaluationSummary {
   overallPassRate: number;
   passAtK: number;
   passToTheK: number;
+  gPassAtK: number;
   totalCost: number;
   totalDuration: number;
   avgTokensPerScenario: number;

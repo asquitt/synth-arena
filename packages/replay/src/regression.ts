@@ -22,6 +22,7 @@ export interface RegressionSummary {
   passRateDelta: number; // positive = improvement
   passAtKDelta: number;
   passToTheKDelta: number;
+  gPassAtKDelta: number;
   costDelta: number; // positive = more expensive
   costDeltaPercent: number;
   latencyDelta: number;
@@ -106,6 +107,7 @@ export function compareRuns(baseline: EvaluationRun, current: EvaluationRun): Re
     passRateDelta: current.summary.overallPassRate - baseline.summary.overallPassRate,
     passAtKDelta: current.summary.passAtK - baseline.summary.passAtK,
     passToTheKDelta: current.summary.passToTheK - baseline.summary.passToTheK,
+    gPassAtKDelta: current.summary.gPassAtK - baseline.summary.gPassAtK,
     costDelta: current.summary.totalCost - baseline.summary.totalCost,
     costDeltaPercent: baseline.summary.totalCost > 0
       ? ((current.summary.totalCost - baseline.summary.totalCost) / baseline.summary.totalCost) * 100
@@ -182,6 +184,7 @@ export function formatRegressionReport(report: RegressionReport): string {
     `Pass Rate:    ${formatDelta(summary.passRateDelta * 100, "%")}`,
     `pass@k:       ${formatDelta(summary.passAtKDelta * 100, "%")}`,
     `pass^k:       ${formatDelta(summary.passToTheKDelta * 100, "%")}`,
+    `G-pass@k:     ${formatDelta(summary.gPassAtKDelta * 100, "%")}`,
     `Cost:         ${formatDelta(summary.costDelta, "$", true)} (${formatDelta(summary.costDeltaPercent, "%", true)})`,
     `New failures: ${summary.newFailures}`,
     `Fixed:        ${summary.fixedFailures}`,

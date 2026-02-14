@@ -1,4 +1,4 @@
-export { evaluate } from "./evaluate.js";
+export { evaluate, computeGPassAtK } from "./evaluate.js";
 export { runArena } from "./arena.js";
 export {
   taskCompletion,
