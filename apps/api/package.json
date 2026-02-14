@@ -1,0 +1,26 @@
+{
+  "name": "@syntharena/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsx watch src/index.ts",
+    "start": "node dist/index.js"
+  },
+  "dependencies": {
+    "@syntharena/core": "workspace:*",
+    "@syntharena/shared": "workspace:*",
+    "@syntharena/scenarios": "workspace:*",
+    "@syntharena/cost": "workspace:*",
+    "@syntharena/replay": "workspace:*",
+    "hono": "^4.7.0",
+    "@hono/node-server": "^1.14.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0",
+    "tsx": "^4.19.0"
+  }
+}

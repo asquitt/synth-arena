@@ -1,0 +1,22 @@
+{
+  "name": "syntharena",
+  "version": "0.1.0",
+  "description": "SynthArena TypeScript SDK - Pre-deployment agent simulation",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "dev": "tsc --watch"
+  },
+  "keywords": ["ai", "agents", "evaluation", "testing", "simulation", "synthetic-data"],
+  "dependencies": {
+    "@syntharena/core": "workspace:*",
+    "@syntharena/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

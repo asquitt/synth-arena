@@ -10,4 +10,5 @@ export {
   safetyCheck,
   stateDiff,
 } from "./graders.js";
+export { llmJudge, pairwiseJudge } from "./llm-judge.js";
 export { generateId } from "./utils.js";

@@ -1,5 +1,5 @@
 {
-  "name": "@syntharena/core",
+  "name": "@syntharena/replay",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -8,16 +8,13 @@
   "scripts": {
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "dev": "tsc --watch",
-    "test": "vitest run"
+    "dev": "tsc --watch"
   },
   "dependencies": {
-    "@syntharena/shared": "workspace:*",
-    "@anthropic-ai/sdk": "^0.39.0"
+    "@syntharena/shared": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
-    "typescript": "^5.7.0",
-    "vitest": "^3.0.0"
+    "typescript": "^5.7.0"
   }
 }
