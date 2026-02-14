@@ -10,6 +10,8 @@ import { costRoutes } from "./routes/cost.js";
 import { authenticate, requirePermission } from "./middleware/auth.js";
 import { rateLimit } from "./middleware/rate-limit.js";
 import { adminRoutes } from "./routes/admin.js";
+import { traceRoutes } from "./routes/traces.js";
+import { checkClickHouse } from "./repositories/traces.js";
 import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
 import { checkRedis, closeRedis, initQueue } from "./queue.js";
@@ -93,6 +95,16 @@ app.get("/health/deep", async (c) => {
     }
   }
 
+  // ClickHouse check
+  if (process.env["CLICKHOUSE_URL"]) {
+    try {
+      const chLatency = await checkClickHouse();
+      checks["clickhouse"] = { status: "healthy", latency: chLatency };
+    } catch {
+      checks["clickhouse"] = { status: "unhealthy", latency: -1 };
+    }
+  }
+
   const overall = Object.values(checks).every((ch) => ch.status === "healthy")
     ? "healthy"
     : "degraded";
@@ -108,6 +120,7 @@ v1.route("/evaluations", evaluationRoutes);
 v1.route("/scenarios", scenarioRoutes);
 v1.route("/domains", domainRoutes);
 v1.route("/cost", costRoutes);
+v1.route("/traces", traceRoutes);
 
 // Admin routes (require "admin" permission)
 const admin = new Hono();
@@ -159,6 +172,7 @@ async function startServer() {
     cors: env.allowedOrigins,
     database: process.env["DATABASE_URL"] ? "connected" : "in-memory",
     redis: process.env["REDIS_URL"] ? "connected" : "disabled",
+    clickhouse: process.env["CLICKHOUSE_URL"] ? "connected" : "disabled",
   }));
 }
 
