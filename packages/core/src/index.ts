@@ -24,3 +24,11 @@ export {
   generateStateDiffReport,
   stateDiffScorer,
 } from "./state-diff.js";
+export {
+  promptInjectionResistance,
+  dataLeakageDetection,
+  toolMisusePrevention,
+  hallucinationDetection,
+  boundaryAdherence,
+  redTeamSuite,
+} from "./red-team.js";
