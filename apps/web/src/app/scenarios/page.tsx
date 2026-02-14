@@ -111,8 +111,18 @@ export default function ScenariosPage() {
       <Nav />
 
       <main className="mx-auto max-w-7xl px-6 py-10">
-        <h1 className="text-3xl font-bold">Scenarios</h1>
-        <p className="mt-2 text-gray-400">Generate and validate domain-specific test scenarios</p>
+        <div className="flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold">Scenarios</h1>
+            <p className="mt-2 text-gray-400">Generate and validate domain-specific test scenarios</p>
+          </div>
+          <a
+            href="/scenarios/import"
+            className="rounded-lg border border-orange-500/30 px-3 py-1.5 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
+          >
+            Import Production Traces →
+          </a>
+        </div>
 
         {/* Generator */}
         <div className="mt-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
