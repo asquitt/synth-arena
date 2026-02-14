@@ -1,5 +1,6 @@
 import type { Context, Next } from "hono";
 import Redis from "ioredis";
+import { rateLimited } from "../errors.js";
 
 /**
  * Rate limiter with Redis backend (production) or in-memory fallback (dev).
@@ -77,10 +78,7 @@ export async function rateLimit(c: Context, next: Next) {
   c.header("X-RateLimit-Reset", String(Math.ceil((Date.now() + ttl * 1000) / 1000)));
 
   if (count > maxRequests) {
-    return c.json(
-      { error: "Rate limit exceeded", retryAfter: ttl },
-      429,
-    );
+    throw rateLimited(ttl);
   }
 
   return next();
@@ -102,10 +100,7 @@ function inMemoryRateLimit(c: Context, next: Next, identifier: string, maxReques
   c.header("X-RateLimit-Reset", String(Math.ceil(entry.resetAt / 1000)));
 
   if (entry.count > maxRequests) {
-    return c.json(
-      { error: "Rate limit exceeded", retryAfter: Math.ceil((entry.resetAt - now) / 1000) },
-      429,
-    );
+    throw rateLimited(Math.ceil((entry.resetAt - now) / 1000));
   }
 
   return next();

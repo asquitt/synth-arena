@@ -16,6 +16,7 @@ import { checkClickHouse } from "./repositories/traces.js";
 import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
 import { checkRedis, closeRedis, initQueue } from "./queue.js";
+import { ApiError } from "./errors.js";
 
 // Validate environment at startup (fail fast)
 const env = validateEnv();
@@ -134,22 +135,40 @@ v1.route("/admin", admin);
 app.route("/api/v1", v1);
 
 // 404 handler
-app.notFound((c) => c.json({ error: "Not Found", path: c.req.path }, 404));
+app.notFound((c) => c.json({
+  error: { code: "NOT_FOUND", message: `Route ${c.req.method} ${c.req.path} not found` },
+}, 404));
 
 // Error handler
 app.onError((err, c) => {
-  const requestId = c.get("requestId");
+  const rid = c.get("requestId");
+
+  // Structured ApiError — return code + message
+  if (err instanceof ApiError) {
+    console.error(JSON.stringify({
+      level: "error",
+      code: err.code,
+      message: err.message,
+      requestId: rid,
+      path: c.req.path,
+    }));
+    return c.json({ ...err.toJSON(), requestId: rid }, err.statusCode as 400);
+  }
+
+  // Unhandled error — log stack, return generic message
   console.error(JSON.stringify({
     level: "error",
     message: err.message,
     stack: env.nodeEnv !== "production" ? err.stack : undefined,
-    requestId,
+    requestId: rid,
     path: c.req.path,
   }));
   return c.json({
-    error: "Internal Server Error",
-    message: env.nodeEnv !== "production" ? err.message : "An unexpected error occurred",
-    requestId,
+    error: {
+      code: "INTERNAL_ERROR",
+      message: env.nodeEnv !== "production" ? err.message : "An unexpected error occurred",
+    },
+    requestId: rid,
   }, 500);
 });
 

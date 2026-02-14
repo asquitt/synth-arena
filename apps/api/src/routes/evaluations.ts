@@ -8,6 +8,7 @@ import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
 import * as evalRepo from "../repositories/evaluations.js";
 import { submitJob, setJobStatus, getJobStatus } from "../queue.js";
+import { ApiError, notFound, validationError, serviceUnavailable } from "../errors.js";
 
 /**
  * Evaluation API routes.
@@ -67,14 +68,14 @@ evaluationRoutes.get("/", async (c) => {
 
 evaluationRoutes.get("/:id", async (c) => {
   const run = await getRun(c.req.param("id"));
-  if (!run) return c.json({ error: "Not Found" }, 404);
+  if (!run) throw notFound("Evaluation", c.req.param("id"));
   return c.json({ data: run });
 });
 
 evaluationRoutes.post("/",
-  zValidator("json", createEvaluationSchema, (result, c) => {
+  zValidator("json", createEvaluationSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
@@ -115,15 +116,15 @@ evaluationRoutes.post("/",
 
       return c.json({ data: run }, 201);
     } catch (err) {
-      return c.json({ error: err instanceof Error ? err.message : "Evaluation failed" }, 500);
+      throw new ApiError("EVALUATION_FAILED", err instanceof Error ? err.message : "Evaluation failed", 500);
     }
   }
 );
 
 evaluationRoutes.post("/stream",
-  zValidator("json", createEvaluationSchema, (result, c) => {
+  zValidator("json", createEvaluationSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   (c) => {
@@ -191,19 +192,19 @@ evaluationRoutes.post("/stream",
 );
 
 evaluationRoutes.post("/:id/compare",
-  zValidator("json", compareRunsSchema, (result, c) => {
+  zValidator("json", compareRunsSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
     const currentRun = await getRun(c.req.param("id"));
-    if (!currentRun) return c.json({ error: "Current run not found" }, 404);
+    if (!currentRun) throw notFound("Evaluation", c.req.param("id"));
 
     const body = c.req.valid("json");
 
     const baselineRun = await getRun(body.baselineId);
-    if (!baselineRun) return c.json({ error: "Baseline run not found" }, 404);
+    if (!baselineRun) throw notFound("Baseline evaluation", body.baselineId);
 
     const report = compareRuns(baselineRun, currentRun);
 
@@ -213,14 +214,14 @@ evaluationRoutes.post("/:id/compare",
 
 // Async evaluation (queued via Redis Streams when available)
 evaluationRoutes.post("/async",
-  zValidator("json", createEvaluationSchema, (result, c) => {
+  zValidator("json", createEvaluationSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
     if (!process.env["REDIS_URL"]) {
-      return c.json({ error: "Async evaluation requires REDIS_URL to be configured" }, 503);
+      throw serviceUnavailable("Redis (required for async evaluation)");
     }
 
     const body = c.req.valid("json");
@@ -253,18 +254,18 @@ evaluationRoutes.post("/async",
 
 evaluationRoutes.get("/jobs/:jobId", async (c) => {
   if (!process.env["REDIS_URL"]) {
-    return c.json({ error: "Job status requires REDIS_URL" }, 503);
+    throw serviceUnavailable("Redis (required for job status)");
   }
 
   const jobId = c.req.param("jobId");
   const status = await getJobStatus(jobId);
-  if (!status) return c.json({ error: "Job not found" }, 404);
+  if (!status) throw new ApiError("JOB_NOT_FOUND", `Job '${jobId}' not found`, 404);
   return c.json({ data: status });
 });
 
 evaluationRoutes.delete("/:id", async (c) => {
   const id = c.req.param("id");
   const deleted = await removeRun(id);
-  if (!deleted) return c.json({ error: "Not Found" }, 404);
+  if (!deleted) throw notFound("Evaluation", id);
   return c.json({ data: { deleted: true, id } });
 });

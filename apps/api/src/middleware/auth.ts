@@ -1,5 +1,6 @@
 import type { Context, Next } from "hono";
 import * as apiKeyRepo from "../repositories/api-keys.js";
+import { unauthorized, forbidden } from "../errors.js";
 
 /**
  * API key authentication middleware.
@@ -33,12 +34,12 @@ export async function authenticate(c: Context, next: Next) {
 
   const authHeader = c.req.header("authorization");
   if (!authHeader) {
-    return c.json({ error: "Missing Authorization header" }, 401);
+    throw unauthorized("Missing Authorization header");
   }
 
   const [scheme, token] = authHeader.split(" ", 2);
   if (scheme?.toLowerCase() !== "bearer" || !token) {
-    return c.json({ error: "Invalid Authorization format. Use: Bearer <key>" }, 401);
+    throw unauthorized("Invalid Authorization format. Use: Bearer <key>");
   }
 
   // Database-backed auth
@@ -47,7 +48,7 @@ export async function authenticate(c: Context, next: Next) {
     const keyRecord = await apiKeyRepo.findByHash(keyHash);
 
     if (!keyRecord) {
-      return c.json({ error: "Invalid API key" }, 403);
+      throw forbidden("Invalid API key");
     }
 
     // Attach key info to context for downstream use
@@ -64,7 +65,7 @@ export async function authenticate(c: Context, next: Next) {
   // Env-var auth fallback
   const keys = getEnvKeys();
   if (keys && !keys.has(token)) {
-    return c.json({ error: "Invalid API key" }, 403);
+    throw forbidden("Invalid API key");
   }
 
   return next();
@@ -81,7 +82,7 @@ export function requirePermission(permission: string) {
 
     const permissions = c.get("apiKeyPermissions") as string[] | undefined;
     if (!permissions || !permissions.includes(permission)) {
-      return c.json({ error: `Missing required permission: ${permission}` }, 403);
+      throw forbidden(`Missing required permission: ${permission}`);
     }
 
     return next();
