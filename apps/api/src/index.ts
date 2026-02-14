@@ -8,6 +8,7 @@ import { scenarioRoutes } from "./routes/scenarios.js";
 import { domainRoutes } from "./routes/domains.js";
 import { costRoutes } from "./routes/cost.js";
 import { authenticate } from "./middleware/auth.js";
+import { rateLimit } from "./middleware/rate-limit.js";
 import { validateEnv } from "./middleware/env.js";
 
 // Validate environment at startup (fail fast)
@@ -76,9 +77,10 @@ app.get("/health/deep", async (c) => {
   return c.json({ status: overall, checks, timestamp: new Date().toISOString() });
 });
 
-// API v1 routes (authenticated)
+// API v1 routes (authenticated + rate limited)
 const v1 = new Hono();
 v1.use("*", authenticate);
+v1.use("*", rateLimit);
 v1.route("/evaluations", evaluationRoutes);
 v1.route("/scenarios", scenarioRoutes);
 v1.route("/domains", domainRoutes);

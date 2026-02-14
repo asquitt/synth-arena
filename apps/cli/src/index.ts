@@ -8,6 +8,7 @@ import { domainsCommand } from "./commands/domains.js";
 import { costCommand } from "./commands/cost.js";
 import { replayCommand } from "./commands/replay.js";
 import { initCommand } from "./commands/init.js";
+import { doctorCommand } from "./commands/doctor.js";
 
 const program = new Command();
 
@@ -81,5 +82,10 @@ program
   .option("--calls-per-scenario <count>", "Average LLM calls per scenario", "3")
   .option("--cache-rate <rate>", "Cache hit rate (0-1)", "0")
   .action(costCommand);
+
+program
+  .command("doctor")
+  .description("Check environment setup and diagnose issues")
+  .action(doctorCommand);
 
 program.parse();
