@@ -41,8 +41,8 @@ describe("Metrics endpoint", () => {
     const contentType = res.headers.get("content-type");
     expect(contentType).toContain("text/plain");
     const text = await res.text();
-    expect(text).toContain("http_requests_total");
-    expect(text).toContain("process_uptime_seconds");
+    expect(text).toContain("syntharena_http_requests_total");
+    expect(text).toContain("syntharena_process_uptime_seconds");
   });
 });
 

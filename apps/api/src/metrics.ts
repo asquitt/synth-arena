@@ -77,17 +77,17 @@ export function observeHistogram(name: string, labels: Record<string, string>, v
 export function trackHttpRequest(method: string, path: string, status: number, durationMs: number) {
   // Normalize path to avoid cardinality explosion
   const route = normalizePath(path);
-  incCounter("http_requests_total", { method, route, status: String(status) });
-  observeHistogram("http_request_duration_ms", { method, route }, durationMs);
+  incCounter("syntharena_http_requests_total", { method, route, status: String(status) });
+  observeHistogram("syntharena_http_request_duration_ms", { method, route }, durationMs);
   if (status >= 500) {
-    incCounter("http_errors_total", { method, route, status: String(status) });
+    incCounter("syntharena_http_errors_total", { method, route, status: String(status) });
   }
 }
 
 export function trackEvaluation(domain: string, status: "completed" | "failed", durationMs: number, scenarioCount: number) {
-  incCounter("evaluations_total", { domain, status });
-  observeHistogram("evaluation_duration_ms", { domain }, durationMs);
-  incCounter("scenarios_evaluated_total", { domain }, scenarioCount);
+  incCounter("syntharena_evaluations_total", { domain, status });
+  observeHistogram("syntharena_evaluation_duration_ms", { domain }, durationMs);
+  incCounter("syntharena_scenarios_evaluated_total", { domain }, scenarioCount);
 }
 
 // ─── Exposition ─────────────────────────────────────────
@@ -102,18 +102,18 @@ export function renderMetrics(): string {
   const lines: string[] = [];
 
   // Process uptime
-  lines.push("# HELP process_uptime_seconds Time since API started");
-  lines.push("# TYPE process_uptime_seconds gauge");
-  lines.push(`process_uptime_seconds ${((Date.now() - startTime) / 1000).toFixed(1)}`);
+  lines.push("# HELP syntharena_process_uptime_seconds Time since API started");
+  lines.push("# TYPE syntharena_process_uptime_seconds gauge");
+  lines.push(`syntharena_process_uptime_seconds ${((Date.now() - startTime) / 1000).toFixed(1)}`);
   lines.push("");
 
   // Memory
   const mem = process.memoryUsage();
-  lines.push("# HELP process_heap_bytes Heap memory usage in bytes");
-  lines.push("# TYPE process_heap_bytes gauge");
-  lines.push(`process_heap_bytes{type="used"} ${mem.heapUsed}`);
-  lines.push(`process_heap_bytes{type="total"} ${mem.heapTotal}`);
-  lines.push(`process_heap_bytes{type="rss"} ${mem.rss}`);
+  lines.push("# HELP syntharena_process_heap_bytes Heap memory usage in bytes");
+  lines.push("# TYPE syntharena_process_heap_bytes gauge");
+  lines.push(`syntharena_process_heap_bytes{type="used"} ${mem.heapUsed}`);
+  lines.push(`syntharena_process_heap_bytes{type="total"} ${mem.heapTotal}`);
+  lines.push(`syntharena_process_heap_bytes{type="rss"} ${mem.rss}`);
   lines.push("");
 
   // Counters
