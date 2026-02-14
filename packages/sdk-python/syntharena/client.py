@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import asyncio
+import math
 import time
 import uuid
 from typing import Any, Callable, Awaitable
@@ -137,10 +138,13 @@ async def _evaluate_scenario(
             duration=duration,
         ))
 
-    # Compute pass@k and pass^k
-    successes = sum(1 for t in trial_results if t.passed)
-    pass_at_k = 1.0 if successes > 0 else 0.0
-    pass_to_the_k = 1.0 if successes == len(trial_results) else 0.0
+    # Compute probabilistic pass@k, pass^k, and G-pass@k
+    n = len(trial_results)
+    c = sum(1 for t in trial_results if t.passed)
+    p = c / n if n > 0 else 0.0
+    pass_at_k = 1.0 - math.pow(1.0 - p, n) if n > 0 else 0.0
+    pass_to_the_k = math.pow(p, n) if n > 0 else 0.0
+    g_pass_at_k = _compute_g_pass_at_k(n, c)
 
     # Aggregate scores
     score_values: dict[str, list[float]] = {}
@@ -164,6 +168,7 @@ async def _evaluate_scenario(
         aggregated_scores=aggregated,
         pass_at_k=pass_at_k,
         pass_to_the_k=pass_to_the_k,
+        g_pass_at_k=g_pass_at_k,
     )
 
 
@@ -173,8 +178,9 @@ def _compute_summary(results: list[ScenarioResult]) -> EvaluationSummary:
     passed_trials = sum(sum(1 for t in r.trials if t.passed) for r in results)
     overall_pass_rate = passed_trials / total_trials if total_trials > 0 else 0.0
 
-    pass_at_k = sum(1 for r in results if r.pass_at_k > 0) / total_scenarios if total_scenarios > 0 else 0.0
-    pass_to_the_k = sum(1 for r in results if r.pass_to_the_k > 0) / total_scenarios if total_scenarios > 0 else 0.0
+    pass_at_k = sum(r.pass_at_k for r in results) / total_scenarios if total_scenarios > 0 else 0.0
+    pass_to_the_k = sum(r.pass_to_the_k for r in results) / total_scenarios if total_scenarios > 0 else 0.0
+    g_pass_at_k = sum(r.g_pass_at_k for r in results) / total_scenarios if total_scenarios > 0 else 0.0
 
     total_cost = sum(t.token_usage.estimated_cost for r in results for t in r.trials)
     total_duration = sum(t.duration for r in results for t in r.trials)
@@ -203,8 +209,43 @@ def _compute_summary(results: list[ScenarioResult]) -> EvaluationSummary:
         overall_pass_rate=overall_pass_rate,
         pass_at_k=pass_at_k,
         pass_to_the_k=pass_to_the_k,
+        g_pass_at_k=g_pass_at_k,
         total_cost=total_cost,
         total_duration=total_duration,
         avg_tokens_per_scenario=avg_tokens,
         score_summaries=score_summaries,
     )
+
+
+def _binomial_pmf(n: int, k: int, p: float) -> float:
+    """Binomial probability mass function: P(X=k) given n trials and success probability p."""
+    if p == 0.0:
+        return 1.0 if k == 0 else 0.0
+    if p == 1.0:
+        return 1.0 if k == n else 0.0
+    coeff = math.comb(n, k)
+    return coeff * math.pow(p, k) * math.pow(1.0 - p, n - k)
+
+
+def _compute_g_pass_at_k(n: int, c: int, threshold: int | None = None) -> float:
+    """Compute G-Pass@k (Generalized Pass@k from LiveMathBench).
+
+    Measures the probability of achieving at least `threshold` successes
+    in n trials using the binomial CDF.
+
+    Args:
+        n: Total number of trials
+        c: Number of successes observed
+        threshold: Minimum successes required (default: ceil(n * 0.5))
+
+    Returns:
+        Probability of achieving >= threshold successes
+    """
+    if n == 0:
+        return 0.0
+    t = threshold if threshold is not None else math.ceil(n * 0.5)
+    if c >= t:
+        return 1.0
+    p = c / n
+    cumulative = sum(_binomial_pmf(n, i, p) for i in range(t))
+    return 1.0 - cumulative

@@ -71,6 +71,7 @@ class ScenarioResult:
     aggregated_scores: dict[str, AggregatedScore]
     pass_at_k: float
     pass_to_the_k: float
+    g_pass_at_k: float = 0.0
 
 
 @dataclass
@@ -80,6 +81,7 @@ class EvaluationSummary:
     overall_pass_rate: float
     pass_at_k: float
     pass_to_the_k: float
+    g_pass_at_k: float
     total_cost: float
     total_duration: float
     avg_tokens_per_scenario: float
