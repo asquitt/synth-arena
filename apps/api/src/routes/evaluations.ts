@@ -7,6 +7,7 @@ import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
 import * as evalRepo from "../repositories/evaluations.js";
+import { submitJob } from "../queue.js";
 
 /**
  * Evaluation API routes.
@@ -207,6 +208,42 @@ evaluationRoutes.post("/:id/compare",
     const report = compareRuns(baselineRun, currentRun);
 
     return c.json({ data: report });
+  }
+);
+
+// Async evaluation (queued via Redis Streams when available)
+evaluationRoutes.post("/async",
+  zValidator("json", createEvaluationSchema, (result, c) => {
+    if (!result.success) {
+      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+    }
+  }),
+  async (c) => {
+    if (!process.env["REDIS_URL"]) {
+      return c.json({ error: "Async evaluation requires REDIS_URL to be configured" }, 503);
+    }
+
+    const body = c.req.valid("json");
+    const jobId = crypto.randomUUID();
+
+    await submitJob({
+      id: jobId,
+      name: body.name,
+      domain: body.domain,
+      scenarioCount: body.scenarioCount,
+      trials: body.trials ?? 1,
+      maxConcurrency: body.maxConcurrency ?? 5,
+      timeout: body.timeout ?? 300_000,
+      submittedAt: new Date().toISOString(),
+    });
+
+    return c.json({
+      data: {
+        jobId,
+        status: "queued",
+        message: "Evaluation queued for async processing",
+      },
+    }, 202);
   }
 );
 

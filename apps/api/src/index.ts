@@ -11,6 +11,7 @@ import { authenticate } from "./middleware/auth.js";
 import { rateLimit } from "./middleware/rate-limit.js";
 import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
+import { checkRedis, closeRedis, initQueue } from "./queue.js";
 
 // Validate environment at startup (fail fast)
 const env = validateEnv();
@@ -81,6 +82,16 @@ app.get("/health/deep", async (c) => {
     }
   }
 
+  // Redis check
+  if (process.env["REDIS_URL"]) {
+    try {
+      const redisLatency = await checkRedis();
+      checks["redis"] = { status: "healthy", latency: redisLatency };
+    } catch {
+      checks["redis"] = { status: "unhealthy", latency: -1 };
+    }
+  }
+
   const overall = Object.values(checks).every((ch) => ch.status === "healthy")
     ? "healthy"
     : "degraded";
@@ -122,7 +133,14 @@ app.onError((err, c) => {
 // Start server
 let server: ServerType;
 
-function startServer() {
+async function startServer() {
+  // Initialize Redis queue if REDIS_URL is configured
+  if (process.env["REDIS_URL"]) {
+    await initQueue().catch((err) => {
+      console.warn(JSON.stringify({ level: "warn", message: "Redis queue init failed, async jobs unavailable", error: String(err) }));
+    });
+  }
+
   server = serve({ fetch: app.fetch, port: env.port });
   console.log(JSON.stringify({
     level: "info",
@@ -131,6 +149,8 @@ function startServer() {
     env: env.nodeEnv,
     auth: env.apiKeys.length > 0 ? "enabled" : "disabled",
     cors: env.allowedOrigins,
+    database: process.env["DATABASE_URL"] ? "connected" : "in-memory",
+    redis: process.env["REDIS_URL"] ? "connected" : "disabled",
   }));
 }
 
@@ -138,7 +158,10 @@ function startServer() {
 function shutdown(signal: string) {
   console.log(JSON.stringify({ level: "info", message: `Received ${signal}, shutting down` }));
   server?.close(async () => {
-    await closeDatabase().catch(() => {});
+    await Promise.all([
+      closeDatabase().catch(() => {}),
+      closeRedis().catch(() => {}),
+    ]);
     console.log(JSON.stringify({ level: "info", message: "Server closed" }));
     process.exit(0);
   });
