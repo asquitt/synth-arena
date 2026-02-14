@@ -1,0 +1,44 @@
+{
+  "visaCategories": [
+    { "code": "H-1B", "name": "Specialty Occupation Worker", "form": "I-129", "requiresDol": true, "hasLottery": true },
+    { "code": "L-1A", "name": "Intracompany Transferee - Manager/Executive", "form": "I-129", "requiresDol": false, "hasLottery": false },
+    { "code": "L-1B", "name": "Intracompany Transferee - Specialized Knowledge", "form": "I-129", "requiresDol": false, "hasLottery": false },
+    { "code": "O-1A", "name": "Extraordinary Ability - Sciences/Business/Education/Athletics", "form": "I-129", "requiresDol": false, "hasLottery": false },
+    { "code": "O-1B", "name": "Extraordinary Ability - Arts", "form": "I-129", "requiresDol": false, "hasLottery": false },
+    { "code": "EB-1A", "name": "Employment-Based First Preference - Extraordinary Ability", "form": "I-140", "requiresDol": false, "hasLottery": false },
+    { "code": "EB-2-NIW", "name": "National Interest Waiver", "form": "I-140", "requiresDol": false, "hasLottery": false },
+    { "code": "EB-3", "name": "Employment-Based Third Preference", "form": "I-140", "requiresDol": true, "hasLottery": false },
+    { "code": "I-485", "name": "Adjustment of Status", "form": "I-485", "requiresDol": false, "hasLottery": false }
+  ],
+  "evidenceTypes": [
+    { "category": "employment", "items": ["offer-letter", "pay-stubs", "w2-forms", "organization-chart", "job-description"] },
+    { "category": "education", "items": ["degree-certificate", "transcripts", "credential-evaluation", "professional-license"] },
+    { "category": "extraordinary", "items": ["publications", "citations", "awards", "media-coverage", "peer-review", "memberships", "high-salary-evidence"] },
+    { "category": "identity", "items": ["passport", "birth-certificate", "i-94-record", "previous-approvals", "photographs"] }
+  ],
+  "uscisOffices": [
+    { "code": "TSC", "name": "Texas Service Center", "location": "Dallas, TX" },
+    { "code": "NSC", "name": "Nebraska Service Center", "location": "Lincoln, NE" },
+    { "code": "CSC", "name": "California Service Center", "location": "Laguna Niguel, CA" },
+    { "code": "VSC", "name": "Vermont Service Center", "location": "St. Albans, VT" }
+  ],
+  "formFields": [
+    { "form": "I-129", "sections": ["petitioner-info", "beneficiary-info", "classification", "dates-of-service", "basis-for-classification"] },
+    { "form": "I-140", "sections": ["petitioner-info", "beneficiary-info", "classification", "priority-date", "job-offer-details"] },
+    { "form": "I-485", "sections": ["applicant-info", "immigration-history", "criminal-history", "public-charge", "accommodation"] }
+  ],
+  "commonEdgeCases": [
+    "rfe-response-required",
+    "priority-date-not-current",
+    "employer-change-during-process",
+    "expired-i-94",
+    "concurrent-filing",
+    "premium-processing-request",
+    "previous-denial-on-record",
+    "dependents-aging-out",
+    "country-specific-backlog",
+    "missing-credential-evaluation",
+    "gap-in-employment-history",
+    "change-of-status-pending"
+  ]
+}

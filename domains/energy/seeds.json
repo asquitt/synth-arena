@@ -1,0 +1,48 @@
+{
+  "gridRegions": [
+    { "code": "ERCOT", "name": "Electric Reliability Council of Texas", "states": ["TX"] },
+    { "code": "PJM", "name": "PJM Interconnection", "states": ["PA", "NJ", "DE", "MD", "VA", "WV", "OH", "DC"] },
+    { "code": "CAISO", "name": "California ISO", "states": ["CA"] },
+    { "code": "MISO", "name": "Midcontinent ISO", "states": ["MN", "WI", "IA", "IL", "IN", "MI", "MO"] },
+    { "code": "NYISO", "name": "New York ISO", "states": ["NY"] },
+    { "code": "SPP", "name": "Southwest Power Pool", "states": ["KS", "OK", "NE", "SD", "ND"] }
+  ],
+  "loadProfiles": [
+    { "type": "residential", "peakHour": 18, "baseloadMw": 50, "peakMultiplier": 2.1 },
+    { "type": "commercial", "peakHour": 14, "baseloadMw": 120, "peakMultiplier": 1.8 },
+    { "type": "industrial", "peakHour": 10, "baseloadMw": 300, "peakMultiplier": 1.3 },
+    { "type": "mixed", "peakHour": 16, "baseloadMw": 200, "peakMultiplier": 1.9 }
+  ],
+  "outageTypes": [
+    { "type": "equipment-failure", "avgRestorationHours": 4, "crewsRequired": 2, "customerImpact": "localized" },
+    { "type": "weather-event", "avgRestorationHours": 24, "crewsRequired": 8, "customerImpact": "widespread" },
+    { "type": "vegetation", "avgRestorationHours": 3, "crewsRequired": 1, "customerImpact": "localized" },
+    { "type": "overload", "avgRestorationHours": 2, "crewsRequired": 3, "customerImpact": "zone" },
+    { "type": "planned-maintenance", "avgRestorationHours": 8, "crewsRequired": 4, "customerImpact": "scheduled" }
+  ],
+  "meterTypes": [
+    { "type": "ami", "name": "Advanced Metering Infrastructure", "intervalMinutes": 15, "hasTwoWayComm": true },
+    { "type": "amr", "name": "Automatic Meter Reading", "intervalMinutes": 60, "hasTwoWayComm": false },
+    { "type": "legacy", "name": "Legacy Manual Read", "intervalMinutes": null, "hasTwoWayComm": false }
+  ],
+  "weatherConditions": [
+    { "type": "heat-wave", "tempRange": [95, 115], "loadImpact": 1.4 },
+    { "type": "cold-snap", "tempRange": [-20, 10], "loadImpact": 1.5 },
+    { "type": "severe-storm", "tempRange": [40, 80], "loadImpact": 0.8 },
+    { "type": "normal", "tempRange": [50, 85], "loadImpact": 1.0 }
+  ],
+  "commonEdgeCases": [
+    "cascading-failure",
+    "simultaneous-peak-demand",
+    "renewable-intermittency",
+    "meter-data-gap",
+    "transformer-overload",
+    "cross-zone-outage",
+    "demand-response-event",
+    "frequency-deviation",
+    "islanding-event",
+    "cyber-attack-simulation",
+    "extreme-weather-forecast-error",
+    "solar-eclipse-ramp"
+  ]
+}

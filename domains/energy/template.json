@@ -1,0 +1,32 @@
+{
+  "name": "energy",
+  "description": "Energy grid management and utility data processing with demand forecasting, outage response, meter reading analysis, and regulatory reporting",
+  "version": "0.1.0",
+  "scenarioGenerators": [
+    {
+      "name": "demand-forecasting",
+      "type": "llm",
+      "prompt": "Generate test scenarios for energy demand forecasting agents. Include load prediction, weather-adjusted models, peak demand estimation, and grid capacity planning across residential, commercial, and industrial sectors.",
+      "config": { "sectors": ["residential", "commercial", "industrial", "mixed"] }
+    },
+    {
+      "name": "outage-management",
+      "type": "llm",
+      "prompt": "Generate scenarios for automated outage detection, crew dispatch optimization, estimated restoration time calculation, and customer notification. Include cascading failures and multi-zone events.",
+      "config": { "outageTypes": ["equipment-failure", "weather-event", "vegetation", "overload", "planned-maintenance"] }
+    }
+  ],
+  "environmentDefaults": {
+    "services": [
+      { "type": "mock-api", "name": "scada-api", "config": { "port": 8083 } },
+      { "type": "mock-database", "name": "meter-db", "config": { "port": 5436 } },
+      { "type": "mock-api", "name": "weather-api", "config": { "port": 8084 } }
+    ]
+  },
+  "defaultScorers": ["task_completion", "forecast_accuracy", "response_time", "cost_threshold"],
+  "constraints": [
+    { "name": "nerc-compliance", "description": "Grid operations must comply with NERC reliability standards", "validator": "validateNercCompliance" },
+    { "name": "unit-consistency", "description": "All energy measurements must use consistent units (kWh, MW, etc.) with proper conversions", "validator": "validateEnergyUnits" },
+    { "name": "safety-critical", "description": "Scenarios involving safety-critical operations must include proper safeguards and never recommend actions that could destabilize the grid", "validator": "validateGridSafety" }
+  ]
+}

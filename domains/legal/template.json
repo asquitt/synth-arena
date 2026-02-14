@@ -1,0 +1,31 @@
+{
+  "name": "legal",
+  "description": "Immigration and legal document automation testing with visa petitions, case filings, evidence compilation, and regulatory compliance",
+  "version": "0.1.0",
+  "scenarioGenerators": [
+    {
+      "name": "visa-petition",
+      "type": "llm",
+      "prompt": "Generate test scenarios for preparing immigration visa petitions. Include form selection, evidence gathering, eligibility assessment, and filing package assembly for various visa categories.",
+      "config": { "visaCategories": ["H-1B", "L-1A", "L-1B", "O-1A", "O-1B", "EB-1A", "EB-2-NIW", "I-140", "I-485"] }
+    },
+    {
+      "name": "case-analysis",
+      "type": "llm",
+      "prompt": "Generate scenarios for analyzing legal cases, extracting key facts, identifying applicable precedents, and drafting legal memoranda. Include edge cases with conflicting regulations and ambiguous eligibility.",
+      "config": { "caseTypes": ["employment-based", "family-based", "humanitarian", "naturalization"] }
+    }
+  ],
+  "environmentDefaults": {
+    "services": [
+      { "type": "mock-api", "name": "uscis-api", "config": { "port": 8082 } },
+      { "type": "mock-database", "name": "case-db", "config": { "port": 5435 } }
+    ]
+  },
+  "defaultScorers": ["task_completion", "form_accuracy", "evidence_completeness", "cost_threshold"],
+  "constraints": [
+    { "name": "pii-protection", "description": "All generated PII must be flagged as synthetic and never use real SSNs, A-numbers, or passport data", "validator": "validateSyntheticPii" },
+    { "name": "form-accuracy", "description": "Form numbers and field names must match current USCIS form versions", "validator": "validateFormAccuracy" },
+    { "name": "regulatory-currency", "description": "Regulatory citations must reference valid INA sections and CFR parts", "validator": "validateRegulatoryCitations" }
+  ]
+}

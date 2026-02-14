@@ -10,6 +10,8 @@ export function generateDemoScenarios(domain: string, count: number): Scenario[]
     "web-scraping": generateWebScrapingScenario,
     "government": generateGovernmentScenario,
     "healthcare": generateHealthcareScenario,
+    "legal": generateLegalScenario,
+    "energy": generateEnergyScenario,
   };
 
   const generator = generators[domain] ?? generateWebScrapingScenario;
@@ -108,6 +110,77 @@ function generateHealthcareScenario(): Scenario {
     metadata: {
       complexity: patientType === "lapsed-2yr" ? "high" : "medium",
       tags: ["healthcare", "reactivation", patientType],
+      generatedAt: new Date().toISOString(),
+      generatorVersion: "0.1.0-demo",
+    },
+  };
+}
+
+function generateLegalScenario(): Scenario {
+  const visas = ["H-1B", "L-1A", "O-1A", "EB-1A", "EB-2-NIW", "I-485"];
+  const actions = ["petition-prep", "rfe-response", "evidence-compilation", "eligibility-assessment"];
+  const visa = visas[Math.floor(Math.random() * visas.length)]!;
+  const action = actions[Math.floor(Math.random() * actions.length)]!;
+  const isComplex = action === "rfe-response" || visa === "EB-1A";
+
+  return {
+    id: "",
+    domain: "legal",
+    name: "",
+    description: `${action.replace(/-/g, " ")} for ${visa} visa petition`,
+    input: {
+      caseId: `CASE-${Math.floor(Math.random() * 100000)}`,
+      visaCategory: visa,
+      action,
+      beneficiaryCountry: ["India", "China", "Brazil", "UK", "Nigeria"][Math.floor(Math.random() * 5)],
+      filingDeadline: new Date(Date.now() + 60 * 86400000).toISOString(),
+      hasEmployerSponsor: visa !== "EB-1A" && visa !== "EB-2-NIW",
+    },
+    expected: {
+      formIdentified: true,
+      evidenceListComplete: action !== "eligibility-assessment",
+      deadlineMet: true,
+    },
+    metadata: {
+      complexity: isComplex ? "high" : "medium",
+      tags: ["legal", "immigration", visa, action],
+      generatedAt: new Date().toISOString(),
+      generatorVersion: "0.1.0-demo",
+    },
+  };
+}
+
+function generateEnergyScenario(): Scenario {
+  const regions = ["ERCOT", "PJM", "CAISO", "MISO", "NYISO", "SPP"];
+  const tasks = ["demand-forecast", "outage-response", "meter-analysis", "capacity-planning"];
+  const conditions = ["heat-wave", "cold-snap", "severe-storm", "normal"];
+  const region = regions[Math.floor(Math.random() * regions.length)]!;
+  const task = tasks[Math.floor(Math.random() * tasks.length)]!;
+  const weather = conditions[Math.floor(Math.random() * conditions.length)]!;
+  const isAdversarial = weather === "severe-storm" && task === "outage-response";
+
+  return {
+    id: "",
+    domain: "energy",
+    name: "",
+    description: `${task.replace(/-/g, " ")} for ${region} during ${weather.replace(/-/g, " ")}`,
+    input: {
+      region,
+      task,
+      weatherCondition: weather,
+      timeHorizon: task === "demand-forecast" ? "48h" : "real-time",
+      meterType: "ami",
+      baseloadMw: 200 + Math.floor(Math.random() * 300),
+      customersAffected: task === "outage-response" ? Math.floor(Math.random() * 50000) : 0,
+    },
+    expected: {
+      analysisComplete: true,
+      withinAccuracyThreshold: task === "demand-forecast",
+      restorationEstimate: task === "outage-response",
+    },
+    metadata: {
+      complexity: isAdversarial ? "adversarial" : weather !== "normal" ? "high" : "medium",
+      tags: ["energy", task, region, weather],
       generatedAt: new Date().toISOString(),
       generatorVersion: "0.1.0-demo",
     },
