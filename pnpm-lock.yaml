@@ -54,6 +54,12 @@ importers:
       '@syntharena/core':
         specifier: workspace:*
         version: link:../../packages/core
+      '@syntharena/cost':
+        specifier: workspace:*
+        version: link:../../packages/cost
+      '@syntharena/replay':
+        specifier: workspace:*
+        version: link:../../packages/replay
       '@syntharena/scenarios':
         specifier: workspace:*
         version: link:../../packages/scenarios

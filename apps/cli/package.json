@@ -13,6 +13,8 @@
   },
   "dependencies": {
     "@syntharena/core": "workspace:*",
+    "@syntharena/cost": "workspace:*",
+    "@syntharena/replay": "workspace:*",
     "@syntharena/scenarios": "workspace:*",
     "@syntharena/shared": "workspace:*",
     "commander": "^13.0.0",

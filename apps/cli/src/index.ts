@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
 import { Command } from "commander";
-import chalk from "chalk";
 import { runCommand } from "./commands/run.js";
 import { arenaCommand } from "./commands/arena.js";
 import { generateCommand } from "./commands/generate.js";
 import { domainsCommand } from "./commands/domains.js";
+import { costCommand } from "./commands/cost.js";
+import { replayCommand } from "./commands/replay.js";
 
 const program = new Command();
 
@@ -55,12 +56,13 @@ program
 
 program
   .command("replay")
-  .description("Replay a previous evaluation run")
-  .requiredOption("--trace-id <id>", "Trace ID to replay")
-  .option("--compare", "Compare with original run")
-  .action(() => {
-    console.log(chalk.yellow("Replay engine coming in Phase 4"));
-  });
+  .description("Compare current agent against a saved baseline")
+  .requiredOption("-b, --baseline-path <path>", "Path to baseline JSON file")
+  .option("-d, --domain <domain>", "Domain template", "web-scraping")
+  .option("-s, --scenarios <count>", "Number of scenarios", "10")
+  .option("-t, --trials <count>", "Trials per scenario", "1")
+  .option("--save-baseline <path>", "Save current run as a new baseline")
+  .action(replayCommand);
 
 program
   .command("cost")
@@ -69,8 +71,8 @@ program
   .option("-s, --scenarios <count>", "Number of scenarios", "100")
   .option("-t, --trials <count>", "Trials per scenario", "3")
   .option("-m, --model <model>", "Model to estimate for", "claude-sonnet-4-20250514")
-  .action(() => {
-    console.log(chalk.yellow("Cost modeling engine coming in Phase 3"));
-  });
+  .option("--calls-per-scenario <count>", "Average LLM calls per scenario", "3")
+  .option("--cache-rate <rate>", "Cache hit rate (0-1)", "0")
+  .action(costCommand);
 
 program.parse();
