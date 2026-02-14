@@ -23,6 +23,7 @@ import { checkRedis, closeRedis, initQueue } from "./queue.js";
 import { ApiError } from "./errors.js";
 import { trackHttpRequest, renderMetrics } from "./metrics.js";
 import { timeout } from "./middleware/timeout.js";
+import { securityHeaders } from "./middleware/security-headers.js";
 import { trace, SpanStatusCode } from "@opentelemetry/api";
 
 // Validate environment at startup (fail fast)
@@ -38,6 +39,7 @@ app.use("*", cors({
 app.use("*", requestId());
 app.use("*", bodyLimit({ maxSize: 10 * 1024 * 1024 })); // 10MB
 app.use("*", timeout(30_000)); // 30s default timeout
+app.use("*", securityHeaders);
 
 // Structured JSON logging + metrics + OTel span middleware
 app.use("*", async (c, next) => {
