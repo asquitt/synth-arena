@@ -17,6 +17,7 @@ import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
 import { checkRedis, closeRedis, initQueue } from "./queue.js";
 import { ApiError } from "./errors.js";
+import { trackHttpRequest, renderMetrics } from "./metrics.js";
 
 // Validate environment at startup (fail fast)
 const env = validateEnv();
@@ -31,7 +32,7 @@ app.use("*", cors({
 app.use("*", requestId());
 app.use("*", bodyLimit({ maxSize: 10 * 1024 * 1024 })); // 10MB
 
-// Structured JSON logging middleware
+// Structured JSON logging + metrics middleware
 app.use("*", async (c, next) => {
   const start = Date.now();
   await next();
@@ -43,6 +44,7 @@ app.use("*", async (c, next) => {
     duration,
     requestId: c.get("requestId"),
   };
+  trackHttpRequest(c.req.method, c.req.path, c.res.status, duration);
   if (c.res.status >= 400) {
     console.error(JSON.stringify(log));
   } else {
@@ -113,6 +115,12 @@ app.get("/health/deep", async (c) => {
     : "degraded";
 
   return c.json({ status: overall, checks, timestamp: new Date().toISOString() });
+});
+
+// Prometheus metrics (unauthenticated)
+app.get("/metrics", (c) => {
+  c.header("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
+  return c.text(renderMetrics());
 });
 
 // API v1 routes (authenticated + rate limited)

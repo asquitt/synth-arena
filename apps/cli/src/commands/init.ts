@@ -57,5 +57,5 @@ export async function initCommand() {
   console.log(chalk.gray("  Edit the config, then run:"));
   console.log(chalk.cyan("  $ synth-arena run --config syntharena.yaml\n"));
   console.log(chalk.gray("  Available domains:"));
-  console.log(chalk.white("    web-scraping  government  healthcare\n"));
+  console.log(chalk.white("    web-scraping  government  healthcare  legal  energy\n"));
 }
