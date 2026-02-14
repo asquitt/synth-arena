@@ -27,7 +27,7 @@ import { trace, SpanStatusCode } from "@opentelemetry/api";
 // Validate environment at startup (fail fast)
 const env = validateEnv();
 
-const app = new Hono();
+export const app = new Hono();
 
 // Middleware
 app.use("*", cors({
