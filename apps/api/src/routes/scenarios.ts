@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { generateScenarios, getTemplate, validateScenarioQuality } from "@syntharena/scenarios";
-import { generateAdversarialScenarios, type AdversarialCategory } from "@syntharena/replay";
+import { generateAdversarialScenarios, importTraces, summarizeImport, type AdversarialCategory, type ProductionTrace } from "@syntharena/replay";
 import { generateScenariosSchema, validateScenariosSchema, adversarialSchema } from "../schemas.js";
 import { ApiError, validationError, domainNotFound } from "../errors.js";
 
@@ -109,3 +109,39 @@ scenarioRoutes.post("/adversarial",
     });
   }
 );
+
+// Import production traces as regression scenarios
+scenarioRoutes.post("/import-traces", async (c) => {
+  const body = await c.req.json<{
+    traces: ProductionTrace[];
+    domain: string;
+    filterOutcome?: string;
+    maxScenarios?: number;
+    includeTrace?: boolean;
+    tags?: string[];
+  }>();
+
+  if (!body.traces || !Array.isArray(body.traces) || body.traces.length === 0) {
+    throw validationError("At least one trace is required");
+  }
+  if (!body.domain) {
+    throw validationError("Domain is required");
+  }
+
+  const scenarios = importTraces(body.traces, {
+    domain: body.domain,
+    filterOutcome: body.filterOutcome as ProductionTrace["outcome"],
+    maxScenarios: body.maxScenarios,
+    includeTrace: body.includeTrace,
+    tags: body.tags,
+  });
+
+  const summary = summarizeImport(scenarios);
+
+  return c.json({
+    data: {
+      scenarios,
+      summary,
+    },
+  });
+});

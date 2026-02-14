@@ -3,3 +3,11 @@ export type { RegressionReport, RegressionSummary, ScenarioRegression, ScenarioS
 
 export { generateAdversarialScenarios } from "./adversarial.js";
 export type { AdversarialConfig, AdversarialCategory } from "./adversarial.js";
+
+export {
+  convertOTLPSpans,
+  classifyTrace,
+  importTraces,
+  summarizeImport,
+} from "./trace-import.js";
+export type { OTLPSpan, ProductionTrace, TraceImportOptions } from "./trace-import.js";
