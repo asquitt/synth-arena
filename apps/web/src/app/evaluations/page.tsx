@@ -37,6 +37,7 @@ export default function EvaluationsPage() {
   const [runs, setRuns] = useState<EvalRun[]>([]);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState<StreamProgress | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const [domain, setDomain] = useState("web-scraping");
   const [scenarios, setScenarios] = useState("10");
   const [trials, setTrials] = useState("3");
@@ -45,6 +46,7 @@ export default function EvaluationsPage() {
   async function startEval() {
     setLoading(true);
     setProgress(null);
+    setError(null);
 
     if (useStreaming) {
       await startStreamingEval();
@@ -103,7 +105,7 @@ export default function EvaluationsPage() {
         }
       }
     } catch {
-      // Fall back to demo
+      setError("API unavailable — showing demo data. Start the API server or set NEXT_PUBLIC_API_URL.");
       showDemoRun();
     }
     setProgress(null);
@@ -126,6 +128,7 @@ export default function EvaluationsPage() {
         setRuns((prev) => [json.data, ...prev]);
       }
     } catch {
+      setError("API unavailable — showing demo data. Start the API server or set NEXT_PUBLIC_API_URL.");
       showDemoRun();
     }
   }
@@ -226,6 +229,13 @@ export default function EvaluationsPage() {
             </div>
           )}
         </div>
+
+        {/* Error banner */}
+        {error && (
+          <div className="mt-4 rounded-lg border border-yellow-800 bg-yellow-900/20 px-4 py-3">
+            <p className="text-sm text-yellow-400">{error}</p>
+          </div>
+        )}
 
         {/* Results */}
         {runs.length > 0 && (

@@ -66,7 +66,9 @@ export default function DomainsPage() {
       .then((json) => {
         if (json.data && Array.isArray(json.data)) setDomains(json.data);
       })
-      .catch(() => {});
+      .catch(() => {
+        // API unavailable — keep fallback data
+      });
   }, []);
 
   return (
