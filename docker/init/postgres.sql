@@ -120,3 +120,64 @@ CREATE TABLE api_keys (
 );
 
 CREATE INDEX idx_api_keys_hash ON api_keys(key_hash) WHERE is_active = true;
+
+-- ─── Compliance Reports ────────────────────────────────────────────
+CREATE TABLE compliance_reports (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    run_id UUID NOT NULL REFERENCES evaluation_runs(id) ON DELETE CASCADE,
+    framework VARCHAR(50) NOT NULL DEFAULT 'eu-ai-act',
+    version VARCHAR(20) NOT NULL DEFAULT '1.0',
+    overall_status VARCHAR(50) NOT NULL,
+    risk_level VARCHAR(50) NOT NULL,
+    report JSONB NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE UNIQUE INDEX idx_compliance_reports_run ON compliance_reports(run_id);
+CREATE INDEX idx_compliance_reports_status ON compliance_reports(overall_status);
+CREATE INDEX idx_compliance_reports_risk ON compliance_reports(risk_level);
+
+-- ─── Webhooks ──────────────────────────────────────────────────────
+CREATE TABLE webhooks (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    url TEXT NOT NULL,
+    events JSONB NOT NULL DEFAULT '[]'::jsonb,
+    secret VARCHAR(255),
+    is_active BOOLEAN DEFAULT true,
+    created_at TIMESTAMPTZ DEFAULT NOW(),
+    last_triggered_at TIMESTAMPTZ
+);
+
+CREATE INDEX idx_webhooks_active ON webhooks(is_active) WHERE is_active = true;
+
+-- ─── State-Diff Reports ───────────────────────────────────────────
+CREATE TABLE state_diff_reports (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    run_id UUID NOT NULL REFERENCES evaluation_runs(id) ON DELETE CASCADE,
+    scenario_id VARCHAR(255) NOT NULL,
+    before_snapshot JSONB NOT NULL,
+    after_snapshot JSONB NOT NULL,
+    deltas JSONB NOT NULL DEFAULT '[]'::jsonb,
+    summary JSONB NOT NULL,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_state_diff_reports_run ON state_diff_reports(run_id);
+CREATE INDEX idx_state_diff_reports_scenario ON state_diff_reports(scenario_id);
+CREATE UNIQUE INDEX idx_state_diff_reports_run_scenario ON state_diff_reports(run_id, scenario_id);
+
+-- ─── Red Team Results ─────────────────────────────────────────────
+CREATE TABLE red_team_results (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    run_id UUID NOT NULL REFERENCES evaluation_runs(id) ON DELETE CASCADE,
+    category VARCHAR(100) NOT NULL,
+    intensity VARCHAR(20) NOT NULL DEFAULT 'medium',
+    scenario_count INT NOT NULL DEFAULT 0,
+    pass_rate FLOAT NOT NULL DEFAULT 0,
+    component_scores JSONB NOT NULL DEFAULT '{}'::jsonb,
+    failed_checks JSONB NOT NULL DEFAULT '[]'::jsonb,
+    created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+CREATE INDEX idx_red_team_results_run ON red_team_results(run_id);
+CREATE INDEX idx_red_team_results_category ON red_team_results(category);
