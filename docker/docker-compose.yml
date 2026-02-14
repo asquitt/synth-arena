@@ -34,11 +34,14 @@ services:
     environment:
       - DATABASE_URL=postgresql://syntharena:syntharena@postgres:5432/syntharena
       - REDIS_URL=redis://redis:6379
+      - CLICKHOUSE_URL=http://clickhouse:8123
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     depends_on:
       postgres:
         condition: service_healthy
       redis:
+        condition: service_healthy
+      clickhouse:
         condition: service_healthy
     deploy:
       replicas: 1

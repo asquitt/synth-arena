@@ -1,7 +1,9 @@
-import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
+import { evaluate, taskCompletion, costThreshold, safetyCheck, generateId } from "@syntharena/core";
+import type { EvaluationRun } from "@syntharena/shared";
 import { generateDemoScenarios } from "./routes/demo-scenarios.js";
 import { initQueue, readJobs, ackJob, closeRedis } from "./queue.js";
 import * as evalRepo from "./repositories/evaluations.js";
+import * as traceRepo from "./repositories/traces.js";
 import { closeDatabase } from "./db.js";
 import type { EvalJob } from "./queue.js";
 
@@ -56,6 +58,15 @@ async function processJob(job: EvalJob): Promise<void> {
     console.log(JSON.stringify({ level: "info", message: "Job persisted", jobId: job.id, runId: run.id }));
   }
 
+  // Write trace spans to ClickHouse if configured
+  if (process.env["CLICKHOUSE_URL"]) {
+    const spans = buildTraceSpans(run, job.domain);
+    if (spans.length > 0) {
+      await traceRepo.insertSpans(spans);
+      console.log(JSON.stringify({ level: "info", message: "Traces written", jobId: job.id, spans: spans.length }));
+    }
+  }
+
   console.log(JSON.stringify({
     level: "info",
     message: "Job completed",
@@ -99,6 +110,45 @@ async function workerLoop(): Promise<void> {
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
   }
+}
+
+/** Convert an EvaluationRun into ClickHouse trace span rows. */
+function buildTraceSpans(run: EvaluationRun, domain: string): traceRepo.TraceSpanRow[] {
+  const spans: traceRepo.TraceSpanRow[] = [];
+  const traceId = generateId();
+  const now = new Date().toISOString();
+
+  for (const scenarioResult of run.results) {
+    for (const trial of scenarioResult.trials) {
+      const spanId = generateId();
+      const { tokenUsage, duration } = trial.taskResult;
+      const startTime = new Date(Date.now() - duration).toISOString();
+
+      spans.push({
+        trace_id: traceId,
+        span_id: spanId,
+        parent_id: "",
+        name: `eval:${run.name}`,
+        type: "llm_call",
+        start_time: startTime,
+        end_time: now,
+        duration_ms: duration,
+        status: trial.passed ? "ok" : "error",
+        run_id: run.id,
+        scenario_id: scenarioResult.scenarioId,
+        trial_number: trial.trialNumber,
+        model: tokenUsage.model,
+        provider: tokenUsage.provider,
+        input_tokens: tokenUsage.inputTokens,
+        output_tokens: tokenUsage.outputTokens,
+        cost: tokenUsage.estimatedCost,
+        attributes: JSON.stringify({ domain, scores: trial.scores }),
+        events: JSON.stringify([]),
+      });
+    }
+  }
+
+  return spans;
 }
 
 async function shutdown() {
