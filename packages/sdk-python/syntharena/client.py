@@ -161,6 +161,34 @@ class SynthArenaClient:
                     if data:
                         yield json.loads(data)
 
+    async def get_job_status(self, job_id: str) -> dict[str, Any]:
+        """Get the status of an async evaluation job."""
+        return await self._request("GET", f"/api/v1/evaluations/jobs/{job_id}")
+
+    async def wait_for_job(
+        self,
+        job_id: str,
+        poll_interval: float = 2.0,
+    ) -> dict[str, Any]:
+        """Wait for an async job to complete, polling at the given interval.
+
+        Returns the completed evaluation run.
+
+        Raises:
+            SynthArenaError: If the job fails or is dead-lettered.
+        """
+        while True:
+            status = await self.get_job_status(job_id)
+            if status.get("status") == "completed" and status.get("runId"):
+                return await self.get_evaluation(status["runId"])
+            if status.get("status") in ("dead", "failed"):
+                code = 410 if status.get("status") == "dead" else 500
+                raise SynthArenaError(
+                    status.get("error", f"Job {status.get('status')}"),
+                    code,
+                )
+            await asyncio.sleep(poll_interval)
+
     async def delete_evaluation(self, run_id: str) -> dict[str, Any]:
         return await self._request("DELETE", f"/api/v1/evaluations/{run_id}")
 

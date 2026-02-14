@@ -131,6 +131,57 @@ export class SynthArenaClient {
     }
   }
 
+  // ─── Async Jobs ─────────────────────────────────────────
+
+  /** Submit an evaluation job for async processing. Returns a job ID. */
+  async createAsyncEvaluation(opts: {
+    name: string;
+    domain: string;
+    scenarioCount?: number;
+    trials?: number;
+    maxConcurrency?: number;
+    timeout?: number;
+  }): Promise<{ jobId: string; status: string }> {
+    return this.request("/api/v1/evaluations/async", {
+      method: "POST",
+      body: JSON.stringify(opts),
+    });
+  }
+
+  /** Get the status of an async evaluation job. */
+  async getJobStatus(jobId: string): Promise<{
+    jobId: string;
+    status: string;
+    attempts: number;
+    runId?: string;
+    error?: string;
+    submittedAt: string;
+    startedAt?: string;
+    completedAt?: string;
+  }> {
+    return this.request(`/api/v1/evaluations/jobs/${jobId}`);
+  }
+
+  /**
+   * Wait for an async job to complete, polling at the given interval.
+   * Returns the completed evaluation run.
+   */
+  async waitForJob(jobId: string, pollIntervalMs: number = 2000): Promise<EvaluationRun> {
+    while (true) {
+      const status = await this.getJobStatus(jobId);
+      if (status.status === "completed" && status.runId) {
+        return this.getEvaluation(status.runId);
+      }
+      if (status.status === "dead" || status.status === "failed") {
+        throw new SynthArenaError(
+          status.error ?? `Job ${status.status}`,
+          status.status === "dead" ? 410 : 500,
+        );
+      }
+      await new Promise((resolve) => setTimeout(resolve, pollIntervalMs));
+    }
+  }
+
   // ─── Comparisons ──────────────────────────────────────────
 
   async compareRuns(currentId: string, baselineId: string) {
