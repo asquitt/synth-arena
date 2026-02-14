@@ -310,3 +310,99 @@ describe("State-diff endpoint", () => {
     expect(diffBody.data.summary.completenessScore).toBe(1);
   });
 });
+
+describe("End-to-end evaluation flow", () => {
+  it("runs full flow: create → red-team → state-diff → compare", async () => {
+    // Step 1: Create baseline evaluation
+    const baselineRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "e2e-baseline",
+        domain: "web-scraping",
+        scenarioCount: 3,
+        trials: 2,
+      }),
+    });
+    expect(baselineRes.status).toBe(201);
+    const baseline = (await baselineRes.json()).data;
+    expect(baseline.status).toBe("completed");
+    expect(baseline.results.length).toBe(3);
+    expect(baseline.summary.passAtK).toBeGreaterThan(0);
+    expect(baseline.summary.passToTheK).toBeGreaterThanOrEqual(0);
+    expect(baseline.summary.gPassAtK).toBeGreaterThanOrEqual(0);
+
+    // Step 2: Create current evaluation
+    const currentRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "e2e-current",
+        domain: "web-scraping",
+        scenarioCount: 3,
+        trials: 2,
+      }),
+    });
+    expect(currentRes.status).toBe(201);
+    const current = (await currentRes.json()).data;
+
+    // Step 3: Run red-team on baseline
+    const rtRes = await request(`/api/v1/evaluations/${baseline.id}/red-team`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        categories: ["prompt-injection", "tool-misuse"],
+        intensity: "low",
+        scenarioCount: 3,
+        trials: 1,
+      }),
+    });
+    expect(rtRes.status).toBe(200);
+    const rt = (await rtRes.json()).data;
+    expect(rt.verdict).toBeDefined();
+    expect(rt.categories.length).toBeGreaterThan(0);
+
+    // Step 4: Compute state-diff
+    const diffRes = await request(`/api/v1/evaluations/${baseline.id}/state-diff`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        scenarioId: baseline.results[0].scenarioId,
+        before: { state: { items: [], status: "idle" } },
+        after: { state: { items: ["x"], status: "complete" } },
+        expectedKeys: ["items", "status"],
+      }),
+    });
+    expect(diffRes.status).toBe(200);
+    const diff = (await diffRes.json()).data;
+    expect(diff.summary.overallScore).toBe(1);
+
+    // Step 5: Compare baseline vs current
+    const compareRes = await request(`/api/v1/evaluations/${current.id}/compare`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ baselineId: baseline.id }),
+    });
+    expect(compareRes.status).toBe(200);
+    const comparison = (await compareRes.json()).data;
+    expect(comparison.verdict).toBeDefined();
+    expect(["pass", "fail", "warning"]).toContain(comparison.verdict);
+    expect(comparison.summary.passRateDelta).toBeDefined();
+    expect(comparison.scenarioDetails.length).toBeGreaterThan(0);
+
+    // Step 6: Get compliance report
+    const compRes = await request(`/api/v1/evaluations/${baseline.id}/compliance`);
+    expect(compRes.status).toBe(200);
+    const comp = (await compRes.json()).data;
+    expect(comp.framework).toBe("eu-ai-act");
+    expect(comp.overallStatus).toBeDefined();
+
+    // Step 7: Verify listing includes both runs
+    const listRes = await request("/api/v1/evaluations?limit=100");
+    expect(listRes.status).toBe(200);
+    const list = (await listRes.json()).data;
+    const ids = list.map((r: { id: string }) => r.id);
+    expect(ids).toContain(baseline.id);
+    expect(ids).toContain(current.id);
+  });
+});
