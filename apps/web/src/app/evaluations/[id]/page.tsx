@@ -126,16 +126,22 @@ export default function EvaluationDetailPage() {
             {run.status === "completed" && (
               <>
                 <a
+                  href={`/evaluations/${run.id}/compare`}
+                  className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
+                >
+                  Compare / Regression
+                </a>
+                <a
                   href={`/evaluations/${run.id}/state-diff`}
                   className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
                 >
-                  State-Diff Analysis
+                  State-Diff
                 </a>
                 <a
                   href={`/evaluations/${run.id}/compliance`}
                   className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
                 >
-                  EU AI Act Report
+                  Compliance
                 </a>
               </>
             )}

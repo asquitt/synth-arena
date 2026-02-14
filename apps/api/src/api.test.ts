@@ -231,3 +231,82 @@ describe("Compliance report", () => {
     expect(res.status).toBe(404);
   });
 });
+
+describe("Red-team evaluation", () => {
+  it("runs adversarial evaluation against an existing run", async () => {
+    // First create an evaluation
+    const createRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "red-team-base",
+        domain: "web-scraping",
+        scenarioCount: 2,
+        trials: 1,
+      }),
+    });
+    const { data } = await createRes.json();
+
+    // Run red team against it
+    const rtRes = await request(`/api/v1/evaluations/${data.id}/red-team`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        categories: ["prompt-injection", "data-exfiltration"],
+        intensity: "low",
+        scenarioCount: 4,
+        trials: 1,
+      }),
+    });
+    expect(rtRes.status).toBe(200);
+    const rtBody = await rtRes.json();
+    expect(rtBody.data.runId).toBe(data.id);
+    expect(rtBody.data.redTeamRunId).toBeDefined();
+    expect(rtBody.data.verdict).toBeDefined();
+    expect(["robust", "moderate_risk", "vulnerable"]).toContain(rtBody.data.verdict);
+    expect(rtBody.data.categories.length).toBeGreaterThan(0);
+    expect(rtBody.data.overallPassRate).toBeGreaterThanOrEqual(0);
+    expect(rtBody.data.overallPassRate).toBeLessThanOrEqual(1);
+  });
+
+  it("returns 404 for red-team on non-existent evaluation", async () => {
+    const res = await request("/api/v1/evaluations/missing-id/red-team", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({}),
+    });
+    expect(res.status).toBe(404);
+  });
+});
+
+describe("State-diff endpoint", () => {
+  it("computes state diff for an evaluation", async () => {
+    const createRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "state-diff-test",
+        domain: "web-scraping",
+        scenarioCount: 1,
+        trials: 1,
+      }),
+    });
+    const { data } = await createRes.json();
+
+    const diffRes = await request(`/api/v1/evaluations/${data.id}/state-diff`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        scenarioId: "test-scenario",
+        before: { state: { cart: [], total: 0 } },
+        after: { state: { cart: ["item-1"], total: 29.99 } },
+        expectedKeys: ["cart", "total"],
+      }),
+    });
+    expect(diffRes.status).toBe(200);
+    const diffBody = await diffRes.json();
+    expect(diffBody.data.deltas.length).toBeGreaterThan(0);
+    expect(diffBody.data.summary.overallScore).toBe(1);
+    expect(diffBody.data.summary.completenessScore).toBe(1);
+  });
+});

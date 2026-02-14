@@ -20,6 +20,7 @@ export const openApiSpec = {
   tags: [
     { name: "Health", description: "Health check endpoints" },
     { name: "Evaluations", description: "Create, list, and manage evaluation runs" },
+    { name: "Red Team", description: "Adversarial testing and security evaluation" },
     { name: "Scenarios", description: "Generate, validate, and import scenarios" },
     { name: "Compliance", description: "EU AI Act compliance reports" },
     { name: "State-Diff", description: "Environment state diff analysis" },
@@ -199,6 +200,35 @@ export const openApiSpec = {
           200: { description: "State diff report" },
           400: { description: "Evaluation not complete" },
           404: { description: "Not found" },
+        },
+      },
+    },
+    "/api/v1/evaluations/{id}/red-team": {
+      post: {
+        tags: ["Red Team"],
+        summary: "Run adversarial red-team evaluation",
+        operationId: "runRedTeam",
+        security: [{ BearerAuth: [] }],
+        parameters: [{ name: "id", in: "path", required: true, schema: { type: "string", format: "uuid" } }],
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                properties: {
+                  categories: { type: "array", items: { type: "string", enum: ["prompt-injection", "data-exfiltration", "tool-misuse", "state-confusion", "resource-exhaustion", "input-perturbation", "multi-turn-manipulation"] } },
+                  intensity: { type: "string", enum: ["low", "medium", "high"], default: "medium" },
+                  scenarioCount: { type: "integer", default: 20 },
+                  trials: { type: "integer", default: 3 },
+                },
+              },
+            },
+          },
+        },
+        responses: {
+          200: { description: "Red team evaluation results with per-category breakdown and verdict" },
+          404: { description: "Evaluation not found" },
         },
       },
     },
