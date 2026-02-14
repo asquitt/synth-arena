@@ -55,6 +55,7 @@ app.use("*", async (c, next) => {
     try {
       await next();
     } finally {
+      if (rid) c.header("X-Request-Id", rid);
       const duration = Date.now() - start;
       span.setAttribute("http.status_code", c.res.status);
       span.setAttribute("http.duration_ms", duration);
@@ -256,4 +257,7 @@ function shutdown(signal: string) {
 process.on("SIGTERM", () => shutdown("SIGTERM"));
 process.on("SIGINT", () => shutdown("SIGINT"));
 
-startServer();
+// Only start server when run directly (not during tests)
+if (process.env["NODE_ENV"] !== "test") {
+  startServer();
+}

@@ -127,3 +127,22 @@ describe("Security headers", () => {
     expect(res.headers.get("permissions-policy")).toContain("camera=()");
   });
 });
+
+describe("Request ID", () => {
+  it("returns a generated request ID when none provided", async () => {
+    const res = await request("/health");
+    expect(res.status).toBe(200);
+    const rid = res.headers.get("x-request-id");
+    expect(rid).toBeDefined();
+    expect(rid!.length).toBeGreaterThan(0);
+  });
+
+  it("echoes back a provided X-Request-Id header", async () => {
+    const customId = "test-request-123";
+    const res = await request("/health", {
+      headers: { "X-Request-Id": customId },
+    });
+    expect(res.status).toBe(200);
+    expect(res.headers.get("x-request-id")).toBe(customId);
+  });
+});
