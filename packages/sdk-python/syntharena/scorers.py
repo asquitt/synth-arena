@@ -112,3 +112,92 @@ def token_threshold(
         )
 
     return scorer
+
+
+PolicyRule = Callable[[dict[str, Any]], bool]
+
+
+def policy_adherence(
+    rules: list[tuple[str, PolicyRule, str]],
+) -> ScorerFn:
+    """Check agent actions comply with domain-specific policies.
+
+    Inspired by tau-bench (Sierra Research).
+
+    Args:
+        rules: List of (name, check_fn, severity) tuples.
+               check_fn takes scorer context dict and returns True if rule passes.
+               severity is "error" or "warning".
+    """
+
+    async def scorer(ctx: dict[str, Any]) -> ScorerResult:
+        violations: list[tuple[str, str]] = []
+        for name, check_fn, severity in rules:
+            try:
+                if not check_fn(ctx):
+                    violations.append((name, severity))
+            except Exception:
+                violations.append((name, "error"))
+
+        errors = [v for v in violations if v[1] == "error"]
+        passed = len(errors) == 0
+        score = max(0.0, 1.0 - len(violations) / len(rules)) if rules else 1.0
+
+        return ScorerResult(
+            name="policy_adherence",
+            score=score,
+            passed=passed,
+            reason="; ".join(f"[{s}] {n}" for n, s in violations) if violations else None,
+            metadata={
+                "total_rules": len(rules),
+                "errors": len(errors),
+                "warnings": len(violations) - len(errors),
+                "violated_rules": [n for n, _ in violations],
+            },
+        )
+
+    return scorer
+
+
+AssertionFn = Callable[[Any], bool]
+
+
+def no_regression(
+    assertions: list[tuple[str, AssertionFn]],
+) -> ScorerFn:
+    """Verify agent doesn't break existing functionality.
+
+    Inspired by SWE-bench pass-to-pass validation.
+
+    Args:
+        assertions: List of (name, check_fn) tuples.
+                    check_fn takes the output and returns True if assertion holds.
+    """
+
+    async def scorer(ctx: dict[str, Any]) -> ScorerResult:
+        output = ctx.get("output")
+        failures: list[str] = []
+
+        for name, check_fn in assertions:
+            try:
+                if not check_fn(output):
+                    failures.append(name)
+            except Exception as e:
+                failures.append(f"{name} (threw: {e})")
+
+        passed = len(failures) == 0
+        score = max(0.0, 1.0 - len(failures) / len(assertions)) if assertions else 1.0
+
+        return ScorerResult(
+            name="no_regression",
+            score=score,
+            passed=passed,
+            reason=f"Regressions detected: {', '.join(failures)}" if failures else None,
+            metadata={
+                "total_assertions": len(assertions),
+                "failed": len(failures),
+                "failed_assertions": failures,
+            },
+        )
+
+    return scorer
