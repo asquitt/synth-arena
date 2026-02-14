@@ -18,7 +18,7 @@ Example:
     print(f"pass^k: {results.summary.pass_to_the_k}")
 """
 
-from syntharena.client import SynthArenaClient, evaluate
+from syntharena.client import SynthArenaClient, SynthArenaError, evaluate
 from syntharena.types import (
     Scenario,
     ScenarioMetadata,
@@ -36,6 +36,7 @@ from syntharena import scorers
 __version__ = "0.1.0"
 __all__ = [
     "SynthArenaClient",
+    "SynthArenaError",
     "evaluate",
     "scorers",
     "Scenario",

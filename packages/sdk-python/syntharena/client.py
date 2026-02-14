@@ -6,7 +6,9 @@ import asyncio
 import math
 import time
 import uuid
-from typing import Any, Callable, Awaitable
+from typing import Any, AsyncIterator, Callable, Awaitable
+
+import httpx
 
 from syntharena.types import (
     Scenario,
@@ -17,6 +19,7 @@ from syntharena.types import (
     ScorerResult,
     TokenUsage,
     AggregatedScore,
+    CostEstimate,
 )
 
 
@@ -24,13 +27,195 @@ ScorerFn = Callable[[dict[str, Any]], Awaitable[ScorerResult]]
 TaskFn = Callable[[dict[str, Any]], Awaitable[dict[str, Any]]]
 
 
-class SynthArenaClient:
-    """Client for the SynthArena API."""
+class SynthArenaError(Exception):
+    """API error with status code."""
 
-    def __init__(self, api_url: str = "http://localhost:3001", api_key: str | None = None):
+    def __init__(self, message: str, status_code: int):
+        super().__init__(message)
+        self.status_code = status_code
+
+
+class SynthArenaClient:
+    """Async client for the SynthArena API.
+
+    Example:
+        async with SynthArenaClient(api_key="sa_...") as client:
+            run = await client.create_evaluation(
+                name="my-eval",
+                domain="web-scraping",
+                scenario_count=10,
+            )
+            print(run["summary"]["overallPassRate"])
+    """
+
+    def __init__(
+        self,
+        api_url: str = "http://localhost:3001",
+        api_key: str | None = None,
+        timeout: float = 300.0,
+    ):
         self.api_url = api_url.rstrip("/")
         self.api_key = api_key
+        headers: dict[str, str] = {"Content-Type": "application/json"}
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+        self._client = httpx.AsyncClient(
+            base_url=self.api_url,
+            headers=headers,
+            timeout=timeout,
+        )
 
+    async def __aenter__(self) -> SynthArenaClient:
+        return self
+
+    async def __aexit__(self, *args: Any) -> None:
+        await self.close()
+
+    async def close(self) -> None:
+        await self._client.aclose()
+
+    async def _request(self, method: str, path: str, **kwargs: Any) -> Any:
+        res = await self._client.request(method, path, **kwargs)
+        if res.status_code >= 400:
+            body = res.json()
+            raise SynthArenaError(
+                body.get("error", f"HTTP {res.status_code}"),
+                res.status_code,
+            )
+        data = res.json()
+        return data.get("data", data)
+
+    # ─── Evaluations ──────────────────────────────────────────
+
+    async def list_evaluations(self) -> list[dict[str, Any]]:
+        return await self._request("GET", "/api/v1/evaluations")
+
+    async def get_evaluation(self, run_id: str) -> dict[str, Any]:
+        return await self._request("GET", f"/api/v1/evaluations/{run_id}")
+
+    async def create_evaluation(
+        self,
+        name: str,
+        domain: str,
+        scenario_count: int = 10,
+        trials: int = 1,
+        max_concurrency: int = 5,
+        timeout: int = 300_000,
+    ) -> dict[str, Any]:
+        return await self._request("POST", "/api/v1/evaluations", json={
+            "name": name,
+            "domain": domain,
+            "scenarioCount": scenario_count,
+            "trials": trials,
+            "maxConcurrency": max_concurrency,
+            "timeout": timeout,
+        })
+
+    async def create_evaluation_async(
+        self,
+        name: str,
+        domain: str,
+        scenario_count: int = 10,
+        trials: int = 1,
+        max_concurrency: int = 5,
+        timeout: int = 300_000,
+    ) -> dict[str, Any]:
+        """Submit evaluation to async queue. Returns job ID immediately."""
+        return await self._request("POST", "/api/v1/evaluations/async", json={
+            "name": name,
+            "domain": domain,
+            "scenarioCount": scenario_count,
+            "trials": trials,
+            "maxConcurrency": max_concurrency,
+            "timeout": timeout,
+        })
+
+    async def stream_evaluation(
+        self,
+        name: str,
+        domain: str,
+        scenario_count: int = 10,
+        trials: int = 1,
+        max_concurrency: int = 5,
+        timeout: int = 300_000,
+    ) -> AsyncIterator[dict[str, Any]]:
+        """Stream evaluation progress via SSE."""
+        async with self._client.stream(
+            "POST",
+            "/api/v1/evaluations/stream",
+            json={
+                "name": name,
+                "domain": domain,
+                "scenarioCount": scenario_count,
+                "trials": trials,
+                "maxConcurrency": max_concurrency,
+                "timeout": timeout,
+            },
+        ) as res:
+            if res.status_code >= 400:
+                raise SynthArenaError(f"Stream failed: HTTP {res.status_code}", res.status_code)
+            async for line in res.aiter_lines():
+                if line.startswith("data:"):
+                    import json
+                    data = line[5:].strip()
+                    if data:
+                        yield json.loads(data)
+
+    async def delete_evaluation(self, run_id: str) -> dict[str, Any]:
+        return await self._request("DELETE", f"/api/v1/evaluations/{run_id}")
+
+    async def compare_runs(self, current_id: str, baseline_id: str) -> dict[str, Any]:
+        return await self._request("POST", f"/api/v1/evaluations/{current_id}/compare", json={
+            "baselineId": baseline_id,
+        })
+
+    # ─── Cost ─────────────────────────────────────────────────
+
+    async def estimate_cost(
+        self,
+        model: str,
+        scenario_count: int,
+        trials_per_scenario: int = 1,
+        avg_input_tokens_per_call: int = 2000,
+        avg_output_tokens_per_call: int = 500,
+        avg_calls_per_scenario: int = 3,
+        cache_hit_rate: float | None = None,
+        use_batch_api: bool | None = None,
+    ) -> dict[str, Any]:
+        payload: dict[str, Any] = {
+            "model": model,
+            "scenarioCount": scenario_count,
+            "trialsPerScenario": trials_per_scenario,
+            "avgInputTokensPerCall": avg_input_tokens_per_call,
+            "avgOutputTokensPerCall": avg_output_tokens_per_call,
+            "avgCallsPerScenario": avg_calls_per_scenario,
+        }
+        if cache_hit_rate is not None:
+            payload["cacheHitRate"] = cache_hit_rate
+        if use_batch_api is not None:
+            payload["useBatchApi"] = use_batch_api
+        return await self._request("POST", "/api/v1/cost/estimate", json=payload)
+
+    async def list_models(self) -> list[dict[str, Any]]:
+        return await self._request("GET", "/api/v1/cost/models")
+
+    # ─── Domains ──────────────────────────────────────────────
+
+    async def list_domains(self) -> list[dict[str, Any]]:
+        return await self._request("GET", "/api/v1/domains")
+
+    # ─── Health ───────────────────────────────────────────────
+
+    async def health(self) -> dict[str, Any]:
+        res = await self._client.get("/health")
+        return res.json()
+
+    async def health_deep(self) -> dict[str, Any]:
+        res = await self._client.get("/health/deep")
+        return res.json()
+
+
+# ─── Local Evaluation (no API needed) ──────────────────────────
 
 async def evaluate(
     name: str,
@@ -228,19 +413,7 @@ def _binomial_pmf(n: int, k: int, p: float) -> float:
 
 
 def _compute_g_pass_at_k(n: int, c: int, threshold: int | None = None) -> float:
-    """Compute G-Pass@k (Generalized Pass@k from LiveMathBench).
-
-    Measures the probability of achieving at least `threshold` successes
-    in n trials using the binomial CDF.
-
-    Args:
-        n: Total number of trials
-        c: Number of successes observed
-        threshold: Minimum successes required (default: ceil(n * 0.5))
-
-    Returns:
-        Probability of achieving >= threshold successes
-    """
+    """Compute G-Pass@k (Generalized Pass@k from LiveMathBench)."""
     if n == 0:
         return 0.0
     t = threshold if threshold is not None else math.ceil(n * 0.5)
