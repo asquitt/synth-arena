@@ -27,24 +27,43 @@ export async function evaluate(config: EvaluationConfig): Promise<EvaluationRun>
     trials = 1,
     maxConcurrency = 5,
     timeout = 300_000,
+    onProgress,
   } = config;
 
   const runId = generateId();
   const createdAt = new Date().toISOString();
 
   const results: ScenarioResult[] = [];
+  let completedCount = 0;
 
   // Process scenarios with concurrency limit
   const chunks = chunkArray(dataset, maxConcurrency);
 
   for (const chunk of chunks) {
     const chunkResults = await Promise.all(
-      chunk.map((scenario) => evaluateScenario(scenario, task, scorers, trials, timeout))
+      chunk.map(async (scenario) => {
+        const result = await evaluateScenario(scenario, task, scorers, trials, timeout);
+        completedCount++;
+        onProgress?.({
+          type: "scenario_complete",
+          scenarioId: scenario.id,
+          scenarioIndex: completedCount,
+          totalScenarios: dataset.length,
+          result,
+        });
+        return result;
+      })
     );
     results.push(...chunkResults);
   }
 
   const summary = computeSummary(results);
+
+  onProgress?.({
+    type: "run_complete",
+    totalScenarios: dataset.length,
+    summary,
+  });
 
   return {
     id: runId,

@@ -1,6 +1,7 @@
 import { Hono } from "hono";
+import { streamSSE } from "hono/streaming";
 import { zValidator } from "@hono/zod-validator";
-import type { EvaluationRun } from "@syntharena/shared";
+import type { EvaluationRun, EvaluationProgress } from "@syntharena/shared";
 import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
 import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
@@ -10,6 +11,7 @@ import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
  * Evaluation API routes.
  *
  * POST /evaluations          - Start a new evaluation run
+ * POST /evaluations/stream   - Start evaluation with SSE progress streaming
  * GET  /evaluations          - List evaluation runs
  * GET  /evaluations/:id      - Get evaluation run details
  * POST /evaluations/:id/compare - Compare with another run (regression)
@@ -91,6 +93,76 @@ evaluationRoutes.post("/",
     } catch (err) {
       return c.json({ error: err instanceof Error ? err.message : "Evaluation failed" }, 500);
     }
+  }
+);
+
+evaluationRoutes.post("/stream",
+  zValidator("json", createEvaluationSchema, (result, c) => {
+    if (!result.success) {
+      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+    }
+  }),
+  (c) => {
+    const body = c.req.valid("json");
+    const scenarios = generateDemoScenarios(body.domain, body.scenarioCount);
+
+    const demoTask = async (input: Record<string, unknown>) => {
+      const startTime = Date.now();
+      await new Promise((resolve) => setTimeout(resolve, 50 + Math.random() * 100));
+      return {
+        output: { success: true, data: input },
+        trace: [],
+        tokenUsage: {
+          inputTokens: 150,
+          outputTokens: 50,
+          totalTokens: 200,
+          estimatedCost: 0.001,
+          model: "demo",
+          provider: "demo",
+        },
+        duration: Date.now() - startTime,
+      };
+    };
+
+    return streamSSE(c, async (stream) => {
+      let eventId = 0;
+
+      const onProgress = (event: EvaluationProgress) => {
+        stream.writeSSE({
+          id: String(eventId++),
+          event: event.type,
+          data: JSON.stringify(event),
+        });
+      };
+
+      try {
+        const run = await evaluate({
+          name: body.name,
+          dataset: scenarios,
+          task: demoTask,
+          scorers: [taskCompletion, costThreshold(0.50), safetyCheck()],
+          trials: body.trials,
+          maxConcurrency: body.maxConcurrency,
+          timeout: body.timeout,
+          metadata: { domain: body.domain },
+          onProgress,
+        });
+
+        runs.set(run.id, run);
+
+        await stream.writeSSE({
+          id: String(eventId++),
+          event: "done",
+          data: JSON.stringify({ runId: run.id }),
+        });
+      } catch (err) {
+        await stream.writeSSE({
+          id: String(eventId++),
+          event: "error",
+          data: JSON.stringify({ error: err instanceof Error ? err.message : "Evaluation failed" }),
+        });
+      }
+    });
   }
 );
 

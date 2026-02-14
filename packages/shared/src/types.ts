@@ -45,6 +45,16 @@ export interface NetworkConfig {
 
 // ─── Evaluation ──────────────────────────────────────────────────────
 
+export interface EvaluationProgress {
+  type: "scenario_complete" | "run_complete" | "error";
+  scenarioId?: string;
+  scenarioIndex?: number;
+  totalScenarios: number;
+  result?: ScenarioResult;
+  summary?: EvaluationSummary;
+  error?: string;
+}
+
 export interface EvaluationConfig {
   name: string;
   dataset: Scenario[];
@@ -54,6 +64,7 @@ export interface EvaluationConfig {
   maxConcurrency?: number;
   timeout?: number;
   metadata?: Record<string, unknown>;
+  onProgress?: (event: EvaluationProgress) => void;
 }
 
 export type TaskFunction = (input: Record<string, unknown>) => Promise<TaskResult>;
