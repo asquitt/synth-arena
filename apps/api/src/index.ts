@@ -1,23 +1,84 @@
 import { serve } from "@hono/node-server";
+import type { ServerType } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
-import { logger } from "hono/logger";
+import { requestId } from "hono/request-id";
 import { evaluationRoutes } from "./routes/evaluations.js";
 import { scenarioRoutes } from "./routes/scenarios.js";
 import { domainRoutes } from "./routes/domains.js";
 import { costRoutes } from "./routes/cost.js";
+import { authenticate } from "./middleware/auth.js";
+import { validateEnv } from "./middleware/env.js";
+
+// Validate environment at startup (fail fast)
+const env = validateEnv();
 
 const app = new Hono();
 
 // Middleware
-app.use("*", cors());
-app.use("*", logger());
+app.use("*", cors({
+  origin: env.allowedOrigins,
+  credentials: true,
+}));
+app.use("*", requestId());
 
-// Health check
-app.get("/health", (c) => c.json({ status: "ok", version: "0.1.0", timestamp: new Date().toISOString() }));
+// Structured JSON logging middleware
+app.use("*", async (c, next) => {
+  const start = Date.now();
+  await next();
+  const duration = Date.now() - start;
+  const log = {
+    method: c.req.method,
+    path: c.req.path,
+    status: c.res.status,
+    duration,
+    requestId: c.get("requestId"),
+  };
+  if (c.res.status >= 400) {
+    console.error(JSON.stringify(log));
+  } else {
+    console.log(JSON.stringify(log));
+  }
+});
 
-// API v1 routes
+// Health check (unauthenticated)
+app.get("/health", (c) => c.json({
+  status: "ok",
+  version: "0.1.0",
+  timestamp: new Date().toISOString(),
+  uptime: process.uptime(),
+}));
+
+// Deep health check (unauthenticated)
+app.get("/health/deep", async (c) => {
+  const checks: Record<string, { status: string; latency?: number }> = {};
+
+  // Memory check
+  const mem = process.memoryUsage();
+  checks["memory"] = {
+    status: mem.heapUsed / mem.heapTotal < 0.9 ? "healthy" : "warning",
+    latency: 0,
+  };
+
+  // Event loop check (basic)
+  const loopStart = Date.now();
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  const loopLatency = Date.now() - loopStart;
+  checks["event_loop"] = {
+    status: loopLatency < 100 ? "healthy" : "degraded",
+    latency: loopLatency,
+  };
+
+  const overall = Object.values(checks).every((ch) => ch.status === "healthy")
+    ? "healthy"
+    : "degraded";
+
+  return c.json({ status: overall, checks, timestamp: new Date().toISOString() });
+});
+
+// API v1 routes (authenticated)
 const v1 = new Hono();
+v1.use("*", authenticate);
 v1.route("/evaluations", evaluationRoutes);
 v1.route("/scenarios", scenarioRoutes);
 v1.route("/domains", domainRoutes);
@@ -30,11 +91,51 @@ app.notFound((c) => c.json({ error: "Not Found", path: c.req.path }, 404));
 
 // Error handler
 app.onError((err, c) => {
-  console.error("API Error:", err);
-  return c.json({ error: "Internal Server Error", message: err.message }, 500);
+  const requestId = c.get("requestId");
+  console.error(JSON.stringify({
+    level: "error",
+    message: err.message,
+    stack: env.nodeEnv !== "production" ? err.stack : undefined,
+    requestId,
+    path: c.req.path,
+  }));
+  return c.json({
+    error: "Internal Server Error",
+    message: env.nodeEnv !== "production" ? err.message : "An unexpected error occurred",
+    requestId,
+  }, 500);
 });
 
-const port = parseInt(process.env["PORT"] ?? "3001", 10);
-console.log(`SynthArena API starting on port ${port}`);
+// Start server
+let server: ServerType;
 
-serve({ fetch: app.fetch, port });
+function startServer() {
+  server = serve({ fetch: app.fetch, port: env.port });
+  console.log(JSON.stringify({
+    level: "info",
+    message: `SynthArena API started`,
+    port: env.port,
+    env: env.nodeEnv,
+    auth: env.apiKeys.length > 0 ? "enabled" : "disabled",
+    cors: env.allowedOrigins,
+  }));
+}
+
+// Graceful shutdown
+function shutdown(signal: string) {
+  console.log(JSON.stringify({ level: "info", message: `Received ${signal}, shutting down` }));
+  server?.close(() => {
+    console.log(JSON.stringify({ level: "info", message: "Server closed" }));
+    process.exit(0);
+  });
+  // Force exit after 10s
+  setTimeout(() => {
+    console.error(JSON.stringify({ level: "error", message: "Forced shutdown after timeout" }));
+    process.exit(1);
+  }, 10_000);
+}
+
+process.on("SIGTERM", () => shutdown("SIGTERM"));
+process.on("SIGINT", () => shutdown("SIGINT"));
+
+startServer();
