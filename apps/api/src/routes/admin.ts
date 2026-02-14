@@ -3,6 +3,7 @@ import { zValidator } from "@hono/zod-validator";
 import { createApiKeySchema, createWebhookSchema } from "../schemas.js";
 import * as apiKeyRepo from "../repositories/api-keys.js";
 import * as webhooks from "../webhooks.js";
+import { validationError, notFound, serviceUnavailable } from "../errors.js";
 
 /**
  * Admin routes for API key management.
@@ -16,14 +17,14 @@ const useDb = !!process.env["DATABASE_URL"];
 export const adminRoutes = new Hono();
 
 adminRoutes.post("/keys",
-  zValidator("json", createApiKeySchema, (result, c) => {
+  zValidator("json", createApiKeySchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
     if (!useDb) {
-      return c.json({ error: "API key management requires DATABASE_URL" }, 503);
+      throw serviceUnavailable("PostgreSQL (required for API key management)");
     }
 
     const body = c.req.valid("json");
@@ -45,7 +46,7 @@ adminRoutes.post("/keys",
 
 adminRoutes.get("/keys", async (c) => {
   if (!useDb) {
-    return c.json({ error: "API key management requires DATABASE_URL" }, 503);
+    throw serviceUnavailable("PostgreSQL (required for API key management)");
   }
 
   const keys = await apiKeyRepo.listKeys();
@@ -54,21 +55,21 @@ adminRoutes.get("/keys", async (c) => {
 
 adminRoutes.delete("/keys/:id", async (c) => {
   if (!useDb) {
-    return c.json({ error: "API key management requires DATABASE_URL" }, 503);
+    throw serviceUnavailable("PostgreSQL (required for API key management)");
   }
 
   const id = c.req.param("id");
   const revoked = await apiKeyRepo.revokeKey(id);
-  if (!revoked) return c.json({ error: "Key not found or already revoked" }, 404);
+  if (!revoked) throw notFound("API key", id);
   return c.json({ data: { revoked: true, id } });
 });
 
 // ─── Webhook Management ───────────────────────────────────────────
 
 adminRoutes.post("/webhooks",
-  zValidator("json", createWebhookSchema, (result, c) => {
+  zValidator("json", createWebhookSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
@@ -92,6 +93,6 @@ adminRoutes.get("/webhooks", async (c) => {
 adminRoutes.delete("/webhooks/:id", async (c) => {
   const id = c.req.param("id");
   const deleted = webhooks.deleteWebhook(id);
-  if (!deleted) return c.json({ error: "Webhook not found" }, 404);
+  if (!deleted) throw notFound("Webhook", id);
   return c.json({ data: { deleted: true, id } });
 });

@@ -3,6 +3,7 @@ import { zValidator } from "@hono/zod-validator";
 import { generateScenarios, getTemplate, validateScenarioQuality } from "@syntharena/scenarios";
 import { generateAdversarialScenarios, type AdversarialCategory } from "@syntharena/replay";
 import { generateScenariosSchema, validateScenariosSchema, adversarialSchema } from "../schemas.js";
+import { ApiError, validationError, domainNotFound } from "../errors.js";
 
 /**
  * Scenario API routes.
@@ -15,9 +16,9 @@ import { generateScenariosSchema, validateScenariosSchema, adversarialSchema } f
 export const scenarioRoutes = new Hono();
 
 scenarioRoutes.post("/generate",
-  zValidator("json", generateScenariosSchema, (result, c) => {
+  zValidator("json", generateScenariosSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
@@ -25,12 +26,12 @@ scenarioRoutes.post("/generate",
 
     const template = getTemplate(body.domain);
     if (!template) {
-      return c.json({ error: `Unknown domain: ${body.domain}` }, 400);
+      throw domainNotFound(body.domain);
     }
 
     const apiKey = c.req.header("x-anthropic-key") ?? process.env["ANTHROPIC_API_KEY"];
     if (!apiKey) {
-      return c.json({ error: "ANTHROPIC_API_KEY required (env var or x-anthropic-key header)" }, 400);
+      throw validationError("ANTHROPIC_API_KEY required (env var or x-anthropic-key header)");
     }
 
     try {
@@ -49,15 +50,15 @@ scenarioRoutes.post("/generate",
         },
       });
     } catch (err) {
-      return c.json({ error: err instanceof Error ? err.message : "Generation failed" }, 500);
+      throw new ApiError("EVALUATION_FAILED", err instanceof Error ? err.message : "Scenario generation failed", 500);
     }
   }
 );
 
 scenarioRoutes.post("/validate",
-  zValidator("json", validateScenariosSchema, (result, c) => {
+  zValidator("json", validateScenariosSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
@@ -78,9 +79,9 @@ scenarioRoutes.post("/validate",
 );
 
 scenarioRoutes.post("/adversarial",
-  zValidator("json", adversarialSchema, (result, c) => {
+  zValidator("json", adversarialSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {

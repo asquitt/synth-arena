@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import * as traceRepo from "../repositories/traces.js";
+import { notFound, serviceUnavailable } from "../errors.js";
 
 /**
  * Trace query routes.
@@ -14,7 +15,7 @@ export const traceRoutes = new Hono();
 
 traceRoutes.get("/run/:runId", async (c) => {
   if (!useClickHouse) {
-    return c.json({ error: "Trace storage requires CLICKHOUSE_URL" }, 503);
+    throw serviceUnavailable("ClickHouse (required for trace storage)");
   }
 
   const runId = c.req.param("runId");
@@ -26,18 +27,18 @@ traceRoutes.get("/run/:runId", async (c) => {
 
 traceRoutes.get("/:traceId", async (c) => {
   if (!useClickHouse) {
-    return c.json({ error: "Trace storage requires CLICKHOUSE_URL" }, 503);
+    throw serviceUnavailable("ClickHouse (required for trace storage)");
   }
 
   const traceId = c.req.param("traceId");
   const spans = await traceRepo.getSpansByTraceId(traceId);
-  if (spans.length === 0) return c.json({ error: "Trace not found" }, 404);
+  if (spans.length === 0) throw notFound("Trace", traceId);
   return c.json({ data: spans, metadata: { total: spans.length } });
 });
 
 traceRoutes.get("/run/:runId/cost", async (c) => {
   if (!useClickHouse) {
-    return c.json({ error: "Trace storage requires CLICKHOUSE_URL" }, 503);
+    throw serviceUnavailable("ClickHouse (required for trace storage)");
   }
 
   const runId = c.req.param("runId");

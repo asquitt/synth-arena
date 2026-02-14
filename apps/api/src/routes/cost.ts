@@ -2,6 +2,7 @@ import { Hono } from "hono";
 import { zValidator } from "@hono/zod-validator";
 import { estimateCost, generateCostRecommendations, MODEL_PRICING } from "@syntharena/cost";
 import { costEstimateSchema } from "../schemas.js";
+import { validationError } from "../errors.js";
 
 /**
  * Cost estimation API routes.
@@ -13,9 +14,9 @@ import { costEstimateSchema } from "../schemas.js";
 export const costRoutes = new Hono();
 
 costRoutes.post("/estimate",
-  zValidator("json", costEstimateSchema, (result, c) => {
+  zValidator("json", costEstimateSchema, (result) => {
     if (!result.success) {
-      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+      throw validationError("Request validation failed", { issues: result.error.issues });
     }
   }),
   async (c) => {
@@ -37,7 +38,7 @@ costRoutes.post("/estimate",
 
       return c.json({ data: { estimate, recommendations } });
     } catch (err) {
-      return c.json({ error: err instanceof Error ? err.message : "Estimation failed" }, 400);
+      throw validationError(err instanceof Error ? err.message : "Cost estimation failed");
     }
   }
 );

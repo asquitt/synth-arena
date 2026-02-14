@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { listDomainDirs, loadTemplate, validateTemplate } from "@syntharena/scenarios";
+import { notFound } from "../errors.js";
 
 /**
  * Domain template API routes.
@@ -43,7 +44,7 @@ domainRoutes.get("/:name", (c) => {
         validation: { valid: errors.length === 0, errors },
       },
     });
-  } catch (err) {
-    return c.json({ error: err instanceof Error ? err.message : "Not found" }, 404);
+  } catch {
+    throw notFound("Domain template", c.req.param("name"));
   }
 });
