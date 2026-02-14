@@ -64,6 +64,50 @@ describe("Authentication", () => {
   });
 });
 
+describe("Evaluation CRUD", () => {
+  it("creates an evaluation and retrieves it", async () => {
+    const createRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "test-eval",
+        domain: "web-scraping",
+        scenarioCount: 2,
+        trials: 1,
+      }),
+    });
+    expect(createRes.status).toBe(201);
+    const created = await createRes.json();
+    expect(created.data.id).toBeDefined();
+    expect(created.data.status).toBe("completed");
+
+    // Retrieve it
+    const getRes = await request(`/api/v1/evaluations/${created.data.id}`);
+    expect(getRes.status).toBe(200);
+    const fetched = await getRes.json();
+    expect(fetched.data.id).toBe(created.data.id);
+    expect(fetched.data.results).toBeDefined();
+    expect(fetched.data.results.length).toBe(2);
+  });
+
+  it("lists evaluations with pagination", async () => {
+    const listRes = await request("/api/v1/evaluations?limit=10&offset=0");
+    expect(listRes.status).toBe(200);
+    const list = await listRes.json();
+    expect(list.data).toBeDefined();
+    expect(list.metadata.limit).toBe(10);
+    expect(list.metadata.offset).toBe(0);
+    expect(list.metadata.total).toBeGreaterThanOrEqual(0);
+  });
+
+  it("returns 404 for non-existent evaluation", async () => {
+    const res = await request("/api/v1/evaluations/nonexistent-id");
+    expect(res.status).toBe(404);
+    const body = await res.json();
+    expect(body.error.code).toBe("NOT_FOUND");
+  });
+});
+
 describe("CORS", () => {
   it("includes CORS headers on responses", async () => {
     const res = await request("/health", {
