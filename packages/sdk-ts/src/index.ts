@@ -29,6 +29,19 @@ export { runArena } from "@syntharena/core";
 export { generateScorer, generateScorerSuite } from "@syntharena/core";
 export type { ScorerGeneratorConfig } from "@syntharena/core";
 
+// Red team presets
+export {
+  OWASP_LLM_TOP10,
+  NIST_AI_RMF,
+  RED_TEAM_PRESETS,
+  listPresets,
+  getPreset,
+  getPresetScorers,
+  getPresetPatterns,
+  runPresetEvaluation,
+} from "@syntharena/core";
+export type { RedTeamPreset, RedTeamCategory, AttackPattern } from "@syntharena/core";
+
 // All graders as a namespace
 import {
   taskCompletion,

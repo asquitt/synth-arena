@@ -74,7 +74,7 @@ adminRoutes.post("/webhooks",
   }),
   async (c) => {
     const body = c.req.valid("json");
-    const config = webhooks.registerWebhook(body.url, body.events);
+    const config = await webhooks.registerWebhook(body.url, body.events);
     return c.json({
       data: {
         id: config.id,
@@ -86,13 +86,13 @@ adminRoutes.post("/webhooks",
 );
 
 adminRoutes.get("/webhooks", async (c) => {
-  const list = webhooks.listWebhooks();
+  const list = await webhooks.listWebhooks();
   return c.json({ data: list, metadata: { total: list.length } });
 });
 
 adminRoutes.delete("/webhooks/:id", async (c) => {
   const id = c.req.param("id");
-  const deleted = webhooks.deleteWebhook(id);
+  const deleted = await webhooks.deleteWebhook(id);
   if (!deleted) throw notFound("Webhook", id);
   return c.json({ data: { deleted: true, id } });
 });

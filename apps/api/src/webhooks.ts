@@ -1,5 +1,6 @@
 import { createHmac, randomBytes } from "node:crypto";
 import type { EvaluationRun } from "@syntharena/shared";
+import * as webhookRepo from "./repositories/webhooks.js";
 
 /**
  * Webhook delivery for evaluation lifecycle events.
@@ -7,6 +8,8 @@ import type { EvaluationRun } from "@syntharena/shared";
  * Sends signed POST requests to registered URLs when evaluations
  * complete, fail, or regress. Includes HMAC-SHA256 signatures
  * for payload verification.
+ *
+ * Uses PostgreSQL when DATABASE_URL is set, in-memory Map otherwise.
  */
 
 export interface WebhookConfig {
@@ -40,15 +43,30 @@ interface WebhookPayload {
   };
 }
 
-// In-memory webhook store (replaced by DB when DATABASE_URL is set)
-const webhooks = new Map<string, WebhookConfig>();
+const useDb = !!process.env["DATABASE_URL"];
 
-export function registerWebhook(
+// In-memory fallback when no database
+const memoryStore = new Map<string, WebhookConfig>();
+
+export async function registerWebhook(
   url: string,
   events: WebhookEvent[],
-): WebhookConfig {
-  const id = randomBytes(8).toString("hex");
+): Promise<WebhookConfig> {
   const secret = `whsec_${randomBytes(24).toString("hex")}`;
+
+  if (useDb) {
+    const record = await webhookRepo.create({ url, secret, events });
+    return {
+      id: record.id,
+      url: record.url,
+      secret: record.secret,
+      events: record.events as WebhookEvent[],
+      active: record.active,
+      createdAt: record.createdAt,
+    };
+  }
+
+  const id = randomBytes(8).toString("hex");
   const config: WebhookConfig = {
     id,
     url,
@@ -57,23 +75,50 @@ export function registerWebhook(
     active: true,
     createdAt: new Date().toISOString(),
   };
-  webhooks.set(id, config);
+  memoryStore.set(id, config);
   return config;
 }
 
-export function listWebhooks(): WebhookConfig[] {
-  return Array.from(webhooks.values()).map((w) => ({
+export async function listWebhooks(): Promise<WebhookConfig[]> {
+  if (useDb) {
+    const records = await webhookRepo.listAll();
+    return records.map((r) => ({
+      id: r.id,
+      url: r.url,
+      secret: `${r.secret.slice(0, 10)}...`,
+      events: r.events as WebhookEvent[],
+      active: r.active,
+      createdAt: r.createdAt,
+    }));
+  }
+
+  return Array.from(memoryStore.values()).map((w) => ({
     ...w,
-    secret: `${w.secret.slice(0, 10)}...`, // Mask secret in listings
+    secret: `${w.secret.slice(0, 10)}...`,
   }));
 }
 
-export function deleteWebhook(id: string): boolean {
-  return webhooks.delete(id);
+export async function deleteWebhook(id: string): Promise<boolean> {
+  if (useDb) {
+    return webhookRepo.deactivate(id);
+  }
+  return memoryStore.delete(id);
 }
 
-export function getWebhook(id: string): WebhookConfig | undefined {
-  return webhooks.get(id);
+export async function getWebhook(id: string): Promise<WebhookConfig | undefined> {
+  if (useDb) {
+    const record = await webhookRepo.findById(id);
+    if (!record) return undefined;
+    return {
+      id: record.id,
+      url: record.url,
+      secret: record.secret,
+      events: record.events as WebhookEvent[],
+      active: record.active,
+      createdAt: record.createdAt,
+    };
+  }
+  return memoryStore.get(id);
 }
 
 /** Sign a payload with HMAC-SHA256 for webhook verification. */
@@ -105,16 +150,33 @@ function buildPayload(
   };
 }
 
+/** Get all active webhooks matching the event. */
+async function getMatchingWebhooks(event: WebhookEvent): Promise<WebhookConfig[]> {
+  if (useDb) {
+    const records = await webhookRepo.listActive();
+    return records
+      .filter((r) => (r.events as WebhookEvent[]).includes(event))
+      .map((r) => ({
+        id: r.id,
+        url: r.url,
+        secret: r.secret,
+        events: r.events as WebhookEvent[],
+        active: r.active,
+        createdAt: r.createdAt,
+      }));
+  }
+  return Array.from(memoryStore.values()).filter(
+    (w) => w.active && w.events.includes(event),
+  );
+}
+
 /** Deliver a webhook event to all registered endpoints. */
 export async function deliverWebhook(
   event: WebhookEvent,
   run: EvaluationRun,
   domain?: string,
 ): Promise<void> {
-  const matching = Array.from(webhooks.values()).filter(
-    (w) => w.active && w.events.includes(event),
-  );
-
+  const matching = await getMatchingWebhooks(event);
   if (matching.length === 0) return;
 
   const payload = buildPayload(event, run, domain);
@@ -122,6 +184,10 @@ export async function deliverWebhook(
 
   const deliveries = matching.map(async (webhook) => {
     const signature = signPayload(body, webhook.secret);
+    const start = Date.now();
+    let statusCode: number | null = null;
+    let responseBody: string | null = null;
+    let error: string | null = null;
 
     try {
       const res = await fetch(webhook.url, {
@@ -136,6 +202,9 @@ export async function deliverWebhook(
         signal: AbortSignal.timeout(10_000),
       });
 
+      statusCode = res.status;
+      responseBody = await res.text().catch(() => null);
+
       if (!res.ok) {
         console.error(JSON.stringify({
           level: "warn",
@@ -146,16 +215,35 @@ export async function deliverWebhook(
         }));
       }
     } catch (err) {
+      error = err instanceof Error ? err.message : String(err);
       console.error(JSON.stringify({
         level: "error",
         message: "Webhook delivery error",
         webhookId: webhook.id,
         url: webhook.url,
-        error: err instanceof Error ? err.message : String(err),
+        error,
       }));
+    }
+
+    // Log delivery to database if available
+    if (useDb) {
+      await webhookRepo.logDelivery({
+        webhookId: webhook.id,
+        event,
+        payload: payload as unknown as Record<string, unknown>,
+        statusCode,
+        responseBody,
+        error,
+        durationMs: Date.now() - start,
+      }).catch((logErr) => {
+        console.error(JSON.stringify({
+          level: "error",
+          message: "Failed to log webhook delivery",
+          error: String(logErr),
+        }));
+      });
     }
   });
 
-  // Fire and forget — don't block the caller
   await Promise.allSettled(deliveries);
 }

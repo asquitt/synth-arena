@@ -40,3 +40,18 @@ export {
   turnEfficiency,
   goalCompletion,
 } from "./conversation-scorers.js";
+export {
+  OWASP_LLM_TOP10,
+  NIST_AI_RMF,
+  RED_TEAM_PRESETS,
+  listPresets,
+  getPreset,
+  getPresetScorers,
+  getPresetPatterns,
+  runPresetEvaluation,
+} from "./red-team-presets.js";
+export type {
+  RedTeamPreset,
+  RedTeamCategory,
+  AttackPattern,
+} from "./red-team-presets.js";

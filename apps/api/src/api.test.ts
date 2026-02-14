@@ -369,6 +369,52 @@ describe("Scorer Generator", () => {
   });
 });
 
+describe("Red Team Presets", () => {
+  it("lists available presets", async () => {
+    const res = await request("/api/v1/red-team/presets");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.length).toBeGreaterThanOrEqual(2);
+    const ids = body.data.map((p: { id: string }) => p.id);
+    expect(ids).toContain("owasp-llm-top10-2025");
+    expect(ids).toContain("nist-ai-rmf-1.0");
+  });
+
+  it("returns OWASP preset details with attack patterns", async () => {
+    const res = await request("/api/v1/red-team/presets/owasp-llm-top10");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.framework).toBe("owasp-llm-top10");
+    expect(body.data.categories.length).toBeGreaterThan(0);
+    // Verify categories have attack patterns
+    const llm01 = body.data.categories.find((c: { id: string }) => c.id === "llm01");
+    expect(llm01).toBeDefined();
+    expect(llm01.attackPatterns.length).toBeGreaterThan(0);
+  });
+
+  it("returns NIST preset details", async () => {
+    const res = await request("/api/v1/red-team/presets/nist-ai-rmf");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.framework).toBe("nist-ai-rmf");
+    expect(body.data.categories.length).toBeGreaterThan(0);
+  });
+
+  it("returns 404 for unknown preset", async () => {
+    const res = await request("/api/v1/red-team/presets/nonexistent");
+    expect(res.status).toBe(404);
+  });
+
+  it("returns attack patterns for a preset", async () => {
+    const res = await request("/api/v1/red-team/presets/owasp-llm-top10/patterns");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.length).toBeGreaterThan(0);
+    expect(body.data[0].severity).toBeDefined();
+    expect(body.data[0].template).toBeDefined();
+  });
+});
+
 describe("End-to-end evaluation flow", () => {
   it("runs full flow: create → red-team → state-diff → compare", async () => {
     // Step 1: Create baseline evaluation
