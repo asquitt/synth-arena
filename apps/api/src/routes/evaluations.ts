@@ -35,21 +35,36 @@ async function getRun(id: string): Promise<EvaluationRun | null> {
   return memoryStore.get(id) ?? null;
 }
 
-async function getAllRuns() {
+async function getAllRuns(opts?: { limit?: number; offset?: number; domain?: string; status?: string }) {
   if (useDb) {
-    return evalRepo.listEvaluationRuns();
+    return evalRepo.listEvaluationRuns(opts);
   }
-  const allRuns = Array.from(memoryStore.values())
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
-    .map((run) => ({
+  let allRuns = Array.from(memoryStore.values())
+    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+
+  if (opts?.domain) {
+    allRuns = allRuns.filter((r) => (r.config.metadata as Record<string, unknown> | undefined)?.["domain"] === opts.domain);
+  }
+  if (opts?.status) {
+    allRuns = allRuns.filter((r) => r.status === opts.status);
+  }
+
+  const total = allRuns.length;
+  const offset = opts?.offset ?? 0;
+  const limit = opts?.limit ?? 50;
+  const sliced = allRuns.slice(offset, offset + limit);
+
+  return {
+    runs: sliced.map((run) => ({
       id: run.id,
       name: run.name,
       status: run.status,
       createdAt: run.createdAt,
       completedAt: run.completedAt,
       summary: run.summary,
-    }));
-  return { runs: allRuns, total: allRuns.length };
+    })),
+    total,
+  };
 }
 
 async function removeRun(id: string): Promise<boolean> {
@@ -62,8 +77,12 @@ async function removeRun(id: string): Promise<boolean> {
 export const evaluationRoutes = new Hono();
 
 evaluationRoutes.get("/", async (c) => {
-  const { runs, total } = await getAllRuns();
-  return c.json({ data: runs, metadata: { total } });
+  const limit = Math.min(parseInt(c.req.query("limit") ?? "50", 10), 200);
+  const offset = parseInt(c.req.query("offset") ?? "0", 10);
+  const domain = c.req.query("domain") || undefined;
+  const status = c.req.query("status") || undefined;
+  const { runs, total } = await getAllRuns({ limit, offset, domain, status });
+  return c.json({ data: runs, metadata: { total, limit, offset } });
 });
 
 evaluationRoutes.get("/:id", async (c) => {
