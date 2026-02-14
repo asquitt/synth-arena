@@ -11,6 +11,31 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: syntharena
+          POSTGRES_PASSWORD: syntharena
+          POSTGRES_DB: syntharena
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
+      redis:
+        image: redis:7-alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 6379:6379
+
     steps:
       - uses: actions/checkout@v4
 
@@ -32,5 +57,13 @@ jobs:
       - name: Build all packages
         run: pnpm build
 
+      - name: Run database migrations
+        run: pnpm --filter=@syntharena/api run migrate
+        env:
+          DATABASE_URL: postgresql://syntharena:syntharena@localhost:5432/syntharena
+
       - name: Run tests
         run: npx vitest run
+        env:
+          DATABASE_URL: postgresql://syntharena:syntharena@localhost:5432/syntharena
+          REDIS_URL: redis://localhost:6379
