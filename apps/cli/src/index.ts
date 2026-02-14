@@ -7,6 +7,7 @@ import { generateCommand } from "./commands/generate.js";
 import { domainsCommand } from "./commands/domains.js";
 import { costCommand } from "./commands/cost.js";
 import { replayCommand } from "./commands/replay.js";
+import { initCommand } from "./commands/init.js";
 
 const program = new Command();
 
@@ -16,9 +17,14 @@ program
   .version("0.1.0");
 
 program
+  .command("init")
+  .description("Create a syntharena.yaml config file in the current directory")
+  .action(initCommand);
+
+program
   .command("run")
   .description("Generate scenarios and evaluate an agent")
-  .requiredOption("-d, --domain <domain>", "Domain template (web-scraping, government, healthcare)")
+  .option("-d, --domain <domain>", "Domain template (web-scraping, government, healthcare)", "web-scraping")
   .option("-s, --scenarios <count>", "Number of scenarios to generate", "10")
   .option("-t, --trials <count>", "Trials per scenario", "1")
   .option("-c, --concurrency <count>", "Max concurrent evaluations", "5")

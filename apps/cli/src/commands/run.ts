@@ -1,8 +1,9 @@
 import chalk from "chalk";
 import ora from "ora";
-import { evaluate, taskCompletion, costThreshold } from "@syntharena/core";
-import type { TaskResult, EvaluationRun } from "@syntharena/shared";
+import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
+import type { TaskResult, EvaluationRun, Scorer } from "@syntharena/shared";
 import { generateDemoScenarios } from "../demo.js";
+import { loadConfig, type ScorerConfig } from "../config.js";
 
 interface RunOptions {
   domain: string;
@@ -13,13 +14,41 @@ interface RunOptions {
   output: string;
 }
 
+function buildScorers(configs: ScorerConfig[]): Scorer[] {
+  const scorers: Scorer[] = [];
+  for (const cfg of configs) {
+    if (typeof cfg === "string") {
+      if (cfg === "task_completion") scorers.push(taskCompletion);
+      else if (cfg === "safety_check") scorers.push(safetyCheck());
+    } else {
+      const [name, params] = Object.entries(cfg)[0]!;
+      if (name === "cost_threshold" && typeof params === "object" && params && "max" in params) {
+        scorers.push(costThreshold(params["max"] as number));
+      } else if (name === "safety_check") {
+        scorers.push(safetyCheck());
+      }
+    }
+  }
+  return scorers.length > 0 ? scorers : [taskCompletion, costThreshold(1.0)];
+}
+
 export async function runCommand(opts: RunOptions): Promise<void> {
-  const scenarioCount = parseInt(opts.scenarios, 10);
-  const trialCount = parseInt(opts.trials, 10);
-  const concurrency = parseInt(opts.concurrency, 10);
+  // Load config file if specified (or auto-detect syntharena.yaml)
+  const configPath = opts.config ?? "syntharena.yaml";
+  const config = opts.config ? loadConfig(configPath) : loadConfig(configPath);
+
+  const domain = config?.domain ?? opts.domain;
+  const scenarioCount = config?.scenarios ?? parseInt(opts.scenarios, 10);
+  const trialCount = config?.trials ?? parseInt(opts.trials, 10);
+  const concurrency = config?.concurrency ?? parseInt(opts.concurrency, 10);
+  const outputFormat = config?.output?.format ?? opts.output;
+  const scorers = config ? buildScorers(config.scorers) : [taskCompletion, costThreshold(1.0)];
 
   console.log(chalk.bold("\n  SynthArena Evaluation\n"));
-  console.log(`  Domain:      ${chalk.cyan(opts.domain)}`);
+  if (config && opts.config) {
+    console.log(`  Config:      ${chalk.dim(configPath)}`);
+  }
+  console.log(`  Domain:      ${chalk.cyan(domain)}`);
   console.log(`  Scenarios:   ${chalk.cyan(String(scenarioCount))}`);
   console.log(`  Trials:      ${chalk.cyan(String(trialCount))}`);
   console.log(`  Concurrency: ${chalk.cyan(String(concurrency))}`);
@@ -27,17 +56,17 @@ export async function runCommand(opts: RunOptions): Promise<void> {
 
   // Generate demo scenarios
   const spinner = ora("Generating scenarios...").start();
-  const scenarios = generateDemoScenarios(opts.domain, scenarioCount);
+  const scenarios = generateDemoScenarios(domain, scenarioCount);
   spinner.succeed(`Generated ${scenarios.length} scenarios`);
 
   // Run evaluation with a demo task (echo agent)
   const evalSpinner = ora("Running evaluation...").start();
 
   const run = await evaluate({
-    name: `${opts.domain}-eval-${Date.now()}`,
+    name: `${domain}-eval-${Date.now()}`,
     dataset: scenarios,
     task: demoTask,
-    scorers: [taskCompletion, costThreshold(1.0)],
+    scorers,
     trials: trialCount,
     maxConcurrency: concurrency,
   });
@@ -45,7 +74,7 @@ export async function runCommand(opts: RunOptions): Promise<void> {
   evalSpinner.succeed("Evaluation complete");
 
   // Display results
-  if (opts.output === "json") {
+  if (outputFormat === "json") {
     console.log(JSON.stringify(run, null, 2));
   } else {
     printTable(run);
