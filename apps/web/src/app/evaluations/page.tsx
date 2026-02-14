@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Nav } from "../../components/nav";
 import { DomainSelect } from "../../components/domain-select";
 
@@ -42,6 +42,23 @@ export default function EvaluationsPage() {
   const [scenarios, setScenarios] = useState("10");
   const [trials, setTrials] = useState("3");
   const [useStreaming, setUseStreaming] = useState(true);
+
+  // Load existing evaluations on mount
+  useEffect(() => {
+    async function loadRuns() {
+      try {
+        const res = await fetch(`${API_BASE}/evaluations?limit=20`);
+        if (!res.ok) return;
+        const json = await res.json();
+        if (json.data && Array.isArray(json.data)) {
+          setRuns(json.data);
+        }
+      } catch {
+        // API not available — that's fine, empty state shown
+      }
+    }
+    loadRuns();
+  }, []);
 
   async function startEval() {
     setLoading(true);
