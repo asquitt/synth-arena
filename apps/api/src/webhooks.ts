@@ -34,6 +34,8 @@ interface WebhookPayload {
     totalScenarios: number;
     totalCost: number;
     duration: number;
+    latencyP95?: number;
+    latencyP99?: number;
     domain?: string;
   };
 }
@@ -96,6 +98,8 @@ function buildPayload(
       totalScenarios: run.summary.totalScenarios,
       totalCost: run.summary.totalCost,
       duration: run.summary.totalDuration,
+      latencyP95: run.summary.latencyPercentiles?.p95,
+      latencyP99: run.summary.latencyPercentiles?.p99,
       domain,
     },
   };

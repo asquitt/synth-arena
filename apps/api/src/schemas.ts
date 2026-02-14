@@ -74,6 +74,22 @@ export const createWebhookSchema = z.object({
   ])).min(1),
 });
 
+export const generateScorerSchema = z.object({
+  criteria: z.string().min(1).max(2000),
+  name: z.string().min(1).max(100),
+  mode: z.enum(["llm", "deterministic"]).optional().default("deterministic"),
+  threshold: z.number().min(0).max(1).optional().default(0.7),
+});
+
+export const generateScorerSuiteSchema = z.object({
+  scorers: z.array(z.object({
+    criteria: z.string().min(1).max(2000),
+    name: z.string().min(1).max(100),
+    mode: z.enum(["llm", "deterministic"]).optional().default("deterministic"),
+    threshold: z.number().min(0).max(1).optional().default(0.7),
+  })).min(1).max(50),
+});
+
 export const costEstimateSchema = z.object({
   model: z.string().min(1),
   scenarioCount: z.number().int().min(1).max(1_000_000),

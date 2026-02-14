@@ -26,6 +26,8 @@ export { SynthArenaClient, SynthArenaError } from "./client.js";
 // Core evaluation
 export { evaluate, computeGPassAtK } from "@syntharena/core";
 export { runArena } from "@syntharena/core";
+export { generateScorer, generateScorerSuite } from "@syntharena/core";
+export type { ScorerGeneratorConfig } from "@syntharena/core";
 
 // All graders as a namespace
 import {
@@ -99,4 +101,5 @@ export type {
   CostEstimate,
   DomainTemplate,
   EvaluationProgress,
+  LatencyPercentiles,
 } from "@syntharena/shared";

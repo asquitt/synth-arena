@@ -31,6 +31,16 @@ interface ScenarioResult {
   gPassAtK: number;
 }
 
+interface LatencyPercentiles {
+  p50: number;
+  p75: number;
+  p95: number;
+  p99: number;
+  min: number;
+  max: number;
+  mean: number;
+}
+
 interface EvalSummary {
   totalScenarios: number;
   totalTrials: number;
@@ -41,6 +51,7 @@ interface EvalSummary {
   totalCost: number;
   totalDuration: number;
   avgTokensPerScenario: number;
+  latencyPercentiles?: LatencyPercentiles;
   scoreSummaries: Record<string, { name: string; mean: number; stddev: number }>;
 }
 
@@ -164,6 +175,28 @@ export default function EvaluationDetailPage() {
           <MetricCard label="Scenarios" value={String(run.summary.totalScenarios)} color="gray" />
           <MetricCard label="Avg Tokens" value={String(Math.round(run.summary.avgTokensPerScenario))} color="gray" />
         </div>
+
+        {/* Latency percentiles */}
+        {run.summary.latencyPercentiles && (
+          <div className="mt-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
+            <h2 className="text-lg font-semibold">Latency Distribution</h2>
+            <p className="mt-1 text-xs text-gray-500">Per-trial execution time percentiles (ms)</p>
+            <div className="mt-4 grid grid-cols-3 gap-4 sm:grid-cols-7">
+              {(["min", "p50", "p75", "p95", "p99", "max", "mean"] as const).map((key) => {
+                const val = run.summary.latencyPercentiles![key];
+                const isHigh = key === "p95" || key === "p99" || key === "max";
+                return (
+                  <div key={key} className="text-center">
+                    <div className={`text-lg font-bold font-mono ${isHigh && val > 1000 ? "text-yellow-400" : "text-gray-200"}`}>
+                      {val >= 1000 ? `${(val / 1000).toFixed(1)}s` : `${Math.round(val)}ms`}
+                    </div>
+                    <div className="text-xs text-gray-500 uppercase">{key}</div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
 
         {/* Score summaries */}
         <div className="mt-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
@@ -375,6 +408,7 @@ function buildDemoRun(id: string): EvalRun {
       totalCost: results.reduce((s, r) => s + r.trials.reduce((ts, t) => ts + t.taskResult.tokenUsage.estimatedCost, 0), 0),
       totalDuration: results.reduce((s, r) => s + r.trials.reduce((ts, t) => ts + t.taskResult.duration, 0), 0),
       avgTokensPerScenario: results.reduce((s, r) => s + r.trials.reduce((ts, t) => ts + t.taskResult.tokenUsage.totalTokens, 0), 0) / scenarios,
+      latencyPercentiles: { p50: 180, p75: 280, p95: 450, p99: 520, min: 100, max: 600, mean: 220 },
       scoreSummaries,
     },
   };

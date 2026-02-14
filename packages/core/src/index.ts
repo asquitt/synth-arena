@@ -32,3 +32,5 @@ export {
   boundaryAdherence,
   redTeamSuite,
 } from "./red-team.js";
+export { generateScorer, generateScorerSuite } from "./scorer-generator.js";
+export type { ScorerGeneratorConfig } from "./scorer-generator.js";

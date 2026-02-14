@@ -173,6 +173,16 @@ export interface AggregatedScore {
   stddev: number;
 }
 
+export interface LatencyPercentiles {
+  p50: number;
+  p75: number;
+  p95: number;
+  p99: number;
+  min: number;
+  max: number;
+  mean: number;
+}
+
 export interface EvaluationSummary {
   totalScenarios: number;
   totalTrials: number;
@@ -183,6 +193,7 @@ export interface EvaluationSummary {
   totalCost: number;
   totalDuration: number;
   avgTokensPerScenario: number;
+  latencyPercentiles: LatencyPercentiles;
   scoreSummaries: Record<string, AggregatedScore>;
 }
 

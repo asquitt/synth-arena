@@ -75,6 +75,17 @@ class ScenarioResult:
 
 
 @dataclass
+class LatencyPercentiles:
+    p50: float
+    p75: float
+    p95: float
+    p99: float
+    min: float
+    max: float
+    mean: float
+
+
+@dataclass
 class EvaluationSummary:
     total_scenarios: int
     total_trials: int
@@ -86,6 +97,7 @@ class EvaluationSummary:
     total_duration: float
     avg_tokens_per_scenario: float
     score_summaries: dict[str, AggregatedScore]
+    latency_percentiles: LatencyPercentiles | None = None
 
 
 @dataclass

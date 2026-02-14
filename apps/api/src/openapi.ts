@@ -26,6 +26,7 @@ export const openApiSpec = {
     { name: "State-Diff", description: "Environment state diff analysis" },
     { name: "Cost", description: "Cost estimation for evaluation runs" },
     { name: "Domains", description: "Domain template management" },
+    { name: "Scorer Lab", description: "Natural language scorer generation — create evaluation criteria from plain English" },
     { name: "Admin", description: "Administrative operations" },
   ],
   paths: {
@@ -333,6 +334,61 @@ export const openApiSpec = {
         responses: { 200: { description: "Domain templates" } },
       },
     },
+    "/api/v1/scorers/generate": {
+      post: {
+        tags: ["Scorer Lab"],
+        summary: "Generate a scorer from natural language criteria",
+        operationId: "generateScorer",
+        security: [{ BearerAuth: [] }],
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                required: ["criteria", "name"],
+                properties: {
+                  criteria: { type: "string", description: "Plain English evaluation criteria" },
+                  name: { type: "string", description: "Scorer name" },
+                  mode: { type: "string", enum: ["llm", "deterministic"], default: "deterministic" },
+                  threshold: { type: "number", minimum: 0, maximum: 1, default: 0.7 },
+                },
+              },
+            },
+          },
+        },
+        responses: { 201: { description: "Generated scorer with test result" } },
+      },
+    },
+    "/api/v1/scorers/test": {
+      post: {
+        tags: ["Scorer Lab"],
+        summary: "Test a scorer against custom input/output",
+        operationId: "testScorer",
+        security: [{ BearerAuth: [] }],
+        requestBody: {
+          required: true,
+          content: {
+            "application/json": {
+              schema: {
+                type: "object",
+                required: ["criteria", "name", "testInput", "testOutput"],
+                properties: {
+                  criteria: { type: "string" },
+                  name: { type: "string" },
+                  mode: { type: "string", enum: ["llm", "deterministic"] },
+                  threshold: { type: "number" },
+                  testInput: { type: "object" },
+                  testOutput: {},
+                  testExpected: { type: "object" },
+                },
+              },
+            },
+          },
+        },
+        responses: { 200: { description: "Scorer test result" } },
+      },
+    },
   },
   components: {
     securitySchemes: {
@@ -415,6 +471,19 @@ export const openApiSpec = {
           totalCost: { type: "number" },
           totalDuration: { type: "number" },
           avgTokensPerScenario: { type: "number" },
+          latencyPercentiles: {
+            type: "object",
+            description: "Per-trial latency distribution (ms) — p50, p75, p95, p99, min, max, mean",
+            properties: {
+              p50: { type: "number" },
+              p75: { type: "number" },
+              p95: { type: "number" },
+              p99: { type: "number" },
+              min: { type: "number" },
+              max: { type: "number" },
+              mean: { type: "number" },
+            },
+          },
           scoreSummaries: { type: "object" },
         },
       },

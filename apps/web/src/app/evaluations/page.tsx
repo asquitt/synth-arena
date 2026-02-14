@@ -14,6 +14,7 @@ interface EvalSummary {
   totalCost: number;
   totalDuration: number;
   avgTokensPerScenario: number;
+  latencyPercentiles?: { p50: number; p95: number; p99: number };
   scoreSummaries: Record<string, { name: string; mean: number; stddev: number }>;
 }
 
@@ -166,6 +167,7 @@ export default function EvaluationsPage() {
         totalCost: parseInt(scenarios) * 0.003,
         totalDuration: parseInt(scenarios) * 150,
         avgTokensPerScenario: 300 + Math.floor(Math.random() * 200),
+        latencyPercentiles: { p50: 150 + Math.random() * 100, p95: 400 + Math.random() * 200, p99: 500 + Math.random() * 300 },
         scoreSummaries: {
           task_completion: { name: "task_completion", mean: 0.9 + Math.random() * 0.1, stddev: 0.05 },
           cost_threshold: { name: "cost_threshold", mean: 0.95 + Math.random() * 0.05, stddev: 0.02 },
@@ -278,6 +280,7 @@ export default function EvaluationsPage() {
                   <MetricCard label="pass^k" value={`${(run.summary.passToTheK * 100).toFixed(1)}%`} color="cyan" />
                   <MetricCard label="G-pass@k" value={`${(run.summary.gPassAtK * 100).toFixed(1)}%`} color="cyan" />
                   <MetricCard label="Cost" value={`$${run.summary.totalCost.toFixed(4)}`} color="yellow" />
+                  <MetricCard label="p95 Latency" value={run.summary.latencyPercentiles ? `${Math.round(run.summary.latencyPercentiles.p95)}ms` : "—"} color={run.summary.latencyPercentiles && run.summary.latencyPercentiles.p95 > 1000 ? "yellow" : "gray"} />
                   <MetricCard label="Scenarios" value={String(run.summary.totalScenarios)} color="gray" />
                   <MetricCard label="Trials" value={String(run.summary.totalTrials)} color="gray" />
                 </div>

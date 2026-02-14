@@ -2,6 +2,7 @@ import type {
   EvaluationConfig,
   EvaluationRun,
   EvaluationSummary,
+  LatencyPercentiles,
   ScenarioResult,
   TrialResult,
   AggregatedScore,
@@ -336,6 +337,15 @@ function computeSummary(results: ScenarioResult[]): EvaluationSummary {
     0
   );
 
+  // Collect all trial durations for percentile computation
+  const allDurations: number[] = [];
+  for (const r of results) {
+    for (const t of r.trials) {
+      allDurations.push(t.taskResult.duration);
+    }
+  }
+  const latencyPercentiles = computePercentiles(allDurations);
+
   const totalTokens = results.reduce(
     (sum, r) =>
       sum +
@@ -379,7 +389,34 @@ function computeSummary(results: ScenarioResult[]): EvaluationSummary {
     totalCost,
     totalDuration,
     avgTokensPerScenario,
+    latencyPercentiles,
     scoreSummaries,
+  };
+}
+
+/** Compute latency percentiles from a sorted array of durations (ms). */
+function computePercentiles(durations: number[]): LatencyPercentiles {
+  if (durations.length === 0) {
+    return { p50: 0, p75: 0, p95: 0, p99: 0, min: 0, max: 0, mean: 0 };
+  }
+
+  const sorted = [...durations].sort((a, b) => a - b);
+  const n = sorted.length;
+  const mean = sorted.reduce((a, b) => a + b, 0) / n;
+
+  const percentile = (p: number): number => {
+    const index = Math.ceil((p / 100) * n) - 1;
+    return sorted[Math.max(0, Math.min(index, n - 1))]!;
+  };
+
+  return {
+    p50: percentile(50),
+    p75: percentile(75),
+    p95: percentile(95),
+    p99: percentile(99),
+    min: sorted[0]!,
+    max: sorted[n - 1]!,
+    mean: Math.round(mean * 100) / 100,
   };
 }
 

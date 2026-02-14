@@ -16,6 +16,7 @@ import { authenticate, requirePermission } from "./middleware/auth.js";
 import { rateLimit } from "./middleware/rate-limit.js";
 import { adminRoutes } from "./routes/admin.js";
 import { traceRoutes } from "./routes/traces.js";
+import { scorerGeneratorRoutes } from "./routes/scorer-generator.js";
 import { checkClickHouse } from "./repositories/traces.js";
 import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
@@ -168,6 +169,7 @@ v1.route("/scenarios", scenarioRoutes);
 v1.route("/domains", domainRoutes);
 v1.route("/cost", costRoutes);
 v1.route("/traces", traceRoutes);
+v1.route("/scorers", scorerGeneratorRoutes);
 
 // Admin routes (require "admin" permission)
 const admin = new Hono();

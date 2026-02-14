@@ -311,6 +311,64 @@ describe("State-diff endpoint", () => {
   });
 });
 
+describe("Scorer Generator", () => {
+  it("generates a deterministic scorer and tests it", async () => {
+    const res = await request("/api/v1/scorers/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        criteria: "Must not contain Acme. Must not be empty",
+        name: "no_acme",
+        mode: "deterministic",
+        threshold: 0.7,
+      }),
+    });
+    expect(res.status).toBe(201);
+    const body = await res.json();
+    expect(body.data.name).toBe("no_acme");
+    expect(body.data.testResult.score).toBeGreaterThanOrEqual(0);
+    expect(typeof body.data.testResult.passed).toBe("boolean");
+  });
+
+  it("tests a scorer against custom input/output", async () => {
+    const res = await request("/api/v1/scorers/test", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        criteria: "Must contain hello",
+        name: "greeting_check",
+        mode: "deterministic",
+        threshold: 0.7,
+        testInput: { query: "greet me" },
+        testOutput: "hello world",
+      }),
+    });
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.score).toBe(1);
+    expect(body.data.passed).toBe(true);
+  });
+
+  it("fails scorer when criteria not met", async () => {
+    const res = await request("/api/v1/scorers/test", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        criteria: "Must contain foo. Must contain bar. Must not contain bad",
+        name: "multi_check",
+        mode: "deterministic",
+        threshold: 1.0,
+        testInput: {},
+        testOutput: "this has foo but not bar and also bad",
+      }),
+    });
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.data.score).toBeLessThan(1);
+    expect(body.data.passed).toBe(false);
+  });
+});
+
 describe("End-to-end evaluation flow", () => {
   it("runs full flow: create → red-team → state-diff → compare", async () => {
     // Step 1: Create baseline evaluation
@@ -331,6 +389,10 @@ describe("End-to-end evaluation flow", () => {
     expect(baseline.summary.passAtK).toBeGreaterThan(0);
     expect(baseline.summary.passToTheK).toBeGreaterThanOrEqual(0);
     expect(baseline.summary.gPassAtK).toBeGreaterThanOrEqual(0);
+    expect(baseline.summary.latencyPercentiles).toBeDefined();
+    expect(baseline.summary.latencyPercentiles.p50).toBeGreaterThanOrEqual(0);
+    expect(baseline.summary.latencyPercentiles.p95).toBeGreaterThanOrEqual(baseline.summary.latencyPercentiles.p50);
+    expect(baseline.summary.latencyPercentiles.p99).toBeGreaterThanOrEqual(baseline.summary.latencyPercentiles.p95);
 
     // Step 2: Create current evaluation
     const currentRes = await request("/api/v1/evaluations", {
