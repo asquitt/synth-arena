@@ -25,6 +25,24 @@ services:
       timeout: 5s
       retries: 3
 
+  # ─── Evaluation Worker ────────────────────────────────────────────
+  worker:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.api
+    command: ["node", "apps/api/dist/worker.js"]
+    environment:
+      - DATABASE_URL=postgresql://syntharena:syntharena@postgres:5432/syntharena
+      - REDIS_URL=redis://redis:6379
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    deploy:
+      replicas: 1
+
   # ─── Next.js Dashboard ─────────────────────────────────────────────
   web:
     build:
