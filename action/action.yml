@@ -1,0 +1,152 @@
+name: "SynthArena Eval Gate"
+description: "Run SynthArena evaluations in CI/CD and gate merges on regression detection"
+branding:
+  icon: "shield"
+  color: "orange"
+
+inputs:
+  domain:
+    description: "Domain template to evaluate (e.g., web-scraping, government, healthcare, legal, energy)"
+    required: true
+    default: "web-scraping"
+  scenarios:
+    description: "Number of scenarios to generate and evaluate"
+    required: false
+    default: "20"
+  trials:
+    description: "Number of trials per scenario (higher = more reliable pass^k)"
+    required: false
+    default: "3"
+  min-pass-rate:
+    description: "Minimum overall pass rate to pass the gate (0.0-1.0)"
+    required: false
+    default: "0.8"
+  max-cost:
+    description: "Maximum total cost to pass the gate (in USD)"
+    required: false
+  baseline-path:
+    description: "Path to baseline JSON file for regression comparison"
+    required: false
+    default: ".syntharena/baselines/latest.json"
+  fail-on-regression:
+    description: "Whether to fail the job if a regression is detected"
+    required: false
+    default: "true"
+  node-version:
+    description: "Node.js version to use"
+    required: false
+    default: "22"
+  config:
+    description: "Path to syntharena.yaml config file (overrides other inputs)"
+    required: false
+
+outputs:
+  status:
+    description: "Evaluation status: pass, fail, or regression"
+    value: ${{ steps.eval.outputs.status }}
+  pass-rate:
+    description: "Overall pass rate"
+    value: ${{ steps.eval.outputs.pass_rate }}
+  reliability:
+    description: "Reliability score (pass^k)"
+    value: ${{ steps.eval.outputs.reliability }}
+  cost:
+    description: "Total evaluation cost"
+    value: ${{ steps.eval.outputs.cost }}
+  report:
+    description: "Full evaluation report as JSON"
+    value: ${{ steps.eval.outputs.report }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ inputs.node-version }}
+
+    - name: Install SynthArena CLI
+      shell: bash
+      run: pnpm add -g synth-arena || npm install -g synth-arena
+
+    - name: Restore baseline cache
+      uses: actions/cache@v4
+      with:
+        path: ${{ inputs.baseline-path }}
+        key: syntharena-baseline-${{ inputs.domain }}-${{ github.base_ref || github.ref_name }}
+        restore-keys: |
+          syntharena-baseline-${{ inputs.domain }}-
+
+    - name: Run evaluation
+      id: eval
+      shell: bash
+      run: |
+        ARGS="--domain ${{ inputs.domain }} --scenarios ${{ inputs.scenarios }} --trials ${{ inputs.trials }} --output json"
+
+        if [ -n "${{ inputs.min-pass-rate }}" ]; then
+          ARGS="$ARGS --min-pass-rate ${{ inputs.min-pass-rate }}"
+        fi
+
+        if [ -n "${{ inputs.max-cost }}" ]; then
+          ARGS="$ARGS --max-cost ${{ inputs.max-cost }}"
+        fi
+
+        if [ -f "${{ inputs.baseline-path }}" ]; then
+          ARGS="$ARGS --baseline ${{ inputs.baseline-path }}"
+        fi
+
+        ARGS="$ARGS --save-baseline ${{ inputs.baseline-path }}"
+
+        if [ -n "${{ inputs.config }}" ] && [ -f "${{ inputs.config }}" ]; then
+          ARGS="--config ${{ inputs.config }} --output json"
+        fi
+
+        REPORT=$(synth-arena ci $ARGS 2>&1) || true
+        echo "$REPORT"
+
+        # Parse outputs from JSON
+        STATUS=$(echo "$REPORT" | jq -r '.status // "fail"' 2>/dev/null || echo "fail")
+        PASS_RATE=$(echo "$REPORT" | jq -r '.summary.overallPassRate // 0' 2>/dev/null || echo "0")
+        RELIABILITY=$(echo "$REPORT" | jq -r '.summary.passToTheK // 0' 2>/dev/null || echo "0")
+        COST=$(echo "$REPORT" | jq -r '.summary.totalCost // 0' 2>/dev/null || echo "0")
+
+        echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+        echo "pass_rate=$PASS_RATE" >> "$GITHUB_OUTPUT"
+        echo "reliability=$RELIABILITY" >> "$GITHUB_OUTPUT"
+        echo "cost=$COST" >> "$GITHUB_OUTPUT"
+        echo "report<<EOF" >> "$GITHUB_OUTPUT"
+        echo "$REPORT" >> "$GITHUB_OUTPUT"
+        echo "EOF" >> "$GITHUB_OUTPUT"
+
+    - name: Check gate result
+      shell: bash
+      run: |
+        STATUS="${{ steps.eval.outputs.status }}"
+        PASS_RATE="${{ steps.eval.outputs.pass_rate }}"
+        RELIABILITY="${{ steps.eval.outputs.reliability }}"
+        COST="${{ steps.eval.outputs.cost }}"
+
+        echo ""
+        echo "========================================"
+        echo "  SynthArena Eval Gate Result: $STATUS"
+        echo "========================================"
+        echo "  Pass rate:    ${PASS_RATE}"
+        echo "  Reliability:  ${RELIABILITY}"
+        echo "  Cost:         \$${COST}"
+        echo "========================================"
+        echo ""
+
+        if [ "$STATUS" = "regression" ] && [ "${{ inputs.fail-on-regression }}" = "true" ]; then
+          echo "::error::Evaluation regression detected"
+          exit 2
+        fi
+
+        if [ "$STATUS" = "fail" ]; then
+          echo "::error::Evaluation gates failed"
+          exit 1
+        fi
