@@ -1,51 +1,107 @@
 import type { Context, Next } from "hono";
+import Redis from "ioredis";
 
 /**
- * Simple in-memory sliding window rate limiter.
+ * Rate limiter with Redis backend (production) or in-memory fallback (dev).
  *
- * Tracks requests per API key (or IP for unauthenticated requests).
- * For production, replace with Redis-based rate limiting.
+ * Uses fixed-window counting with Redis INCR + EXPIRE for atomicity.
+ * Respects per-key rate limits from the api_keys table when available.
  */
 
-interface RateLimitEntry {
-  count: number;
-  resetAt: number;
+const WINDOW_SECONDS = 60;
+const DEFAULT_MAX = parseInt(process.env["RATE_LIMIT_MAX"] ?? "100", 10);
+
+let redis: Redis | null = null;
+
+function getRedis(): Redis | null {
+  if (redis) return redis;
+  const url = process.env["REDIS_URL"];
+  if (!url) return null;
+  redis = new Redis(url, { maxRetriesPerRequest: 1, lazyConnect: true });
+  redis.connect().catch(() => {
+    redis = null;
+  });
+  return redis;
 }
 
-const store = new Map<string, RateLimitEntry>();
+// In-memory fallback
+interface MemEntry { count: number; resetAt: number }
+const memStore = new Map<string, MemEntry>();
 
-const WINDOW_MS = 60_000; // 1 minute
-const MAX_REQUESTS = parseInt(process.env["RATE_LIMIT_MAX"] ?? "100", 10);
-
-// Clean up expired entries periodically
 setInterval(() => {
   const now = Date.now();
-  for (const [key, entry] of store) {
-    if (entry.resetAt <= now) store.delete(key);
+  for (const [key, entry] of memStore) {
+    if (entry.resetAt <= now) memStore.delete(key);
   }
 }, 60_000);
 
-export async function rateLimit(c: Context, next: Next) {
-  const authHeader = c.req.header("authorization");
-  const key = authHeader
-    ? authHeader.split(" ")[1] ?? "unknown"
-    : c.req.header("x-forwarded-for") ?? c.req.header("x-real-ip") ?? "anonymous";
+function getIdentifier(c: Context): string {
+  const apiKeyId = c.get("apiKeyId") as string | undefined;
+  if (apiKeyId) return `ratelimit:${apiKeyId}`;
 
+  const ip = c.req.header("x-forwarded-for") ?? c.req.header("x-real-ip") ?? "anonymous";
+  return `ratelimit:${ip}`;
+}
+
+export async function rateLimit(c: Context, next: Next) {
+  const identifier = getIdentifier(c);
+
+  // Per-key rate limit from DB (set by auth middleware)
+  const perKeyLimit = c.get("apiKeyRateLimit") as number | undefined;
+  const maxRequests = perKeyLimit ?? DEFAULT_MAX;
+
+  const r = getRedis();
+
+  let count: number;
+  let ttl: number;
+
+  if (r) {
+    // Redis-backed: atomic INCR + EXPIRE
+    try {
+      count = await r.incr(identifier);
+      if (count === 1) {
+        await r.expire(identifier, WINDOW_SECONDS);
+      }
+      ttl = await r.ttl(identifier);
+      if (ttl < 0) ttl = WINDOW_SECONDS;
+    } catch {
+      // Redis failure: fall through to in-memory
+      return inMemoryRateLimit(c, next, identifier, maxRequests);
+    }
+  } else {
+    return inMemoryRateLimit(c, next, identifier, maxRequests);
+  }
+
+  c.header("X-RateLimit-Limit", String(maxRequests));
+  c.header("X-RateLimit-Remaining", String(Math.max(0, maxRequests - count)));
+  c.header("X-RateLimit-Reset", String(Math.ceil((Date.now() + ttl * 1000) / 1000)));
+
+  if (count > maxRequests) {
+    return c.json(
+      { error: "Rate limit exceeded", retryAfter: ttl },
+      429,
+    );
+  }
+
+  return next();
+}
+
+function inMemoryRateLimit(c: Context, next: Next, identifier: string, maxRequests: number) {
   const now = Date.now();
-  let entry = store.get(key);
+  let entry = memStore.get(identifier);
 
   if (!entry || entry.resetAt <= now) {
-    entry = { count: 0, resetAt: now + WINDOW_MS };
-    store.set(key, entry);
+    entry = { count: 0, resetAt: now + WINDOW_SECONDS * 1000 };
+    memStore.set(identifier, entry);
   }
 
   entry.count++;
 
-  c.header("X-RateLimit-Limit", String(MAX_REQUESTS));
-  c.header("X-RateLimit-Remaining", String(Math.max(0, MAX_REQUESTS - entry.count)));
+  c.header("X-RateLimit-Limit", String(maxRequests));
+  c.header("X-RateLimit-Remaining", String(Math.max(0, maxRequests - entry.count)));
   c.header("X-RateLimit-Reset", String(Math.ceil(entry.resetAt / 1000)));
 
-  if (entry.count > MAX_REQUESTS) {
+  if (entry.count > maxRequests) {
     return c.json(
       { error: "Rate limit exceeded", retryAfter: Math.ceil((entry.resetAt - now) / 1000) },
       429,
