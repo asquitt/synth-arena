@@ -20,8 +20,11 @@
  * ```
  */
 
+// API client
+export { SynthArenaClient, SynthArenaError } from "./client.js";
+
 // Core evaluation
-export { evaluate } from "@syntharena/core";
+export { evaluate, computeGPassAtK } from "@syntharena/core";
 export { runArena } from "@syntharena/core";
 
 // All graders as a namespace
@@ -35,6 +38,7 @@ import {
   safetyCheck,
   stateDiff,
   llmJudge,
+  chainPollJudge,
 } from "@syntharena/core";
 
 export const scorers = {
@@ -47,6 +51,7 @@ export const scorers = {
   safetyCheck,
   stateDiff,
   llmJudge,
+  chainPollJudge,
 } as const;
 
 // Re-export individual graders for direct import
@@ -60,6 +65,7 @@ export {
   safetyCheck,
   stateDiff,
   llmJudge,
+  chainPollJudge,
 };
 
 // Types
@@ -83,4 +89,5 @@ export type {
   AgentRanking,
   CostEstimate,
   DomainTemplate,
+  EvaluationProgress,
 } from "@syntharena/shared";
