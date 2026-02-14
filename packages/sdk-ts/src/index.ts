@@ -44,6 +44,10 @@ import {
   llmJudge,
   chainPollJudge,
   calibratedJudge,
+  contextRetention,
+  conversationCoherence,
+  turnEfficiency,
+  goalCompletion,
 } from "@syntharena/core";
 
 export const scorers = {
@@ -60,6 +64,11 @@ export const scorers = {
   llmJudge,
   chainPollJudge,
   calibratedJudge,
+  // Multi-turn conversation scorers
+  contextRetention,
+  conversationCoherence,
+  turnEfficiency,
+  goalCompletion,
 } as const;
 
 // Re-export individual graders for direct import
@@ -77,6 +86,10 @@ export {
   llmJudge,
   chainPollJudge,
   calibratedJudge,
+  contextRetention,
+  conversationCoherence,
+  turnEfficiency,
+  goalCompletion,
 };
 
 // Types

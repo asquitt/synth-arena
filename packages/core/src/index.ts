@@ -34,3 +34,9 @@ export {
 } from "./red-team.js";
 export { generateScorer, generateScorerSuite } from "./scorer-generator.js";
 export type { ScorerGeneratorConfig } from "./scorer-generator.js";
+export {
+  contextRetention,
+  conversationCoherence,
+  turnEfficiency,
+  goalCompletion,
+} from "./conversation-scorers.js";
