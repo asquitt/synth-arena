@@ -36,10 +36,10 @@ export default function Home() {
         {/* Stats */}
         <div className="mt-20 grid grid-cols-4 gap-6">
           {[
-            { label: "Domains", value: "3", sub: "web, gov, healthcare" },
-            { label: "Graders", value: "10+", sub: "code + LLM-as-judge" },
+            { label: "Domains", value: "5", sub: "web, gov, health, legal, energy" },
+            { label: "Graders", value: "12+", sub: "code + LLM-as-judge" },
             { label: "Metrics", value: "pass@k", sub: "capability + reliability" },
-            { label: "Adversarial", value: "7", sub: "attack categories" },
+            { label: "Compliance", value: "EU AI Act", sub: "automated reports" },
           ].map((stat) => (
             <div key={stat.label} className="rounded-xl border border-gray-800 bg-gray-900 p-6">
               <div className="text-3xl font-bold text-white">{stat.value}</div>
@@ -82,6 +82,11 @@ export default function Home() {
               desc: "Estimate token spend before running agents live. Get optimization recommendations automatically.",
               icon: "💰",
             },
+            {
+              title: "EU AI Act Compliance",
+              desc: "Auto-generate compliance reports aligned with Articles 9, 10, 15, and Annex IV. Risk classification by domain.",
+              icon: "📋",
+            },
           ].map((feature) => (
             <div key={feature.title} className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
               <div className="text-2xl">{feature.icon}</div>
@@ -101,6 +106,8 @@ export default function Home() {
             <div className="text-green-400">$ synth-arena arena --agents v1,v2 --scenarios 100</div>
             <div className="mt-4 text-gray-500"># Estimate costs before running</div>
             <div className="text-green-400">$ synth-arena cost --domain healthcare --scenarios 500</div>
+            <div className="mt-4 text-gray-500"># EU AI Act compliance report</div>
+            <div className="text-green-400">$ synth-arena compliance --domain healthcare --scenarios 100</div>
           </div>
         </div>
       </main>
