@@ -1,8 +1,10 @@
 import { Hono } from "hono";
+import { zValidator } from "@hono/zod-validator";
 import type { EvaluationRun } from "@syntharena/shared";
 import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
 import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
+import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
 
 /**
  * Evaluation API routes.
@@ -42,82 +44,76 @@ evaluationRoutes.get("/:id", (c) => {
   return c.json({ data: run });
 });
 
-evaluationRoutes.post("/", async (c) => {
-  const body = await c.req.json<{
-    name: string;
-    domain: string;
-    scenarioCount?: number;
-    trials?: number;
-    maxConcurrency?: number;
-    timeout?: number;
-  }>();
+evaluationRoutes.post("/",
+  zValidator("json", createEvaluationSchema, (result, c) => {
+    if (!result.success) {
+      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+    }
+  }),
+  async (c) => {
+    const body = c.req.valid("json");
 
-  if (!body.name || !body.domain) {
-    return c.json({ error: "name and domain are required" }, 400);
-  }
+    const scenarios = generateDemoScenarios(body.domain, body.scenarioCount);
 
-  const scenarioCount = body.scenarioCount ?? 10;
-  const trials = body.trials ?? 1;
-
-  // Generate demo scenarios for the domain
-  const scenarios = generateDemoScenarios(body.domain, scenarioCount);
-
-  // Run the evaluation with built-in scorers and a demo task
-  const demoTask = async (input: Record<string, unknown>) => {
-    const startTime = Date.now();
-    // Simulate agent work
-    await new Promise((resolve) => setTimeout(resolve, 10));
-    return {
-      output: { success: true, data: input },
-      trace: [],
-      tokenUsage: {
-        inputTokens: 150,
-        outputTokens: 50,
-        totalTokens: 200,
-        estimatedCost: 0.001,
-        model: "demo",
-        provider: "demo",
-      },
-      duration: Date.now() - startTime,
+    const demoTask = async (input: Record<string, unknown>) => {
+      const startTime = Date.now();
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      return {
+        output: { success: true, data: input },
+        trace: [],
+        tokenUsage: {
+          inputTokens: 150,
+          outputTokens: 50,
+          totalTokens: 200,
+          estimatedCost: 0.001,
+          model: "demo",
+          provider: "demo",
+        },
+        duration: Date.now() - startTime,
+      };
     };
-  };
 
-  try {
-    const run = await evaluate({
-      name: body.name,
-      dataset: scenarios,
-      task: demoTask,
-      scorers: [taskCompletion, costThreshold(0.50), safetyCheck()],
-      trials,
-      maxConcurrency: body.maxConcurrency ?? 5,
-      timeout: body.timeout ?? 300_000,
-      metadata: { domain: body.domain },
-    });
+    try {
+      const run = await evaluate({
+        name: body.name,
+        dataset: scenarios,
+        task: demoTask,
+        scorers: [taskCompletion, costThreshold(0.50), safetyCheck()],
+        trials: body.trials,
+        maxConcurrency: body.maxConcurrency,
+        timeout: body.timeout,
+        metadata: { domain: body.domain },
+      });
 
-    runs.set(run.id, run);
+      runs.set(run.id, run);
 
-    return c.json({ data: run }, 201);
-  } catch (err) {
-    return c.json({ error: err instanceof Error ? err.message : "Evaluation failed" }, 500);
+      return c.json({ data: run }, 201);
+    } catch (err) {
+      return c.json({ error: err instanceof Error ? err.message : "Evaluation failed" }, 500);
+    }
   }
-});
+);
 
-evaluationRoutes.post("/:id/compare", async (c) => {
-  const currentRun = runs.get(c.req.param("id"));
-  if (!currentRun) return c.json({ error: "Current run not found" }, 404);
+evaluationRoutes.post("/:id/compare",
+  zValidator("json", compareRunsSchema, (result, c) => {
+    if (!result.success) {
+      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+    }
+  }),
+  async (c) => {
+    const currentRun = runs.get(c.req.param("id"));
+    if (!currentRun) return c.json({ error: "Current run not found" }, 404);
 
-  const body = await c.req.json<{ baselineId: string }>();
-  if (!body.baselineId) {
-    return c.json({ error: "baselineId is required" }, 400);
+    const body = c.req.valid("json");
+
+    const baselineRun = runs.get(body.baselineId);
+    if (!baselineRun) return c.json({ error: "Baseline run not found" }, 404);
+
+    const report = compareRuns(baselineRun, currentRun);
+
+    return c.json({ data: report });
   }
-
-  const baselineRun = runs.get(body.baselineId);
-  if (!baselineRun) return c.json({ error: "Baseline run not found" }, 404);
-
-  const report = compareRuns(baselineRun, currentRun);
-
-  return c.json({ data: report });
-});
+);
 
 evaluationRoutes.delete("/:id", (c) => {
   const id = c.req.param("id");

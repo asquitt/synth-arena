@@ -1,5 +1,7 @@
 import { Hono } from "hono";
+import { zValidator } from "@hono/zod-validator";
 import { estimateCost, generateCostRecommendations, MODEL_PRICING } from "@syntharena/cost";
+import { costEstimateSchema } from "../schemas.js";
 
 /**
  * Cost estimation API routes.
@@ -10,37 +12,35 @@ import { estimateCost, generateCostRecommendations, MODEL_PRICING } from "@synth
 
 export const costRoutes = new Hono();
 
-costRoutes.post("/estimate", async (c) => {
-  const body = await c.req.json<{
-    model: string;
-    scenarioCount: number;
-    trialsPerScenario?: number;
-    avgInputTokensPerCall?: number;
-    avgOutputTokensPerCall?: number;
-    avgCallsPerScenario?: number;
-    cacheHitRate?: number;
-    useBatchApi?: boolean;
-  }>();
+costRoutes.post("/estimate",
+  zValidator("json", costEstimateSchema, (result, c) => {
+    if (!result.success) {
+      return c.json({ error: "Validation failed", details: result.error.issues }, 400);
+    }
+  }),
+  async (c) => {
+    const body = c.req.valid("json");
 
-  try {
-    const estimate = estimateCost({
-      model: body.model,
-      scenarioCount: body.scenarioCount,
-      trialsPerScenario: body.trialsPerScenario ?? 1,
-      avgInputTokensPerCall: body.avgInputTokensPerCall ?? 2000,
-      avgOutputTokensPerCall: body.avgOutputTokensPerCall ?? 500,
-      avgCallsPerScenario: body.avgCallsPerScenario ?? 3,
-      cacheHitRate: body.cacheHitRate,
-      useBatchApi: body.useBatchApi,
-    });
+    try {
+      const estimate = estimateCost({
+        model: body.model,
+        scenarioCount: body.scenarioCount,
+        trialsPerScenario: body.trialsPerScenario,
+        avgInputTokensPerCall: body.avgInputTokensPerCall,
+        avgOutputTokensPerCall: body.avgOutputTokensPerCall,
+        avgCallsPerScenario: body.avgCallsPerScenario,
+        cacheHitRate: body.cacheHitRate,
+        useBatchApi: body.useBatchApi,
+      });
 
-    const recommendations = generateCostRecommendations(estimate);
+      const recommendations = generateCostRecommendations(estimate);
 
-    return c.json({ data: { estimate, recommendations } });
-  } catch (err) {
-    return c.json({ error: err instanceof Error ? err.message : "Estimation failed" }, 400);
+      return c.json({ data: { estimate, recommendations } });
+    } catch (err) {
+      return c.json({ error: err instanceof Error ? err.message : "Estimation failed" }, 400);
+    }
   }
-});
+);
 
 costRoutes.get("/models", (c) => {
   return c.json({
