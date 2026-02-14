@@ -12,5 +12,5 @@ export {
   policyAdherence,
   noRegression,
 } from "./graders.js";
-export { llmJudge, pairwiseJudge, chainPollJudge } from "./llm-judge.js";
+export { llmJudge, pairwiseJudge, chainPollJudge, calibratedJudge } from "./llm-judge.js";
 export { generateId } from "./utils.js";

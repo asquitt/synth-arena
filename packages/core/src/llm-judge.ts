@@ -232,6 +232,81 @@ Which output is better according to the rubric? Respond with ONLY one of: "A", "
   };
 }
 
+// ─── Calibrated Judge ───────────────────────────────────────────────
+
+export interface CalibrationItem {
+  input: Record<string, unknown>;
+  output: unknown;
+  expected?: Record<string, unknown>;
+  knownScore: number; // The "correct" score for this item
+}
+
+export interface CalibratedJudgeConfig {
+  /** The judge scorer to calibrate */
+  judge: Scorer;
+  /** Known-answer items with expected scores */
+  calibrationItems: CalibrationItem[];
+  /** Maximum acceptable deviation from known scores (default: 0.2) */
+  maxDeviation?: number;
+  /** Name for the calibration check result */
+  name?: string;
+}
+
+/**
+ * Wraps a judge scorer with calibration checking.
+ *
+ * Before scoring the actual input, runs the judge against known-answer
+ * calibration items. If the judge's scores deviate too far from known
+ * answers, flags the evaluation as unreliable.
+ *
+ * This detects judge drift, prompt sensitivity, and model degradation.
+ */
+export function calibratedJudge(config: CalibratedJudgeConfig): Scorer {
+  return async (ctx: ScorerContext): Promise<ScorerResult> => {
+    const maxDev = config.maxDeviation ?? 0.2;
+
+    // Run calibration items
+    const calibrationResults: Array<{ known: number; actual: number; deviation: number }> = [];
+
+    for (const item of config.calibrationItems) {
+      const calibCtx: ScorerContext = {
+        input: item.input,
+        output: item.output,
+        expected: item.expected,
+      };
+      const result = await config.judge(calibCtx);
+      const deviation = Math.abs(result.score - item.knownScore);
+      calibrationResults.push({ known: item.knownScore, actual: result.score, deviation });
+    }
+
+    const avgDeviation = calibrationResults.length > 0
+      ? calibrationResults.reduce((s, r) => s + r.deviation, 0) / calibrationResults.length
+      : 0;
+    const calibrationPassed = avgDeviation <= maxDev;
+
+    // Score the actual input
+    const actualResult = await config.judge(ctx);
+
+    return {
+      name: config.name ?? actualResult.name,
+      score: actualResult.score,
+      passed: actualResult.passed && calibrationPassed,
+      reason: !calibrationPassed
+        ? `Judge calibration failed (avg deviation: ${avgDeviation.toFixed(3)}, max: ${maxDev}). Score may be unreliable.`
+        : actualResult.reason,
+      metadata: {
+        ...actualResult.metadata as Record<string, unknown>,
+        calibration: {
+          passed: calibrationPassed,
+          avgDeviation,
+          maxDeviation: maxDev,
+          itemResults: calibrationResults,
+        },
+      },
+    };
+  };
+}
+
 function buildJudgePrompt(rubric: string, ctx: ScorerContext, runIndex: number): string {
   return `You are an evaluation judge. Score the following AI agent output according to this rubric.
 

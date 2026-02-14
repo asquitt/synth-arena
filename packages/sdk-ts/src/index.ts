@@ -41,6 +41,7 @@ import {
   noRegression,
   llmJudge,
   chainPollJudge,
+  calibratedJudge,
 } from "@syntharena/core";
 
 export const scorers = {
@@ -56,6 +57,7 @@ export const scorers = {
   noRegression,
   llmJudge,
   chainPollJudge,
+  calibratedJudge,
 } as const;
 
 // Re-export individual graders for direct import
@@ -72,6 +74,7 @@ export {
   noRegression,
   llmJudge,
   chainPollJudge,
+  calibratedJudge,
 };
 
 // Types
