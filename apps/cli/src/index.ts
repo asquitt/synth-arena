@@ -9,6 +9,7 @@ import { costCommand } from "./commands/cost.js";
 import { replayCommand } from "./commands/replay.js";
 import { initCommand } from "./commands/init.js";
 import { doctorCommand } from "./commands/doctor.js";
+import { ciCommand } from "./commands/ci.js";
 
 const program = new Command();
 
@@ -87,5 +88,19 @@ program
   .command("doctor")
   .description("Check environment setup and diagnose issues")
   .action(doctorCommand);
+
+program
+  .command("ci")
+  .description("Headless evaluation for CI/CD pipelines")
+  .option("-d, --domain <domain>", "Domain template", "web-scraping")
+  .option("-s, --scenarios <count>", "Number of scenarios", "10")
+  .option("-t, --trials <count>", "Trials per scenario", "1")
+  .option("-c, --concurrency <count>", "Max concurrent evaluations", "5")
+  .option("--baseline <path>", "Path to baseline JSON for regression detection")
+  .option("--save-baseline <path>", "Save current run as baseline")
+  .option("--min-pass-rate <rate>", "Minimum pass rate threshold (0-1)")
+  .option("--max-cost <cost>", "Maximum cost threshold in dollars")
+  .option("--output <format>", "Output format (json, summary)", "summary")
+  .action(ciCommand);
 
 program.parse();
