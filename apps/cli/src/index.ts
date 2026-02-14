@@ -11,6 +11,7 @@ import { initCommand } from "./commands/init.js";
 import { doctorCommand } from "./commands/doctor.js";
 import { ciCommand } from "./commands/ci.js";
 import { complianceCommand } from "./commands/compliance.js";
+import { redTeamCommand } from "./commands/red-team.js";
 
 const program = new Command();
 
@@ -112,5 +113,16 @@ program
   .option("-t, --trials <count>", "Trials per scenario", "3")
   .option("--output <format>", "Output format (table, json)", "table")
   .action(complianceCommand);
+
+program
+  .command("red-team")
+  .description("Run adversarial/red team evaluation against your agent")
+  .option("-d, --domain <domain>", "Domain template", "web-scraping")
+  .option("-s, --scenarios <count>", "Number of adversarial scenarios", "14")
+  .option("-t, --trials <count>", "Trials per scenario", "1")
+  .option("--categories <list>", "Attack categories (comma-separated or 'all')", "all")
+  .option("--intensity <level>", "Attack intensity (low, medium, high)", "medium")
+  .option("--output <format>", "Output format (table, json)", "table")
+  .action(redTeamCommand);
 
 program.parse();

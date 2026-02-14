@@ -37,7 +37,7 @@ export default function Home() {
         <div className="mt-20 grid grid-cols-4 gap-6">
           {[
             { label: "Domains", value: "5", sub: "web, gov, health, legal, energy" },
-            { label: "Graders", value: "12+", sub: "code + LLM-as-judge" },
+            { label: "Graders", value: "18+", sub: "code + LLM + red team" },
             { label: "Metrics", value: "pass@k", sub: "capability + reliability" },
             { label: "Compliance", value: "EU AI Act", sub: "automated reports" },
           ].map((stat) => (
@@ -63,9 +63,9 @@ export default function Home() {
               icon: "🛡️",
             },
             {
-              title: "Multi-Layer Evaluation",
-              desc: "Code-based graders, LLM-as-judge with bias calibration, state-diff evaluation, and Arena mode.",
-              icon: "📊",
+              title: "State-Diff Engine",
+              desc: "Compare environment snapshots before/after agent execution. Grade on observable mutations, not step sequences.",
+              icon: "🔬",
             },
             {
               title: "Replay & Regression",
@@ -73,8 +73,8 @@ export default function Home() {
               icon: "🔄",
             },
             {
-              title: "Adversarial Testing",
-              desc: "7 attack categories including prompt injection, data exfiltration, and multi-turn manipulation.",
+              title: "Red Team Suite",
+              desc: "6 adversarial scorers: injection resistance, data leakage, tool misuse prevention, hallucination detection, and more.",
               icon: "⚔️",
             },
             {
@@ -106,6 +106,8 @@ export default function Home() {
             <div className="text-green-400">$ synth-arena arena --agents v1,v2 --scenarios 100</div>
             <div className="mt-4 text-gray-500"># Estimate costs before running</div>
             <div className="text-green-400">$ synth-arena cost --domain healthcare --scenarios 500</div>
+            <div className="mt-4 text-gray-500"># Red team adversarial testing</div>
+            <div className="text-green-400">$ synth-arena red-team --domain healthcare --intensity high</div>
             <div className="mt-4 text-gray-500"># EU AI Act compliance report</div>
             <div className="text-green-400">$ synth-arena compliance --domain healthcare --scenarios 100</div>
           </div>
