@@ -5,6 +5,7 @@ import { initQueue, readJobs, ackJob, closeRedis } from "./queue.js";
 import * as evalRepo from "./repositories/evaluations.js";
 import * as traceRepo from "./repositories/traces.js";
 import { closeDatabase } from "./db.js";
+import { deliverWebhook } from "./webhooks.js";
 import type { EvalJob } from "./queue.js";
 
 /**
@@ -66,6 +67,10 @@ async function processJob(job: EvalJob): Promise<void> {
       console.log(JSON.stringify({ level: "info", message: "Traces written", jobId: job.id, spans: spans.length }));
     }
   }
+
+  // Deliver webhook notifications (fire and forget)
+  const event = run.status === "completed" ? "evaluation.completed" : "evaluation.failed";
+  deliverWebhook(event, run, job.domain).catch(() => {});
 
   console.log(JSON.stringify({
     level: "info",
