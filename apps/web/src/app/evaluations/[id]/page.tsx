@@ -124,12 +124,20 @@ export default function EvaluationDetailPage() {
           </div>
           <div className="flex items-center gap-3">
             {run.status === "completed" && (
-              <a
-                href={`/evaluations/${run.id}/compliance`}
-                className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
-              >
-                EU AI Act Report
-              </a>
+              <>
+                <a
+                  href={`/evaluations/${run.id}/state-diff`}
+                  className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
+                >
+                  State-Diff Analysis
+                </a>
+                <a
+                  href={`/evaluations/${run.id}/compliance`}
+                  className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
+                >
+                  EU AI Act Report
+                </a>
+              </>
             )}
             <span className={`rounded-full px-3 py-1 text-xs font-medium ${
               run.status === "completed" ? "bg-green-900/50 text-green-400" : "bg-yellow-900/50 text-yellow-400"
