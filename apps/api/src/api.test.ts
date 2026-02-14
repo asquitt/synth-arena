@@ -46,6 +46,25 @@ describe("Metrics endpoint", () => {
   });
 });
 
+describe("API Documentation", () => {
+  it("GET /api/docs returns Swagger UI HTML", async () => {
+    const res = await request("/api/docs");
+    expect(res.status).toBe(200);
+    const html = await res.text();
+    expect(html).toContain("swagger-ui");
+    expect(html).toContain("SynthArena API Docs");
+  });
+
+  it("GET /api/docs/openapi.json returns OpenAPI spec", async () => {
+    const res = await request("/api/docs/openapi.json");
+    expect(res.status).toBe(200);
+    const body = await res.json();
+    expect(body.openapi).toBe("3.1.0");
+    expect(body.info.title).toBe("SynthArena API");
+    expect(body.paths["/api/v1/evaluations"]).toBeDefined();
+  });
+});
+
 describe("404 handler", () => {
   it("returns structured error for unknown routes", async () => {
     const res = await request("/api/v1/nonexistent");

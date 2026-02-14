@@ -25,6 +25,7 @@ import { trackHttpRequest, renderMetrics } from "./metrics.js";
 import { timeout } from "./middleware/timeout.js";
 import { securityHeaders } from "./middleware/security-headers.js";
 import { noCache, shortCache } from "./middleware/cache.js";
+import { openApiSpec, swaggerHtml } from "./openapi.js";
 import { trace, SpanStatusCode } from "@opentelemetry/api";
 
 // Validate environment at startup (fail fast)
@@ -152,6 +153,10 @@ app.get("/metrics", (c) => {
   c.header("Content-Type", "text/plain; version=0.0.4; charset=utf-8");
   return c.text(renderMetrics());
 });
+
+// API Documentation (unauthenticated)
+app.get("/api/docs", (c) => c.html(swaggerHtml("/api/docs/openapi.json")));
+app.get("/api/docs/openapi.json", (c) => c.json(openApiSpec));
 
 // API v1 routes (authenticated + rate limited + no cache)
 const v1 = new Hono();
