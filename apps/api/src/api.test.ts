@@ -106,6 +106,40 @@ describe("Evaluation CRUD", () => {
     const body = await res.json();
     expect(body.error.code).toBe("NOT_FOUND");
   });
+
+  it("deletes an evaluation", async () => {
+    const createRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "to-delete",
+        domain: "web-scraping",
+        scenarioCount: 1,
+        trials: 1,
+      }),
+    });
+    const { data } = await createRes.json();
+
+    const delRes = await request(`/api/v1/evaluations/${data.id}`, { method: "DELETE" });
+    expect(delRes.status).toBe(200);
+    const deleted = await delRes.json();
+    expect(deleted.data.deleted).toBe(true);
+
+    // Verify it's gone
+    const getRes = await request(`/api/v1/evaluations/${data.id}`);
+    expect(getRes.status).toBe(404);
+  });
+
+  it("validates request body on create", async () => {
+    const res = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: "" }), // empty name
+    });
+    expect(res.status).toBe(400);
+    const body = await res.json();
+    expect(body.error.code).toBe("VALIDATION_ERROR");
+  });
 });
 
 describe("CORS", () => {

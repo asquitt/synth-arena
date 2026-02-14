@@ -24,6 +24,7 @@ import { ApiError } from "./errors.js";
 import { trackHttpRequest, renderMetrics } from "./metrics.js";
 import { timeout } from "./middleware/timeout.js";
 import { securityHeaders } from "./middleware/security-headers.js";
+import { noCache, shortCache } from "./middleware/cache.js";
 import { trace, SpanStatusCode } from "@opentelemetry/api";
 
 // Validate environment at startup (fail fast)
@@ -81,16 +82,16 @@ app.use("*", async (c, next) => {
   });
 });
 
-// Health check (unauthenticated)
-app.get("/health", (c) => c.json({
+// Health check (unauthenticated, short cache for LB polling)
+app.get("/health", shortCache, (c) => c.json({
   status: "ok",
   version: "0.1.0",
   timestamp: new Date().toISOString(),
   uptime: process.uptime(),
 }));
 
-// Deep health check (unauthenticated)
-app.get("/health/deep", async (c) => {
+// Deep health check (unauthenticated, short cache)
+app.get("/health/deep", shortCache, async (c) => {
   const checks: Record<string, { status: string; latency?: number }> = {};
 
   // Memory check
@@ -152,10 +153,11 @@ app.get("/metrics", (c) => {
   return c.text(renderMetrics());
 });
 
-// API v1 routes (authenticated + rate limited)
+// API v1 routes (authenticated + rate limited + no cache)
 const v1 = new Hono();
 v1.use("*", authenticate);
 v1.use("*", rateLimit);
+v1.use("*", noCache);
 v1.route("/evaluations", evaluationRoutes);
 v1.route("/scenarios", scenarioRoutes);
 v1.route("/domains", domainRoutes);
