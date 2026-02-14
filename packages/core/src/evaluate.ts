@@ -10,6 +10,7 @@ import type {
   Scenario,
 } from "@syntharena/shared";
 import { generateId } from "./utils.js";
+import { getTracer, setSpanError, SpanStatusCode } from "./tracing.js";
 
 /**
  * Run an evaluation: execute a task function against a dataset of scenarios,
@@ -19,6 +20,20 @@ import { generateId } from "./utils.js";
  * reliability metrics (following Anthropic's evaluation methodology).
  */
 export async function evaluate(config: EvaluationConfig): Promise<EvaluationRun> {
+  const tracer = getTracer();
+  return tracer.startActiveSpan("evaluate", { attributes: { "eval.name": config.name, "eval.scenarios": config.dataset.length, "eval.trials": config.trials ?? 1 } }, async (rootSpan) => {
+    try {
+      return await evaluateInner(config, rootSpan);
+    } catch (err) {
+      setSpanError(rootSpan, err);
+      throw err;
+    } finally {
+      rootSpan.end();
+    }
+  });
+}
+
+async function evaluateInner(config: EvaluationConfig, rootSpan: import("@opentelemetry/api").Span): Promise<EvaluationRun> {
   const {
     name,
     dataset,
@@ -32,6 +47,7 @@ export async function evaluate(config: EvaluationConfig): Promise<EvaluationRun>
 
   const runId = generateId();
   const createdAt = new Date().toISOString();
+  rootSpan.setAttribute("eval.run_id", runId);
 
   const results: ScenarioResult[] = [];
   let completedCount = 0;
@@ -59,6 +75,13 @@ export async function evaluate(config: EvaluationConfig): Promise<EvaluationRun>
 
   const summary = computeSummary(results);
 
+  rootSpan.setAttributes({
+    "eval.pass_rate": summary.overallPassRate,
+    "eval.total_cost": summary.totalCost,
+    "eval.total_duration_ms": summary.totalDuration,
+  });
+  rootSpan.setStatus({ code: SpanStatusCode.OK });
+
   onProgress?.({
     type: "run_complete",
     totalScenarios: dataset.length,
@@ -84,26 +107,36 @@ async function evaluateScenario(
   trialCount: number,
   timeout: number
 ): Promise<ScenarioResult> {
-  const trials: TrialResult[] = [];
+  const tracer = getTracer();
+  return tracer.startActiveSpan(`scenario:${scenario.id}`, { attributes: { "scenario.id": scenario.id, "scenario.trials": trialCount } }, async (span) => {
+    try {
+      const trials: TrialResult[] = [];
 
-  for (let t = 0; t < trialCount; t++) {
-    const trial = await runTrial(scenario, task, scorers, t, timeout);
-    trials.push(trial);
-  }
+      for (let t = 0; t < trialCount; t++) {
+        const trial = await runTrial(scenario, task, scorers, t, timeout);
+        trials.push(trial);
+      }
 
-  const aggregatedScores = aggregateScores(trials);
-  const passAtK = computePassAtK(trials);
-  const passToTheK = computePassToTheK(trials);
-  const gPassAtK = computeGPassAtK(trials);
+      const aggregatedScores = aggregateScores(trials);
+      const passAtK = computePassAtK(trials);
+      const passToTheK = computePassToTheK(trials);
+      const gPassAtK = computeGPassAtK(trials);
 
-  return {
-    scenarioId: scenario.id,
-    trials,
-    aggregatedScores,
-    passAtK,
-    passToTheK,
-    gPassAtK,
-  };
+      span.setAttributes({
+        "scenario.pass_at_k": passAtK,
+        "scenario.pass_to_the_k": passToTheK,
+        "scenario.g_pass_at_k": gPassAtK,
+      });
+      span.setStatus({ code: SpanStatusCode.OK });
+
+      return { scenarioId: scenario.id, trials, aggregatedScores, passAtK, passToTheK, gPassAtK };
+    } catch (err) {
+      setSpanError(span, err);
+      throw err;
+    } finally {
+      span.end();
+    }
+  });
 }
 
 async function runTrial(
@@ -113,40 +146,58 @@ async function runTrial(
   trialNumber: number,
   timeout: number
 ): Promise<TrialResult> {
-  const taskResult = await Promise.race([
-    task(scenario.input),
-    new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error(`Trial timed out after ${timeout}ms`)), timeout)
-    ),
-  ]);
-
-  const scorerCtx: ScorerContext = {
-    input: scenario.input,
-    output: taskResult.output,
-    expected: scenario.expected,
-    metadata: scenario.metadata as unknown as Record<string, unknown>,
-    trace: taskResult.trace,
-    tokenUsage: taskResult.tokenUsage,
-  };
-
-  const scores: ScorerResult[] = [];
-  for (const scorer of scorers) {
+  const tracer = getTracer();
+  return tracer.startActiveSpan(`trial:${trialNumber}`, { attributes: { "trial.number": trialNumber, "trial.scenario_id": scenario.id } }, async (span) => {
     try {
-      const result = await scorer(scorerCtx);
-      scores.push(result);
-    } catch (err) {
-      scores.push({
-        name: "scorer_error",
-        score: 0,
-        passed: false,
-        reason: err instanceof Error ? err.message : String(err),
+      const taskResult = await Promise.race([
+        task(scenario.input),
+        new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error(`Trial timed out after ${timeout}ms`)), timeout)
+        ),
+      ]);
+
+      span.setAttributes({
+        "trial.duration_ms": taskResult.duration,
+        "trial.tokens": taskResult.tokenUsage.totalTokens,
+        "trial.cost": taskResult.tokenUsage.estimatedCost,
       });
+
+      const scorerCtx: ScorerContext = {
+        input: scenario.input,
+        output: taskResult.output,
+        expected: scenario.expected,
+        metadata: scenario.metadata as unknown as Record<string, unknown>,
+        trace: taskResult.trace,
+        tokenUsage: taskResult.tokenUsage,
+      };
+
+      const scores: ScorerResult[] = [];
+      for (const scorer of scorers) {
+        try {
+          const result = await scorer(scorerCtx);
+          scores.push(result);
+        } catch (err) {
+          scores.push({
+            name: "scorer_error",
+            score: 0,
+            passed: false,
+            reason: err instanceof Error ? err.message : String(err),
+          });
+        }
+      }
+
+      const passed = scores.every((s) => s.passed);
+      span.setAttribute("trial.passed", passed);
+      span.setStatus({ code: passed ? SpanStatusCode.OK : SpanStatusCode.ERROR, message: passed ? undefined : "Trial failed" });
+
+      return { trialNumber, taskResult, scores, passed };
+    } catch (err) {
+      setSpanError(span, err);
+      throw err;
+    } finally {
+      span.end();
     }
-  }
-
-  const passed = scores.every((s) => s.passed);
-
-  return { trialNumber, taskResult, scores, passed };
+  });
 }
 
 /**

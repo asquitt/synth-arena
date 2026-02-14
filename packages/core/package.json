@@ -12,8 +12,9 @@
     "test": "vitest run"
   },
   "dependencies": {
-    "@syntharena/shared": "workspace:*",
-    "@anthropic-ai/sdk": "^0.39.0"
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@opentelemetry/api": "^1.9.0",
+    "@syntharena/shared": "workspace:*"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
