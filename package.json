@@ -11,7 +11,8 @@
     "test:core": "turbo test --filter=@syntharena/core",
     "test:scenarios": "turbo test --filter=@syntharena/scenarios",
     "cli": "pnpm --filter=@syntharena/cli exec synth-arena",
-    "db:migrate": "pnpm --filter=@syntharena/api run migrate"
+    "db:migrate": "pnpm --filter=@syntharena/api run migrate",
+    "db:seed": "psql $DATABASE_URL -f docker/init/seed.sql"
   },
   "devDependencies": {
     "turbo": "^2.4.0",
