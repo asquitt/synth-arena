@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Nav } from "../../components/nav";
 
 interface DomainInfo {
   name: string;
@@ -38,6 +39,22 @@ const FALLBACK_DOMAINS: DomainInfo[] = [
     constraintCount: 4,
     defaultScorers: ["task_completion", "safety_check"],
   },
+  {
+    name: "legal",
+    description: "Immigration law automation: visa petitions, USCIS form processing, evidence compilation, and compliance verification",
+    version: "0.1.0",
+    generatorCount: 2,
+    constraintCount: 3,
+    defaultScorers: ["task_completion", "exact_match", "safety_check"],
+  },
+  {
+    name: "energy",
+    description: "Energy grid management: demand forecasting, outage response, renewable integration, and regulatory compliance",
+    version: "0.1.0",
+    generatorCount: 2,
+    constraintCount: 3,
+    defaultScorers: ["task_completion", "cost_threshold", "safety_check"],
+  },
 ];
 
 export default function DomainsPage() {
@@ -54,21 +71,7 @@ export default function DomainsPage() {
 
   return (
     <div className="min-h-screen">
-      <nav className="border-b border-gray-800 px-6 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-orange-500 to-red-600" />
-            <span className="text-xl font-bold">SynthArena</span>
-          </a>
-          <div className="flex gap-6 text-sm text-gray-400">
-            <a href="/evaluations" className="hover:text-white">Evaluations</a>
-            <a href="/arena" className="hover:text-white">Arena</a>
-            <a href="/scenarios" className="hover:text-white">Scenarios</a>
-            <a href="/domains" className="text-white">Domains</a>
-            <a href="/cost" className="hover:text-white">Cost</a>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="mx-auto max-w-7xl px-6 py-10">
         <h1 className="text-3xl font-bold">Domain Templates</h1>

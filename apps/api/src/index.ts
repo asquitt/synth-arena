@@ -3,6 +3,7 @@ import type { ServerType } from "@hono/node-server";
 import { Hono } from "hono";
 import { cors } from "hono/cors";
 import { requestId } from "hono/request-id";
+import { bodyLimit } from "hono/body-limit";
 import { evaluationRoutes } from "./routes/evaluations.js";
 import { scenarioRoutes } from "./routes/scenarios.js";
 import { domainRoutes } from "./routes/domains.js";
@@ -27,6 +28,7 @@ app.use("*", cors({
   credentials: true,
 }));
 app.use("*", requestId());
+app.use("*", bodyLimit({ maxSize: 10 * 1024 * 1024 })); // 10MB
 
 // Structured JSON logging middleware
 app.use("*", async (c, next) => {

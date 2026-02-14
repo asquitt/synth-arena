@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import { Nav } from "../../components/nav";
+import { DomainSelect } from "../../components/domain-select";
 
 interface AgentRanking {
   agentName: string;
@@ -69,21 +71,7 @@ export default function ArenaPage() {
 
   return (
     <div className="min-h-screen">
-      <nav className="border-b border-gray-800 px-6 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-orange-500 to-red-600" />
-            <span className="text-xl font-bold">SynthArena</span>
-          </a>
-          <div className="flex gap-6 text-sm text-gray-400">
-            <a href="/evaluations" className="hover:text-white">Evaluations</a>
-            <a href="/arena" className="text-white">Arena</a>
-            <a href="/scenarios" className="hover:text-white">Scenarios</a>
-            <a href="/domains" className="hover:text-white">Domains</a>
-            <a href="/cost" className="hover:text-white">Cost</a>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="mx-auto max-w-7xl px-6 py-10">
         <h1 className="text-3xl font-bold">Arena Mode</h1>
@@ -103,18 +91,7 @@ export default function ArenaPage() {
                 placeholder="agent-v1, agent-v2, agent-v3"
               />
             </div>
-            <div>
-              <label className="block text-xs text-gray-400">Domain</label>
-              <select
-                value={domain}
-                onChange={(e) => setDomain(e.target.value)}
-                className="mt-1 rounded-lg border border-gray-700 bg-gray-800 px-3 py-2 text-sm"
-              >
-                <option value="web-scraping">Web Scraping</option>
-                <option value="government">Government</option>
-                <option value="healthcare">Healthcare</option>
-              </select>
-            </div>
+            <DomainSelect value={domain} onChange={setDomain} />
             <div>
               <label className="block text-xs text-gray-400">Scenarios</label>
               <input

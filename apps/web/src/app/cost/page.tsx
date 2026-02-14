@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { Nav } from "../../components/nav";
 
 interface CostEstimate {
   scenarioCount: number;
@@ -94,21 +95,7 @@ export default function CostPage() {
 
   return (
     <div className="min-h-screen">
-      <nav className="border-b border-gray-800 px-6 py-4">
-        <div className="mx-auto flex max-w-7xl items-center justify-between">
-          <a href="/" className="flex items-center gap-2">
-            <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-orange-500 to-red-600" />
-            <span className="text-xl font-bold">SynthArena</span>
-          </a>
-          <div className="flex gap-6 text-sm text-gray-400">
-            <a href="/evaluations" className="hover:text-white">Evaluations</a>
-            <a href="/arena" className="hover:text-white">Arena</a>
-            <a href="/scenarios" className="hover:text-white">Scenarios</a>
-            <a href="/domains" className="hover:text-white">Domains</a>
-            <a href="/cost" className="text-white">Cost</a>
-          </div>
-        </div>
-      </nav>
+      <Nav />
 
       <main className="mx-auto max-w-7xl px-6 py-10">
         <h1 className="text-3xl font-bold">Cost Estimator</h1>
