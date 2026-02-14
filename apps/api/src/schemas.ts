@@ -59,6 +59,12 @@ export const adversarialSchema = z.object({
   intensity: z.enum(["low", "medium", "high"]).optional().default("medium"),
 });
 
+export const createApiKeySchema = z.object({
+  name: z.string().min(1).max(255).optional(),
+  permissions: z.array(z.enum(["read", "write", "admin"])).optional().default(["read", "write"]),
+  rateLimitPerMinute: z.number().int().min(1).max(10_000).optional().default(60),
+});
+
 export const costEstimateSchema = z.object({
   model: z.string().min(1),
   scenarioCount: z.number().int().min(1).max(1_000_000),

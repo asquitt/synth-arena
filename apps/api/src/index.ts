@@ -7,8 +7,9 @@ import { evaluationRoutes } from "./routes/evaluations.js";
 import { scenarioRoutes } from "./routes/scenarios.js";
 import { domainRoutes } from "./routes/domains.js";
 import { costRoutes } from "./routes/cost.js";
-import { authenticate } from "./middleware/auth.js";
+import { authenticate, requirePermission } from "./middleware/auth.js";
 import { rateLimit } from "./middleware/rate-limit.js";
+import { adminRoutes } from "./routes/admin.js";
 import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
 import { checkRedis, closeRedis, initQueue } from "./queue.js";
@@ -107,6 +108,13 @@ v1.route("/evaluations", evaluationRoutes);
 v1.route("/scenarios", scenarioRoutes);
 v1.route("/domains", domainRoutes);
 v1.route("/cost", costRoutes);
+
+// Admin routes (require "admin" permission)
+const admin = new Hono();
+admin.use("*", authenticate);
+admin.use("*", requirePermission("admin"));
+admin.route("/", adminRoutes);
+v1.route("/admin", admin);
 
 app.route("/api/v1", v1);
 
