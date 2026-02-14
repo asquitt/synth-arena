@@ -5,9 +5,9 @@ import type { Scorer, ScorerContext, ScorerResult } from "@syntharena/shared";
  * LLM-as-judge graders for flexible, rubric-based evaluation.
  *
  * Anti-bias measures (per research):
- * - Randomize output positions to counter position bias
- * - Multiple judge runs with score averaging
- * - Avoid using same model family as agent and judge
+ * - Position debiasing: run with output/expected swapped, average results
+ * - ChainPoll: multiple independent judges with majority vote
+ * - Multi-model jury: use judges from different model families
  * - Calibration against human-labeled gold standard
  */
 
@@ -17,11 +17,13 @@ export interface LlmJudgeConfig {
   model?: string;
   apiKey?: string;
   threshold?: number;
-  runs?: number; // Multiple runs for averaging (reduces variance)
+  runs?: number;
+  positionDebias?: boolean; // Run with swapped positions to cancel position bias
 }
 
 /**
  * Create an LLM-as-judge scorer with a custom rubric.
+ * Supports position debiasing by running with output/expected swapped.
  */
 export function llmJudge(config: LlmJudgeConfig): Scorer {
   return async (ctx: ScorerContext): Promise<ScorerResult> => {
@@ -29,23 +31,26 @@ export function llmJudge(config: LlmJudgeConfig): Scorer {
     const model = config.model ?? "claude-sonnet-4-20250514";
     const runs = config.runs ?? 1;
     const threshold = config.threshold ?? 0.7;
+    const debias = config.positionDebias ?? false;
 
     const scores: number[] = [];
 
     for (let run = 0; run < runs; run++) {
       const prompt = buildJudgePrompt(config.rubric, ctx, run);
+      const score = await callJudge(client, model, prompt);
+      if (score !== null) scores.push(score);
 
-      const response = await client.messages.create({
-        model,
-        max_tokens: 1024,
-        messages: [{ role: "user", content: prompt }],
-      });
-
-      const textBlock = response.content.find((b) => b.type === "text");
-      if (!textBlock || textBlock.type !== "text") continue;
-
-      const parsed = parseJudgeResponse(textBlock.text);
-      if (parsed !== null) scores.push(parsed);
+      // Position debiasing: re-run with output/expected swapped
+      if (debias && ctx.expected) {
+        const swappedPrompt = buildJudgePrompt(config.rubric, {
+          ...ctx,
+          output: ctx.expected,
+          expected: ctx.output as Record<string, unknown>,
+        }, run);
+        const swappedScore = await callJudge(client, model, swappedPrompt);
+        // Invert the swapped score (if judge gave 0.8 to expected, the original deserves 0.2)
+        if (swappedScore !== null) scores.push(1 - swappedScore);
+      }
     }
 
     if (scores.length === 0) {
@@ -65,9 +70,101 @@ export function llmJudge(config: LlmJudgeConfig): Scorer {
         scores,
         variance,
         model,
+        positionDebiased: debias,
       },
     };
   };
+}
+
+export interface ChainPollConfig {
+  rubric: string;
+  name: string;
+  /** Models to use as judges (default: 3 runs of the same model) */
+  models?: string[];
+  apiKey?: string;
+  threshold?: number;
+  /** Minimum judges that must agree for consensus (default: majority) */
+  consensusThreshold?: number;
+  positionDebias?: boolean;
+}
+
+/**
+ * ChainPoll: Multi-judge consensus scoring.
+ * Runs multiple independent judges and takes majority vote.
+ * Reduces variance by ~50% compared to single judge (per research).
+ */
+export function chainPollJudge(config: ChainPollConfig): Scorer {
+  return async (ctx: ScorerContext): Promise<ScorerResult> => {
+    const client = new Anthropic({ apiKey: config.apiKey });
+    const models = config.models ?? [
+      "claude-sonnet-4-20250514",
+      "claude-sonnet-4-20250514",
+      "claude-sonnet-4-20250514",
+    ];
+    const threshold = config.threshold ?? 0.7;
+    const debias = config.positionDebias ?? true;
+    const consensusMin = config.consensusThreshold ?? Math.ceil(models.length / 2);
+
+    const judgements: { model: string; score: number; passed: boolean }[] = [];
+
+    for (const model of models) {
+      const scores: number[] = [];
+
+      const prompt = buildJudgePrompt(config.rubric, ctx, 0);
+      const score = await callJudge(client, model, prompt);
+      if (score !== null) scores.push(score);
+
+      if (debias && ctx.expected) {
+        const swappedPrompt = buildJudgePrompt(config.rubric, {
+          ...ctx,
+          output: ctx.expected,
+          expected: ctx.output as Record<string, unknown>,
+        }, 0);
+        const swappedScore = await callJudge(client, model, swappedPrompt);
+        if (swappedScore !== null) scores.push(1 - swappedScore);
+      }
+
+      if (scores.length > 0) {
+        const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+        judgements.push({ model, score: avg, passed: avg >= threshold });
+      }
+    }
+
+    if (judgements.length === 0) {
+      return { name: config.name, score: 0, passed: false, reason: "No judges returned valid scores" };
+    }
+
+    const passCount = judgements.filter((j) => j.passed).length;
+    const consensusPassed = passCount >= consensusMin;
+    const avgScore = judgements.reduce((s, j) => s + j.score, 0) / judgements.length;
+
+    return {
+      name: config.name,
+      score: avgScore,
+      passed: consensusPassed,
+      reason: !consensusPassed
+        ? `${passCount}/${judgements.length} judges passed (need ${consensusMin})`
+        : undefined,
+      metadata: {
+        judgements,
+        consensusThreshold: consensusMin,
+        positionDebiased: debias,
+      },
+    };
+  };
+}
+
+async function callJudge(client: Anthropic, model: string, prompt: string): Promise<number | null> {
+  const response = await client.messages.create({
+    model,
+    max_tokens: 1024,
+    messages: [{ role: "user", content: prompt }],
+  });
+
+  const textBlock = response.content.find((b) => b.type === "text");
+  if (!textBlock || textBlock.type !== "text") return null;
+
+  return parseJudgeResponse(textBlock.text);
 }
 
 /**
