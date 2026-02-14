@@ -1,3 +1,7 @@
+// OTel must initialize before other imports to hook instrumentation
+import { initTracing, shutdownTracing } from "./tracing.js";
+initTracing();
+
 import { serve } from "@hono/node-server";
 import type { ServerType } from "@hono/node-server";
 import { Hono } from "hono";
@@ -18,6 +22,7 @@ import { checkDatabase, closeDatabase } from "./db.js";
 import { checkRedis, closeRedis, initQueue } from "./queue.js";
 import { ApiError } from "./errors.js";
 import { trackHttpRequest, renderMetrics } from "./metrics.js";
+import { trace, SpanStatusCode } from "@opentelemetry/api";
 
 // Validate environment at startup (fail fast)
 const env = validateEnv();
@@ -32,24 +37,43 @@ app.use("*", cors({
 app.use("*", requestId());
 app.use("*", bodyLimit({ maxSize: 10 * 1024 * 1024 })); // 10MB
 
-// Structured JSON logging + metrics middleware
+// Structured JSON logging + metrics + OTel span middleware
 app.use("*", async (c, next) => {
-  const start = Date.now();
-  await next();
-  const duration = Date.now() - start;
-  const log = {
-    method: c.req.method,
-    path: c.req.path,
-    status: c.res.status,
-    duration,
-    requestId: c.get("requestId"),
-  };
-  trackHttpRequest(c.req.method, c.req.path, c.res.status, duration);
-  if (c.res.status >= 400) {
-    console.error(JSON.stringify(log));
-  } else {
-    console.log(JSON.stringify(log));
-  }
+  const tracer = trace.getTracer("syntharena.api", "0.1.0");
+  await tracer.startActiveSpan(`${c.req.method} ${c.req.path}`, async (span) => {
+    span.setAttribute("http.method", c.req.method);
+    span.setAttribute("http.url", c.req.url);
+    span.setAttribute("http.route", c.req.path);
+    const rid = c.get("requestId");
+    if (rid) span.setAttribute("request.id", rid);
+
+    const start = Date.now();
+    try {
+      await next();
+    } finally {
+      const duration = Date.now() - start;
+      span.setAttribute("http.status_code", c.res.status);
+      span.setAttribute("http.duration_ms", duration);
+      if (c.res.status >= 400) {
+        span.setStatus({ code: SpanStatusCode.ERROR, message: `HTTP ${c.res.status}` });
+      }
+      span.end();
+
+      trackHttpRequest(c.req.method, c.req.path, c.res.status, duration);
+      const log = {
+        method: c.req.method,
+        path: c.req.path,
+        status: c.res.status,
+        duration,
+        requestId: rid,
+      };
+      if (c.res.status >= 400) {
+        console.error(JSON.stringify(log));
+      } else {
+        console.log(JSON.stringify(log));
+      }
+    }
+  });
 });
 
 // Health check (unauthenticated)
@@ -202,6 +226,7 @@ async function startServer() {
     database: process.env["DATABASE_URL"] ? "connected" : "in-memory",
     redis: process.env["REDIS_URL"] ? "connected" : "disabled",
     clickhouse: process.env["CLICKHOUSE_URL"] ? "connected" : "disabled",
+    otel: process.env["OTEL_EXPORTER_OTLP_ENDPOINT"] ? "enabled" : "disabled",
   }));
 }
 
@@ -212,6 +237,7 @@ function shutdown(signal: string) {
     await Promise.all([
       closeDatabase().catch(() => {}),
       closeRedis().catch(() => {}),
+      shutdownTracing().catch(() => {}),
     ]);
     console.log(JSON.stringify({ level: "info", message: "Server closed" }));
     process.exit(0);
