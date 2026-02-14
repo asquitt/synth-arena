@@ -14,3 +14,5 @@ export {
 } from "./graders.js";
 export { llmJudge, pairwiseJudge, chainPollJudge, calibratedJudge } from "./llm-judge.js";
 export { generateId } from "./utils.js";
+export { generateComplianceReport } from "./compliance.js";
+export type { ComplianceReport, ComplianceCheck, RiskClassification } from "./compliance.js";

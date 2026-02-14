@@ -10,6 +10,7 @@ import { replayCommand } from "./commands/replay.js";
 import { initCommand } from "./commands/init.js";
 import { doctorCommand } from "./commands/doctor.js";
 import { ciCommand } from "./commands/ci.js";
+import { complianceCommand } from "./commands/compliance.js";
 
 const program = new Command();
 
@@ -102,5 +103,14 @@ program
   .option("--max-cost <cost>", "Maximum cost threshold in dollars")
   .option("--output <format>", "Output format (json, summary)", "summary")
   .action(ciCommand);
+
+program
+  .command("compliance")
+  .description("Generate EU AI Act compliance report from an evaluation run")
+  .option("-d, --domain <domain>", "Domain template", "web-scraping")
+  .option("-s, --scenarios <count>", "Number of scenarios", "20")
+  .option("-t, --trials <count>", "Trials per scenario", "3")
+  .option("--output <format>", "Output format (table, json)", "table")
+  .action(complianceCommand);
 
 program.parse();

@@ -180,3 +180,35 @@ describe("Request ID", () => {
     expect(res.headers.get("x-request-id")).toBe(customId);
   });
 });
+
+describe("Compliance report", () => {
+  it("generates EU AI Act compliance report for a completed evaluation", async () => {
+    const createRes = await request("/api/v1/evaluations", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: "compliance-test",
+        domain: "healthcare",
+        scenarioCount: 3,
+        trials: 1,
+      }),
+    });
+    const { data } = await createRes.json();
+
+    const compRes = await request(`/api/v1/evaluations/${data.id}/compliance`);
+    expect(compRes.status).toBe(200);
+    const report = await compRes.json();
+    expect(report.data.framework).toBe("eu-ai-act");
+    expect(report.data.riskClassification.level).toBe("high"); // healthcare = high-risk
+    expect(report.data.checks.length).toBeGreaterThan(0);
+    expect(report.data.overallStatus).toBeDefined();
+    expect(report.data.recommendations).toBeDefined();
+    expect(report.data.testingSummary.accuracy).toBeDefined();
+    expect(report.data.testingSummary.reliability).toBeDefined();
+  });
+
+  it("returns 404 for compliance report on non-existent evaluation", async () => {
+    const res = await request("/api/v1/evaluations/missing-id/compliance");
+    expect(res.status).toBe(404);
+  });
+});

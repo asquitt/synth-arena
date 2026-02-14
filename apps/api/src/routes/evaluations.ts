@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { streamSSE } from "hono/streaming";
 import { zValidator } from "@hono/zod-validator";
 import type { EvaluationRun, EvaluationProgress } from "@syntharena/shared";
-import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
+import { evaluate, taskCompletion, costThreshold, safetyCheck, generateComplianceReport } from "@syntharena/core";
 import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
@@ -280,6 +280,17 @@ evaluationRoutes.get("/jobs/:jobId", async (c) => {
   const status = await getJobStatus(jobId);
   if (!status) throw new ApiError("JOB_NOT_FOUND", `Job '${jobId}' not found`, 404);
   return c.json({ data: status });
+});
+
+// EU AI Act compliance report
+evaluationRoutes.get("/:id/compliance", async (c) => {
+  const run = await getRun(c.req.param("id"));
+  if (!run) throw notFound("Evaluation", c.req.param("id"));
+  if (run.status !== "completed") {
+    throw new ApiError("EVALUATION_NOT_COMPLETE", "Compliance reports require a completed evaluation", 400);
+  }
+  const report = generateComplianceReport(run);
+  return c.json({ data: report });
 });
 
 evaluationRoutes.delete("/:id", async (c) => {
