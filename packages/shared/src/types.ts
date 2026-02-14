@@ -63,6 +63,8 @@ export interface EvaluationConfig {
   trials?: number;
   maxConcurrency?: number;
   timeout?: number;
+  maxSteps?: number; // Max agent steps per scenario (prevents infinite loops)
+  maxTokensBudget?: number; // Max total tokens per scenario (cost control)
   metadata?: Record<string, unknown>;
   onProgress?: (event: EvaluationProgress) => void;
 }

@@ -248,6 +248,111 @@ export function stateDiff(opts: {
   };
 }
 
+// ─── Policy Adherence ───────────────────────────────────────────────
+
+/**
+ * Checks that agent actions comply with domain-specific policies.
+ * Inspired by tau-bench (Sierra Research) — grade on policy adherence,
+ * not just task completion.
+ *
+ * @example
+ * policyAdherence({
+ *   rules: [
+ *     { name: "no-pii-in-logs", check: (ctx) => !JSON.stringify(ctx.trace).match(/\d{3}-\d{2}-\d{4}/) },
+ *     { name: "max-retries", check: (ctx) => (ctx.trace?.length ?? 0) <= 10 },
+ *   ]
+ * })
+ */
+export function policyAdherence(opts: {
+  rules: Array<{ name: string; check: (ctx: ScorerContext) => boolean; severity?: "error" | "warning" }>;
+}): Scorer {
+  return async (ctx: ScorerContext): Promise<ScorerResult> => {
+    const violations: Array<{ rule: string; severity: string }> = [];
+
+    for (const rule of opts.rules) {
+      try {
+        if (!rule.check(ctx)) {
+          violations.push({ rule: rule.name, severity: rule.severity ?? "error" });
+        }
+      } catch (err) {
+        violations.push({ rule: rule.name, severity: "error" });
+      }
+    }
+
+    const errors = violations.filter((v) => v.severity === "error");
+    const warnings = violations.filter((v) => v.severity === "warning");
+    const passed = errors.length === 0;
+    const score = 1 - violations.length / opts.rules.length;
+
+    return {
+      name: "policy_adherence",
+      score: Math.max(0, score),
+      passed,
+      reason: violations.length > 0
+        ? violations.map((v) => `[${v.severity}] ${v.rule}`).join("; ")
+        : undefined,
+      metadata: {
+        totalRules: opts.rules.length,
+        errors: errors.length,
+        warnings: warnings.length,
+        violatedRules: violations.map((v) => v.rule),
+      },
+    };
+  };
+}
+
+// ─── No Regression ──────────────────────────────────────────────────
+
+/**
+ * Verifies the agent doesn't break existing functionality.
+ * Inspired by SWE-bench — check that pass-to-pass tests still pass
+ * after the agent completes its task.
+ *
+ * Provide assertion functions that should remain true after agent execution.
+ *
+ * @example
+ * noRegression({
+ *   assertions: [
+ *     { name: "db-intact", check: (output) => output.existingRecords === 10 },
+ *     { name: "no-side-effects", check: (output) => !output.unexpectedChanges },
+ *   ]
+ * })
+ */
+export function noRegression(opts: {
+  assertions: Array<{ name: string; check: (output: unknown) => boolean }>;
+}): Scorer {
+  return async (ctx: ScorerContext): Promise<ScorerResult> => {
+    const failures: string[] = [];
+
+    for (const assertion of opts.assertions) {
+      try {
+        if (!assertion.check(ctx.output)) {
+          failures.push(assertion.name);
+        }
+      } catch (err) {
+        failures.push(`${assertion.name} (threw: ${err instanceof Error ? err.message : String(err)})`);
+      }
+    }
+
+    const passed = failures.length === 0;
+    const score = 1 - failures.length / opts.assertions.length;
+
+    return {
+      name: "no_regression",
+      score: Math.max(0, score),
+      passed,
+      reason: failures.length > 0
+        ? `Regressions detected: ${failures.join(", ")}`
+        : undefined,
+      metadata: {
+        totalAssertions: opts.assertions.length,
+        failed: failures.length,
+        failedAssertions: failures,
+      },
+    };
+  };
+}
+
 // ─── Helpers ─────────────────────────────────────────────────────────
 
 function deepEqual(a: unknown, b: unknown): boolean {

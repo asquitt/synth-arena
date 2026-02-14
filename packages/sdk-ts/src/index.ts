@@ -37,6 +37,8 @@ import {
   latencyThreshold,
   safetyCheck,
   stateDiff,
+  policyAdherence,
+  noRegression,
   llmJudge,
   chainPollJudge,
 } from "@syntharena/core";
@@ -50,6 +52,8 @@ export const scorers = {
   latencyThreshold,
   safetyCheck,
   stateDiff,
+  policyAdherence,
+  noRegression,
   llmJudge,
   chainPollJudge,
 } as const;
@@ -64,6 +68,8 @@ export {
   latencyThreshold,
   safetyCheck,
   stateDiff,
+  policyAdherence,
+  noRegression,
   llmJudge,
   chainPollJudge,
 };
