@@ -16,3 +16,11 @@ export { llmJudge, pairwiseJudge, chainPollJudge, calibratedJudge } from "./llm-
 export { generateId } from "./utils.js";
 export { generateComplianceReport } from "./compliance.js";
 export type { ComplianceReport, ComplianceCheck, RiskClassification } from "./compliance.js";
+export {
+  deepDiff,
+  classifyDeltas,
+  computeDiffSummary,
+  computeStateDiff,
+  generateStateDiffReport,
+  stateDiffScorer,
+} from "./state-diff.js";

@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { streamSSE } from "hono/streaming";
 import { zValidator } from "@hono/zod-validator";
 import type { EvaluationRun, EvaluationProgress } from "@syntharena/shared";
-import { evaluate, taskCompletion, costThreshold, safetyCheck, generateComplianceReport } from "@syntharena/core";
+import { evaluate, taskCompletion, costThreshold, safetyCheck, generateComplianceReport, computeStateDiff } from "@syntharena/core";
 import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
@@ -290,6 +290,43 @@ evaluationRoutes.get("/:id/compliance", async (c) => {
     throw new ApiError("EVALUATION_NOT_COMPLETE", "Compliance reports require a completed evaluation", 400);
   }
   const report = generateComplianceReport(run);
+  return c.json({ data: report });
+});
+
+// State-diff report for a scenario within an evaluation run
+evaluationRoutes.post("/:id/state-diff", async (c) => {
+  const run = await getRun(c.req.param("id"));
+  if (!run) throw notFound("Evaluation", c.req.param("id"));
+  if (run.status !== "completed") {
+    throw new ApiError("EVALUATION_NOT_COMPLETE", "State-diff reports require a completed evaluation", 400);
+  }
+
+  const body = await c.req.json<{
+    scenarioId: string;
+    before: { state: Record<string, unknown> };
+    after: { state: Record<string, unknown> };
+    expectedKeys?: string[];
+    collateralKeys?: string[];
+  }>();
+
+  if (!body.scenarioId || !body.before || !body.after) {
+    throw validationError("Missing required fields: scenarioId, before, after");
+  }
+
+  const scenario = run.config.dataset?.find((s) => s.id === body.scenarioId);
+  const expectedKeys = body.expectedKeys ?? (scenario?.expected ? Object.keys(scenario.expected) : []);
+
+  const report = computeStateDiff(
+    { timestamp: new Date().toISOString(), label: "before", state: body.before.state },
+    { timestamp: new Date().toISOString(), label: "after", state: body.after.state },
+    expectedKeys,
+    {
+      runId: run.id,
+      scenarioId: body.scenarioId,
+      collateralKeys: body.collateralKeys,
+    },
+  );
+
   return c.json({ data: report });
 });
 

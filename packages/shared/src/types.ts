@@ -273,3 +273,50 @@ export interface Matchup {
   scoreA: number;
   scoreB: number;
 }
+
+// ─── State-Diff Engine ──────────────────────────────────────────────
+
+/** A snapshot of environment state at a point in time. */
+export interface EnvironmentSnapshot {
+  timestamp: string;
+  label: "before" | "after" | string;
+  state: Record<string, unknown>;
+}
+
+/** A single change detected between two snapshots. */
+export interface StateDelta {
+  path: string;
+  type: "added" | "removed" | "modified";
+  before?: unknown;
+  after?: unknown;
+}
+
+/** Classification of whether a state change was intended or collateral. */
+export interface ClassifiedDelta extends StateDelta {
+  classification: "intended" | "collateral" | "unknown";
+  severity: "critical" | "warning" | "info";
+  reason?: string;
+}
+
+/** Full state-diff report comparing before/after snapshots. */
+export interface StateDiffReport {
+  id: string;
+  runId: string;
+  scenarioId: string;
+  before: EnvironmentSnapshot;
+  after: EnvironmentSnapshot;
+  deltas: ClassifiedDelta[];
+  summary: StateDiffSummary;
+  generatedAt: string;
+}
+
+export interface StateDiffSummary {
+  totalChanges: number;
+  intended: number;
+  collateral: number;
+  unknown: number;
+  criticalIssues: number;
+  completenessScore: number;
+  sideEffectScore: number;
+  overallScore: number;
+}
