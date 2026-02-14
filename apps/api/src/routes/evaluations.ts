@@ -7,7 +7,7 @@ import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
 import * as evalRepo from "../repositories/evaluations.js";
-import { submitJob } from "../queue.js";
+import { submitJob, setJobStatus, getJobStatus } from "../queue.js";
 
 /**
  * Evaluation API routes.
@@ -226,6 +226,8 @@ evaluationRoutes.post("/async",
     const body = c.req.valid("json");
     const jobId = crypto.randomUUID();
 
+    const submittedAt = new Date().toISOString();
+
     await submitJob({
       id: jobId,
       name: body.name,
@@ -234,8 +236,10 @@ evaluationRoutes.post("/async",
       trials: body.trials ?? 1,
       maxConcurrency: body.maxConcurrency ?? 5,
       timeout: body.timeout ?? 300_000,
-      submittedAt: new Date().toISOString(),
+      submittedAt,
     });
+
+    await setJobStatus(jobId, { jobId, status: "queued", attempts: 0, submittedAt });
 
     return c.json({
       data: {
@@ -246,6 +250,17 @@ evaluationRoutes.post("/async",
     }, 202);
   }
 );
+
+evaluationRoutes.get("/jobs/:jobId", async (c) => {
+  if (!process.env["REDIS_URL"]) {
+    return c.json({ error: "Job status requires REDIS_URL" }, 503);
+  }
+
+  const jobId = c.req.param("jobId");
+  const status = await getJobStatus(jobId);
+  if (!status) return c.json({ error: "Job not found" }, 404);
+  return c.json({ data: status });
+});
 
 evaluationRoutes.delete("/:id", async (c) => {
   const id = c.req.param("id");

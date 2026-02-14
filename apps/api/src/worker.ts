@@ -1,7 +1,7 @@
 import { evaluate, taskCompletion, costThreshold, safetyCheck, generateId } from "@syntharena/core";
 import type { EvaluationRun } from "@syntharena/shared";
 import { generateDemoScenarios } from "./routes/demo-scenarios.js";
-import { initQueue, readJobs, ackJob, closeRedis } from "./queue.js";
+import { initQueue, readJobs, ackJob, claimStalePending, setJobStatus, getJobStatus, closeRedis } from "./queue.js";
 import * as evalRepo from "./repositories/evaluations.js";
 import * as traceRepo from "./repositories/traces.js";
 import { closeDatabase } from "./db.js";
@@ -17,10 +17,13 @@ import type { EvalJob } from "./queue.js";
  * Usage: npx tsx src/worker.ts
  */
 
+const MAX_RETRIES = 3;
 let running = true;
 
 async function processJob(job: EvalJob): Promise<void> {
   console.log(JSON.stringify({ level: "info", message: "Processing job", jobId: job.id, name: job.name }));
+
+  await setJobStatus(job.id, { jobId: job.id, status: "processing", startedAt: new Date().toISOString() });
 
   const scenarios = generateDemoScenarios(job.domain, job.scenarioCount);
 
@@ -72,6 +75,12 @@ async function processJob(job: EvalJob): Promise<void> {
   const event = run.status === "completed" ? "evaluation.completed" : "evaluation.failed";
   deliverWebhook(event, run, job.domain).catch(() => {});
 
+  await setJobStatus(job.id, {
+    status: "completed",
+    runId: run.id,
+    completedAt: new Date().toISOString(),
+  });
+
   console.log(JSON.stringify({
     level: "info",
     message: "Job completed",
@@ -89,21 +98,17 @@ async function workerLoop(): Promise<void> {
 
   while (running) {
     try {
+      // Process new jobs
       const entries = await readJobs(3, 5000);
-
       for (const { streamId, job } of entries) {
-        try {
-          await processJob(job);
-          await ackJob(streamId);
-        } catch (err) {
-          console.error(JSON.stringify({
-            level: "error",
-            message: "Job processing failed",
-            jobId: job.id,
-            error: err instanceof Error ? err.message : String(err),
-          }));
-          // Don't ack — job will be retried via pending entries
-        }
+        await handleJob(streamId, job);
+      }
+
+      // Reclaim stale pending jobs (idle > 60s = likely crashed worker)
+      const stale = await claimStalePending(60_000, 3);
+      for (const { streamId, job } of stale) {
+        console.log(JSON.stringify({ level: "info", message: "Reclaimed stale job", jobId: job.id }));
+        await handleJob(streamId, job);
       }
     } catch (err) {
       console.error(JSON.stringify({
@@ -111,9 +116,45 @@ async function workerLoop(): Promise<void> {
         message: "Worker loop error",
         error: err instanceof Error ? err.message : String(err),
       }));
-      // Back off on persistent errors
       await new Promise((resolve) => setTimeout(resolve, 5000));
     }
+  }
+}
+
+/** Handle a job with retry tracking. Dead-letters after MAX_RETRIES. */
+async function handleJob(streamId: string, job: EvalJob): Promise<void> {
+  const status = await getJobStatus(job.id);
+  const attempts = (status?.attempts ?? 0) + 1;
+
+  if (attempts > MAX_RETRIES) {
+    console.error(JSON.stringify({
+      level: "error",
+      message: "Job exceeded max retries, dead-lettering",
+      jobId: job.id,
+      attempts,
+    }));
+    await setJobStatus(job.id, { status: "dead", attempts, error: "Max retries exceeded" });
+    await ackJob(streamId);
+    return;
+  }
+
+  await setJobStatus(job.id, { attempts });
+
+  try {
+    await processJob(job);
+    await ackJob(streamId);
+  } catch (err) {
+    const errorMsg = err instanceof Error ? err.message : String(err);
+    await setJobStatus(job.id, { status: "failed", error: errorMsg });
+    console.error(JSON.stringify({
+      level: "error",
+      message: "Job processing failed",
+      jobId: job.id,
+      attempt: attempts,
+      maxRetries: MAX_RETRIES,
+      error: errorMsg,
+    }));
+    // Don't ack — will be reclaimed via claimStalePending on next cycle
   }
 }
 

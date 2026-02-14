@@ -97,6 +97,73 @@ export async function getQueueDepth(): Promise<number> {
   return len;
 }
 
+// ─── Job Status Tracking ────────────────────────────────────────────
+
+const JOB_STATUS_PREFIX = "syntharena:job:status:";
+const JOB_STATUS_TTL = 86400; // 24 hours
+
+export type JobStatus = "queued" | "processing" | "completed" | "failed" | "dead";
+
+export interface JobStatusRecord {
+  jobId: string;
+  status: JobStatus;
+  attempts: number;
+  runId?: string;
+  error?: string;
+  submittedAt: string;
+  startedAt?: string;
+  completedAt?: string;
+}
+
+/** Set job status in Redis. */
+export async function setJobStatus(jobId: string, record: Partial<JobStatusRecord>): Promise<void> {
+  const r = getRedis();
+  const key = `${JOB_STATUS_PREFIX}${jobId}`;
+  const entries = Object.entries(record).filter(([, v]) => v !== undefined);
+  if (entries.length === 0) return;
+  await r.hset(key, ...entries.flatMap(([k, v]) => [k, String(v)]));
+  await r.expire(key, JOB_STATUS_TTL);
+}
+
+/** Get job status from Redis. */
+export async function getJobStatus(jobId: string): Promise<JobStatusRecord | null> {
+  const r = getRedis();
+  const data = await r.hgetall(`${JOB_STATUS_PREFIX}${jobId}`);
+  if (!data || Object.keys(data).length === 0) return null;
+  return {
+    jobId: data["jobId"] ?? jobId,
+    status: (data["status"] as JobStatus) ?? "queued",
+    attempts: parseInt(data["attempts"] ?? "0", 10),
+    runId: data["runId"],
+    error: data["error"],
+    submittedAt: data["submittedAt"] ?? "",
+    startedAt: data["startedAt"],
+    completedAt: data["completedAt"],
+  };
+}
+
+/** Claim pending entries that have been idle too long (retry mechanism). */
+export async function claimStalePending(idleTimeMs: number = 60_000, count: number = 5): Promise<Array<{ streamId: string; job: EvalJob }>> {
+  const r = getRedis();
+
+  const claimed = await r.xautoclaim(
+    STREAM_KEY, GROUP_NAME, CONSUMER_NAME,
+    idleTimeMs, "0-0", "COUNT", count,
+  ) as [string, Array<[string, string[]]>, string[]];
+
+  if (!claimed || !claimed[1]) return [];
+
+  const jobs: Array<{ streamId: string; job: EvalJob }> = [];
+  for (const [streamId, fields] of claimed[1]) {
+    const payloadIdx = fields.indexOf("payload");
+    const payload = payloadIdx >= 0 ? fields[payloadIdx + 1] : undefined;
+    if (payload) {
+      jobs.push({ streamId, job: JSON.parse(payload) as EvalJob });
+    }
+  }
+  return jobs;
+}
+
 /** Check Redis connectivity. Returns latency in ms or throws. */
 export async function checkRedis(): Promise<number> {
   const r = getRedis();
