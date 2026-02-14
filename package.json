@@ -10,7 +10,8 @@
     "lint": "turbo lint",
     "test:core": "turbo test --filter=@syntharena/core",
     "test:scenarios": "turbo test --filter=@syntharena/scenarios",
-    "cli": "pnpm --filter=@syntharena/cli exec synth-arena"
+    "cli": "pnpm --filter=@syntharena/cli exec synth-arena",
+    "db:migrate": "pnpm --filter=@syntharena/api run migrate"
   },
   "devDependencies": {
     "turbo": "^2.4.0",
