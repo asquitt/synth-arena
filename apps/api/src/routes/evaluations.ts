@@ -6,24 +6,38 @@ import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharen
 import { compareRuns } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
+import * as evalRepo from "../repositories/evaluations.js";
 
 /**
  * Evaluation API routes.
  *
- * POST /evaluations          - Start a new evaluation run
- * POST /evaluations/stream   - Start evaluation with SSE progress streaming
- * GET  /evaluations          - List evaluation runs
- * GET  /evaluations/:id      - Get evaluation run details
- * POST /evaluations/:id/compare - Compare with another run (regression)
+ * Persists to PostgreSQL when DATABASE_URL is configured,
+ * falls back to in-memory Map for local dev without Docker.
  */
 
-// In-memory store — will be replaced with PostgreSQL when database layer is added
-const runs = new Map<string, EvaluationRun>();
+const useDb = !!process.env["DATABASE_URL"];
+const memoryStore = new Map<string, EvaluationRun>();
 
-export const evaluationRoutes = new Hono();
+async function persistRun(run: EvaluationRun): Promise<void> {
+  if (useDb) {
+    await evalRepo.saveEvaluationRun(run);
+  } else {
+    memoryStore.set(run.id, run);
+  }
+}
 
-evaluationRoutes.get("/", (c) => {
-  const allRuns = Array.from(runs.values())
+async function getRun(id: string): Promise<EvaluationRun | null> {
+  if (useDb) {
+    return evalRepo.getEvaluationRun(id);
+  }
+  return memoryStore.get(id) ?? null;
+}
+
+async function getAllRuns() {
+  if (useDb) {
+    return evalRepo.listEvaluationRuns();
+  }
+  const allRuns = Array.from(memoryStore.values())
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     .map((run) => ({
       id: run.id,
@@ -33,15 +47,25 @@ evaluationRoutes.get("/", (c) => {
       completedAt: run.completedAt,
       summary: run.summary,
     }));
+  return { runs: allRuns, total: allRuns.length };
+}
 
-  return c.json({
-    data: allRuns,
-    metadata: { total: allRuns.length },
-  });
+async function removeRun(id: string): Promise<boolean> {
+  if (useDb) {
+    return evalRepo.deleteEvaluationRun(id);
+  }
+  return memoryStore.delete(id);
+}
+
+export const evaluationRoutes = new Hono();
+
+evaluationRoutes.get("/", async (c) => {
+  const { runs, total } = await getAllRuns();
+  return c.json({ data: runs, metadata: { total } });
 });
 
-evaluationRoutes.get("/:id", (c) => {
-  const run = runs.get(c.req.param("id"));
+evaluationRoutes.get("/:id", async (c) => {
+  const run = await getRun(c.req.param("id"));
   if (!run) return c.json({ error: "Not Found" }, 404);
   return c.json({ data: run });
 });
@@ -54,7 +78,6 @@ evaluationRoutes.post("/",
   }),
   async (c) => {
     const body = c.req.valid("json");
-
     const scenarios = generateDemoScenarios(body.domain, body.scenarioCount);
 
     const demoTask = async (input: Record<string, unknown>) => {
@@ -87,7 +110,7 @@ evaluationRoutes.post("/",
         metadata: { domain: body.domain },
       });
 
-      runs.set(run.id, run);
+      await persistRun(run);
 
       return c.json({ data: run }, 201);
     } catch (err) {
@@ -148,7 +171,7 @@ evaluationRoutes.post("/stream",
           onProgress,
         });
 
-        runs.set(run.id, run);
+        await persistRun(run);
 
         await stream.writeSSE({
           id: String(eventId++),
@@ -173,12 +196,12 @@ evaluationRoutes.post("/:id/compare",
     }
   }),
   async (c) => {
-    const currentRun = runs.get(c.req.param("id"));
+    const currentRun = await getRun(c.req.param("id"));
     if (!currentRun) return c.json({ error: "Current run not found" }, 404);
 
     const body = c.req.valid("json");
 
-    const baselineRun = runs.get(body.baselineId);
+    const baselineRun = await getRun(body.baselineId);
     if (!baselineRun) return c.json({ error: "Baseline run not found" }, 404);
 
     const report = compareRuns(baselineRun, currentRun);
@@ -187,9 +210,9 @@ evaluationRoutes.post("/:id/compare",
   }
 );
 
-evaluationRoutes.delete("/:id", (c) => {
+evaluationRoutes.delete("/:id", async (c) => {
   const id = c.req.param("id");
-  if (!runs.has(id)) return c.json({ error: "Not Found" }, 404);
-  runs.delete(id);
+  const deleted = await removeRun(id);
+  if (!deleted) return c.json({ error: "Not Found" }, 404);
   return c.json({ data: { deleted: true, id } });
 });

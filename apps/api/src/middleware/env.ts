@@ -28,6 +28,10 @@ export function validateEnv(): EnvConfig {
     console.warn("WARNING: No API_KEYS configured in production. API is unauthenticated.");
   }
 
+  if (!process.env["DATABASE_URL"]) {
+    console.warn("WARNING: No DATABASE_URL configured. Using in-memory storage (data lost on restart).");
+  }
+
   const allowedOrigins = process.env["ALLOWED_ORIGINS"]
     ? process.env["ALLOWED_ORIGINS"].split(",").map((o) => o.trim()).filter(Boolean)
     : ["http://localhost:3000"];

@@ -56,6 +56,7 @@ CREATE TABLE scenario_results (
     scenario_id VARCHAR(255) NOT NULL,
     pass_at_k FLOAT NOT NULL DEFAULT 0,
     pass_to_the_k FLOAT NOT NULL DEFAULT 0,
+    g_pass_at_k FLOAT NOT NULL DEFAULT 0,
     aggregated_scores JSONB,
     trial_count INT NOT NULL DEFAULT 0,
     created_at TIMESTAMPTZ DEFAULT NOW()

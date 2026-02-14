@@ -10,6 +10,7 @@ import { costRoutes } from "./routes/cost.js";
 import { authenticate } from "./middleware/auth.js";
 import { rateLimit } from "./middleware/rate-limit.js";
 import { validateEnv } from "./middleware/env.js";
+import { checkDatabase, closeDatabase } from "./db.js";
 
 // Validate environment at startup (fail fast)
 const env = validateEnv();
@@ -70,6 +71,16 @@ app.get("/health/deep", async (c) => {
     latency: loopLatency,
   };
 
+  // PostgreSQL check
+  if (process.env["DATABASE_URL"]) {
+    try {
+      const dbLatency = await checkDatabase();
+      checks["postgres"] = { status: "healthy", latency: dbLatency };
+    } catch {
+      checks["postgres"] = { status: "unhealthy", latency: -1 };
+    }
+  }
+
   const overall = Object.values(checks).every((ch) => ch.status === "healthy")
     ? "healthy"
     : "degraded";
@@ -126,7 +137,8 @@ function startServer() {
 // Graceful shutdown
 function shutdown(signal: string) {
   console.log(JSON.stringify({ level: "info", message: `Received ${signal}, shutting down` }));
-  server?.close(() => {
+  server?.close(async () => {
+    await closeDatabase().catch(() => {});
     console.log(JSON.stringify({ level: "info", message: "Server closed" }));
     process.exit(0);
   });
