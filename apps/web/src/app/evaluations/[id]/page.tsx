@@ -122,11 +122,21 @@ export default function EvaluationDetailPage() {
             <h1 className="mt-2 text-3xl font-bold">{run.name}</h1>
             <p className="mt-1 text-sm text-gray-500">{run.id} &middot; {new Date(run.createdAt).toLocaleString()}</p>
           </div>
-          <span className={`rounded-full px-3 py-1 text-xs font-medium ${
-            run.status === "completed" ? "bg-green-900/50 text-green-400" : "bg-yellow-900/50 text-yellow-400"
-          }`}>
-            {run.status}
-          </span>
+          <div className="flex items-center gap-3">
+            {run.status === "completed" && (
+              <a
+                href={`/evaluations/${run.id}/compliance`}
+                className="rounded-lg border border-orange-500/30 px-3 py-1 text-xs font-medium text-orange-400 transition hover:bg-orange-500/10"
+              >
+                EU AI Act Report
+              </a>
+            )}
+            <span className={`rounded-full px-3 py-1 text-xs font-medium ${
+              run.status === "completed" ? "bg-green-900/50 text-green-400" : "bg-yellow-900/50 text-yellow-400"
+            }`}>
+              {run.status}
+            </span>
+          </div>
         </div>
 
         {/* Summary metrics */}
