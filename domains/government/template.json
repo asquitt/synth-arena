@@ -1,0 +1,31 @@
+{
+  "name": "government",
+  "description": "Government contracting and RFP automation testing with mock SAM.gov listings, solicitation documents, NAICS/PSC codes, and compliance requirements",
+  "version": "0.1.0",
+  "scenarioGenerators": [
+    {
+      "name": "rfp-processing",
+      "type": "llm",
+      "prompt": "Generate test scenarios for processing government RFPs from SAM.gov. Include solicitation parsing, deadline extraction, eligibility assessment, and NAICS matching.",
+      "config": { "solicitationTypes": ["rfp", "rfq", "rfi", "sources-sought", "combined-synopsis"] }
+    },
+    {
+      "name": "compliance-check",
+      "type": "llm",
+      "prompt": "Generate scenarios testing compliance validation for government proposals. Include FAR/DFARS checks, set-aside requirements, and past performance verification.",
+      "config": { "regulations": ["FAR", "DFARS", "ITAR"] }
+    }
+  ],
+  "environmentDefaults": {
+    "services": [
+      { "type": "mock-api", "name": "sam-gov-api", "config": { "port": 8081 } },
+      { "type": "mock-database", "name": "contract-db", "config": { "port": 5434 } }
+    ]
+  },
+  "defaultScorers": ["task_completion", "deadline_accuracy", "requirement_extraction", "cost_threshold"],
+  "constraints": [
+    { "name": "far-compliance", "description": "All scenarios reference valid FAR/DFARS regulation clauses", "validator": "validateFarCompliance" },
+    { "name": "naics-accuracy", "description": "NAICS codes must be valid 6-digit codes from official registry", "validator": "validateNaicsCode" },
+    { "name": "deadline-handling", "description": "Agents must correctly parse and respect submission deadlines in various formats", "validator": "validateDeadlines" }
+  ]
+}

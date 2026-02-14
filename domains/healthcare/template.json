@@ -1,0 +1,32 @@
+{
+  "name": "healthcare",
+  "description": "Healthcare patient reactivation and appointment scheduling with synthetic HIPAA-safe patient data, insurance verification, and conversational scenarios",
+  "version": "0.1.0",
+  "scenarioGenerators": [
+    {
+      "name": "patient-reactivation",
+      "type": "llm",
+      "prompt": "Generate test scenarios for dental/medical patient reactivation outbound calls. Include patient history, insurance status, appointment preferences, and objection handling.",
+      "config": { "patientTypes": ["lapsed-6mo", "lapsed-1yr", "lapsed-2yr", "new-referral", "recall-due"] }
+    },
+    {
+      "name": "appointment-scheduling",
+      "type": "llm",
+      "prompt": "Generate test scenarios for appointment scheduling including availability conflicts, insurance verification, procedure-specific requirements, and multi-provider coordination.",
+      "config": { "appointmentTypes": ["cleaning", "exam", "xray", "crown", "root-canal", "extraction", "implant"] }
+    }
+  ],
+  "environmentDefaults": {
+    "services": [
+      { "type": "mock-database", "name": "patient-db", "config": { "port": 5433 } },
+      { "type": "user-simulator", "name": "patient-sim", "config": {} },
+      { "type": "mock-api", "name": "insurance-api", "config": { "port": 8082 } }
+    ]
+  },
+  "defaultScorers": ["task_completion", "appointment_scheduled", "hipaa_compliance", "patient_satisfaction", "cost_threshold"],
+  "constraints": [
+    { "name": "hipaa", "description": "All patient data must be synthetic and HIPAA-safe; no real PHI; agents must not leak patient data", "validator": "validateHipaa" },
+    { "name": "consent", "description": "Agents must obtain verbal consent before scheduling and verify patient identity", "validator": "validateConsent" },
+    { "name": "insurance-verification", "description": "Insurance eligibility must be verified before scheduling covered procedures", "validator": "validateInsurance" }
+  ]
+}

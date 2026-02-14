@@ -1,0 +1,36 @@
+{
+  "name": "web-scraping",
+  "description": "Web scraping agent testing with mock websites featuring realistic HTML, pagination, authentication, rate limiting, and anti-bot measures",
+  "version": "0.1.0",
+  "scenarioGenerators": [
+    {
+      "name": "e-commerce",
+      "type": "llm",
+      "prompt": "Generate test scenarios for scraping e-commerce product listings. Include pagination, filtering, price extraction, variant handling, and out-of-stock detection.",
+      "config": { "siteTypes": ["shop", "marketplace", "catalog"] }
+    },
+    {
+      "name": "content-site",
+      "type": "llm",
+      "prompt": "Generate test scenarios for scraping blog/news content. Include article extraction, author parsing, date parsing, comment scraping, and multi-page articles.",
+      "config": { "siteTypes": ["blog", "news", "wiki", "forum"] }
+    },
+    {
+      "name": "directory",
+      "type": "llm",
+      "prompt": "Generate test scenarios for scraping business directories and listings. Include address parsing, phone extraction, hours of operation, and map coordinates.",
+      "config": { "siteTypes": ["yelp-like", "yellow-pages", "real-estate"] }
+    }
+  ],
+  "environmentDefaults": {
+    "services": [
+      { "type": "mock-website", "name": "target-site", "config": { "port": 8080 } }
+    ]
+  },
+  "defaultScorers": ["task_completion", "data_accuracy", "cost_threshold"],
+  "constraints": [
+    { "name": "rate-limiting", "description": "Mock sites enforce rate limits (requests per second); agents must respect them or handle 429 responses", "validator": "validateRateLimit" },
+    { "name": "robots-txt", "description": "Mock sites have robots.txt; agents should check and respect crawl directives", "validator": "validateRobotsTxt" },
+    { "name": "session-handling", "description": "Some sites require cookies/sessions; agents must maintain state across requests", "validator": "validateSessionHandling" }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "agencies": [
+    { "code": "DOD", "name": "Department of Defense", "subAgencies": ["Army", "Navy", "Air Force", "DISA", "DLA"] },
+    { "code": "HHS", "name": "Department of Health and Human Services", "subAgencies": ["CDC", "NIH", "CMS", "FDA"] },
+    { "code": "GSA", "name": "General Services Administration", "subAgencies": ["FAS", "PBS", "18F"] },
+    { "code": "NASA", "name": "National Aeronautics and Space Administration", "subAgencies": ["JPL", "GSFC", "KSC"] },
+    { "code": "DOE", "name": "Department of Energy", "subAgencies": ["NNSA", "ARPA-E", "EIA"] },
+    { "code": "DHS", "name": "Department of Homeland Security", "subAgencies": ["CISA", "CBP", "FEMA", "TSA"] },
+    { "code": "VA", "name": "Department of Veterans Affairs", "subAgencies": ["VHA", "VBA"] }
+  ],
+  "naicsCodes": [
+    { "code": "541511", "description": "Custom Computer Programming Services" },
+    { "code": "541512", "description": "Computer Systems Design Services" },
+    { "code": "541519", "description": "Other Computer Related Services" },
+    { "code": "518210", "description": "Computing Infrastructure Providers, Data Processing, and Related Services" },
+    { "code": "541330", "description": "Engineering Services" },
+    { "code": "541690", "description": "Other Scientific and Technical Consulting Services" },
+    { "code": "561110", "description": "Office Administrative Services" }
+  ],
+  "setAsideTypes": [
+    "Total Small Business",
+    "Partial Small Business",
+    "8(a) Set-Aside",
+    "HUBZone Set-Aside",
+    "Service-Disabled Veteran-Owned Small Business",
+    "Women-Owned Small Business",
+    "Economically Disadvantaged Women-Owned Small Business",
+    "Unrestricted"
+  ],
+  "solicitationTypes": [
+    { "type": "rfp", "name": "Request for Proposal", "requiresProposal": true },
+    { "type": "rfq", "name": "Request for Quote", "requiresProposal": false },
+    { "type": "rfi", "name": "Request for Information", "requiresProposal": false },
+    { "type": "sources-sought", "name": "Sources Sought Notice", "requiresProposal": false },
+    { "type": "combined-synopsis", "name": "Combined Synopsis/Solicitation", "requiresProposal": true }
+  ],
+  "commonEdgeCases": [
+    "amended-solicitation",
+    "cancelled-solicitation",
+    "extended-deadline",
+    "missing-attachments",
+    "conflicting-naics-codes",
+    "multiple-line-items",
+    "past-performance-required",
+    "security-clearance-required",
+    "itar-restricted",
+    "sole-source-justification",
+    "protest-filed",
+    "q-and-a-period-open"
+  ]
+}

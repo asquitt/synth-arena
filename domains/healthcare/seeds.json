@@ -1,0 +1,69 @@
+{
+  "patientProfiles": [
+    {
+      "type": "lapsed-6mo",
+      "description": "Patient who missed their 6-month recall appointment",
+      "typicalResponses": ["busy", "forgot", "will-schedule-later", "ready-to-book"],
+      "insuranceStatus": "active",
+      "difficulty": "low"
+    },
+    {
+      "type": "lapsed-1yr",
+      "description": "Patient who hasn't visited in 12+ months",
+      "typicalResponses": ["anxiety", "cost-concern", "switched-dentist", "no-insurance", "ready-to-return"],
+      "insuranceStatus": "varies",
+      "difficulty": "medium"
+    },
+    {
+      "type": "lapsed-2yr",
+      "description": "Patient who hasn't visited in 24+ months, may need extensive work",
+      "typicalResponses": ["fear", "embarrassment", "major-cost-concern", "lost-contact", "moved"],
+      "insuranceStatus": "likely-lapsed",
+      "difficulty": "high"
+    },
+    {
+      "type": "new-referral",
+      "description": "New patient referred by existing patient or provider",
+      "typicalResponses": ["interested", "comparison-shopping", "insurance-question", "location-question"],
+      "insuranceStatus": "unknown",
+      "difficulty": "medium"
+    },
+    {
+      "type": "recall-due",
+      "description": "Active patient due for their regular recall appointment",
+      "typicalResponses": ["ready-to-book", "need-different-time", "want-to-wait"],
+      "insuranceStatus": "active",
+      "difficulty": "low"
+    }
+  ],
+  "insuranceTypes": [
+    { "type": "PPO", "coverageLevel": "high", "preAuthRequired": false },
+    { "type": "HMO", "coverageLevel": "medium", "preAuthRequired": true },
+    { "type": "Medicare", "coverageLevel": "limited-dental", "preAuthRequired": false },
+    { "type": "Medicaid", "coverageLevel": "basic", "preAuthRequired": true },
+    { "type": "Self-Pay", "coverageLevel": "none", "preAuthRequired": false }
+  ],
+  "appointmentTypes": [
+    { "code": "D0120", "name": "Periodic Oral Evaluation", "duration": 30, "category": "exam" },
+    { "code": "D0150", "name": "Comprehensive Oral Evaluation", "duration": 60, "category": "exam" },
+    { "code": "D0210", "name": "Full Mouth X-Rays", "duration": 30, "category": "diagnostic" },
+    { "code": "D1110", "name": "Adult Prophylaxis (Cleaning)", "duration": 60, "category": "preventive" },
+    { "code": "D2740", "name": "Crown - Porcelain/Ceramic", "duration": 90, "category": "restorative" },
+    { "code": "D3310", "name": "Root Canal - Anterior", "duration": 90, "category": "endodontic" },
+    { "code": "D7210", "name": "Surgical Extraction", "duration": 60, "category": "oral-surgery" }
+  ],
+  "commonEdgeCases": [
+    "wrong-phone-number",
+    "voicemail-reached",
+    "language-barrier",
+    "hostile-patient",
+    "insurance-expired",
+    "balance-due",
+    "minor-patient-needs-parent",
+    "medical-condition-disclosure",
+    "emergency-appointment-request",
+    "provider-preference",
+    "no-available-slots",
+    "cancellation-request-instead"
+  ]
+}

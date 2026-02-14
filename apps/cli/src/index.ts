@@ -4,6 +4,8 @@ import { Command } from "commander";
 import chalk from "chalk";
 import { runCommand } from "./commands/run.js";
 import { arenaCommand } from "./commands/arena.js";
+import { generateCommand } from "./commands/generate.js";
+import { domainsCommand } from "./commands/domains.js";
 
 const program = new Command();
 
@@ -32,6 +34,24 @@ program
   .option("-d, --domain <domain>", "Domain template", "web-scraping")
   .option("--output <format>", "Output format (table, json)", "table")
   .action(arenaCommand);
+
+program
+  .command("generate")
+  .description("Generate scenarios for a domain (requires ANTHROPIC_API_KEY)")
+  .requiredOption("-d, --domain <domain>", "Domain template")
+  .option("-s, --scenarios <count>", "Number of scenarios to generate", "10")
+  .option("--complexity <level>", "Force complexity level (low, medium, high, adversarial)")
+  .option("-o, --output <path>", "Export scenarios to JSON file")
+  .option("--quality", "Run quality validation on generated scenarios", false)
+  .option("--domains-dir <path>", "Custom domains directory")
+  .action(generateCommand);
+
+program
+  .command("domains")
+  .description("List available domain templates")
+  .option("--domains-dir <path>", "Custom domains directory")
+  .option("--validate", "Validate all templates", false)
+  .action(domainsCommand);
 
 program
   .command("replay")

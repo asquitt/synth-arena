@@ -1,0 +1,93 @@
+{
+  "siteTemplates": [
+    {
+      "type": "e-commerce",
+      "name": "TechMart Electronics",
+      "url": "https://mock-techmart.syntharena.test",
+      "features": ["pagination", "search", "filters", "cart", "reviews"],
+      "products": {
+        "categories": ["laptops", "phones", "accessories", "monitors", "audio"],
+        "priceRange": [9.99, 4999.99],
+        "totalProducts": 500,
+        "productsPerPage": 24
+      },
+      "antiBot": ["rate-limit-10rps", "session-required"],
+      "auth": { "required": false }
+    },
+    {
+      "type": "e-commerce",
+      "name": "FashionHub",
+      "url": "https://mock-fashionhub.syntharena.test",
+      "features": ["infinite-scroll", "search", "size-filter", "wishlist"],
+      "products": {
+        "categories": ["mens", "womens", "kids", "shoes", "accessories"],
+        "priceRange": [4.99, 999.99],
+        "totalProducts": 2000,
+        "productsPerPage": 48
+      },
+      "antiBot": ["cloudflare-challenge", "rate-limit-5rps"],
+      "auth": { "required": true, "type": "email-password" }
+    },
+    {
+      "type": "marketplace",
+      "name": "CraftBazaar",
+      "url": "https://mock-craftbazaar.syntharena.test",
+      "features": ["seller-profiles", "reviews", "bidding", "search"],
+      "products": {
+        "categories": ["handmade", "vintage", "supplies", "digital"],
+        "priceRange": [0.99, 5000.00],
+        "totalProducts": 10000
+      },
+      "antiBot": ["captcha-on-search", "rate-limit-3rps"],
+      "auth": { "required": false }
+    },
+    {
+      "type": "blog",
+      "name": "TechCrunch Clone",
+      "url": "https://mock-technews.syntharena.test",
+      "features": ["articles", "authors", "tags", "comments", "search"],
+      "content": {
+        "totalArticles": 5000,
+        "articlesPerPage": 20,
+        "hasComments": true,
+        "hasImages": true
+      },
+      "antiBot": ["paywall-after-3", "rate-limit-20rps"]
+    },
+    {
+      "type": "directory",
+      "name": "LocalBiz Finder",
+      "url": "https://mock-localbiz.syntharena.test",
+      "features": ["search", "map", "reviews", "hours", "photos"],
+      "listings": {
+        "totalListings": 50000,
+        "listingsPerPage": 30,
+        "hasPhoneNumbers": true,
+        "hasAddresses": true,
+        "hasCoordinates": true
+      },
+      "antiBot": ["rate-limit-10rps", "ip-block-after-100"]
+    }
+  ],
+  "commonEdgeCases": [
+    "empty-results",
+    "single-result",
+    "unicode-content",
+    "missing-fields",
+    "malformed-html",
+    "slow-response-5s",
+    "intermittent-500",
+    "redirect-chain",
+    "javascript-rendered-content",
+    "lazy-loaded-images",
+    "nested-iframes",
+    "csv-download-link",
+    "dynamic-pricing",
+    "geo-blocked-content"
+  ],
+  "extractionFields": {
+    "product": ["title", "price", "currency", "description", "rating", "reviewCount", "sku", "availability", "images", "variants"],
+    "article": ["title", "author", "publishDate", "body", "tags", "comments", "images", "readTime"],
+    "listing": ["businessName", "address", "phone", "website", "hours", "rating", "reviewCount", "coordinates", "categories"]
+  }
+}
