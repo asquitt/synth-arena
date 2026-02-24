@@ -35,6 +35,19 @@ export {
 export { generateScorer, generateScorerSuite } from "./scorer-generator.js";
 export type { ScorerGeneratorConfig } from "./scorer-generator.js";
 export {
+  createAgent,
+  createAgentTask,
+  createClaudeProvider,
+  createOpenAIProvider,
+  createDemoProvider,
+} from "./agent-wrapper.js";
+export type {
+  AgentProvider,
+  AgentResponse,
+  AgentWrapperConfig,
+  AutoAgentConfig,
+} from "./agent-wrapper.js";
+export {
   contextRetention,
   conversationCoherence,
   turnEfficiency,

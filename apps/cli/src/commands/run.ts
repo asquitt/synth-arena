@@ -1,8 +1,8 @@
 import { watch } from "node:fs";
 import chalk from "chalk";
 import ora from "ora";
-import { evaluate, taskCompletion, costThreshold, safetyCheck } from "@syntharena/core";
-import type { TaskResult, EvaluationRun, Scorer } from "@syntharena/shared";
+import { evaluate, taskCompletion, costThreshold, safetyCheck, createAgent } from "@syntharena/core";
+import type { EvaluationRun, Scorer } from "@syntharena/shared";
 import { generateDemoScenarios } from "../demo.js";
 import { loadConfig, type ScorerConfig } from "../config.js";
 
@@ -61,13 +61,31 @@ export async function runCommand(opts: RunOptions): Promise<void> {
   const scenarios = generateDemoScenarios(domain, scenarioCount);
   spinner.succeed(`Generated ${scenarios.length} scenarios`);
 
-  // Run evaluation with a demo task (echo agent)
+  // Create agent — uses real LLM if ANTHROPIC_API_KEY or OPENAI_API_KEY is set
+  const agentProvider = process.env.ANTHROPIC_API_KEY ? "anthropic"
+    : process.env.OPENAI_API_KEY ? "openai"
+    : "demo";
+  const task = createAgent({
+    provider: agentProvider === "demo" ? "demo" : agentProvider,
+    apiKey: process.env.ANTHROPIC_API_KEY ?? process.env.OPENAI_API_KEY,
+    model: config?.model,
+    systemPrompt: config?.systemPrompt ?? `You are an AI agent being evaluated on ${domain} tasks. Complete the task described in the input.`,
+    buildPrompt: (input) => `Complete this ${domain} task:\n\n${JSON.stringify(input, null, 2)}`,
+  });
+
+  if (agentProvider === "demo") {
+    console.log(chalk.dim("  Agent: demo (set ANTHROPIC_API_KEY or OPENAI_API_KEY for real agent)"));
+  } else {
+    console.log(`  Agent:       ${chalk.green(agentProvider)} (${config?.model ?? "default model"})`);
+  }
+  console.log();
+
   const evalSpinner = ora("Running evaluation...").start();
 
   const run = await evaluate({
     name: `${domain}-eval-${Date.now()}`,
     dataset: scenarios,
-    task: demoTask,
+    task,
     scorers,
     trials: trialCount,
     maxConcurrency: concurrency,
@@ -99,36 +117,6 @@ export async function runCommand(opts: RunOptions): Promise<void> {
     // Keep process alive
     await new Promise(() => {});
   }
-}
-
-/**
- * Demo task that echoes input. Replace with real agent integration.
- */
-async function demoTask(input: Record<string, unknown>): Promise<TaskResult> {
-  return {
-    output: { processed: true, ...input },
-    trace: [
-      {
-        id: "demo-span",
-        name: "demo_task",
-        type: "llm_call",
-        startTime: Date.now(),
-        endTime: Date.now() + 50,
-        attributes: { model: "demo" },
-        events: [],
-        status: "ok",
-      },
-    ],
-    tokenUsage: {
-      inputTokens: 100,
-      outputTokens: 50,
-      totalTokens: 150,
-      estimatedCost: 0.001,
-      model: "demo",
-      provider: "demo",
-    },
-    duration: 50,
-  };
 }
 
 function printTable(run: EvaluationRun): void {

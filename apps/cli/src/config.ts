@@ -7,6 +7,7 @@ export interface SynthArenaConfig {
   trials: number;
   concurrency: number;
   model: string;
+  systemPrompt?: string;
   scorers: ScorerConfig[];
   cost: {
     avg_calls_per_scenario: number;

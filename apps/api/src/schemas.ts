@@ -7,6 +7,8 @@ export const createEvaluationSchema = z.object({
   trials: z.number().int().min(1).max(100).optional().default(1),
   maxConcurrency: z.number().int().min(1).max(50).optional().default(5),
   timeout: z.number().int().min(1000).max(3_600_000).optional().default(300_000),
+  model: z.string().max(100).optional(),
+  systemPrompt: z.string().max(10_000).optional(),
 });
 
 export const compareRunsSchema = z.object({

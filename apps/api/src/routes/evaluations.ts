@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { streamSSE } from "hono/streaming";
 import { zValidator } from "@hono/zod-validator";
 import type { EvaluationRun, EvaluationProgress } from "@syntharena/shared";
-import { evaluate, taskCompletion, costThreshold, safetyCheck, generateComplianceReport, computeStateDiff, redTeamSuite } from "@syntharena/core";
+import { evaluate, taskCompletion, costThreshold, safetyCheck, generateComplianceReport, computeStateDiff, redTeamSuite, createAgent } from "@syntharena/core";
 import { compareRuns, generateAdversarialScenarios, type AdversarialCategory } from "@syntharena/replay";
 import { generateDemoScenarios } from "./demo-scenarios.js";
 import { createEvaluationSchema, compareRunsSchema } from "../schemas.js";
@@ -102,29 +102,13 @@ evaluationRoutes.post("/",
     const body = c.req.valid("json");
     const scenarios = generateDemoScenarios(body.domain, body.scenarioCount);
 
-    const demoTask = async (input: Record<string, unknown>) => {
-      const startTime = Date.now();
-      await new Promise((resolve) => setTimeout(resolve, 10));
-      return {
-        output: { success: true, data: input },
-        trace: [],
-        tokenUsage: {
-          inputTokens: 150,
-          outputTokens: 50,
-          totalTokens: 200,
-          estimatedCost: 0.001,
-          model: "demo",
-          provider: "demo",
-        },
-        duration: Date.now() - startTime,
-      };
-    };
+    const task = createAgent({ model: body.model, systemPrompt: body.systemPrompt });
 
     try {
       const run = await evaluate({
         name: body.name,
         dataset: scenarios,
-        task: demoTask,
+        task,
         scorers: [taskCompletion, costThreshold(0.50), safetyCheck()],
         trials: body.trials,
         maxConcurrency: body.maxConcurrency,
@@ -162,23 +146,7 @@ evaluationRoutes.post("/stream",
     const body = c.req.valid("json");
     const scenarios = generateDemoScenarios(body.domain, body.scenarioCount);
 
-    const demoTask = async (input: Record<string, unknown>) => {
-      const startTime = Date.now();
-      await new Promise((resolve) => setTimeout(resolve, 50 + Math.random() * 100));
-      return {
-        output: { success: true, data: input },
-        trace: [],
-        tokenUsage: {
-          inputTokens: 150,
-          outputTokens: 50,
-          totalTokens: 200,
-          estimatedCost: 0.001,
-          model: "demo",
-          provider: "demo",
-        },
-        duration: Date.now() - startTime,
-      };
-    };
+    const task = createAgent({ model: body.model, systemPrompt: body.systemPrompt });
 
     return streamSSE(c, async (stream) => {
       let eventId = 0;
@@ -195,7 +163,7 @@ evaluationRoutes.post("/stream",
         const run = await evaluate({
           name: body.name,
           dataset: scenarios,
-          task: demoTask,
+          task,
           scorers: [taskCompletion, costThreshold(0.50), safetyCheck()],
           trials: body.trials,
           maxConcurrency: body.maxConcurrency,
@@ -386,22 +354,13 @@ evaluationRoutes.post("/:id/red-team", async (c) => {
     count: scenarioCount,
   });
 
-  const demoTask = async (input: Record<string, unknown>) => {
-    const startTime = Date.now();
-    await new Promise((resolve) => setTimeout(resolve, 10));
-    return {
-      output: { success: true, data: input },
-      trace: [],
-      tokenUsage: { inputTokens: 150, outputTokens: 50, totalTokens: 200, estimatedCost: 0.001, model: "demo", provider: "demo" },
-      duration: Date.now() - startTime,
-    };
-  };
+  const task = createAgent();
 
   try {
     const redTeamRun = await evaluate({
       name: `red-team-${run.id.slice(0, 8)}`,
       dataset: adversarialScenarios,
-      task: demoTask,
+      task,
       scorers: [taskCompletion, redTeamSuite()],
       trials,
       metadata: { parentRunId: run.id, redTeam: true, categories, intensity },

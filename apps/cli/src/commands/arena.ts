@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import ora from "ora";
-import { runArena, taskCompletion } from "@syntharena/core";
-import type { TaskResult, ArenaResult } from "@syntharena/shared";
+import { runArena, taskCompletion, createAgent } from "@syntharena/core";
+import type { ArenaResult } from "@syntharena/shared";
 import { generateDemoScenarios } from "../demo.js";
 
 interface ArenaOptions {
@@ -30,11 +30,22 @@ export async function arenaCommand(opts: ArenaOptions): Promise<void> {
 
   const arenaSpinner = ora("Running arena matchups...").start();
 
-  // Create demo agents with varying quality
-  const agents = agentNames.map((name, i) => ({
+  // Create agents — uses real LLM if API keys are set, demo otherwise
+  const hasApiKey = !!(process.env.ANTHROPIC_API_KEY || process.env.OPENAI_API_KEY);
+  const agents = agentNames.map((name) => ({
     name,
-    task: createDemoAgent(name, i),
+    task: createAgent({
+      provider: hasApiKey ? (process.env.ANTHROPIC_API_KEY ? "anthropic" : "openai") : "demo",
+      apiKey: process.env.ANTHROPIC_API_KEY ?? process.env.OPENAI_API_KEY,
+      systemPrompt: `You are "${name}", an AI agent being evaluated on ${opts.domain} tasks.`,
+      buildPrompt: (input) => `Complete this ${opts.domain} task:\n\n${JSON.stringify(input, null, 2)}`,
+    }),
   }));
+
+  if (!hasApiKey) {
+    console.log(chalk.dim("  Mode: demo (set ANTHROPIC_API_KEY or OPENAI_API_KEY for real agents)"));
+    console.log();
+  }
 
   const result = await runArena({
     agents,
@@ -50,40 +61,6 @@ export async function arenaCommand(opts: ArenaOptions): Promise<void> {
   } else {
     printArenaTable(result);
   }
-}
-
-function createDemoAgent(_name: string, index: number): (input: Record<string, unknown>) => Promise<TaskResult> {
-  // Each agent has slightly different "quality" for demo purposes
-  const successRate = 0.7 + index * 0.1;
-
-  return async (input: Record<string, unknown>): Promise<TaskResult> => {
-    const succeeded = Math.random() < successRate;
-
-    return {
-      output: succeeded ? { processed: true, ...input } : null,
-      trace: [
-        {
-          id: `agent-${index}-span`,
-          name: "agent_task",
-          type: "llm_call",
-          startTime: Date.now(),
-          endTime: Date.now() + 50 + index * 20,
-          attributes: { model: `agent-${index}` },
-          events: [],
-          status: succeeded ? "ok" : "error",
-        },
-      ],
-      tokenUsage: {
-        inputTokens: 100 + index * 50,
-        outputTokens: 50 + index * 25,
-        totalTokens: 150 + index * 75,
-        estimatedCost: 0.001 + index * 0.0005,
-        model: `agent-${index}`,
-        provider: "demo",
-      },
-      duration: 50 + index * 20,
-    };
-  };
 }
 
 function printArenaTable(result: ArenaResult): void {
