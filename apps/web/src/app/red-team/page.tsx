@@ -2,88 +2,12 @@
 
 import { useState } from "react";
 import { Nav } from "../../components/nav";
-
-interface CategoryResult {
-  category: string;
-  scenarioCount: number;
-  passRate: number;
-}
-
-interface RedTeamReport {
-  runId: string;
-  redTeamRunId: string;
-  categories: CategoryResult[];
-  intensity: string;
-  totalScenarios: number;
-  overallPassRate: number;
-  verdict: "robust" | "moderate_risk" | "vulnerable";
-  summary: {
-    overallPassRate: number;
-    passAtK: number;
-    passToTheK: number;
-    totalScenarios: number;
-    totalTrials: number;
-    totalCost: number;
-    totalDuration: number;
-    scoreSummaries: Record<string, { name: string; mean: number; min: number; max: number }>;
-  };
-}
+import type { RedTeamReport } from "../../components/red-team/types";
+import { ALL_CATEGORIES, CATEGORY_LABELS } from "../../components/red-team/types";
+import { VerdictBadge } from "../../components/red-team/verdict-badge";
+import { PassRateBar } from "../../components/red-team/pass-rate-bar";
 
 const API_BASE = process.env["NEXT_PUBLIC_API_URL"] ?? "http://localhost:3001/api/v1";
-
-const ALL_CATEGORIES = [
-  "prompt-injection",
-  "data-exfiltration",
-  "tool-misuse",
-  "state-confusion",
-  "resource-exhaustion",
-  "input-perturbation",
-  "multi-turn-manipulation",
-];
-
-const CATEGORY_LABELS: Record<string, { label: string; icon: string; description: string }> = {
-  "prompt-injection": { label: "Prompt Injection", icon: "💉", description: "Tests resistance to instruction override attempts" },
-  "data-exfiltration": { label: "Data Exfiltration", icon: "🔓", description: "Tests for sensitive data leakage" },
-  "tool-misuse": { label: "Tool Misuse", icon: "🔧", description: "Tests for unauthorized tool or API abuse" },
-  "state-confusion": { label: "State Confusion", icon: "🌀", description: "Tests for inconsistent state handling" },
-  "resource-exhaustion": { label: "Resource Exhaustion", icon: "💥", description: "Tests for resource limit enforcement" },
-  "input-perturbation": { label: "Input Perturbation", icon: "🎭", description: "Tests robustness to malformed inputs" },
-  "multi-turn-manipulation": { label: "Multi-Turn Manipulation", icon: "🔗", description: "Tests for gradual trust exploitation" },
-};
-
-function VerdictBadge({ verdict }: { verdict: string }) {
-  const styles: Record<string, string> = {
-    robust: "bg-green-500/20 text-green-400 border-green-500/30",
-    moderate_risk: "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
-    vulnerable: "bg-red-500/20 text-red-400 border-red-500/30",
-  };
-  const labels: Record<string, string> = {
-    robust: "ROBUST",
-    moderate_risk: "MODERATE RISK",
-    vulnerable: "VULNERABLE",
-  };
-  return (
-    <span className={`rounded-full border px-3 py-1 text-sm font-bold ${styles[verdict] ?? styles["vulnerable"]}`}>
-      {labels[verdict] ?? verdict}
-    </span>
-  );
-}
-
-function PassRateBar({ rate, label }: { rate: number; label: string }) {
-  const pct = Math.round(rate * 100);
-  const color = pct >= 90 ? "bg-green-500" : pct >= 70 ? "bg-yellow-500" : "bg-red-500";
-  return (
-    <div className="flex items-center gap-3">
-      <span className="w-48 text-sm text-gray-400">{label}</span>
-      <div className="flex-1">
-        <div className="h-3 rounded-full bg-gray-800">
-          <div className={`h-3 rounded-full ${color}`} style={{ width: `${pct}%` }} />
-        </div>
-      </div>
-      <span className="w-16 text-right font-mono text-sm text-white">{pct}%</span>
-    </div>
-  );
-}
 
 export default function RedTeamPage() {
   const [runId, setRunId] = useState("");
@@ -219,7 +143,6 @@ export default function RedTeamPage() {
         {/* Results */}
         {report && (
           <>
-            {/* Verdict Header */}
             <div className="mb-8 flex items-center justify-between rounded-xl border border-gray-800 bg-gray-900 p-6">
               <div>
                 <div className="text-sm text-gray-400">Overall Verdict</div>
@@ -237,7 +160,6 @@ export default function RedTeamPage() {
               </div>
             </div>
 
-            {/* Summary Stats */}
             <div className="mb-8 grid grid-cols-4 gap-4">
               <div className="rounded-xl border border-gray-800 bg-gray-900 p-4">
                 <div className="text-2xl font-bold">{report.totalScenarios}</div>
@@ -261,7 +183,6 @@ export default function RedTeamPage() {
               </div>
             </div>
 
-            {/* Category Breakdown */}
             <div className="mb-8 rounded-xl border border-gray-800 bg-gray-900 p-6">
               <h3 className="mb-4 text-sm font-semibold">Category Results</h3>
               <div className="space-y-3">
@@ -278,7 +199,6 @@ export default function RedTeamPage() {
               </div>
             </div>
 
-            {/* Scorer Breakdown */}
             {report.summary.scoreSummaries && (
               <div className="rounded-xl border border-gray-800 bg-gray-900 p-6">
                 <h3 className="mb-4 text-sm font-semibold">Scorer Breakdown</h3>

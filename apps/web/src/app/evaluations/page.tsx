@@ -3,34 +3,8 @@
 import { useState, useEffect } from "react";
 import { Nav } from "../../components/nav";
 import { DomainSelect } from "../../components/domain-select";
-
-interface EvalSummary {
-  totalScenarios: number;
-  totalTrials: number;
-  overallPassRate: number;
-  passAtK: number;
-  passToTheK: number;
-  gPassAtK: number;
-  totalCost: number;
-  totalDuration: number;
-  avgTokensPerScenario: number;
-  latencyPercentiles?: { p50: number; p95: number; p99: number };
-  scoreSummaries: Record<string, { name: string; mean: number; stddev: number }>;
-}
-
-interface EvalRun {
-  id: string;
-  name: string;
-  createdAt: string;
-  status: string;
-  summary: EvalSummary;
-}
-
-interface StreamProgress {
-  completed: number;
-  total: number;
-  latestScenarioId?: string;
-}
+import type { EvalRun, StreamProgress } from "../../components/evaluations/types";
+import { RunCard } from "../../components/evaluations/run-card";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3001/api/v1";
 
@@ -44,7 +18,6 @@ export default function EvaluationsPage() {
   const [trials, setTrials] = useState("3");
   const [useStreaming, setUseStreaming] = useState(true);
 
-  // Load existing evaluations on mount
   useEffect(() => {
     async function loadRuns() {
       try {
@@ -55,7 +28,7 @@ export default function EvaluationsPage() {
           setRuns(json.data);
         }
       } catch {
-        // API not available — that's fine, empty state shown
+        // API not available
       }
     }
     loadRuns();
@@ -112,7 +85,6 @@ export default function EvaluationsPage() {
               setProgress({ completed: event.scenarioIndex, total: event.totalScenarios, latestScenarioId: event.scenarioId });
             } else if (event.type === "run_complete" && event.summary) {
               setProgress(null);
-              // Fetch the full run after stream completes
               const runRes = await fetch(`${API_BASE}/evaluations`);
               const runJson = await runRes.json();
               if (runJson.data?.[0]) {
@@ -229,7 +201,6 @@ export default function EvaluationsPage() {
             </div>
           </div>
 
-          {/* Streaming progress bar */}
           {progress && (
             <div className="mt-4">
               <div className="flex items-center justify-between text-xs text-gray-400">
@@ -249,63 +220,16 @@ export default function EvaluationsPage() {
           )}
         </div>
 
-        {/* Error banner */}
         {error && (
           <div className="mt-4 rounded-lg border border-yellow-800 bg-yellow-900/20 px-4 py-3">
             <p className="text-sm text-yellow-400">{error}</p>
           </div>
         )}
 
-        {/* Results */}
         {runs.length > 0 && (
           <div className="mt-8 space-y-6">
             {runs.map((run) => (
-              <a key={run.id} href={`/evaluations/${run.id}`} className="block rounded-xl border border-gray-800 bg-gray-900/50 p-6 transition hover:border-gray-700">
-                <div className="flex items-start justify-between">
-                  <div>
-                    <h3 className="font-semibold">{run.name}</h3>
-                    <p className="mt-1 text-xs text-gray-500">{run.id}</p>
-                  </div>
-                  <span className={`rounded-full px-3 py-1 text-xs font-medium ${
-                    run.status === "completed" ? "bg-green-900/50 text-green-400" : "bg-yellow-900/50 text-yellow-400"
-                  }`}>
-                    {run.status}
-                  </span>
-                </div>
-
-                {/* Metrics grid */}
-                <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4 lg:grid-cols-7">
-                  <MetricCard label="Pass Rate" value={`${(run.summary.overallPassRate * 100).toFixed(1)}%`} color={run.summary.overallPassRate >= 0.9 ? "green" : run.summary.overallPassRate >= 0.7 ? "yellow" : "red"} />
-                  <MetricCard label="pass@k" value={`${(run.summary.passAtK * 100).toFixed(1)}%`} color="cyan" />
-                  <MetricCard label="pass^k" value={`${(run.summary.passToTheK * 100).toFixed(1)}%`} color="cyan" />
-                  <MetricCard label="G-pass@k" value={`${(run.summary.gPassAtK * 100).toFixed(1)}%`} color="cyan" />
-                  <MetricCard label="Cost" value={`$${run.summary.totalCost.toFixed(4)}`} color="yellow" />
-                  <MetricCard label="p95 Latency" value={run.summary.latencyPercentiles ? `${Math.round(run.summary.latencyPercentiles.p95)}ms` : "—"} color={run.summary.latencyPercentiles && run.summary.latencyPercentiles.p95 > 1000 ? "yellow" : "gray"} />
-                  <MetricCard label="Scenarios" value={String(run.summary.totalScenarios)} color="gray" />
-                  <MetricCard label="Trials" value={String(run.summary.totalTrials)} color="gray" />
-                </div>
-
-                {/* Score breakdown */}
-                <div className="mt-4">
-                  <h4 className="text-xs font-medium text-gray-400">Score Breakdown</h4>
-                  <div className="mt-2 space-y-2">
-                    {Object.entries(run.summary.scoreSummaries).map(([name, score]) => (
-                      <div key={name} className="flex items-center gap-3">
-                        <span className="w-40 text-xs text-gray-400">{name}</span>
-                        <div className="flex-1">
-                          <div className="h-2 rounded-full bg-gray-800">
-                            <div
-                              className="h-2 rounded-full bg-gradient-to-r from-orange-500 to-red-500"
-                              style={{ width: `${score.mean * 100}%` }}
-                            />
-                          </div>
-                        </div>
-                        <span className="w-16 text-right text-xs text-gray-300">{(score.mean * 100).toFixed(1)}%</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </a>
+              <RunCard key={run.id} run={run} />
             ))}
           </div>
         )}
@@ -317,22 +241,6 @@ export default function EvaluationsPage() {
           </div>
         )}
       </main>
-    </div>
-  );
-}
-
-function MetricCard({ label, value, color }: { label: string; value: string; color: string }) {
-  const colorClasses: Record<string, string> = {
-    green: "text-green-400",
-    yellow: "text-yellow-400",
-    red: "text-red-400",
-    cyan: "text-cyan-400",
-    gray: "text-gray-300",
-  };
-  return (
-    <div className="rounded-lg border border-gray-800 bg-gray-900 p-3">
-      <div className={`text-lg font-bold ${colorClasses[color] ?? "text-gray-300"}`}>{value}</div>
-      <div className="text-xs text-gray-500">{label}</div>
     </div>
   );
 }
