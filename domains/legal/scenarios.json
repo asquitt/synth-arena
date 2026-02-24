@@ -1,0 +1,6268 @@
+[
+  {
+    "id": "leg-001",
+    "domain": "legal",
+    "name": "Petition: H-1B petition assembly with LCA",
+    "description": "H-1B petition assembly with LCA for Philippines national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00001",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Ana SYNTH-Garcia",
+      "beneficiaryCountry": "Philippines",
+      "aNumber": "SYNTH-A895443191",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "o-1a",
+        "philippines"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-002",
+    "domain": "legal",
+    "name": "Petition: L-1A intracompany transfer petition",
+    "description": "L-1A intracompany transfer petition for Mexico national. Visa: L-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00002",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Zhang",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A348037247",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1b",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-003",
+    "domain": "legal",
+    "name": "Petition: O-1A extraordinary ability evidence",
+    "description": "O-1A extraordinary ability evidence compilation for Canada national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00003",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Ana SYNTH-Wang",
+      "beneficiaryCountry": "Canada",
+      "aNumber": "SYNTH-A925632632",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1a",
+        "canada"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-004",
+    "domain": "legal",
+    "name": "Petition: EB-1A 10-criteria analysis and peti",
+    "description": "EB-1A 10-criteria analysis and petition for China national. Visa: H-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00004",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Zhang",
+      "beneficiaryCountry": "China",
+      "aNumber": "SYNTH-A625534196",
+      "requiresDol": true,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "h-1b",
+        "china"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-005",
+    "domain": "legal",
+    "name": "Petition: EB-2 NIW three-prong test assessmen",
+    "description": "EB-2 NIW three-prong test assessment for Mexico national. Visa: EB-3, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00005",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Carlos SYNTH-Ali",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A121790550",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "eb-3",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-006",
+    "domain": "legal",
+    "name": "Petition: I-485 concurrent filing assembly",
+    "description": "I-485 concurrent filing assembly for Japan national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00006",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Carlos SYNTH-Garcia",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A285380304",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1a",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-007",
+    "domain": "legal",
+    "name": "Petition: H-1B amendment for job change",
+    "description": "H-1B amendment for job change for Philippines national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00007",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Olga SYNTH-Kumar",
+      "beneficiaryCountry": "Philippines",
+      "aNumber": "SYNTH-A904932958",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1a",
+        "philippines"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-008",
+    "domain": "legal",
+    "name": "Petition: L-1B specialized knowledge petition",
+    "description": "L-1B specialized knowledge petition for Mexico national. Visa: EB-3, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00008",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Olga SYNTH-Petrov",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A265410999",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "eb-3",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-009",
+    "domain": "legal",
+    "name": "Petition: O-1B arts extraordinary ability pet",
+    "description": "O-1B arts extraordinary ability petition for Mexico national. Visa: EB-3, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00009",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Maria SYNTH-Petrov",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A970015212",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "eb-3",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-010",
+    "domain": "legal",
+    "name": "Petition: EB-3 skilled worker petition",
+    "description": "EB-3 skilled worker petition for Mexico national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00010",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Pavel SYNTH-Singh",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A526273528",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "o-1b",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-011",
+    "domain": "legal",
+    "name": "Petition: I-129 extension filing",
+    "description": "I-129 extension filing for Canada national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00011",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Jun SYNTH-Kumar",
+      "beneficiaryCountry": "Canada",
+      "aNumber": "SYNTH-A903760959",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1a",
+        "canada"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-012",
+    "domain": "legal",
+    "name": "Petition: Premium processing request preparat",
+    "description": "Premium processing request preparation for South Korea national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00012",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Singh",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A807765265",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "o-1a",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-013",
+    "domain": "legal",
+    "name": "Petition: H-1B petition assembly with LCA",
+    "description": "H-1B petition assembly with LCA for Japan national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00013",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Pavel SYNTH-Petrov",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A829470141",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1a",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-014",
+    "domain": "legal",
+    "name": "Petition: L-1A intracompany transfer petition",
+    "description": "L-1A intracompany transfer petition for Canada national. Visa: L-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00014",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Petrov",
+      "beneficiaryCountry": "Canada",
+      "aNumber": "SYNTH-A760448208",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1b",
+        "canada"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-015",
+    "domain": "legal",
+    "name": "Petition: O-1A extraordinary ability evidence",
+    "description": "O-1A extraordinary ability evidence compilation for India national. Visa: L-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00015",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Hassan",
+      "beneficiaryCountry": "India",
+      "aNumber": "SYNTH-A544174717",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "petition",
+        "l-1b",
+        "india"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-016",
+    "domain": "legal",
+    "name": "Petition: EB-1A 10-criteria analysis and peti",
+    "description": "EB-1A 10-criteria analysis and petition for UK national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00016",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Ana SYNTH-Garcia",
+      "beneficiaryCountry": "UK",
+      "aNumber": "SYNTH-A739148541",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "i-485",
+        "uk"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-017",
+    "domain": "legal",
+    "name": "Petition: EB-2 NIW three-prong test assessmen",
+    "description": "EB-2 NIW three-prong test assessment for Brazil national. Visa: EB-3, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00017",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Priya SYNTH-Garcia",
+      "beneficiaryCountry": "Brazil",
+      "aNumber": "SYNTH-A317514666",
+      "requiresDol": true,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "eb-3",
+        "brazil"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-018",
+    "domain": "legal",
+    "name": "Petition: I-485 concurrent filing assembly",
+    "description": "I-485 concurrent filing assembly for Japan national. Visa: L-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00018",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Wang",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A274344691",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "l-1b",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-019",
+    "domain": "legal",
+    "name": "Petition: H-1B amendment for job change",
+    "description": "H-1B amendment for job change for South Korea national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00019",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Wei SYNTH-Zhang",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A415554472",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "o-1a",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-020",
+    "domain": "legal",
+    "name": "Petition: L-1B specialized knowledge petition",
+    "description": "L-1B specialized knowledge petition for Japan national. Visa: H-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00020",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Priya SYNTH-Ali",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A741060569",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "h-1b",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-021",
+    "domain": "legal",
+    "name": "Petition: O-1B arts extraordinary ability pet",
+    "description": "O-1B arts extraordinary ability petition for Brazil national. Visa: EB-2-NIW, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00021",
+      "visaCategory": "EB-2-NIW",
+      "formType": "I-140",
+      "beneficiaryName": "Ana SYNTH-Zhang",
+      "beneficiaryCountry": "Brazil",
+      "aNumber": "SYNTH-A802701733",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "eb-2-niw",
+        "brazil"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-022",
+    "domain": "legal",
+    "name": "Petition: EB-3 skilled worker petition",
+    "description": "EB-3 skilled worker petition for South Korea national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00022",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Garcia",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A453962730",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "o-1a",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-023",
+    "domain": "legal",
+    "name": "Petition: I-129 extension filing",
+    "description": "I-129 extension filing for UK national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00023",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Ali",
+      "beneficiaryCountry": "UK",
+      "aNumber": "SYNTH-A317174646",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "o-1b",
+        "uk"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-024",
+    "domain": "legal",
+    "name": "Petition: Premium processing request preparat",
+    "description": "Premium processing request preparation for Mexico national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00024",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Priya SYNTH-Kumar",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A213160961",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "l-1a",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-025",
+    "domain": "legal",
+    "name": "Petition: H-1B petition assembly with LCA",
+    "description": "H-1B petition assembly with LCA for Japan national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00025",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Leila SYNTH-Singh",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A916344072",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "i-485",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-026",
+    "domain": "legal",
+    "name": "Petition: L-1A intracompany transfer petition",
+    "description": "L-1A intracompany transfer petition for South Korea national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00026",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Jun SYNTH-Garcia",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A738981350",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "o-1b",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-027",
+    "domain": "legal",
+    "name": "Petition: O-1A extraordinary ability evidence",
+    "description": "O-1A extraordinary ability evidence compilation for Mexico national. Visa: EB-2-NIW, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00027",
+      "visaCategory": "EB-2-NIW",
+      "formType": "I-140",
+      "beneficiaryName": "Yuki SYNTH-Wang",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A503998516",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "eb-2-niw",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-028",
+    "domain": "legal",
+    "name": "Petition: EB-1A 10-criteria analysis and peti",
+    "description": "EB-1A 10-criteria analysis and petition for Canada national. Visa: H-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00028",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Carlos SYNTH-Singh",
+      "beneficiaryCountry": "Canada",
+      "aNumber": "SYNTH-A346969143",
+      "requiresDol": true,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "h-1b",
+        "canada"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-029",
+    "domain": "legal",
+    "name": "Petition: EB-2 NIW three-prong test assessmen",
+    "description": "EB-2 NIW three-prong test assessment for South Korea national. Visa: EB-1A, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00029",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Leila SYNTH-Singh",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A588396759",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "eb-1a",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-030",
+    "domain": "legal",
+    "name": "Petition: I-485 concurrent filing assembly",
+    "description": "I-485 concurrent filing assembly for UK national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00030",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Jun SYNTH-Singh",
+      "beneficiaryCountry": "UK",
+      "aNumber": "SYNTH-A557835758",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "o-1a",
+        "uk"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-031",
+    "domain": "legal",
+    "name": "Petition: H-1B amendment for job change",
+    "description": "H-1B amendment for job change for South Korea national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00031",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Raj SYNTH-Zhang",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A634133054",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "i-485",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-032",
+    "domain": "legal",
+    "name": "Petition: L-1B specialized knowledge petition",
+    "description": "L-1B specialized knowledge petition for Japan national. Visa: L-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00032",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Garcia",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A292240092",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "l-1b",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-033",
+    "domain": "legal",
+    "name": "Petition: O-1B arts extraordinary ability pet",
+    "description": "O-1B arts extraordinary ability petition for South Korea national. Visa: EB-1A, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00033",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Carlos SYNTH-Wang",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A668593694",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "eb-1a",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-034",
+    "domain": "legal",
+    "name": "Petition: EB-3 skilled worker petition",
+    "description": "EB-3 skilled worker petition for India national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00034",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Fatima SYNTH-Zhang",
+      "beneficiaryCountry": "India",
+      "aNumber": "SYNTH-A198438776",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "l-1a",
+        "india"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-035",
+    "domain": "legal",
+    "name": "Petition: I-129 extension filing",
+    "description": "I-129 extension filing for South Korea national. Visa: H-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00035",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Kofi SYNTH-Zhang",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A341381412",
+      "requiresDol": true,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "petition",
+        "h-1b",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-036",
+    "domain": "legal",
+    "name": "Petition: Premium processing request preparat",
+    "description": "Premium processing request preparation for Brazil national. Visa: EB-2-NIW, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00036",
+      "visaCategory": "EB-2-NIW",
+      "formType": "I-140",
+      "beneficiaryName": "Jun SYNTH-Ali",
+      "beneficiaryCountry": "Brazil",
+      "aNumber": "SYNTH-A183203349",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "eb-2-niw",
+        "brazil"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-037",
+    "domain": "legal",
+    "name": "Petition: H-1B petition assembly with LCA",
+    "description": "H-1B petition assembly with LCA for Brazil national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00037",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Singh",
+      "beneficiaryCountry": "Brazil",
+      "aNumber": "SYNTH-A818775485",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "o-1a",
+        "brazil"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-038",
+    "domain": "legal",
+    "name": "Petition: L-1A intracompany transfer petition",
+    "description": "L-1A intracompany transfer petition for UK national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00038",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Ana SYNTH-Lopez",
+      "beneficiaryCountry": "UK",
+      "aNumber": "SYNTH-A994234308",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "l-1a",
+        "uk"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-039",
+    "domain": "legal",
+    "name": "Petition: O-1A extraordinary ability evidence",
+    "description": "O-1A extraordinary ability evidence compilation for Canada national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00039",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Kumar",
+      "beneficiaryCountry": "Canada",
+      "aNumber": "SYNTH-A181330573",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "l-1a",
+        "canada"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-040",
+    "domain": "legal",
+    "name": "Petition: EB-1A 10-criteria analysis and peti",
+    "description": "EB-1A 10-criteria analysis and petition for Philippines national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00040",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Ana SYNTH-Hassan",
+      "beneficiaryCountry": "Philippines",
+      "aNumber": "SYNTH-A716852814",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "o-1a",
+        "philippines"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-041",
+    "domain": "legal",
+    "name": "Petition: EB-2 NIW three-prong test assessmen",
+    "description": "EB-2 NIW three-prong test assessment for China national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00041",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Wei SYNTH-Tanaka",
+      "beneficiaryCountry": "China",
+      "aNumber": "SYNTH-A387346227",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "o-1b",
+        "china"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-042",
+    "domain": "legal",
+    "name": "Petition: I-485 concurrent filing assembly",
+    "description": "I-485 concurrent filing assembly for China national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00042",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Olga SYNTH-Tanaka",
+      "beneficiaryCountry": "China",
+      "aNumber": "SYNTH-A930270338",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "o-1a",
+        "china"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-043",
+    "domain": "legal",
+    "name": "Petition: H-1B amendment for job change",
+    "description": "H-1B amendment for job change for Japan national. Visa: H-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00043",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Ahmed SYNTH-Wang",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A124411649",
+      "requiresDol": true,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "h-1b",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-044",
+    "domain": "legal",
+    "name": "Petition: L-1B specialized knowledge petition",
+    "description": "L-1B specialized knowledge petition for China national. Visa: EB-1A, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00044",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Kofi SYNTH-Tanaka",
+      "beneficiaryCountry": "China",
+      "aNumber": "SYNTH-A900474821",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "eb-1a",
+        "china"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-045",
+    "domain": "legal",
+    "name": "Petition: O-1B arts extraordinary ability pet",
+    "description": "O-1B arts extraordinary ability petition for Japan national. Visa: O-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00045",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Olga SYNTH-Lopez",
+      "beneficiaryCountry": "Japan",
+      "aNumber": "SYNTH-A901796705",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "o-1a",
+        "japan"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-046",
+    "domain": "legal",
+    "name": "Petition: EB-3 skilled worker petition",
+    "description": "EB-3 skilled worker petition for Nigeria national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00046",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Fatima SYNTH-Wang",
+      "beneficiaryCountry": "Nigeria",
+      "aNumber": "SYNTH-A898978959",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "i-485",
+        "nigeria"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-047",
+    "domain": "legal",
+    "name": "Petition: I-129 extension filing",
+    "description": "I-129 extension filing for Brazil national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00047",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Wei SYNTH-Tanaka",
+      "beneficiaryCountry": "Brazil",
+      "aNumber": "SYNTH-A194370345",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "i-485",
+        "brazil"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-048",
+    "domain": "legal",
+    "name": "Petition: Premium processing request preparat",
+    "description": "Premium processing request preparation for UK national. Visa: EB-2-NIW, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00048",
+      "visaCategory": "EB-2-NIW",
+      "formType": "I-140",
+      "beneficiaryName": "Priya SYNTH-Lopez",
+      "beneficiaryCountry": "UK",
+      "aNumber": "SYNTH-A310601995",
+      "requiresDol": false,
+      "filingOffice": "VSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "eb-2-niw",
+        "uk"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-049",
+    "domain": "legal",
+    "name": "Petition: H-1B petition assembly with LCA",
+    "description": "H-1B petition assembly with LCA for India national. Visa: L-1A, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00049",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Kofi SYNTH-Hassan",
+      "beneficiaryCountry": "India",
+      "aNumber": "SYNTH-A940231485",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "petition",
+        "l-1a",
+        "india"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-050",
+    "domain": "legal",
+    "name": "Petition: L-1A intracompany transfer petition",
+    "description": "L-1A intracompany transfer petition for Nigeria national. Visa: EB-1A, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00050",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Yuki SYNTH-Wang",
+      "beneficiaryCountry": "Nigeria",
+      "aNumber": "SYNTH-A160350935",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "eb-1a",
+        "nigeria"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-051",
+    "domain": "legal",
+    "name": "Petition: O-1A extraordinary ability evidence",
+    "description": "O-1A extraordinary ability evidence compilation for Mexico national. Visa: EB-3, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00051",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Wei SYNTH-Lopez",
+      "beneficiaryCountry": "Mexico",
+      "aNumber": "SYNTH-A875585069",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "eb-3",
+        "mexico"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-052",
+    "domain": "legal",
+    "name": "Petition: EB-1A 10-criteria analysis and peti",
+    "description": "EB-1A 10-criteria analysis and petition for China national. Visa: L-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00052",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Priya SYNTH-Zhang",
+      "beneficiaryCountry": "China",
+      "aNumber": "SYNTH-A730580394",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "l-1b",
+        "china"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-053",
+    "domain": "legal",
+    "name": "Petition: EB-2 NIW three-prong test assessmen",
+    "description": "EB-2 NIW three-prong test assessment for Philippines national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00053",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Maria SYNTH-Kumar",
+      "beneficiaryCountry": "Philippines",
+      "aNumber": "SYNTH-A467837426",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "o-1b",
+        "philippines"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-054",
+    "domain": "legal",
+    "name": "Petition: I-485 concurrent filing assembly",
+    "description": "I-485 concurrent filing assembly for UK national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00054",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Leila SYNTH-Wang",
+      "beneficiaryCountry": "UK",
+      "aNumber": "SYNTH-A286192292",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary",
+        "identity"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "o-1b",
+        "uk"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-055",
+    "domain": "legal",
+    "name": "Petition: H-1B amendment for job change",
+    "description": "H-1B amendment for job change for South Korea national. Visa: H-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00055",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Maria SYNTH-Singh",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A237670209",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "h-1b",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-056",
+    "domain": "legal",
+    "name": "Petition: L-1B specialized knowledge petition",
+    "description": "L-1B specialized knowledge petition for India national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00056",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Carlos SYNTH-Zhang",
+      "beneficiaryCountry": "India",
+      "aNumber": "SYNTH-A458937426",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "o-1b",
+        "india"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-057",
+    "domain": "legal",
+    "name": "Petition: O-1B arts extraordinary ability pet",
+    "description": "O-1B arts extraordinary ability petition for South Korea national. Visa: O-1B, Form: I-129.",
+    "input": {
+      "caseId": "SYNTH-CASE-00057",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Olga SYNTH-Tanaka",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A449231089",
+      "requiresDol": false,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-129",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "o-1b",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-058",
+    "domain": "legal",
+    "name": "Petition: EB-3 skilled worker petition",
+    "description": "EB-3 skilled worker petition for Philippines national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00058",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Wei SYNTH-Lopez",
+      "beneficiaryCountry": "Philippines",
+      "aNumber": "SYNTH-A193150441",
+      "requiresDol": false,
+      "filingOffice": "CSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "i-485",
+        "philippines"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-059",
+    "domain": "legal",
+    "name": "Petition: I-129 extension filing",
+    "description": "I-129 extension filing for South Korea national. Visa: I-485, Form: I-485.",
+    "input": {
+      "caseId": "SYNTH-CASE-00059",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Priya SYNTH-Hassan",
+      "beneficiaryCountry": "South Korea",
+      "aNumber": "SYNTH-A250802055",
+      "requiresDol": false,
+      "filingOffice": "NSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-485",
+      "evidenceComplete": true,
+      "dolRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "i-485",
+        "south korea"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-060",
+    "domain": "legal",
+    "name": "Petition: Premium processing request preparat",
+    "description": "Premium processing request preparation for Philippines national. Visa: EB-3, Form: I-140.",
+    "input": {
+      "caseId": "SYNTH-CASE-00060",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Priya SYNTH-Tanaka",
+      "beneficiaryCountry": "Philippines",
+      "aNumber": "SYNTH-A905738049",
+      "requiresDol": true,
+      "filingOffice": "TSC",
+      "evidenceCategories": [
+        "employment",
+        "education",
+        "extraordinary"
+      ]
+    },
+    "expected": {
+      "formSelected": "I-140",
+      "evidenceComplete": true,
+      "dolRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "petition",
+        "eb-3",
+        "philippines"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-061",
+    "domain": "legal",
+    "name": "Analysis: Eligibility assessment for visa cat",
+    "description": "Eligibility assessment for visa category for O-1A applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00100",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Ana SYNTH-Tanaka",
+      "beneficiaryCountry": "China",
+      "analysisType": "eligibility",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-062",
+    "domain": "legal",
+    "name": "Analysis: Priority date analysis with visa bu",
+    "description": "Priority date analysis with visa bulletin for L-1B applicant from Brazil.",
+    "input": {
+      "caseId": "SYNTH-CASE-00101",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Kofi SYNTH-Tanaka",
+      "beneficiaryCountry": "Brazil",
+      "analysisType": "priority",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-063",
+    "domain": "legal",
+    "name": "Analysis: RFE response strategy development",
+    "description": "RFE response strategy development for EB-3 applicant from India.",
+    "input": {
+      "caseId": "SYNTH-CASE-00102",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Pavel SYNTH-Wang",
+      "beneficiaryCountry": "India",
+      "analysisType": "rfe",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-064",
+    "domain": "legal",
+    "name": "Analysis: Precedent case matching from AAO de",
+    "description": "Precedent case matching from AAO decisions for O-1B applicant from Brazil.",
+    "input": {
+      "caseId": "SYNTH-CASE-00103",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Priya SYNTH-Ali",
+      "beneficiaryCountry": "Brazil",
+      "analysisType": "precedent",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-065",
+    "domain": "legal",
+    "name": "Analysis: Evidence gap analysis for petition",
+    "description": "Evidence gap analysis for petition for L-1B applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00104",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Jun SYNTH-Lopez",
+      "beneficiaryCountry": "UK",
+      "analysisType": "evidence",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-066",
+    "domain": "legal",
+    "name": "Analysis: Dual intent analysis for visa holde",
+    "description": "Dual intent analysis for visa holder for L-1A applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00105",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Leila SYNTH-Zhang",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "dual",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-067",
+    "domain": "legal",
+    "name": "Analysis: Specialty occupation analysis for H",
+    "description": "Specialty occupation analysis for H-1B for EB-3 applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00106",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Maria SYNTH-Ali",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "specialty",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-068",
+    "domain": "legal",
+    "name": "Analysis: National interest waiver prong anal",
+    "description": "National interest waiver prong analysis for H-1B applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00107",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Leila SYNTH-Garcia",
+      "beneficiaryCountry": "China",
+      "analysisType": "national",
+      "currentStatus": "H-1B"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-069",
+    "domain": "legal",
+    "name": "Analysis: Employment history gap explanation",
+    "description": "Employment history gap explanation for O-1A applicant from Nigeria.",
+    "input": {
+      "caseId": "SYNTH-CASE-00108",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Fatima SYNTH-Tanaka",
+      "beneficiaryCountry": "Nigeria",
+      "analysisType": "employment",
+      "currentStatus": "H-1B"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-070",
+    "domain": "legal",
+    "name": "Analysis: Credential equivalency assessment",
+    "description": "Credential equivalency assessment for L-1A applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00109",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Wei SYNTH-Ali",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "credential",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-071",
+    "domain": "legal",
+    "name": "Analysis: Visa category comparison for benefi",
+    "description": "Visa category comparison for beneficiary for EB-2-NIW applicant from Canada.",
+    "input": {
+      "caseId": "SYNTH-CASE-00110",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Maria SYNTH-Wang",
+      "beneficiaryCountry": "Canada",
+      "analysisType": "visa",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-072",
+    "domain": "legal",
+    "name": "Analysis: Filing timeline and strategy optimi",
+    "description": "Filing timeline and strategy optimization for L-1A applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00111",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Olga SYNTH-Singh",
+      "beneficiaryCountry": "UK",
+      "analysisType": "filing",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-073",
+    "domain": "legal",
+    "name": "Analysis: Eligibility assessment for visa cat",
+    "description": "Eligibility assessment for visa category for H-1B applicant from India.",
+    "input": {
+      "caseId": "SYNTH-CASE-00112",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Wei SYNTH-Wang",
+      "beneficiaryCountry": "India",
+      "analysisType": "eligibility",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-074",
+    "domain": "legal",
+    "name": "Analysis: Priority date analysis with visa bu",
+    "description": "Priority date analysis with visa bulletin for EB-3 applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00113",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Jun SYNTH-Singh",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "priority",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-075",
+    "domain": "legal",
+    "name": "Analysis: RFE response strategy development",
+    "description": "RFE response strategy development for EB-1A applicant from Brazil.",
+    "input": {
+      "caseId": "SYNTH-CASE-00114",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Yuki SYNTH-Lopez",
+      "beneficiaryCountry": "Brazil",
+      "analysisType": "rfe",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-076",
+    "domain": "legal",
+    "name": "Analysis: Precedent case matching from AAO de",
+    "description": "Precedent case matching from AAO decisions for L-1A applicant from Nigeria.",
+    "input": {
+      "caseId": "SYNTH-CASE-00115",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Ana SYNTH-Wang",
+      "beneficiaryCountry": "Nigeria",
+      "analysisType": "precedent",
+      "currentStatus": "H-1B"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-077",
+    "domain": "legal",
+    "name": "Analysis: Evidence gap analysis for petition",
+    "description": "Evidence gap analysis for petition for EB-2-NIW applicant from Brazil.",
+    "input": {
+      "caseId": "SYNTH-CASE-00116",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Olga SYNTH-Garcia",
+      "beneficiaryCountry": "Brazil",
+      "analysisType": "evidence",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-078",
+    "domain": "legal",
+    "name": "Analysis: Dual intent analysis for visa holde",
+    "description": "Dual intent analysis for visa holder for EB-1A applicant from South Korea.",
+    "input": {
+      "caseId": "SYNTH-CASE-00117",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Priya SYNTH-Petrov",
+      "beneficiaryCountry": "South Korea",
+      "analysisType": "dual",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-079",
+    "domain": "legal",
+    "name": "Analysis: Specialty occupation analysis for H",
+    "description": "Specialty occupation analysis for H-1B for H-1B applicant from Canada.",
+    "input": {
+      "caseId": "SYNTH-CASE-00118",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Ahmed SYNTH-Kumar",
+      "beneficiaryCountry": "Canada",
+      "analysisType": "specialty",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-080",
+    "domain": "legal",
+    "name": "Analysis: National interest waiver prong anal",
+    "description": "National interest waiver prong analysis for O-1A applicant from Canada.",
+    "input": {
+      "caseId": "SYNTH-CASE-00119",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Carlos SYNTH-Lopez",
+      "beneficiaryCountry": "Canada",
+      "analysisType": "national",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-081",
+    "domain": "legal",
+    "name": "Analysis: Employment history gap explanation",
+    "description": "Employment history gap explanation for EB-2-NIW applicant from Nigeria.",
+    "input": {
+      "caseId": "SYNTH-CASE-00120",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Kofi SYNTH-Zhang",
+      "beneficiaryCountry": "Nigeria",
+      "analysisType": "employment",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-082",
+    "domain": "legal",
+    "name": "Analysis: Credential equivalency assessment",
+    "description": "Credential equivalency assessment for EB-1A applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00121",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Chen SYNTH-Lopez",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "credential",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-083",
+    "domain": "legal",
+    "name": "Analysis: Visa category comparison for benefi",
+    "description": "Visa category comparison for beneficiary for L-1A applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00122",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Jun SYNTH-Wang",
+      "beneficiaryCountry": "UK",
+      "analysisType": "visa",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-084",
+    "domain": "legal",
+    "name": "Analysis: Filing timeline and strategy optimi",
+    "description": "Filing timeline and strategy optimization for L-1A applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00123",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Wei SYNTH-Petrov",
+      "beneficiaryCountry": "UK",
+      "analysisType": "filing",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-085",
+    "domain": "legal",
+    "name": "Analysis: Eligibility assessment for visa cat",
+    "description": "Eligibility assessment for visa category for H-1B applicant from India.",
+    "input": {
+      "caseId": "SYNTH-CASE-00124",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Pavel SYNTH-Zhang",
+      "beneficiaryCountry": "India",
+      "analysisType": "eligibility",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-086",
+    "domain": "legal",
+    "name": "Analysis: Priority date analysis with visa bu",
+    "description": "Priority date analysis with visa bulletin for I-485 applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00125",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Chen SYNTH-Hassan",
+      "beneficiaryCountry": "UK",
+      "analysisType": "priority",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-087",
+    "domain": "legal",
+    "name": "Analysis: RFE response strategy development",
+    "description": "RFE response strategy development for EB-2-NIW applicant from Philippines.",
+    "input": {
+      "caseId": "SYNTH-CASE-00126",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Ana SYNTH-Lopez",
+      "beneficiaryCountry": "Philippines",
+      "analysisType": "rfe",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-088",
+    "domain": "legal",
+    "name": "Analysis: Precedent case matching from AAO de",
+    "description": "Precedent case matching from AAO decisions for EB-3 applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00127",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Fatima SYNTH-Petrov",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "precedent",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-089",
+    "domain": "legal",
+    "name": "Analysis: Evidence gap analysis for petition",
+    "description": "Evidence gap analysis for petition for I-485 applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00128",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Raj SYNTH-Singh",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "evidence",
+      "currentStatus": "H-1B"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-090",
+    "domain": "legal",
+    "name": "Analysis: Dual intent analysis for visa holde",
+    "description": "Dual intent analysis for visa holder for L-1B applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00129",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Maria SYNTH-Tanaka",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "dual",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-091",
+    "domain": "legal",
+    "name": "Analysis: Specialty occupation analysis for H",
+    "description": "Specialty occupation analysis for H-1B for L-1B applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00130",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Chen SYNTH-Kumar",
+      "beneficiaryCountry": "China",
+      "analysisType": "specialty",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-092",
+    "domain": "legal",
+    "name": "Analysis: National interest waiver prong anal",
+    "description": "National interest waiver prong analysis for L-1B applicant from Brazil.",
+    "input": {
+      "caseId": "SYNTH-CASE-00131",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Jun SYNTH-Garcia",
+      "beneficiaryCountry": "Brazil",
+      "analysisType": "national",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-093",
+    "domain": "legal",
+    "name": "Analysis: Employment history gap explanation",
+    "description": "Employment history gap explanation for L-1A applicant from India.",
+    "input": {
+      "caseId": "SYNTH-CASE-00132",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Carlos SYNTH-Lopez",
+      "beneficiaryCountry": "India",
+      "analysisType": "employment",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-094",
+    "domain": "legal",
+    "name": "Analysis: Credential equivalency assessment",
+    "description": "Credential equivalency assessment for EB-1A applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00133",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Chen SYNTH-Ali",
+      "beneficiaryCountry": "China",
+      "analysisType": "credential",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-095",
+    "domain": "legal",
+    "name": "Analysis: Visa category comparison for benefi",
+    "description": "Visa category comparison for beneficiary for I-485 applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00134",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Kofi SYNTH-Zhang",
+      "beneficiaryCountry": "UK",
+      "analysisType": "visa",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "analysis",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-096",
+    "domain": "legal",
+    "name": "Analysis: Filing timeline and strategy optimi",
+    "description": "Filing timeline and strategy optimization for EB-3 applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00135",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Jun SYNTH-Lopez",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "filing",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-097",
+    "domain": "legal",
+    "name": "Analysis: Eligibility assessment for visa cat",
+    "description": "Eligibility assessment for visa category for L-1A applicant from South Korea.",
+    "input": {
+      "caseId": "SYNTH-CASE-00136",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Fatima SYNTH-Hassan",
+      "beneficiaryCountry": "South Korea",
+      "analysisType": "eligibility",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-098",
+    "domain": "legal",
+    "name": "Analysis: Priority date analysis with visa bu",
+    "description": "Priority date analysis with visa bulletin for EB-2-NIW applicant from Nigeria.",
+    "input": {
+      "caseId": "SYNTH-CASE-00137",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Carlos SYNTH-Singh",
+      "beneficiaryCountry": "Nigeria",
+      "analysisType": "priority",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-099",
+    "domain": "legal",
+    "name": "Analysis: RFE response strategy development",
+    "description": "RFE response strategy development for EB-1A applicant from Philippines.",
+    "input": {
+      "caseId": "SYNTH-CASE-00138",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Maria SYNTH-Zhang",
+      "beneficiaryCountry": "Philippines",
+      "analysisType": "rfe",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-100",
+    "domain": "legal",
+    "name": "Analysis: Precedent case matching from AAO de",
+    "description": "Precedent case matching from AAO decisions for EB-1A applicant from Canada.",
+    "input": {
+      "caseId": "SYNTH-CASE-00139",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Ahmed SYNTH-Garcia",
+      "beneficiaryCountry": "Canada",
+      "analysisType": "precedent",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-101",
+    "domain": "legal",
+    "name": "Analysis: Evidence gap analysis for petition",
+    "description": "Evidence gap analysis for petition for EB-2-NIW applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00140",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Ahmed SYNTH-Singh",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "evidence",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-102",
+    "domain": "legal",
+    "name": "Analysis: Dual intent analysis for visa holde",
+    "description": "Dual intent analysis for visa holder for H-1B applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00141",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Wei SYNTH-Lopez",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "dual",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-103",
+    "domain": "legal",
+    "name": "Analysis: Specialty occupation analysis for H",
+    "description": "Specialty occupation analysis for H-1B for EB-3 applicant from Brazil.",
+    "input": {
+      "caseId": "SYNTH-CASE-00142",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Jun SYNTH-Petrov",
+      "beneficiaryCountry": "Brazil",
+      "analysisType": "specialty",
+      "currentStatus": "H-1B"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-104",
+    "domain": "legal",
+    "name": "Analysis: National interest waiver prong anal",
+    "description": "National interest waiver prong analysis for O-1B applicant from Canada.",
+    "input": {
+      "caseId": "SYNTH-CASE-00143",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Fatima SYNTH-Lopez",
+      "beneficiaryCountry": "Canada",
+      "analysisType": "national",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-105",
+    "domain": "legal",
+    "name": "Analysis: Employment history gap explanation",
+    "description": "Employment history gap explanation for EB-3 applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00144",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Ana SYNTH-Hassan",
+      "beneficiaryCountry": "China",
+      "analysisType": "employment",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-106",
+    "domain": "legal",
+    "name": "Analysis: Credential equivalency assessment",
+    "description": "Credential equivalency assessment for L-1B applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00145",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Wei SYNTH-Singh",
+      "beneficiaryCountry": "UK",
+      "analysisType": "credential",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-107",
+    "domain": "legal",
+    "name": "Analysis: Visa category comparison for benefi",
+    "description": "Visa category comparison for beneficiary for O-1A applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00146",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Chen SYNTH-Tanaka",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "visa",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-108",
+    "domain": "legal",
+    "name": "Analysis: Filing timeline and strategy optimi",
+    "description": "Filing timeline and strategy optimization for L-1A applicant from India.",
+    "input": {
+      "caseId": "SYNTH-CASE-00147",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Chen SYNTH-Hassan",
+      "beneficiaryCountry": "India",
+      "analysisType": "filing",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-109",
+    "domain": "legal",
+    "name": "Analysis: Eligibility assessment for visa cat",
+    "description": "Eligibility assessment for visa category for O-1B applicant from Nigeria.",
+    "input": {
+      "caseId": "SYNTH-CASE-00148",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Ana SYNTH-Singh",
+      "beneficiaryCountry": "Nigeria",
+      "analysisType": "eligibility",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "analysis",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-110",
+    "domain": "legal",
+    "name": "Analysis: Priority date analysis with visa bu",
+    "description": "Priority date analysis with visa bulletin for O-1B applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00149",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Fatima SYNTH-Garcia",
+      "beneficiaryCountry": "China",
+      "analysisType": "priority",
+      "currentStatus": "L-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-111",
+    "domain": "legal",
+    "name": "Analysis: RFE response strategy development",
+    "description": "RFE response strategy development for EB-1A applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00150",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Maria SYNTH-Petrov",
+      "beneficiaryCountry": "China",
+      "analysisType": "rfe",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-112",
+    "domain": "legal",
+    "name": "Analysis: Precedent case matching from AAO de",
+    "description": "Precedent case matching from AAO decisions for H-1B applicant from China.",
+    "input": {
+      "caseId": "SYNTH-CASE-00151",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Jun SYNTH-Hassan",
+      "beneficiaryCountry": "China",
+      "analysisType": "precedent",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-113",
+    "domain": "legal",
+    "name": "Analysis: Evidence gap analysis for petition",
+    "description": "Evidence gap analysis for petition for I-485 applicant from UK.",
+    "input": {
+      "caseId": "SYNTH-CASE-00152",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Yuki SYNTH-Petrov",
+      "beneficiaryCountry": "UK",
+      "analysisType": "evidence",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "proceed"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-114",
+    "domain": "legal",
+    "name": "Analysis: Dual intent analysis for visa holde",
+    "description": "Dual intent analysis for visa holder for L-1A applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00153",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Ana SYNTH-Hassan",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "dual",
+      "currentStatus": "B-1/B-2"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-115",
+    "domain": "legal",
+    "name": "Analysis: Specialty occupation analysis for H",
+    "description": "Specialty occupation analysis for H-1B for EB-2-NIW applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00154",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Yuki SYNTH-Wang",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "specialty",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-116",
+    "domain": "legal",
+    "name": "Analysis: National interest waiver prong anal",
+    "description": "National interest waiver prong analysis for H-1B applicant from Mexico.",
+    "input": {
+      "caseId": "SYNTH-CASE-00155",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Pavel SYNTH-Hassan",
+      "beneficiaryCountry": "Mexico",
+      "analysisType": "national",
+      "currentStatus": "H-1B"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": false,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-117",
+    "domain": "legal",
+    "name": "Analysis: Employment history gap explanation",
+    "description": "Employment history gap explanation for L-1B applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00156",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Wei SYNTH-Lopez",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "employment",
+      "currentStatus": "none"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "alternative-category"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-118",
+    "domain": "legal",
+    "name": "Analysis: Credential equivalency assessment",
+    "description": "Credential equivalency assessment for O-1B applicant from South Korea.",
+    "input": {
+      "caseId": "SYNTH-CASE-00157",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Chen SYNTH-Zhang",
+      "beneficiaryCountry": "South Korea",
+      "analysisType": "credential",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-119",
+    "domain": "legal",
+    "name": "Analysis: Visa category comparison for benefi",
+    "description": "Visa category comparison for beneficiary for O-1A applicant from India.",
+    "input": {
+      "caseId": "SYNTH-CASE-00158",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Wei SYNTH-Kumar",
+      "beneficiaryCountry": "India",
+      "analysisType": "visa",
+      "currentStatus": "H-4"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "wait"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-120",
+    "domain": "legal",
+    "name": "Analysis: Filing timeline and strategy optimi",
+    "description": "Filing timeline and strategy optimization for H-1B applicant from Japan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00159",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Priya SYNTH-Tanaka",
+      "beneficiaryCountry": "Japan",
+      "analysisType": "filing",
+      "currentStatus": "F-1"
+    },
+    "expected": {
+      "analysisComplete": true,
+      "eligible": true,
+      "recommendedAction": "additional-evidence"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "analysis",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-121",
+    "domain": "legal",
+    "name": "Docs: Filing package assembly and checklist",
+    "description": "Filing package assembly and checklist for H-1B petition. Beneficiary: Fatima SYNTH-Zhang.",
+    "input": {
+      "caseId": "SYNTH-CASE-00200",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Fatima SYNTH-Zhang",
+      "documentType": "filing",
+      "filingDate": "2026-02-14"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-122",
+    "domain": "legal",
+    "name": "Docs: Evidence indexing and exhibit labeling",
+    "description": "Evidence indexing and exhibit labeling for EB-1A petition. Beneficiary: Raj SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00201",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Raj SYNTH-Garcia",
+      "documentType": "evidence",
+      "filingDate": "2026-09-25"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-123",
+    "domain": "legal",
+    "name": "Docs: Filing fee calculation",
+    "description": "Filing fee calculation for EB-1A petition. Beneficiary: Carlos SYNTH-Hassan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00202",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Carlos SYNTH-Hassan",
+      "documentType": "filing",
+      "filingDate": "2026-09-22"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-124",
+    "domain": "legal",
+    "name": "Docs: Cover letter drafting from case data",
+    "description": "Cover letter drafting from case data for I-485 petition. Beneficiary: Chen SYNTH-Zhang.",
+    "input": {
+      "caseId": "SYNTH-CASE-00203",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Chen SYNTH-Zhang",
+      "documentType": "cover",
+      "filingDate": "2026-05-19"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-125",
+    "domain": "legal",
+    "name": "Docs: Compliance matrix generation",
+    "description": "Compliance matrix generation for L-1A petition. Beneficiary: Priya SYNTH-Singh.",
+    "input": {
+      "caseId": "SYNTH-CASE-00204",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Priya SYNTH-Singh",
+      "documentType": "compliance",
+      "filingDate": "2026-06-16"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-126",
+    "domain": "legal",
+    "name": "Docs: Translation certification verification",
+    "description": "Translation certification verification for EB-1A petition. Beneficiary: Pavel SYNTH-Ali.",
+    "input": {
+      "caseId": "SYNTH-CASE-00205",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Pavel SYNTH-Ali",
+      "documentType": "translation",
+      "filingDate": "2026-05-25"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-127",
+    "domain": "legal",
+    "name": "Docs: Document expiration tracking",
+    "description": "Document expiration tracking for H-1B petition. Beneficiary: Chen SYNTH-Hassan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00206",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Hassan",
+      "documentType": "document",
+      "filingDate": "2026-03-16"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-128",
+    "domain": "legal",
+    "name": "Docs: Signature page verification",
+    "description": "Signature page verification for EB-2-NIW petition. Beneficiary: Kofi SYNTH-Ali.",
+    "input": {
+      "caseId": "SYNTH-CASE-00207",
+      "visaCategory": "EB-2-NIW",
+      "formType": "I-140",
+      "beneficiaryName": "Kofi SYNTH-Ali",
+      "documentType": "signature",
+      "filingDate": "2026-03-21"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-129",
+    "domain": "legal",
+    "name": "Docs: Biographical page extraction",
+    "description": "Biographical page extraction for O-1A petition. Beneficiary: Jun SYNTH-Hassan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00208",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Jun SYNTH-Hassan",
+      "documentType": "biographical",
+      "filingDate": "2026-01-06"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-130",
+    "domain": "legal",
+    "name": "Docs: Supporting letter template generation",
+    "description": "Supporting letter template generation for O-1A petition. Beneficiary: Yuki SYNTH-Tanaka.",
+    "input": {
+      "caseId": "SYNTH-CASE-00209",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Tanaka",
+      "documentType": "supporting",
+      "filingDate": "2026-02-09"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-131",
+    "domain": "legal",
+    "name": "Docs: Filing package assembly and checklist",
+    "description": "Filing package assembly and checklist for I-485 petition. Beneficiary: Fatima SYNTH-Hassan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00210",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Fatima SYNTH-Hassan",
+      "documentType": "filing",
+      "filingDate": "2026-06-06"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-132",
+    "domain": "legal",
+    "name": "Docs: Evidence indexing and exhibit labeling",
+    "description": "Evidence indexing and exhibit labeling for H-1B petition. Beneficiary: Carlos SYNTH-Petrov.",
+    "input": {
+      "caseId": "SYNTH-CASE-00211",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Carlos SYNTH-Petrov",
+      "documentType": "evidence",
+      "filingDate": "2026-05-25"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-133",
+    "domain": "legal",
+    "name": "Docs: Filing fee calculation",
+    "description": "Filing fee calculation for O-1A petition. Beneficiary: Wei SYNTH-Tanaka.",
+    "input": {
+      "caseId": "SYNTH-CASE-00212",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Wei SYNTH-Tanaka",
+      "documentType": "filing",
+      "filingDate": "2026-04-13"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-134",
+    "domain": "legal",
+    "name": "Docs: Cover letter drafting from case data",
+    "description": "Cover letter drafting from case data for EB-3 petition. Beneficiary: Fatima SYNTH-Petrov.",
+    "input": {
+      "caseId": "SYNTH-CASE-00213",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Fatima SYNTH-Petrov",
+      "documentType": "cover",
+      "filingDate": "2026-08-17"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-135",
+    "domain": "legal",
+    "name": "Docs: Compliance matrix generation",
+    "description": "Compliance matrix generation for EB-3 petition. Beneficiary: Fatima SYNTH-Zhang.",
+    "input": {
+      "caseId": "SYNTH-CASE-00214",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Fatima SYNTH-Zhang",
+      "documentType": "compliance",
+      "filingDate": "2026-08-17"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-136",
+    "domain": "legal",
+    "name": "Docs: Translation certification verification",
+    "description": "Translation certification verification for O-1B petition. Beneficiary: Maria SYNTH-Zhang.",
+    "input": {
+      "caseId": "SYNTH-CASE-00215",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Maria SYNTH-Zhang",
+      "documentType": "translation",
+      "filingDate": "2026-01-27"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-137",
+    "domain": "legal",
+    "name": "Docs: Document expiration tracking",
+    "description": "Document expiration tracking for H-1B petition. Beneficiary: Pavel SYNTH-Lopez.",
+    "input": {
+      "caseId": "SYNTH-CASE-00216",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Pavel SYNTH-Lopez",
+      "documentType": "document",
+      "filingDate": "2026-12-18"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-138",
+    "domain": "legal",
+    "name": "Docs: Signature page verification",
+    "description": "Signature page verification for O-1A petition. Beneficiary: Pavel SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00217",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Pavel SYNTH-Garcia",
+      "documentType": "signature",
+      "filingDate": "2026-04-28"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-139",
+    "domain": "legal",
+    "name": "Docs: Biographical page extraction",
+    "description": "Biographical page extraction for I-485 petition. Beneficiary: Wei SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00218",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Wei SYNTH-Garcia",
+      "documentType": "biographical",
+      "filingDate": "2026-10-27"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-140",
+    "domain": "legal",
+    "name": "Docs: Supporting letter template generation",
+    "description": "Supporting letter template generation for L-1A petition. Beneficiary: Jun SYNTH-Kumar.",
+    "input": {
+      "caseId": "SYNTH-CASE-00219",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Jun SYNTH-Kumar",
+      "documentType": "supporting",
+      "filingDate": "2026-01-14"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-141",
+    "domain": "legal",
+    "name": "Docs: Filing package assembly and checklist",
+    "description": "Filing package assembly and checklist for L-1A petition. Beneficiary: Chen SYNTH-Hassan.",
+    "input": {
+      "caseId": "SYNTH-CASE-00220",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Hassan",
+      "documentType": "filing",
+      "filingDate": "2026-09-18"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-142",
+    "domain": "legal",
+    "name": "Docs: Evidence indexing and exhibit labeling",
+    "description": "Evidence indexing and exhibit labeling for EB-3 petition. Beneficiary: Fatima SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00221",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Fatima SYNTH-Garcia",
+      "documentType": "evidence",
+      "filingDate": "2026-10-01"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-143",
+    "domain": "legal",
+    "name": "Docs: Filing fee calculation",
+    "description": "Filing fee calculation for O-1B petition. Beneficiary: Raj SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00222",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Garcia",
+      "documentType": "filing",
+      "filingDate": "2026-05-01"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "documents",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-144",
+    "domain": "legal",
+    "name": "Docs: Cover letter drafting from case data",
+    "description": "Cover letter drafting from case data for L-1B petition. Beneficiary: Wei SYNTH-Ali.",
+    "input": {
+      "caseId": "SYNTH-CASE-00223",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Wei SYNTH-Ali",
+      "documentType": "cover",
+      "filingDate": "2026-09-25"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-145",
+    "domain": "legal",
+    "name": "Docs: Compliance matrix generation",
+    "description": "Compliance matrix generation for O-1B petition. Beneficiary: Chen SYNTH-Lopez.",
+    "input": {
+      "caseId": "SYNTH-CASE-00224",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Lopez",
+      "documentType": "compliance",
+      "filingDate": "2026-03-26"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-146",
+    "domain": "legal",
+    "name": "Docs: Translation certification verification",
+    "description": "Translation certification verification for EB-3 petition. Beneficiary: Kofi SYNTH-Singh.",
+    "input": {
+      "caseId": "SYNTH-CASE-00225",
+      "visaCategory": "EB-3",
+      "formType": "I-140",
+      "beneficiaryName": "Kofi SYNTH-Singh",
+      "documentType": "translation",
+      "filingDate": "2026-10-28"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-147",
+    "domain": "legal",
+    "name": "Docs: Document expiration tracking",
+    "description": "Document expiration tracking for EB-1A petition. Beneficiary: Leila SYNTH-Lopez.",
+    "input": {
+      "caseId": "SYNTH-CASE-00226",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Leila SYNTH-Lopez",
+      "documentType": "document",
+      "filingDate": "2026-11-23"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-148",
+    "domain": "legal",
+    "name": "Docs: Signature page verification",
+    "description": "Signature page verification for EB-1A petition. Beneficiary: Leila SYNTH-Singh.",
+    "input": {
+      "caseId": "SYNTH-CASE-00227",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Leila SYNTH-Singh",
+      "documentType": "signature",
+      "filingDate": "2026-07-25"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-149",
+    "domain": "legal",
+    "name": "Docs: Biographical page extraction",
+    "description": "Biographical page extraction for I-485 petition. Beneficiary: Raj SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00228",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Raj SYNTH-Garcia",
+      "documentType": "biographical",
+      "filingDate": "2026-11-10"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-150",
+    "domain": "legal",
+    "name": "Docs: Supporting letter template generation",
+    "description": "Supporting letter template generation for L-1B petition. Beneficiary: Chen SYNTH-Kumar.",
+    "input": {
+      "caseId": "SYNTH-CASE-00229",
+      "visaCategory": "L-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Kumar",
+      "documentType": "supporting",
+      "filingDate": "2026-10-04"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-151",
+    "domain": "legal",
+    "name": "Docs: Filing package assembly and checklist",
+    "description": "Filing package assembly and checklist for I-485 petition. Beneficiary: Olga SYNTH-Ali.",
+    "input": {
+      "caseId": "SYNTH-CASE-00230",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Olga SYNTH-Ali",
+      "documentType": "filing",
+      "filingDate": "2026-01-09"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-152",
+    "domain": "legal",
+    "name": "Docs: Evidence indexing and exhibit labeling",
+    "description": "Evidence indexing and exhibit labeling for I-485 petition. Beneficiary: Wei SYNTH-Lopez.",
+    "input": {
+      "caseId": "SYNTH-CASE-00231",
+      "visaCategory": "I-485",
+      "formType": "I-485",
+      "beneficiaryName": "Wei SYNTH-Lopez",
+      "documentType": "evidence",
+      "filingDate": "2026-04-16"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-153",
+    "domain": "legal",
+    "name": "Docs: Filing fee calculation",
+    "description": "Filing fee calculation for H-1B petition. Beneficiary: Yuki SYNTH-Tanaka.",
+    "input": {
+      "caseId": "SYNTH-CASE-00232",
+      "visaCategory": "H-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Tanaka",
+      "documentType": "filing",
+      "filingDate": "2026-12-07"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "documents",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-154",
+    "domain": "legal",
+    "name": "Docs: Cover letter drafting from case data",
+    "description": "Cover letter drafting from case data for O-1B petition. Beneficiary: Ahmed SYNTH-Tanaka.",
+    "input": {
+      "caseId": "SYNTH-CASE-00233",
+      "visaCategory": "O-1B",
+      "formType": "I-129",
+      "beneficiaryName": "Ahmed SYNTH-Tanaka",
+      "documentType": "cover",
+      "filingDate": "2026-03-11"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-155",
+    "domain": "legal",
+    "name": "Docs: Compliance matrix generation",
+    "description": "Compliance matrix generation for O-1A petition. Beneficiary: Raj SYNTH-Kumar.",
+    "input": {
+      "caseId": "SYNTH-CASE-00234",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Raj SYNTH-Kumar",
+      "documentType": "compliance",
+      "filingDate": "2026-05-16"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-156",
+    "domain": "legal",
+    "name": "Docs: Translation certification verification",
+    "description": "Translation certification verification for L-1A petition. Beneficiary: Jun SYNTH-Singh.",
+    "input": {
+      "caseId": "SYNTH-CASE-00235",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Jun SYNTH-Singh",
+      "documentType": "translation",
+      "filingDate": "2026-03-02"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-157",
+    "domain": "legal",
+    "name": "Docs: Document expiration tracking",
+    "description": "Document expiration tracking for O-1A petition. Beneficiary: Yuki SYNTH-Lopez.",
+    "input": {
+      "caseId": "SYNTH-CASE-00236",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Yuki SYNTH-Lopez",
+      "documentType": "document",
+      "filingDate": "2026-12-11"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-158",
+    "domain": "legal",
+    "name": "Docs: Signature page verification",
+    "description": "Signature page verification for L-1A petition. Beneficiary: Chen SYNTH-Garcia.",
+    "input": {
+      "caseId": "SYNTH-CASE-00237",
+      "visaCategory": "L-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Chen SYNTH-Garcia",
+      "documentType": "signature",
+      "filingDate": "2026-03-18"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-159",
+    "domain": "legal",
+    "name": "Docs: Biographical page extraction",
+    "description": "Biographical page extraction for EB-1A petition. Beneficiary: Raj SYNTH-Kumar.",
+    "input": {
+      "caseId": "SYNTH-CASE-00238",
+      "visaCategory": "EB-1A",
+      "formType": "I-140",
+      "beneficiaryName": "Raj SYNTH-Kumar",
+      "documentType": "biographical",
+      "filingDate": "2026-01-04"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-160",
+    "domain": "legal",
+    "name": "Docs: Supporting letter template generation",
+    "description": "Supporting letter template generation for O-1A petition. Beneficiary: Kofi SYNTH-Petrov.",
+    "input": {
+      "caseId": "SYNTH-CASE-00239",
+      "visaCategory": "O-1A",
+      "formType": "I-129",
+      "beneficiaryName": "Kofi SYNTH-Petrov",
+      "documentType": "supporting",
+      "filingDate": "2026-11-21"
+    },
+    "expected": {
+      "documentGenerated": true,
+      "compliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "documents",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-161",
+    "domain": "legal",
+    "name": "Ambiguous RFE response",
+    "description": "Draft response to an RFE with unclear USCIS requirements. Visa: EB-1A. Beneficiary from India. Variation 1.",
+    "input": {
+      "caseId": "SYNTH-CASE-00300",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Priya SYNTH-Zhang",
+      "beneficiaryCountry": "India",
+      "scenarioType": "ambiguous-rfe-response"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-162",
+    "domain": "legal",
+    "name": "Priority date retrogression",
+    "description": "Handle priority date becoming unavailable mid-process. Visa: L-1A. Beneficiary from Nigeria. Variation 2.",
+    "input": {
+      "caseId": "SYNTH-CASE-00301",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Wei SYNTH-Tanaka",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "priority-date-retrogression"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-163",
+    "domain": "legal",
+    "name": "Employer change during H-1B",
+    "description": "Process H-1B transfer when beneficiary changes employers. Visa: O-1A. Beneficiary from Brazil. Variation 3.",
+    "input": {
+      "caseId": "SYNTH-CASE-00302",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Chen SYNTH-Wang",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "employer-change-during-h-1b"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-164",
+    "domain": "legal",
+    "name": "Expired I-94 filing strategy",
+    "description": "Determine filing strategy for beneficiary with expired I-94. Visa: H-1B. Beneficiary from UK. Variation 4.",
+    "input": {
+      "caseId": "SYNTH-CASE-00303",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Maria SYNTH-Garcia",
+      "beneficiaryCountry": "UK",
+      "scenarioType": "expired-i-94-filing-strategy"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-165",
+    "domain": "legal",
+    "name": "Previous denial impact",
+    "description": "Assess impact of previous denial on new petition strategy. Visa: EB-1A. Beneficiary from Japan. Variation 5.",
+    "input": {
+      "caseId": "SYNTH-CASE-00304",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Olga SYNTH-Wang",
+      "beneficiaryCountry": "Japan",
+      "scenarioType": "previous-denial-impact"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-166",
+    "domain": "legal",
+    "name": "Dependent aging out",
+    "description": "Handle child dependent approaching 21st birthday during processing. Visa: L-1A. Beneficiary from Mexico. Variation 6.",
+    "input": {
+      "caseId": "SYNTH-CASE-00305",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Priya SYNTH-Petrov",
+      "beneficiaryCountry": "Mexico",
+      "scenarioType": "dependent-aging-out"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-167",
+    "domain": "legal",
+    "name": "Country-specific backlog",
+    "description": "Navigate country-specific visa number backlog for Indian national. Visa: EB-1A. Beneficiary from Canada. Variation 7.",
+    "input": {
+      "caseId": "SYNTH-CASE-00306",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Kofi SYNTH-Zhang",
+      "beneficiaryCountry": "Canada",
+      "scenarioType": "country-specific-backlog"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-168",
+    "domain": "legal",
+    "name": "Missing credential evaluation",
+    "description": "Handle case where foreign credential evaluation is unavailable. Visa: O-1A. Beneficiary from India. Variation 8.",
+    "input": {
+      "caseId": "SYNTH-CASE-00307",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Pavel SYNTH-Garcia",
+      "beneficiaryCountry": "India",
+      "scenarioType": "missing-credential-evaluation"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-169",
+    "domain": "legal",
+    "name": "Concurrent multiple petitions",
+    "description": "Manage simultaneously filed petitions for same beneficiary. Visa: H-1B. Beneficiary from UK. Variation 9.",
+    "input": {
+      "caseId": "SYNTH-CASE-00308",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Carlos SYNTH-Zhang",
+      "beneficiaryCountry": "UK",
+      "scenarioType": "concurrent-multiple-petitions"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-170",
+    "domain": "legal",
+    "name": "USCIS policy change mid-filing",
+    "description": "Adapt petition strategy when USCIS issues new policy guidance. Visa: O-1B. Beneficiary from Philippines. Variation 10.",
+    "input": {
+      "caseId": "SYNTH-CASE-00309",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Carlos SYNTH-Ali",
+      "beneficiaryCountry": "Philippines",
+      "scenarioType": "uscis-policy-change-mid-filing"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-171",
+    "domain": "legal",
+    "name": "Contradictory evidence in record",
+    "description": "Identify and resolve conflicting evidence documents. Visa: O-1B. Beneficiary from South Korea. Variation 11.",
+    "input": {
+      "caseId": "SYNTH-CASE-00310",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Kofi SYNTH-Garcia",
+      "beneficiaryCountry": "South Korea",
+      "scenarioType": "contradictory-evidence-in-record"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-172",
+    "domain": "legal",
+    "name": "Unauthorized case access attempt",
+    "description": "Detect and refuse unauthorized request for case information. Visa: EB-3. Beneficiary from Brazil. Variation 12.",
+    "input": {
+      "caseId": "SYNTH-CASE-00311",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Carlos SYNTH-Wang",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "unauthorized-case-access-attempt"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-173",
+    "domain": "legal",
+    "name": "Filing for ineligible category",
+    "description": "Identify and advise against filing in ineligible visa category. Visa: EB-2-NIW. Beneficiary from Nigeria. Variation 13.",
+    "input": {
+      "caseId": "SYNTH-CASE-00312",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Priya SYNTH-Wang",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "filing-for-ineligible-category"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-174",
+    "domain": "legal",
+    "name": "Overlapping H-1B and I-485",
+    "description": "Manage concurrent nonimmigrant and immigrant petition filings. Visa: L-1A. Beneficiary from Mexico. Variation 14.",
+    "input": {
+      "caseId": "SYNTH-CASE-00313",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Carlos SYNTH-Lopez",
+      "beneficiaryCountry": "Mexico",
+      "scenarioType": "overlapping-h-1b-and-i-485"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-175",
+    "domain": "legal",
+    "name": "Wage level dispute",
+    "description": "Handle prevailing wage determination disagreement with DOL. Visa: O-1B. Beneficiary from South Korea. Variation 15.",
+    "input": {
+      "caseId": "SYNTH-CASE-00314",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Wei SYNTH-Tanaka",
+      "beneficiaryCountry": "South Korea",
+      "scenarioType": "wage-level-dispute"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-176",
+    "domain": "legal",
+    "name": "Ambiguous RFE response",
+    "description": "Draft response to an RFE with unclear USCIS requirements. Visa: H-1B. Beneficiary from Nigeria. Variation 16.",
+    "input": {
+      "caseId": "SYNTH-CASE-00315",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Wei SYNTH-Petrov",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "ambiguous-rfe-response"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-177",
+    "domain": "legal",
+    "name": "Priority date retrogression",
+    "description": "Handle priority date becoming unavailable mid-process. Visa: EB-3. Beneficiary from Nigeria. Variation 17.",
+    "input": {
+      "caseId": "SYNTH-CASE-00316",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Chen SYNTH-Lopez",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "priority-date-retrogression"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-178",
+    "domain": "legal",
+    "name": "Employer change during H-1B",
+    "description": "Process H-1B transfer when beneficiary changes employers. Visa: O-1A. Beneficiary from India. Variation 18.",
+    "input": {
+      "caseId": "SYNTH-CASE-00317",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Olga SYNTH-Singh",
+      "beneficiaryCountry": "India",
+      "scenarioType": "employer-change-during-h-1b"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-179",
+    "domain": "legal",
+    "name": "Expired I-94 filing strategy",
+    "description": "Determine filing strategy for beneficiary with expired I-94. Visa: O-1B. Beneficiary from Nigeria. Variation 19.",
+    "input": {
+      "caseId": "SYNTH-CASE-00318",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Jun SYNTH-Hassan",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "expired-i-94-filing-strategy"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-180",
+    "domain": "legal",
+    "name": "Previous denial impact",
+    "description": "Assess impact of previous denial on new petition strategy. Visa: EB-2-NIW. Beneficiary from Nigeria. Variation 20.",
+    "input": {
+      "caseId": "SYNTH-CASE-00319",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Leila SYNTH-Tanaka",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "previous-denial-impact"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-181",
+    "domain": "legal",
+    "name": "Dependent aging out",
+    "description": "Handle child dependent approaching 21st birthday during processing. Visa: L-1B. Beneficiary from Canada. Variation 21.",
+    "input": {
+      "caseId": "SYNTH-CASE-00320",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Yuki SYNTH-Tanaka",
+      "beneficiaryCountry": "Canada",
+      "scenarioType": "dependent-aging-out"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-182",
+    "domain": "legal",
+    "name": "Country-specific backlog",
+    "description": "Navigate country-specific visa number backlog for Indian national. Visa: L-1A. Beneficiary from Canada. Variation 22.",
+    "input": {
+      "caseId": "SYNTH-CASE-00321",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Raj SYNTH-Singh",
+      "beneficiaryCountry": "Canada",
+      "scenarioType": "country-specific-backlog"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-183",
+    "domain": "legal",
+    "name": "Missing credential evaluation",
+    "description": "Handle case where foreign credential evaluation is unavailable. Visa: O-1A. Beneficiary from China. Variation 23.",
+    "input": {
+      "caseId": "SYNTH-CASE-00322",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Ana SYNTH-Tanaka",
+      "beneficiaryCountry": "China",
+      "scenarioType": "missing-credential-evaluation"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-184",
+    "domain": "legal",
+    "name": "Concurrent multiple petitions",
+    "description": "Manage simultaneously filed petitions for same beneficiary. Visa: EB-3. Beneficiary from India. Variation 24.",
+    "input": {
+      "caseId": "SYNTH-CASE-00323",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Pavel SYNTH-Kumar",
+      "beneficiaryCountry": "India",
+      "scenarioType": "concurrent-multiple-petitions"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-185",
+    "domain": "legal",
+    "name": "USCIS policy change mid-filing",
+    "description": "Adapt petition strategy when USCIS issues new policy guidance. Visa: EB-1A. Beneficiary from Brazil. Variation 25.",
+    "input": {
+      "caseId": "SYNTH-CASE-00324",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Raj SYNTH-Petrov",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "uscis-policy-change-mid-filing"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-186",
+    "domain": "legal",
+    "name": "Contradictory evidence in record",
+    "description": "Identify and resolve conflicting evidence documents. Visa: H-1B. Beneficiary from Nigeria. Variation 26.",
+    "input": {
+      "caseId": "SYNTH-CASE-00325",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Leila SYNTH-Lopez",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "contradictory-evidence-in-record"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-187",
+    "domain": "legal",
+    "name": "Unauthorized case access attempt",
+    "description": "Detect and refuse unauthorized request for case information. Visa: I-485. Beneficiary from Nigeria. Variation 27.",
+    "input": {
+      "caseId": "SYNTH-CASE-00326",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Ahmed SYNTH-Ali",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "unauthorized-case-access-attempt"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-188",
+    "domain": "legal",
+    "name": "Filing for ineligible category",
+    "description": "Identify and advise against filing in ineligible visa category. Visa: EB-1A. Beneficiary from UK. Variation 28.",
+    "input": {
+      "caseId": "SYNTH-CASE-00327",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Maria SYNTH-Ali",
+      "beneficiaryCountry": "UK",
+      "scenarioType": "filing-for-ineligible-category"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-189",
+    "domain": "legal",
+    "name": "Overlapping H-1B and I-485",
+    "description": "Manage concurrent nonimmigrant and immigrant petition filings. Visa: L-1B. Beneficiary from China. Variation 29.",
+    "input": {
+      "caseId": "SYNTH-CASE-00328",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Leila SYNTH-Ali",
+      "beneficiaryCountry": "China",
+      "scenarioType": "overlapping-h-1b-and-i-485"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-190",
+    "domain": "legal",
+    "name": "Wage level dispute",
+    "description": "Handle prevailing wage determination disagreement with DOL. Visa: O-1A. Beneficiary from Brazil. Variation 30.",
+    "input": {
+      "caseId": "SYNTH-CASE-00329",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Priya SYNTH-Kumar",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "wage-level-dispute"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-191",
+    "domain": "legal",
+    "name": "Ambiguous RFE response",
+    "description": "Draft response to an RFE with unclear USCIS requirements. Visa: L-1B. Beneficiary from Brazil. Variation 31.",
+    "input": {
+      "caseId": "SYNTH-CASE-00330",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Kofi SYNTH-Wang",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "ambiguous-rfe-response"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-192",
+    "domain": "legal",
+    "name": "Priority date retrogression",
+    "description": "Handle priority date becoming unavailable mid-process. Visa: EB-3. Beneficiary from India. Variation 32.",
+    "input": {
+      "caseId": "SYNTH-CASE-00331",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Raj SYNTH-Hassan",
+      "beneficiaryCountry": "India",
+      "scenarioType": "priority-date-retrogression"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-193",
+    "domain": "legal",
+    "name": "Employer change during H-1B",
+    "description": "Process H-1B transfer when beneficiary changes employers. Visa: I-485. Beneficiary from India. Variation 33.",
+    "input": {
+      "caseId": "SYNTH-CASE-00332",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Raj SYNTH-Tanaka",
+      "beneficiaryCountry": "India",
+      "scenarioType": "employer-change-during-h-1b"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-194",
+    "domain": "legal",
+    "name": "Expired I-94 filing strategy",
+    "description": "Determine filing strategy for beneficiary with expired I-94. Visa: O-1A. Beneficiary from Brazil. Variation 34.",
+    "input": {
+      "caseId": "SYNTH-CASE-00333",
+      "visaCategory": "O-1A",
+      "beneficiaryName": "Wei SYNTH-Petrov",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "expired-i-94-filing-strategy"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "o-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-195",
+    "domain": "legal",
+    "name": "Previous denial impact",
+    "description": "Assess impact of previous denial on new petition strategy. Visa: EB-1A. Beneficiary from Brazil. Variation 35.",
+    "input": {
+      "caseId": "SYNTH-CASE-00334",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Priya SYNTH-Hassan",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "previous-denial-impact"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-196",
+    "domain": "legal",
+    "name": "Dependent aging out",
+    "description": "Handle child dependent approaching 21st birthday during processing. Visa: O-1B. Beneficiary from China. Variation 36.",
+    "input": {
+      "caseId": "SYNTH-CASE-00335",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Carlos SYNTH-Kumar",
+      "beneficiaryCountry": "China",
+      "scenarioType": "dependent-aging-out"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-197",
+    "domain": "legal",
+    "name": "Country-specific backlog",
+    "description": "Navigate country-specific visa number backlog for Indian national. Visa: L-1A. Beneficiary from Brazil. Variation 37.",
+    "input": {
+      "caseId": "SYNTH-CASE-00336",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Kofi SYNTH-Wang",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "country-specific-backlog"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-198",
+    "domain": "legal",
+    "name": "Missing credential evaluation",
+    "description": "Handle case where foreign credential evaluation is unavailable. Visa: EB-2-NIW. Beneficiary from Canada. Variation 38.",
+    "input": {
+      "caseId": "SYNTH-CASE-00337",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Raj SYNTH-Wang",
+      "beneficiaryCountry": "Canada",
+      "scenarioType": "missing-credential-evaluation"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-199",
+    "domain": "legal",
+    "name": "Concurrent multiple petitions",
+    "description": "Manage simultaneously filed petitions for same beneficiary. Visa: L-1B. Beneficiary from UK. Variation 39.",
+    "input": {
+      "caseId": "SYNTH-CASE-00338",
+      "visaCategory": "L-1B",
+      "beneficiaryName": "Ana SYNTH-Singh",
+      "beneficiaryCountry": "UK",
+      "scenarioType": "concurrent-multiple-petitions"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-200",
+    "domain": "legal",
+    "name": "USCIS policy change mid-filing",
+    "description": "Adapt petition strategy when USCIS issues new policy guidance. Visa: L-1A. Beneficiary from South Korea. Variation 40.",
+    "input": {
+      "caseId": "SYNTH-CASE-00339",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Yuki SYNTH-Kumar",
+      "beneficiaryCountry": "South Korea",
+      "scenarioType": "uscis-policy-change-mid-filing"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-201",
+    "domain": "legal",
+    "name": "Contradictory evidence in record",
+    "description": "Identify and resolve conflicting evidence documents. Visa: H-1B. Beneficiary from South Korea. Variation 41.",
+    "input": {
+      "caseId": "SYNTH-CASE-00340",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Leila SYNTH-Wang",
+      "beneficiaryCountry": "South Korea",
+      "scenarioType": "contradictory-evidence-in-record"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-202",
+    "domain": "legal",
+    "name": "Unauthorized case access attempt",
+    "description": "Detect and refuse unauthorized request for case information. Visa: H-1B. Beneficiary from UK. Variation 42.",
+    "input": {
+      "caseId": "SYNTH-CASE-00341",
+      "visaCategory": "H-1B",
+      "beneficiaryName": "Yuki SYNTH-Hassan",
+      "beneficiaryCountry": "UK",
+      "scenarioType": "unauthorized-case-access-attempt"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "h-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-203",
+    "domain": "legal",
+    "name": "Filing for ineligible category",
+    "description": "Identify and advise against filing in ineligible visa category. Visa: EB-1A. Beneficiary from South Korea. Variation 43.",
+    "input": {
+      "caseId": "SYNTH-CASE-00342",
+      "visaCategory": "EB-1A",
+      "beneficiaryName": "Kofi SYNTH-Wang",
+      "beneficiaryCountry": "South Korea",
+      "scenarioType": "filing-for-ineligible-category"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-204",
+    "domain": "legal",
+    "name": "Overlapping H-1B and I-485",
+    "description": "Manage concurrent nonimmigrant and immigrant petition filings. Visa: EB-2-NIW. Beneficiary from Philippines. Variation 44.",
+    "input": {
+      "caseId": "SYNTH-CASE-00343",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Olga SYNTH-Wang",
+      "beneficiaryCountry": "Philippines",
+      "scenarioType": "overlapping-h-1b-and-i-485"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-205",
+    "domain": "legal",
+    "name": "Wage level dispute",
+    "description": "Handle prevailing wage determination disagreement with DOL. Visa: L-1A. Beneficiary from China. Variation 45.",
+    "input": {
+      "caseId": "SYNTH-CASE-00344",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Olga SYNTH-Wang",
+      "beneficiaryCountry": "China",
+      "scenarioType": "wage-level-dispute"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-206",
+    "domain": "legal",
+    "name": "Ambiguous RFE response",
+    "description": "Draft response to an RFE with unclear USCIS requirements. Visa: L-1A. Beneficiary from Brazil. Variation 46.",
+    "input": {
+      "caseId": "SYNTH-CASE-00345",
+      "visaCategory": "L-1A",
+      "beneficiaryName": "Raj SYNTH-Lopez",
+      "beneficiaryCountry": "Brazil",
+      "scenarioType": "ambiguous-rfe-response"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "l-1a"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-207",
+    "domain": "legal",
+    "name": "Priority date retrogression",
+    "description": "Handle priority date becoming unavailable mid-process. Visa: EB-2-NIW. Beneficiary from China. Variation 47.",
+    "input": {
+      "caseId": "SYNTH-CASE-00346",
+      "visaCategory": "EB-2-NIW",
+      "beneficiaryName": "Leila SYNTH-Singh",
+      "beneficiaryCountry": "China",
+      "scenarioType": "priority-date-retrogression"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-2-niw"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-208",
+    "domain": "legal",
+    "name": "Employer change during H-1B",
+    "description": "Process H-1B transfer when beneficiary changes employers. Visa: EB-3. Beneficiary from China. Variation 48.",
+    "input": {
+      "caseId": "SYNTH-CASE-00347",
+      "visaCategory": "EB-3",
+      "beneficiaryName": "Jun SYNTH-Petrov",
+      "beneficiaryCountry": "China",
+      "scenarioType": "employer-change-during-h-1b"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "eb-3"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-209",
+    "domain": "legal",
+    "name": "Expired I-94 filing strategy",
+    "description": "Determine filing strategy for beneficiary with expired I-94. Visa: I-485. Beneficiary from Nigeria. Variation 49.",
+    "input": {
+      "caseId": "SYNTH-CASE-00348",
+      "visaCategory": "I-485",
+      "beneficiaryName": "Carlos SYNTH-Garcia",
+      "beneficiaryCountry": "Nigeria",
+      "scenarioType": "expired-i-94-filing-strategy"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "i-485"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "leg-210",
+    "domain": "legal",
+    "name": "Previous denial impact",
+    "description": "Assess impact of previous denial on new petition strategy. Visa: O-1B. Beneficiary from Mexico. Variation 50.",
+    "input": {
+      "caseId": "SYNTH-CASE-00349",
+      "visaCategory": "O-1B",
+      "beneficiaryName": "Leila SYNTH-Tanaka",
+      "beneficiaryCountry": "Mexico",
+      "scenarioType": "previous-denial-impact"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true,
+      "piiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "o-1b"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  }
+]

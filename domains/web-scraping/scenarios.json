@@ -1,0 +1,7192 @@
+[
+  {
+    "id": "ws-001",
+    "domain": "web-scraping",
+    "name": "Extract product listings (techmart.test v1)",
+    "description": "Scrape all product titles and prices from a paginated catalog page on techmart.test. Variation 1: with authentication.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "product-listing",
+      "fields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "maxPages": 1,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 38,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "product-listing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-002",
+    "domain": "web-scraping",
+    "name": "Handle infinite scroll (techmart.test v2)",
+    "description": "Extract products from a page using infinite scroll pagination on techmart.test. Variation 2: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "infinite-scroll",
+      "fields": [
+        "title",
+        "price"
+      ],
+      "maxPages": 4,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 11,
+      "requiredFields": [
+        "title",
+        "price"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "infinite-scroll",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-003",
+    "domain": "web-scraping",
+    "name": "Extract with filters (fashionhub.test v3)",
+    "description": "Apply category and price filters then extract matching products on fashionhub.test. Variation 3: standard access.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "filtered-search",
+      "fields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 53,
+      "requiredFields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "filtered-search",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-004",
+    "domain": "web-scraping",
+    "name": "Compare prices (craftbazaar.test v4)",
+    "description": "Extract prices from multiple seller pages for the same product on craftbazaar.test. Variation 4: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "price-comparison",
+      "fields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "maxPages": 9,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 34,
+      "requiredFields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "price-comparison",
+        "seller",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-005",
+    "domain": "web-scraping",
+    "name": "Detect out-of-stock (fashionhub.test v5)",
+    "description": "Identify which products on a listing page are out of stock on fashionhub.test. Variation 5: with rate limiting.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "stock-check",
+      "fields": [
+        "title",
+        "availability"
+      ],
+      "maxPages": 9,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 39,
+      "requiredFields": [
+        "title",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "stock-check",
+        "title",
+        "availability"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-006",
+    "domain": "web-scraping",
+    "name": "Sale price extraction (techmart.test v6)",
+    "description": "Extract both original and discounted prices for sale items on techmart.test. Variation 6: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "sale-prices",
+      "fields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 57,
+      "requiredFields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "sale-prices",
+        "title",
+        "originalPrice"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-007",
+    "domain": "web-scraping",
+    "name": "Multi-currency prices (craftbazaar.test v7)",
+    "description": "Extract prices displayed in multiple currencies and normalize to USD on craftbazaar.test. Variation 7: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "multi-currency",
+      "fields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "maxPages": 9,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 37,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "multi-currency",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-008",
+    "domain": "web-scraping",
+    "name": "Product variant scraping (techmart.test v8)",
+    "description": "Extract all size/color variants with their specific prices and availability on techmart.test. Variation 8: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "variants",
+      "fields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 22,
+      "requiredFields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "variants",
+        "title",
+        "variant"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-009",
+    "domain": "web-scraping",
+    "name": "Review extraction (craftbazaar.test v9)",
+    "description": "Scrape product reviews including rating, text, author, and date on craftbazaar.test. Variation 9: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "reviews",
+      "fields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "maxPages": 9,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 17,
+      "requiredFields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "reviews",
+        "rating",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-010",
+    "domain": "web-scraping",
+    "name": "Search results scraping (craftbazaar.test v10)",
+    "description": "Execute a search query and extract all result items with metadata on craftbazaar.test. Variation 10: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "search-results",
+      "fields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "maxPages": 5,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 13,
+      "requiredFields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "search-results",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-011",
+    "domain": "web-scraping",
+    "name": "Category tree extraction (techmart.test v11)",
+    "description": "Navigate and extract the full category hierarchy from the site on techmart.test. Variation 11: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "category-tree",
+      "fields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 51,
+      "requiredFields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "category-tree",
+        "category",
+        "subcategories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-012",
+    "domain": "web-scraping",
+    "name": "Dynamic pricing detection (craftbazaar.test v12)",
+    "description": "Detect price changes by scraping the same product at different times on craftbazaar.test. Variation 12: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "dynamic-pricing",
+      "fields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "maxPages": 7,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 29,
+      "requiredFields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "dynamic-pricing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-013",
+    "domain": "web-scraping",
+    "name": "Extract product listings (fashionhub.test v13)",
+    "description": "Scrape all product titles and prices from a paginated catalog page on fashionhub.test. Variation 13: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "product-listing",
+      "fields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "maxPages": 7,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 45,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "product-listing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-014",
+    "domain": "web-scraping",
+    "name": "Handle infinite scroll (craftbazaar.test v14)",
+    "description": "Extract products from a page using infinite scroll pagination on craftbazaar.test. Variation 14: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "infinite-scroll",
+      "fields": [
+        "title",
+        "price"
+      ],
+      "maxPages": 10,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 32,
+      "requiredFields": [
+        "title",
+        "price"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "infinite-scroll",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-015",
+    "domain": "web-scraping",
+    "name": "Extract with filters (techmart.test v15)",
+    "description": "Apply category and price filters then extract matching products on techmart.test. Variation 15: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "filtered-search",
+      "fields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 32,
+      "requiredFields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "e-commerce",
+        "filtered-search",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-016",
+    "domain": "web-scraping",
+    "name": "Compare prices (techmart.test v16)",
+    "description": "Extract prices from multiple seller pages for the same product on techmart.test. Variation 16: with authentication.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "price-comparison",
+      "fields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 39,
+      "requiredFields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "price-comparison",
+        "seller",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-017",
+    "domain": "web-scraping",
+    "name": "Detect out-of-stock (craftbazaar.test v17)",
+    "description": "Identify which products on a listing page are out of stock on craftbazaar.test. Variation 17: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "stock-check",
+      "fields": [
+        "title",
+        "availability"
+      ],
+      "maxPages": 4,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 20,
+      "requiredFields": [
+        "title",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "stock-check",
+        "title",
+        "availability"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-018",
+    "domain": "web-scraping",
+    "name": "Sale price extraction (techmart.test v18)",
+    "description": "Extract both original and discounted prices for sale items on techmart.test. Variation 18: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "sale-prices",
+      "fields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "maxPages": 1,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 23,
+      "requiredFields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "sale-prices",
+        "title",
+        "originalPrice"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-019",
+    "domain": "web-scraping",
+    "name": "Multi-currency prices (fashionhub.test v19)",
+    "description": "Extract prices displayed in multiple currencies and normalize to USD on fashionhub.test. Variation 19: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "multi-currency",
+      "fields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "maxPages": 9,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 57,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "multi-currency",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-020",
+    "domain": "web-scraping",
+    "name": "Product variant scraping (techmart.test v20)",
+    "description": "Extract all size/color variants with their specific prices and availability on techmart.test. Variation 20: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "variants",
+      "fields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "maxPages": 9,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 39,
+      "requiredFields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "variants",
+        "title",
+        "variant"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-021",
+    "domain": "web-scraping",
+    "name": "Review extraction (fashionhub.test v21)",
+    "description": "Scrape product reviews including rating, text, author, and date on fashionhub.test. Variation 21: standard access.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "reviews",
+      "fields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "maxPages": 4,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 16,
+      "requiredFields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "reviews",
+        "rating",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-022",
+    "domain": "web-scraping",
+    "name": "Search results scraping (craftbazaar.test v22)",
+    "description": "Execute a search query and extract all result items with metadata on craftbazaar.test. Variation 22: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "search-results",
+      "fields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 56,
+      "requiredFields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "search-results",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-023",
+    "domain": "web-scraping",
+    "name": "Category tree extraction (craftbazaar.test v23)",
+    "description": "Navigate and extract the full category hierarchy from the site on craftbazaar.test. Variation 23: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "category-tree",
+      "fields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "maxPages": 5,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 45,
+      "requiredFields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "category-tree",
+        "category",
+        "subcategories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-024",
+    "domain": "web-scraping",
+    "name": "Dynamic pricing detection (techmart.test v24)",
+    "description": "Detect price changes by scraping the same product at different times on techmart.test. Variation 24: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "dynamic-pricing",
+      "fields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 35,
+      "requiredFields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "dynamic-pricing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-025",
+    "domain": "web-scraping",
+    "name": "Extract product listings (techmart.test v25)",
+    "description": "Scrape all product titles and prices from a paginated catalog page on techmart.test. Variation 25: with authentication.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "product-listing",
+      "fields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "maxPages": 3,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 40,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "product-listing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-026",
+    "domain": "web-scraping",
+    "name": "Handle infinite scroll (craftbazaar.test v26)",
+    "description": "Extract products from a page using infinite scroll pagination on craftbazaar.test. Variation 26: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "infinite-scroll",
+      "fields": [
+        "title",
+        "price"
+      ],
+      "maxPages": 5,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 20,
+      "requiredFields": [
+        "title",
+        "price"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "infinite-scroll",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-027",
+    "domain": "web-scraping",
+    "name": "Extract with filters (techmart.test v27)",
+    "description": "Apply category and price filters then extract matching products on techmart.test. Variation 27: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "filtered-search",
+      "fields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "maxPages": 7,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 54,
+      "requiredFields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "filtered-search",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-028",
+    "domain": "web-scraping",
+    "name": "Compare prices (craftbazaar.test v28)",
+    "description": "Extract prices from multiple seller pages for the same product on craftbazaar.test. Variation 28: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "price-comparison",
+      "fields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "maxPages": 7,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 51,
+      "requiredFields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "price-comparison",
+        "seller",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-029",
+    "domain": "web-scraping",
+    "name": "Detect out-of-stock (fashionhub.test v29)",
+    "description": "Identify which products on a listing page are out of stock on fashionhub.test. Variation 29: with rate limiting.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "stock-check",
+      "fields": [
+        "title",
+        "availability"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 16,
+      "requiredFields": [
+        "title",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "stock-check",
+        "title",
+        "availability"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-030",
+    "domain": "web-scraping",
+    "name": "Sale price extraction (fashionhub.test v30)",
+    "description": "Extract both original and discounted prices for sale items on fashionhub.test. Variation 30: standard access.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "sale-prices",
+      "fields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "maxPages": 7,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 59,
+      "requiredFields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "sale-prices",
+        "title",
+        "originalPrice"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-031",
+    "domain": "web-scraping",
+    "name": "Multi-currency prices (fashionhub.test v31)",
+    "description": "Extract prices displayed in multiple currencies and normalize to USD on fashionhub.test. Variation 31: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "multi-currency",
+      "fields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 31,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "multi-currency",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-032",
+    "domain": "web-scraping",
+    "name": "Product variant scraping (techmart.test v32)",
+    "description": "Extract all size/color variants with their specific prices and availability on techmart.test. Variation 32: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "variants",
+      "fields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "maxPages": 1,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 51,
+      "requiredFields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "variants",
+        "title",
+        "variant"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-033",
+    "domain": "web-scraping",
+    "name": "Review extraction (craftbazaar.test v33)",
+    "description": "Scrape product reviews including rating, text, author, and date on craftbazaar.test. Variation 33: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "reviews",
+      "fields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 18,
+      "requiredFields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "reviews",
+        "rating",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-034",
+    "domain": "web-scraping",
+    "name": "Search results scraping (fashionhub.test v34)",
+    "description": "Execute a search query and extract all result items with metadata on fashionhub.test. Variation 34: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "search-results",
+      "fields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "maxPages": 3,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 34,
+      "requiredFields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "search-results",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-035",
+    "domain": "web-scraping",
+    "name": "Category tree extraction (craftbazaar.test v35)",
+    "description": "Navigate and extract the full category hierarchy from the site on craftbazaar.test. Variation 35: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "category-tree",
+      "fields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "maxPages": 10,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 19,
+      "requiredFields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "e-commerce",
+        "category-tree",
+        "category",
+        "subcategories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-036",
+    "domain": "web-scraping",
+    "name": "Dynamic pricing detection (techmart.test v36)",
+    "description": "Detect price changes by scraping the same product at different times on techmart.test. Variation 36: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "dynamic-pricing",
+      "fields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 23,
+      "requiredFields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "dynamic-pricing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-037",
+    "domain": "web-scraping",
+    "name": "Extract product listings (fashionhub.test v37)",
+    "description": "Scrape all product titles and prices from a paginated catalog page on fashionhub.test. Variation 37: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "product-listing",
+      "fields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "maxPages": 1,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 42,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "product-listing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-038",
+    "domain": "web-scraping",
+    "name": "Handle infinite scroll (fashionhub.test v38)",
+    "description": "Extract products from a page using infinite scroll pagination on fashionhub.test. Variation 38: with rate limiting.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "infinite-scroll",
+      "fields": [
+        "title",
+        "price"
+      ],
+      "maxPages": 5,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 22,
+      "requiredFields": [
+        "title",
+        "price"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "infinite-scroll",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-039",
+    "domain": "web-scraping",
+    "name": "Extract with filters (fashionhub.test v39)",
+    "description": "Apply category and price filters then extract matching products on fashionhub.test. Variation 39: standard access.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "filtered-search",
+      "fields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 37,
+      "requiredFields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "filtered-search",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-040",
+    "domain": "web-scraping",
+    "name": "Compare prices (fashionhub.test v40)",
+    "description": "Extract prices from multiple seller pages for the same product on fashionhub.test. Variation 40: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "price-comparison",
+      "fields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "maxPages": 3,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 28,
+      "requiredFields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "price-comparison",
+        "seller",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-041",
+    "domain": "web-scraping",
+    "name": "Detect out-of-stock (fashionhub.test v41)",
+    "description": "Identify which products on a listing page are out of stock on fashionhub.test. Variation 41: with rate limiting.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "stock-check",
+      "fields": [
+        "title",
+        "availability"
+      ],
+      "maxPages": 10,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 21,
+      "requiredFields": [
+        "title",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "stock-check",
+        "title",
+        "availability"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-042",
+    "domain": "web-scraping",
+    "name": "Sale price extraction (craftbazaar.test v42)",
+    "description": "Extract both original and discounted prices for sale items on craftbazaar.test. Variation 42: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "sale-prices",
+      "fields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "maxPages": 10,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 38,
+      "requiredFields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "sale-prices",
+        "title",
+        "originalPrice"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-043",
+    "domain": "web-scraping",
+    "name": "Multi-currency prices (craftbazaar.test v43)",
+    "description": "Extract prices displayed in multiple currencies and normalize to USD on craftbazaar.test. Variation 43: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "multi-currency",
+      "fields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "maxPages": 1,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 22,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "multi-currency",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-044",
+    "domain": "web-scraping",
+    "name": "Product variant scraping (fashionhub.test v44)",
+    "description": "Extract all size/color variants with their specific prices and availability on fashionhub.test. Variation 44: with rate limiting.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "variants",
+      "fields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 57,
+      "requiredFields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "variants",
+        "title",
+        "variant"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-045",
+    "domain": "web-scraping",
+    "name": "Review extraction (craftbazaar.test v45)",
+    "description": "Scrape product reviews including rating, text, author, and date on craftbazaar.test. Variation 45: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "reviews",
+      "fields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 50,
+      "requiredFields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "reviews",
+        "rating",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-046",
+    "domain": "web-scraping",
+    "name": "Search results scraping (techmart.test v46)",
+    "description": "Execute a search query and extract all result items with metadata on techmart.test. Variation 46: with authentication.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "search-results",
+      "fields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 44,
+      "requiredFields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "search-results",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-047",
+    "domain": "web-scraping",
+    "name": "Category tree extraction (techmart.test v47)",
+    "description": "Navigate and extract the full category hierarchy from the site on techmart.test. Variation 47: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "category-tree",
+      "fields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "maxPages": 4,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 32,
+      "requiredFields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "category-tree",
+        "category",
+        "subcategories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-048",
+    "domain": "web-scraping",
+    "name": "Dynamic pricing detection (craftbazaar.test v48)",
+    "description": "Detect price changes by scraping the same product at different times on craftbazaar.test. Variation 48: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "dynamic-pricing",
+      "fields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "maxPages": 10,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 11,
+      "requiredFields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "dynamic-pricing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-049",
+    "domain": "web-scraping",
+    "name": "Extract product listings (fashionhub.test v49)",
+    "description": "Scrape all product titles and prices from a paginated catalog page on fashionhub.test. Variation 49: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "product-listing",
+      "fields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "maxPages": 4,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 42,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "e-commerce",
+        "product-listing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-050",
+    "domain": "web-scraping",
+    "name": "Handle infinite scroll (craftbazaar.test v50)",
+    "description": "Extract products from a page using infinite scroll pagination on craftbazaar.test. Variation 50: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "infinite-scroll",
+      "fields": [
+        "title",
+        "price"
+      ],
+      "maxPages": 5,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 22,
+      "requiredFields": [
+        "title",
+        "price"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "infinite-scroll",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-051",
+    "domain": "web-scraping",
+    "name": "Extract with filters (craftbazaar.test v51)",
+    "description": "Apply category and price filters then extract matching products on craftbazaar.test. Variation 51: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "filtered-search",
+      "fields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 11,
+      "requiredFields": [
+        "title",
+        "price",
+        "category"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "filtered-search",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-052",
+    "domain": "web-scraping",
+    "name": "Compare prices (craftbazaar.test v52)",
+    "description": "Extract prices from multiple seller pages for the same product on craftbazaar.test. Variation 52: with authentication.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "price-comparison",
+      "fields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 55,
+      "requiredFields": [
+        "seller",
+        "price",
+        "shipping"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "price-comparison",
+        "seller",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-053",
+    "domain": "web-scraping",
+    "name": "Detect out-of-stock (craftbazaar.test v53)",
+    "description": "Identify which products on a listing page are out of stock on craftbazaar.test. Variation 53: with rate limiting.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "stock-check",
+      "fields": [
+        "title",
+        "availability"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 59,
+      "requiredFields": [
+        "title",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "stock-check",
+        "title",
+        "availability"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-054",
+    "domain": "web-scraping",
+    "name": "Sale price extraction (craftbazaar.test v54)",
+    "description": "Extract both original and discounted prices for sale items on craftbazaar.test. Variation 54: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "sale-prices",
+      "fields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "maxPages": 7,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 49,
+      "requiredFields": [
+        "title",
+        "originalPrice",
+        "salePrice",
+        "discount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "sale-prices",
+        "title",
+        "originalPrice"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-055",
+    "domain": "web-scraping",
+    "name": "Multi-currency prices (techmart.test v55)",
+    "description": "Extract prices displayed in multiple currencies and normalize to USD on techmart.test. Variation 55: with authentication.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "multi-currency",
+      "fields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 40,
+      "requiredFields": [
+        "title",
+        "price",
+        "currency",
+        "usdEquivalent"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "multi-currency",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-056",
+    "domain": "web-scraping",
+    "name": "Product variant scraping (techmart.test v56)",
+    "description": "Extract all size/color variants with their specific prices and availability on techmart.test. Variation 56: with rate limiting.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "variants",
+      "fields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "maxPages": 8,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 11,
+      "requiredFields": [
+        "title",
+        "variant",
+        "price",
+        "availability"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "variants",
+        "title",
+        "variant"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-057",
+    "domain": "web-scraping",
+    "name": "Review extraction (craftbazaar.test v57)",
+    "description": "Scrape product reviews including rating, text, author, and date on craftbazaar.test. Variation 57: standard access.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/products?page=1",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "reviews",
+      "fields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "maxPages": 5,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 27,
+      "requiredFields": [
+        "rating",
+        "text",
+        "author",
+        "date"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "reviews",
+        "rating",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-058",
+    "domain": "web-scraping",
+    "name": "Search results scraping (fashionhub.test v58)",
+    "description": "Execute a search query and extract all result items with metadata on fashionhub.test. Variation 58: with authentication.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "search-results",
+      "fields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 11,
+      "requiredFields": [
+        "title",
+        "price",
+        "relevanceRank"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "search-results",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-059",
+    "domain": "web-scraping",
+    "name": "Category tree extraction (fashionhub.test v59)",
+    "description": "Navigate and extract the full category hierarchy from the site on fashionhub.test. Variation 59: with rate limiting.",
+    "input": {
+      "url": "https://mock-fashionhub.test/products?page=1",
+      "targetSite": "fashionhub.test",
+      "extractionType": "category-tree",
+      "fields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "maxPages": 6,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 13,
+      "requiredFields": [
+        "category",
+        "subcategories",
+        "productCount"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "category-tree",
+        "category",
+        "subcategories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-060",
+    "domain": "web-scraping",
+    "name": "Dynamic pricing detection (techmart.test v60)",
+    "description": "Detect price changes by scraping the same product at different times on techmart.test. Variation 60: standard access.",
+    "input": {
+      "url": "https://mock-techmart.test/products?page=1",
+      "targetSite": "techmart.test",
+      "extractionType": "dynamic-pricing",
+      "fields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "maxPages": 2,
+      "timeout": 30000
+    },
+    "expected": {
+      "minResults": 22,
+      "requiredFields": [
+        "title",
+        "price",
+        "timestamp"
+      ],
+      "dataFormat": "json"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "e-commerce",
+        "dynamic-pricing",
+        "title",
+        "price"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-061",
+    "domain": "web-scraping",
+    "name": "Article body extraction (blogworld.test v1)",
+    "description": "Extract the main article content excluding ads and navigation on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1000",
+      "targetSite": "blogworld.test",
+      "extractionType": "article-body",
+      "fields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "article-body",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-062",
+    "domain": "web-scraping",
+    "name": "Author and date parsing (wikiclone.test v2)",
+    "description": "Extract author name and publication date from various format patterns on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1001",
+      "targetSite": "wikiclone.test",
+      "extractionType": "author-date",
+      "fields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "author-date",
+        "author",
+        "publishDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-063",
+    "domain": "web-scraping",
+    "name": "Comment thread scraping (blogworld.test v3)",
+    "description": "Extract nested comment threads with replies and vote counts on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1002",
+      "targetSite": "blogworld.test",
+      "extractionType": "comments",
+      "fields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "comments",
+        "author",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-064",
+    "domain": "web-scraping",
+    "name": "Multi-page article (forumhub.test v4)",
+    "description": "Follow next-page links to assemble a complete multi-page article on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1003",
+      "targetSite": "forumhub.test",
+      "extractionType": "multi-page",
+      "fields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "multi-page",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-065",
+    "domain": "web-scraping",
+    "name": "Embedded media detection (wikiclone.test v5)",
+    "description": "Identify and extract URLs of embedded images, videos, and iframes on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1004",
+      "targetSite": "wikiclone.test",
+      "extractionType": "embedded-media",
+      "fields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "embedded-media",
+        "type",
+        "url"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-066",
+    "domain": "web-scraping",
+    "name": "Table data extraction (wikiclone.test v6)",
+    "description": "Extract structured data from HTML tables including headers on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1005",
+      "targetSite": "wikiclone.test",
+      "extractionType": "table-data",
+      "fields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "table-data",
+        "headers",
+        "rows"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-067",
+    "domain": "web-scraping",
+    "name": "Recipe structured data (blogworld.test v7)",
+    "description": "Extract recipe details including ingredients, steps, and nutrition on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1006",
+      "targetSite": "blogworld.test",
+      "extractionType": "recipe",
+      "fields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "recipe",
+        "title",
+        "ingredients"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-068",
+    "domain": "web-scraping",
+    "name": "Paywall detection (wikiclone.test v8)",
+    "description": "Detect paywalled content and extract what is freely available on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1007",
+      "targetSite": "wikiclone.test",
+      "extractionType": "paywall",
+      "fields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "paywall",
+        "isPaywalled",
+        "freeContent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-069",
+    "domain": "web-scraping",
+    "name": "Tag and category extraction (blogworld.test v9)",
+    "description": "Extract article tags, categories, and related article links on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1008",
+      "targetSite": "blogworld.test",
+      "extractionType": "tags",
+      "fields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "tags",
+        "tags",
+        "categories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-070",
+    "domain": "web-scraping",
+    "name": "Date format normalization (forumhub.test v10)",
+    "description": "Parse publication dates in relative, absolute, and locale formats on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1009",
+      "targetSite": "forumhub.test",
+      "extractionType": "date-parsing",
+      "fields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "date-parsing",
+        "rawDate",
+        "isoDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-071",
+    "domain": "web-scraping",
+    "name": "Article body extraction (forumhub.test v11)",
+    "description": "Extract the main article content excluding ads and navigation on forumhub.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1010",
+      "targetSite": "forumhub.test",
+      "extractionType": "article-body",
+      "fields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "article-body",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-072",
+    "domain": "web-scraping",
+    "name": "Author and date parsing (wikiclone.test v12)",
+    "description": "Extract author name and publication date from various format patterns on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1011",
+      "targetSite": "wikiclone.test",
+      "extractionType": "author-date",
+      "fields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "content-site",
+        "author-date",
+        "author",
+        "publishDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-073",
+    "domain": "web-scraping",
+    "name": "Comment thread scraping (wikiclone.test v13)",
+    "description": "Extract nested comment threads with replies and vote counts on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1012",
+      "targetSite": "wikiclone.test",
+      "extractionType": "comments",
+      "fields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "comments",
+        "author",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-074",
+    "domain": "web-scraping",
+    "name": "Multi-page article (wikiclone.test v14)",
+    "description": "Follow next-page links to assemble a complete multi-page article on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1013",
+      "targetSite": "wikiclone.test",
+      "extractionType": "multi-page",
+      "fields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "multi-page",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-075",
+    "domain": "web-scraping",
+    "name": "Embedded media detection (wikiclone.test v15)",
+    "description": "Identify and extract URLs of embedded images, videos, and iframes on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1014",
+      "targetSite": "wikiclone.test",
+      "extractionType": "embedded-media",
+      "fields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "embedded-media",
+        "type",
+        "url"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-076",
+    "domain": "web-scraping",
+    "name": "Table data extraction (blogworld.test v16)",
+    "description": "Extract structured data from HTML tables including headers on blogworld.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1015",
+      "targetSite": "blogworld.test",
+      "extractionType": "table-data",
+      "fields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "table-data",
+        "headers",
+        "rows"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-077",
+    "domain": "web-scraping",
+    "name": "Recipe structured data (technews.test v17)",
+    "description": "Extract recipe details including ingredients, steps, and nutrition on technews.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-technews.test/article/1016",
+      "targetSite": "technews.test",
+      "extractionType": "recipe",
+      "fields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "recipe",
+        "title",
+        "ingredients"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-078",
+    "domain": "web-scraping",
+    "name": "Paywall detection (technews.test v18)",
+    "description": "Detect paywalled content and extract what is freely available on technews.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-technews.test/article/1017",
+      "targetSite": "technews.test",
+      "extractionType": "paywall",
+      "fields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "paywall",
+        "isPaywalled",
+        "freeContent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-079",
+    "domain": "web-scraping",
+    "name": "Tag and category extraction (technews.test v19)",
+    "description": "Extract article tags, categories, and related article links on technews.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-technews.test/article/1018",
+      "targetSite": "technews.test",
+      "extractionType": "tags",
+      "fields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "tags",
+        "tags",
+        "categories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-080",
+    "domain": "web-scraping",
+    "name": "Date format normalization (blogworld.test v20)",
+    "description": "Parse publication dates in relative, absolute, and locale formats on blogworld.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1019",
+      "targetSite": "blogworld.test",
+      "extractionType": "date-parsing",
+      "fields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "date-parsing",
+        "rawDate",
+        "isoDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-081",
+    "domain": "web-scraping",
+    "name": "Article body extraction (blogworld.test v21)",
+    "description": "Extract the main article content excluding ads and navigation on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1020",
+      "targetSite": "blogworld.test",
+      "extractionType": "article-body",
+      "fields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "article-body",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-082",
+    "domain": "web-scraping",
+    "name": "Author and date parsing (forumhub.test v22)",
+    "description": "Extract author name and publication date from various format patterns on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1021",
+      "targetSite": "forumhub.test",
+      "extractionType": "author-date",
+      "fields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "author-date",
+        "author",
+        "publishDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-083",
+    "domain": "web-scraping",
+    "name": "Comment thread scraping (wikiclone.test v23)",
+    "description": "Extract nested comment threads with replies and vote counts on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1022",
+      "targetSite": "wikiclone.test",
+      "extractionType": "comments",
+      "fields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "comments",
+        "author",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-084",
+    "domain": "web-scraping",
+    "name": "Multi-page article (forumhub.test v24)",
+    "description": "Follow next-page links to assemble a complete multi-page article on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1023",
+      "targetSite": "forumhub.test",
+      "extractionType": "multi-page",
+      "fields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "multi-page",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-085",
+    "domain": "web-scraping",
+    "name": "Embedded media detection (blogworld.test v25)",
+    "description": "Identify and extract URLs of embedded images, videos, and iframes on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1024",
+      "targetSite": "blogworld.test",
+      "extractionType": "embedded-media",
+      "fields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "embedded-media",
+        "type",
+        "url"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-086",
+    "domain": "web-scraping",
+    "name": "Table data extraction (wikiclone.test v26)",
+    "description": "Extract structured data from HTML tables including headers on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1025",
+      "targetSite": "wikiclone.test",
+      "extractionType": "table-data",
+      "fields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "table-data",
+        "headers",
+        "rows"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-087",
+    "domain": "web-scraping",
+    "name": "Recipe structured data (blogworld.test v27)",
+    "description": "Extract recipe details including ingredients, steps, and nutrition on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1026",
+      "targetSite": "blogworld.test",
+      "extractionType": "recipe",
+      "fields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "recipe",
+        "title",
+        "ingredients"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-088",
+    "domain": "web-scraping",
+    "name": "Paywall detection (blogworld.test v28)",
+    "description": "Detect paywalled content and extract what is freely available on blogworld.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1027",
+      "targetSite": "blogworld.test",
+      "extractionType": "paywall",
+      "fields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "paywall",
+        "isPaywalled",
+        "freeContent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-089",
+    "domain": "web-scraping",
+    "name": "Tag and category extraction (wikiclone.test v29)",
+    "description": "Extract article tags, categories, and related article links on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1028",
+      "targetSite": "wikiclone.test",
+      "extractionType": "tags",
+      "fields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "content-site",
+        "tags",
+        "tags",
+        "categories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-090",
+    "domain": "web-scraping",
+    "name": "Date format normalization (wikiclone.test v30)",
+    "description": "Parse publication dates in relative, absolute, and locale formats on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1029",
+      "targetSite": "wikiclone.test",
+      "extractionType": "date-parsing",
+      "fields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "date-parsing",
+        "rawDate",
+        "isoDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-091",
+    "domain": "web-scraping",
+    "name": "Article body extraction (forumhub.test v31)",
+    "description": "Extract the main article content excluding ads and navigation on forumhub.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1030",
+      "targetSite": "forumhub.test",
+      "extractionType": "article-body",
+      "fields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "article-body",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-092",
+    "domain": "web-scraping",
+    "name": "Author and date parsing (wikiclone.test v32)",
+    "description": "Extract author name and publication date from various format patterns on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1031",
+      "targetSite": "wikiclone.test",
+      "extractionType": "author-date",
+      "fields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "author-date",
+        "author",
+        "publishDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-093",
+    "domain": "web-scraping",
+    "name": "Comment thread scraping (blogworld.test v33)",
+    "description": "Extract nested comment threads with replies and vote counts on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1032",
+      "targetSite": "blogworld.test",
+      "extractionType": "comments",
+      "fields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "comments",
+        "author",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-094",
+    "domain": "web-scraping",
+    "name": "Multi-page article (forumhub.test v34)",
+    "description": "Follow next-page links to assemble a complete multi-page article on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1033",
+      "targetSite": "forumhub.test",
+      "extractionType": "multi-page",
+      "fields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "multi-page",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-095",
+    "domain": "web-scraping",
+    "name": "Embedded media detection (forumhub.test v35)",
+    "description": "Identify and extract URLs of embedded images, videos, and iframes on forumhub.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1034",
+      "targetSite": "forumhub.test",
+      "extractionType": "embedded-media",
+      "fields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "embedded-media",
+        "type",
+        "url"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-096",
+    "domain": "web-scraping",
+    "name": "Table data extraction (forumhub.test v36)",
+    "description": "Extract structured data from HTML tables including headers on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1035",
+      "targetSite": "forumhub.test",
+      "extractionType": "table-data",
+      "fields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "table-data",
+        "headers",
+        "rows"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-097",
+    "domain": "web-scraping",
+    "name": "Recipe structured data (forumhub.test v37)",
+    "description": "Extract recipe details including ingredients, steps, and nutrition on forumhub.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1036",
+      "targetSite": "forumhub.test",
+      "extractionType": "recipe",
+      "fields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "recipe",
+        "title",
+        "ingredients"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-098",
+    "domain": "web-scraping",
+    "name": "Paywall detection (technews.test v38)",
+    "description": "Detect paywalled content and extract what is freely available on technews.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-technews.test/article/1037",
+      "targetSite": "technews.test",
+      "extractionType": "paywall",
+      "fields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "paywall",
+        "isPaywalled",
+        "freeContent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-099",
+    "domain": "web-scraping",
+    "name": "Tag and category extraction (wikiclone.test v39)",
+    "description": "Extract article tags, categories, and related article links on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1038",
+      "targetSite": "wikiclone.test",
+      "extractionType": "tags",
+      "fields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "tags",
+        "tags",
+        "categories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-100",
+    "domain": "web-scraping",
+    "name": "Date format normalization (wikiclone.test v40)",
+    "description": "Parse publication dates in relative, absolute, and locale formats on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1039",
+      "targetSite": "wikiclone.test",
+      "extractionType": "date-parsing",
+      "fields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "date-parsing",
+        "rawDate",
+        "isoDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-101",
+    "domain": "web-scraping",
+    "name": "Article body extraction (wikiclone.test v41)",
+    "description": "Extract the main article content excluding ads and navigation on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1040",
+      "targetSite": "wikiclone.test",
+      "extractionType": "article-body",
+      "fields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "wordCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "content-site",
+        "article-body",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-102",
+    "domain": "web-scraping",
+    "name": "Author and date parsing (technews.test v42)",
+    "description": "Extract author name and publication date from various format patterns on technews.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-technews.test/article/1041",
+      "targetSite": "technews.test",
+      "extractionType": "author-date",
+      "fields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "publishDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "author-date",
+        "author",
+        "publishDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-103",
+    "domain": "web-scraping",
+    "name": "Comment thread scraping (blogworld.test v43)",
+    "description": "Extract nested comment threads with replies and vote counts on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1042",
+      "targetSite": "blogworld.test",
+      "extractionType": "comments",
+      "fields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "author",
+        "text",
+        "votes",
+        "replies"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "comments",
+        "author",
+        "text"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-104",
+    "domain": "web-scraping",
+    "name": "Multi-page article (technews.test v44)",
+    "description": "Follow next-page links to assemble a complete multi-page article on technews.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-technews.test/article/1043",
+      "targetSite": "technews.test",
+      "extractionType": "multi-page",
+      "fields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "body",
+        "pageCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "multi-page",
+        "title",
+        "body"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-105",
+    "domain": "web-scraping",
+    "name": "Embedded media detection (forumhub.test v45)",
+    "description": "Identify and extract URLs of embedded images, videos, and iframes on forumhub.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1044",
+      "targetSite": "forumhub.test",
+      "extractionType": "embedded-media",
+      "fields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "type",
+        "url",
+        "caption"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "embedded-media",
+        "type",
+        "url"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-106",
+    "domain": "web-scraping",
+    "name": "Table data extraction (technews.test v46)",
+    "description": "Extract structured data from HTML tables including headers on technews.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-technews.test/article/1045",
+      "targetSite": "technews.test",
+      "extractionType": "table-data",
+      "fields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "headers",
+        "rows",
+        "columnCount"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "table-data",
+        "headers",
+        "rows"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-107",
+    "domain": "web-scraping",
+    "name": "Recipe structured data (blogworld.test v47)",
+    "description": "Extract recipe details including ingredients, steps, and nutrition on blogworld.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-blogworld.test/article/1046",
+      "targetSite": "blogworld.test",
+      "extractionType": "recipe",
+      "fields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "title",
+        "ingredients",
+        "steps",
+        "prepTime",
+        "nutrition"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "recipe",
+        "title",
+        "ingredients"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-108",
+    "domain": "web-scraping",
+    "name": "Paywall detection (forumhub.test v48)",
+    "description": "Detect paywalled content and extract what is freely available on forumhub.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-forumhub.test/article/1047",
+      "targetSite": "forumhub.test",
+      "extractionType": "paywall",
+      "fields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "isPaywalled",
+        "freeContent",
+        "truncationPoint"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "paywall",
+        "isPaywalled",
+        "freeContent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-109",
+    "domain": "web-scraping",
+    "name": "Tag and category extraction (wikiclone.test v49)",
+    "description": "Extract article tags, categories, and related article links on wikiclone.test. Test clean markup.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1048",
+      "targetSite": "wikiclone.test",
+      "extractionType": "tags",
+      "fields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "tags",
+        "categories",
+        "relatedLinks"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "tags",
+        "tags",
+        "categories"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-110",
+    "domain": "web-scraping",
+    "name": "Date format normalization (wikiclone.test v50)",
+    "description": "Parse publication dates in relative, absolute, and locale formats on wikiclone.test. Test noisy markup with ads and popups.",
+    "input": {
+      "url": "https://mock-wikiclone.test/article/1049",
+      "targetSite": "wikiclone.test",
+      "extractionType": "date-parsing",
+      "fields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "timeout": 20000
+    },
+    "expected": {
+      "requiredFields": [
+        "rawDate",
+        "isoDate",
+        "format"
+      ],
+      "contentMinLength": 100
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "content-site",
+        "date-parsing",
+        "rawDate",
+        "isoDate"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-111",
+    "domain": "web-scraping",
+    "name": "Business info extraction (localbiz.test v1)",
+    "description": "Extract business name, address, phone, and hours from a listing page from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2000",
+      "targetSite": "localbiz.test",
+      "extractionType": "business-info",
+      "fields": [
+        "businessName",
+        "address",
+        "phone",
+        "website",
+        "hours",
+        "rating",
+        "coordinates",
+        "categories"
+      ],
+      "maxPages": 3
+    },
+    "expected": {
+      "requiredFields": [
+        "businessName",
+        "address",
+        "phone"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "business-info",
+        "businessName",
+        "address"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-112",
+    "domain": "web-scraping",
+    "name": "Map coordinate parsing (yellowpages.test v2)",
+    "description": "Extract latitude/longitude coordinates from embedded maps from yellowpages.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2001",
+      "targetSite": "yellowpages.test",
+      "extractionType": "coordinates",
+      "fields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "hasCoordinates": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "coordinates",
+        "name",
+        "lat"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-113",
+    "domain": "web-scraping",
+    "name": "Review aggregation (localbiz.test v3)",
+    "description": "Aggregate review scores and count from a business listing page from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2002",
+      "targetSite": "localbiz.test",
+      "extractionType": "review-agg",
+      "fields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "review-agg",
+        "avgRating",
+        "totalReviews"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-114",
+    "domain": "web-scraping",
+    "name": "Category navigation (realestate.test v4)",
+    "description": "Navigate through category pages to build complete business listings from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2003",
+      "targetSite": "realestate.test",
+      "extractionType": "category-nav",
+      "fields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "category-nav",
+        "category",
+        "businesses"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-115",
+    "domain": "web-scraping",
+    "name": "Cross-reference listings (realestate.test v5)",
+    "description": "Match and merge business data from two different directory sites from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2004",
+      "targetSite": "realestate.test",
+      "extractionType": "cross-ref",
+      "fields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "cross-ref",
+        "name",
+        "sources"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-116",
+    "domain": "web-scraping",
+    "name": "Incomplete listing handling (localbiz.test v6)",
+    "description": "Extract available data from listings with missing fields from localbiz.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2005",
+      "targetSite": "localbiz.test",
+      "extractionType": "incomplete",
+      "fields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "maxPages": 4
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "incomplete",
+        "name",
+        "availableFields"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-117",
+    "domain": "web-scraping",
+    "name": "Hours parsing (realestate.test v7)",
+    "description": "Parse business hours in various formats including holidays from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2006",
+      "targetSite": "realestate.test",
+      "extractionType": "hours",
+      "fields": [
+        "day",
+        "open",
+        "close",
+        "isHoliday"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "day",
+        "open",
+        "close"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "hours",
+        "day",
+        "open"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-118",
+    "domain": "web-scraping",
+    "name": "Photo gallery extraction (realestate.test v8)",
+    "description": "Extract all photos from a business listing with captions from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2007",
+      "targetSite": "realestate.test",
+      "extractionType": "photos",
+      "fields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "photos",
+        "url",
+        "caption"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-119",
+    "domain": "web-scraping",
+    "name": "Business info extraction (realestate.test v9)",
+    "description": "Extract business name, address, phone, and hours from a listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2008",
+      "targetSite": "realestate.test",
+      "extractionType": "business-info",
+      "fields": [
+        "businessName",
+        "address",
+        "phone",
+        "website",
+        "hours",
+        "rating",
+        "coordinates",
+        "categories"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "businessName",
+        "address",
+        "phone"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "business-info",
+        "businessName",
+        "address"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-120",
+    "domain": "web-scraping",
+    "name": "Map coordinate parsing (yellowpages.test v10)",
+    "description": "Extract latitude/longitude coordinates from embedded maps from yellowpages.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2009",
+      "targetSite": "yellowpages.test",
+      "extractionType": "coordinates",
+      "fields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "maxPages": 3
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "hasCoordinates": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "directory",
+        "coordinates",
+        "name",
+        "lat"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-121",
+    "domain": "web-scraping",
+    "name": "Review aggregation (realestate.test v11)",
+    "description": "Aggregate review scores and count from a business listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2010",
+      "targetSite": "realestate.test",
+      "extractionType": "review-agg",
+      "fields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "maxPages": 4
+    },
+    "expected": {
+      "requiredFields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "review-agg",
+        "avgRating",
+        "totalReviews"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-122",
+    "domain": "web-scraping",
+    "name": "Category navigation (realestate.test v12)",
+    "description": "Navigate through category pages to build complete business listings from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2011",
+      "targetSite": "realestate.test",
+      "extractionType": "category-nav",
+      "fields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "maxPages": 3
+    },
+    "expected": {
+      "requiredFields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "category-nav",
+        "category",
+        "businesses"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-123",
+    "domain": "web-scraping",
+    "name": "Cross-reference listings (realestate.test v13)",
+    "description": "Match and merge business data from two different directory sites from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2012",
+      "targetSite": "realestate.test",
+      "extractionType": "cross-ref",
+      "fields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "cross-ref",
+        "name",
+        "sources"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-124",
+    "domain": "web-scraping",
+    "name": "Incomplete listing handling (yellowpages.test v14)",
+    "description": "Extract available data from listings with missing fields from yellowpages.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2013",
+      "targetSite": "yellowpages.test",
+      "extractionType": "incomplete",
+      "fields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "maxPages": 3
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "incomplete",
+        "name",
+        "availableFields"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-125",
+    "domain": "web-scraping",
+    "name": "Hours parsing (localbiz.test v15)",
+    "description": "Parse business hours in various formats including holidays from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2014",
+      "targetSite": "localbiz.test",
+      "extractionType": "hours",
+      "fields": [
+        "day",
+        "open",
+        "close",
+        "isHoliday"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "day",
+        "open",
+        "close"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "hours",
+        "day",
+        "open"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-126",
+    "domain": "web-scraping",
+    "name": "Photo gallery extraction (yellowpages.test v16)",
+    "description": "Extract all photos from a business listing with captions from yellowpages.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2015",
+      "targetSite": "yellowpages.test",
+      "extractionType": "photos",
+      "fields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "photos",
+        "url",
+        "caption"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-127",
+    "domain": "web-scraping",
+    "name": "Business info extraction (realestate.test v17)",
+    "description": "Extract business name, address, phone, and hours from a listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2016",
+      "targetSite": "realestate.test",
+      "extractionType": "business-info",
+      "fields": [
+        "businessName",
+        "address",
+        "phone",
+        "website",
+        "hours",
+        "rating",
+        "coordinates",
+        "categories"
+      ],
+      "maxPages": 4
+    },
+    "expected": {
+      "requiredFields": [
+        "businessName",
+        "address",
+        "phone"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "business-info",
+        "businessName",
+        "address"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-128",
+    "domain": "web-scraping",
+    "name": "Map coordinate parsing (localbiz.test v18)",
+    "description": "Extract latitude/longitude coordinates from embedded maps from localbiz.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2017",
+      "targetSite": "localbiz.test",
+      "extractionType": "coordinates",
+      "fields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "hasCoordinates": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "coordinates",
+        "name",
+        "lat"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-129",
+    "domain": "web-scraping",
+    "name": "Review aggregation (localbiz.test v19)",
+    "description": "Aggregate review scores and count from a business listing page from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2018",
+      "targetSite": "localbiz.test",
+      "extractionType": "review-agg",
+      "fields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "review-agg",
+        "avgRating",
+        "totalReviews"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-130",
+    "domain": "web-scraping",
+    "name": "Category navigation (realestate.test v20)",
+    "description": "Navigate through category pages to build complete business listings from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2019",
+      "targetSite": "realestate.test",
+      "extractionType": "category-nav",
+      "fields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "category-nav",
+        "category",
+        "businesses"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-131",
+    "domain": "web-scraping",
+    "name": "Cross-reference listings (yellowpages.test v21)",
+    "description": "Match and merge business data from two different directory sites from yellowpages.test. Single listing page.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2020",
+      "targetSite": "yellowpages.test",
+      "extractionType": "cross-ref",
+      "fields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "cross-ref",
+        "name",
+        "sources"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-132",
+    "domain": "web-scraping",
+    "name": "Incomplete listing handling (localbiz.test v22)",
+    "description": "Extract available data from listings with missing fields from localbiz.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2021",
+      "targetSite": "localbiz.test",
+      "extractionType": "incomplete",
+      "fields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "incomplete",
+        "name",
+        "availableFields"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-133",
+    "domain": "web-scraping",
+    "name": "Hours parsing (localbiz.test v23)",
+    "description": "Parse business hours in various formats including holidays from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2022",
+      "targetSite": "localbiz.test",
+      "extractionType": "hours",
+      "fields": [
+        "day",
+        "open",
+        "close",
+        "isHoliday"
+      ],
+      "maxPages": 3
+    },
+    "expected": {
+      "requiredFields": [
+        "day",
+        "open",
+        "close"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "directory",
+        "hours",
+        "day",
+        "open"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-134",
+    "domain": "web-scraping",
+    "name": "Photo gallery extraction (yellowpages.test v24)",
+    "description": "Extract all photos from a business listing with captions from yellowpages.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2023",
+      "targetSite": "yellowpages.test",
+      "extractionType": "photos",
+      "fields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "photos",
+        "url",
+        "caption"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-135",
+    "domain": "web-scraping",
+    "name": "Business info extraction (realestate.test v25)",
+    "description": "Extract business name, address, phone, and hours from a listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2024",
+      "targetSite": "realestate.test",
+      "extractionType": "business-info",
+      "fields": [
+        "businessName",
+        "address",
+        "phone",
+        "website",
+        "hours",
+        "rating",
+        "coordinates",
+        "categories"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "businessName",
+        "address",
+        "phone"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "business-info",
+        "businessName",
+        "address"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-136",
+    "domain": "web-scraping",
+    "name": "Map coordinate parsing (localbiz.test v26)",
+    "description": "Extract latitude/longitude coordinates from embedded maps from localbiz.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2025",
+      "targetSite": "localbiz.test",
+      "extractionType": "coordinates",
+      "fields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "hasCoordinates": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "coordinates",
+        "name",
+        "lat"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-137",
+    "domain": "web-scraping",
+    "name": "Review aggregation (realestate.test v27)",
+    "description": "Aggregate review scores and count from a business listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2026",
+      "targetSite": "realestate.test",
+      "extractionType": "review-agg",
+      "fields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "review-agg",
+        "avgRating",
+        "totalReviews"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-138",
+    "domain": "web-scraping",
+    "name": "Category navigation (realestate.test v28)",
+    "description": "Navigate through category pages to build complete business listings from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2027",
+      "targetSite": "realestate.test",
+      "extractionType": "category-nav",
+      "fields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "category-nav",
+        "category",
+        "businesses"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-139",
+    "domain": "web-scraping",
+    "name": "Cross-reference listings (localbiz.test v29)",
+    "description": "Match and merge business data from two different directory sites from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2028",
+      "targetSite": "localbiz.test",
+      "extractionType": "cross-ref",
+      "fields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "cross-ref",
+        "name",
+        "sources"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-140",
+    "domain": "web-scraping",
+    "name": "Incomplete listing handling (realestate.test v30)",
+    "description": "Extract available data from listings with missing fields from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2029",
+      "targetSite": "realestate.test",
+      "extractionType": "incomplete",
+      "fields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "incomplete",
+        "name",
+        "availableFields"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-141",
+    "domain": "web-scraping",
+    "name": "Hours parsing (yellowpages.test v31)",
+    "description": "Parse business hours in various formats including holidays from yellowpages.test. Single listing page.",
+    "input": {
+      "url": "https://mock-yellowpages.test/listing/2030",
+      "targetSite": "yellowpages.test",
+      "extractionType": "hours",
+      "fields": [
+        "day",
+        "open",
+        "close",
+        "isHoliday"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "day",
+        "open",
+        "close"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "hours",
+        "day",
+        "open"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-142",
+    "domain": "web-scraping",
+    "name": "Photo gallery extraction (realestate.test v32)",
+    "description": "Extract all photos from a business listing with captions from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2031",
+      "targetSite": "realestate.test",
+      "extractionType": "photos",
+      "fields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "maxPages": 3
+    },
+    "expected": {
+      "requiredFields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "photos",
+        "url",
+        "caption"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-143",
+    "domain": "web-scraping",
+    "name": "Business info extraction (realestate.test v33)",
+    "description": "Extract business name, address, phone, and hours from a listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2032",
+      "targetSite": "realestate.test",
+      "extractionType": "business-info",
+      "fields": [
+        "businessName",
+        "address",
+        "phone",
+        "website",
+        "hours",
+        "rating",
+        "coordinates",
+        "categories"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "businessName",
+        "address",
+        "phone"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "directory",
+        "business-info",
+        "businessName",
+        "address"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-144",
+    "domain": "web-scraping",
+    "name": "Map coordinate parsing (realestate.test v34)",
+    "description": "Extract latitude/longitude coordinates from embedded maps from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2033",
+      "targetSite": "realestate.test",
+      "extractionType": "coordinates",
+      "fields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "lat",
+        "lng"
+      ],
+      "hasCoordinates": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "coordinates",
+        "name",
+        "lat"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-145",
+    "domain": "web-scraping",
+    "name": "Review aggregation (realestate.test v35)",
+    "description": "Aggregate review scores and count from a business listing page from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2034",
+      "targetSite": "realestate.test",
+      "extractionType": "review-agg",
+      "fields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "avgRating",
+        "totalReviews",
+        "ratingDistribution"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "review-agg",
+        "avgRating",
+        "totalReviews"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-146",
+    "domain": "web-scraping",
+    "name": "Category navigation (localbiz.test v36)",
+    "description": "Navigate through category pages to build complete business listings from localbiz.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2035",
+      "targetSite": "localbiz.test",
+      "extractionType": "category-nav",
+      "fields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "maxPages": 5
+    },
+    "expected": {
+      "requiredFields": [
+        "category",
+        "businesses",
+        "pageCount"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "category-nav",
+        "category",
+        "businesses"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-147",
+    "domain": "web-scraping",
+    "name": "Cross-reference listings (realestate.test v37)",
+    "description": "Match and merge business data from two different directory sites from realestate.test. Single listing page.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2036",
+      "targetSite": "realestate.test",
+      "extractionType": "cross-ref",
+      "fields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "sources",
+        "mergedData"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "cross-ref",
+        "name",
+        "sources"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-148",
+    "domain": "web-scraping",
+    "name": "Incomplete listing handling (realestate.test v38)",
+    "description": "Extract available data from listings with missing fields from realestate.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-realestate.test/listing/2037",
+      "targetSite": "realestate.test",
+      "extractionType": "incomplete",
+      "fields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "maxPages": 1
+    },
+    "expected": {
+      "requiredFields": [
+        "name",
+        "availableFields",
+        "missingFields"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "incomplete",
+        "name",
+        "availableFields"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-149",
+    "domain": "web-scraping",
+    "name": "Hours parsing (localbiz.test v39)",
+    "description": "Parse business hours in various formats including holidays from localbiz.test. Single listing page.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2038",
+      "targetSite": "localbiz.test",
+      "extractionType": "hours",
+      "fields": [
+        "day",
+        "open",
+        "close",
+        "isHoliday"
+      ],
+      "maxPages": 4
+    },
+    "expected": {
+      "requiredFields": [
+        "day",
+        "open",
+        "close"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "hours",
+        "day",
+        "open"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-150",
+    "domain": "web-scraping",
+    "name": "Photo gallery extraction (localbiz.test v40)",
+    "description": "Extract all photos from a business listing with captions from localbiz.test. Multi-page results.",
+    "input": {
+      "url": "https://mock-localbiz.test/listing/2039",
+      "targetSite": "localbiz.test",
+      "extractionType": "photos",
+      "fields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "maxPages": 2
+    },
+    "expected": {
+      "requiredFields": [
+        "url",
+        "caption",
+        "index"
+      ],
+      "hasCoordinates": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "directory",
+        "photos",
+        "url",
+        "caption"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-151",
+    "domain": "web-scraping",
+    "name": "Rate limit handling (technews.test v1)",
+    "description": "Respect 429 rate limit responses with exponential backoff. Target: technews.test, variation 1.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3000",
+      "targetSite": "technews.test",
+      "extractionType": "rate-limit",
+      "antiBot": "rate-limit",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "rate-limit"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-152",
+    "domain": "web-scraping",
+    "name": "Captcha detection (localbiz.test v2)",
+    "description": "Detect captcha challenge page and report it without attempting to solve. Target: localbiz.test, variation 2.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3001",
+      "targetSite": "localbiz.test",
+      "extractionType": "captcha",
+      "antiBot": "captcha",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": "captcha_detected"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "captcha"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-153",
+    "domain": "web-scraping",
+    "name": "CloudFlare challenge (craftbazaar.test v3)",
+    "description": "Detect CloudFlare challenge page and handle gracefully. Target: craftbazaar.test, variation 3.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/protected/3002",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "cloudflare",
+      "antiBot": "cloudflare",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "cloudflare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-154",
+    "domain": "web-scraping",
+    "name": "Session cookie required (craftbazaar.test v4)",
+    "description": "Maintain session cookies across requests to access protected pages. Target: craftbazaar.test, variation 4.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/protected/3003",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "session",
+      "antiBot": "session",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "session"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-155",
+    "domain": "web-scraping",
+    "name": "User-agent validation (localbiz.test v5)",
+    "description": "Set appropriate User-Agent header to avoid bot detection. Target: localbiz.test, variation 5.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3004",
+      "targetSite": "localbiz.test",
+      "extractionType": "user-agent",
+      "antiBot": "user-agent",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "user-agent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-156",
+    "domain": "web-scraping",
+    "name": "Robots.txt compliance (techmart.test v6)",
+    "description": "Check and respect robots.txt directives before scraping. Target: techmart.test, variation 6.",
+    "input": {
+      "url": "https://mock-techmart.test/protected/3005",
+      "targetSite": "techmart.test",
+      "extractionType": "robots-txt",
+      "antiBot": "robots-txt",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "robots-txt"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-157",
+    "domain": "web-scraping",
+    "name": "JavaScript rendered content (techmart.test v7)",
+    "description": "Handle pages where content is loaded via JavaScript after initial HTML. Target: techmart.test, variation 7.",
+    "input": {
+      "url": "https://mock-techmart.test/protected/3006",
+      "targetSite": "techmart.test",
+      "extractionType": "js-render",
+      "antiBot": "javascript",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "javascript"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-158",
+    "domain": "web-scraping",
+    "name": "Redirect chain following (craftbazaar.test v8)",
+    "description": "Follow a chain of HTTP redirects to reach the final content page. Target: craftbazaar.test, variation 8.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/protected/3007",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "redirects",
+      "antiBot": "redirects",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "redirects"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-159",
+    "domain": "web-scraping",
+    "name": "IP block detection (localbiz.test v9)",
+    "description": "Detect when IP has been blocked and report the situation. Target: localbiz.test, variation 9.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3008",
+      "targetSite": "localbiz.test",
+      "extractionType": "ip-block",
+      "antiBot": "ip-block",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "ip-block"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-160",
+    "domain": "web-scraping",
+    "name": "Login-wall bypass detection (technews.test v10)",
+    "description": "Detect login requirement and extract only publicly available data. Target: technews.test, variation 10.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3009",
+      "targetSite": "technews.test",
+      "extractionType": "login-wall",
+      "antiBot": "authentication",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "authentication"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-161",
+    "domain": "web-scraping",
+    "name": "Rate limit handling (fashionhub.test v11)",
+    "description": "Respect 429 rate limit responses with exponential backoff. Target: fashionhub.test, variation 11.",
+    "input": {
+      "url": "https://mock-fashionhub.test/protected/3010",
+      "targetSite": "fashionhub.test",
+      "extractionType": "rate-limit",
+      "antiBot": "rate-limit",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "rate-limit"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-162",
+    "domain": "web-scraping",
+    "name": "Captcha detection (fashionhub.test v12)",
+    "description": "Detect captcha challenge page and report it without attempting to solve. Target: fashionhub.test, variation 12.",
+    "input": {
+      "url": "https://mock-fashionhub.test/protected/3011",
+      "targetSite": "fashionhub.test",
+      "extractionType": "captcha",
+      "antiBot": "captcha",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": "captcha_detected"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "captcha"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-163",
+    "domain": "web-scraping",
+    "name": "CloudFlare challenge (technews.test v13)",
+    "description": "Detect CloudFlare challenge page and handle gracefully. Target: technews.test, variation 13.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3012",
+      "targetSite": "technews.test",
+      "extractionType": "cloudflare",
+      "antiBot": "cloudflare",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "cloudflare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-164",
+    "domain": "web-scraping",
+    "name": "Session cookie required (craftbazaar.test v14)",
+    "description": "Maintain session cookies across requests to access protected pages. Target: craftbazaar.test, variation 14.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/protected/3013",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "session",
+      "antiBot": "session",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "session"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-165",
+    "domain": "web-scraping",
+    "name": "User-agent validation (fashionhub.test v15)",
+    "description": "Set appropriate User-Agent header to avoid bot detection. Target: fashionhub.test, variation 15.",
+    "input": {
+      "url": "https://mock-fashionhub.test/protected/3014",
+      "targetSite": "fashionhub.test",
+      "extractionType": "user-agent",
+      "antiBot": "user-agent",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "user-agent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-166",
+    "domain": "web-scraping",
+    "name": "Robots.txt compliance (technews.test v16)",
+    "description": "Check and respect robots.txt directives before scraping. Target: technews.test, variation 16.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3015",
+      "targetSite": "technews.test",
+      "extractionType": "robots-txt",
+      "antiBot": "robots-txt",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "robots-txt"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-167",
+    "domain": "web-scraping",
+    "name": "JavaScript rendered content (technews.test v17)",
+    "description": "Handle pages where content is loaded via JavaScript after initial HTML. Target: technews.test, variation 17.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3016",
+      "targetSite": "technews.test",
+      "extractionType": "js-render",
+      "antiBot": "javascript",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "javascript"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-168",
+    "domain": "web-scraping",
+    "name": "Redirect chain following (localbiz.test v18)",
+    "description": "Follow a chain of HTTP redirects to reach the final content page. Target: localbiz.test, variation 18.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3017",
+      "targetSite": "localbiz.test",
+      "extractionType": "redirects",
+      "antiBot": "redirects",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "redirects"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-169",
+    "domain": "web-scraping",
+    "name": "IP block detection (localbiz.test v19)",
+    "description": "Detect when IP has been blocked and report the situation. Target: localbiz.test, variation 19.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3018",
+      "targetSite": "localbiz.test",
+      "extractionType": "ip-block",
+      "antiBot": "ip-block",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "ip-block"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-170",
+    "domain": "web-scraping",
+    "name": "Login-wall bypass detection (technews.test v20)",
+    "description": "Detect login requirement and extract only publicly available data. Target: technews.test, variation 20.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3019",
+      "targetSite": "technews.test",
+      "extractionType": "login-wall",
+      "antiBot": "authentication",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "authentication"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-171",
+    "domain": "web-scraping",
+    "name": "Rate limit handling (fashionhub.test v21)",
+    "description": "Respect 429 rate limit responses with exponential backoff. Target: fashionhub.test, variation 21.",
+    "input": {
+      "url": "https://mock-fashionhub.test/protected/3020",
+      "targetSite": "fashionhub.test",
+      "extractionType": "rate-limit",
+      "antiBot": "rate-limit",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "rate-limit"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-172",
+    "domain": "web-scraping",
+    "name": "Captcha detection (fashionhub.test v22)",
+    "description": "Detect captcha challenge page and report it without attempting to solve. Target: fashionhub.test, variation 22.",
+    "input": {
+      "url": "https://mock-fashionhub.test/protected/3021",
+      "targetSite": "fashionhub.test",
+      "extractionType": "captcha",
+      "antiBot": "captcha",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": "captcha_detected"
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "captcha"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-173",
+    "domain": "web-scraping",
+    "name": "CloudFlare challenge (localbiz.test v23)",
+    "description": "Detect CloudFlare challenge page and handle gracefully. Target: localbiz.test, variation 23.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3022",
+      "targetSite": "localbiz.test",
+      "extractionType": "cloudflare",
+      "antiBot": "cloudflare",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "cloudflare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-174",
+    "domain": "web-scraping",
+    "name": "Session cookie required (craftbazaar.test v24)",
+    "description": "Maintain session cookies across requests to access protected pages. Target: craftbazaar.test, variation 24.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/protected/3023",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "session",
+      "antiBot": "session",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "session"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-175",
+    "domain": "web-scraping",
+    "name": "User-agent validation (techmart.test v25)",
+    "description": "Set appropriate User-Agent header to avoid bot detection. Target: techmart.test, variation 25.",
+    "input": {
+      "url": "https://mock-techmart.test/protected/3024",
+      "targetSite": "techmart.test",
+      "extractionType": "user-agent",
+      "antiBot": "user-agent",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "user-agent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-176",
+    "domain": "web-scraping",
+    "name": "Robots.txt compliance (techmart.test v26)",
+    "description": "Check and respect robots.txt directives before scraping. Target: techmart.test, variation 26.",
+    "input": {
+      "url": "https://mock-techmart.test/protected/3025",
+      "targetSite": "techmart.test",
+      "extractionType": "robots-txt",
+      "antiBot": "robots-txt",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "robots-txt"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-177",
+    "domain": "web-scraping",
+    "name": "JavaScript rendered content (localbiz.test v27)",
+    "description": "Handle pages where content is loaded via JavaScript after initial HTML. Target: localbiz.test, variation 27.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3026",
+      "targetSite": "localbiz.test",
+      "extractionType": "js-render",
+      "antiBot": "javascript",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "javascript"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-178",
+    "domain": "web-scraping",
+    "name": "Redirect chain following (technews.test v28)",
+    "description": "Follow a chain of HTTP redirects to reach the final content page. Target: technews.test, variation 28.",
+    "input": {
+      "url": "https://mock-technews.test/protected/3027",
+      "targetSite": "technews.test",
+      "extractionType": "redirects",
+      "antiBot": "redirects",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "redirects"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-179",
+    "domain": "web-scraping",
+    "name": "IP block detection (localbiz.test v29)",
+    "description": "Detect when IP has been blocked and report the situation. Target: localbiz.test, variation 29.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3028",
+      "targetSite": "localbiz.test",
+      "extractionType": "ip-block",
+      "antiBot": "ip-block",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "ip-block"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-180",
+    "domain": "web-scraping",
+    "name": "Login-wall bypass detection (localbiz.test v30)",
+    "description": "Detect login requirement and extract only publicly available data. Target: localbiz.test, variation 30.",
+    "input": {
+      "url": "https://mock-localbiz.test/protected/3029",
+      "targetSite": "localbiz.test",
+      "extractionType": "login-wall",
+      "antiBot": "authentication",
+      "timeout": 15000
+    },
+    "expected": {
+      "handledGracefully": true,
+      "errorType": null
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "anti-bot",
+        "authentication"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-181",
+    "domain": "web-scraping",
+    "name": "XSS in scraped content (craftbazaar.test v1)",
+    "description": "Sanitize extracted content containing malicious script tags and event handlers. Adversarial test on craftbazaar.test, variation 1.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4000",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "xss-sanitize",
+      "adversarialType": "xss",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "xss"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "xss"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-182",
+    "domain": "web-scraping",
+    "name": "Honeypot link trap (localbiz.test v2)",
+    "description": "Avoid hidden honeypot links designed to trap and identify bots. Adversarial test on localbiz.test, variation 2.",
+    "input": {
+      "url": "https://mock-localbiz.test/adversarial/4001",
+      "targetSite": "localbiz.test",
+      "extractionType": "honeypot",
+      "adversarialType": "honeypot",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "honeypot"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "honeypot"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-183",
+    "domain": "web-scraping",
+    "name": "Fake data in HTML comments (techmart.test v3)",
+    "description": "Ignore misleading data embedded in HTML comments. Adversarial test on techmart.test, variation 3.",
+    "input": {
+      "url": "https://mock-techmart.test/adversarial/4002",
+      "targetSite": "techmart.test",
+      "extractionType": "comment-injection",
+      "adversarialType": "injection",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "injection"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "injection"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-184",
+    "domain": "web-scraping",
+    "name": "Hidden element deception (techmart.test v4)",
+    "description": "Correctly skip elements hidden via CSS display:none or visibility:hidden. Adversarial test on techmart.test, variation 4.",
+    "input": {
+      "url": "https://mock-techmart.test/adversarial/4003",
+      "targetSite": "techmart.test",
+      "extractionType": "hidden-elements",
+      "adversarialType": "css-deception",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "css-deception"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "css-deception"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-185",
+    "domain": "web-scraping",
+    "name": "Price in image format (fashionhub.test v5)",
+    "description": "Detect that price is rendered as an image and report inability to extract. Adversarial test on fashionhub.test, variation 5.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4004",
+      "targetSite": "fashionhub.test",
+      "extractionType": "image-price",
+      "adversarialType": "obfuscation",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "obfuscation"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "obfuscation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-186",
+    "domain": "web-scraping",
+    "name": "JavaScript trap detection (craftbazaar.test v6)",
+    "description": "Detect infinite loop or resource-exhaustion JavaScript traps. Adversarial test on craftbazaar.test, variation 6.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4005",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "js-trap",
+      "adversarialType": "trap",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "trap"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "trap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-187",
+    "domain": "web-scraping",
+    "name": "DOM mutation after load (fashionhub.test v7)",
+    "description": "Handle content that changes via JavaScript after initial page load. Adversarial test on fashionhub.test, variation 7.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4006",
+      "targetSite": "fashionhub.test",
+      "extractionType": "dom-mutation",
+      "adversarialType": "mutation",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "mutation"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "mutation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-188",
+    "domain": "web-scraping",
+    "name": "Malformed HTML recovery (fashionhub.test v8)",
+    "description": "Extract data correctly from pages with broken/unclosed HTML tags. Adversarial test on fashionhub.test, variation 8.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4007",
+      "targetSite": "fashionhub.test",
+      "extractionType": "malformed-html",
+      "adversarialType": "malformed",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "malformed"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "malformed"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-189",
+    "domain": "web-scraping",
+    "name": "Encoding issues (techmart.test v9)",
+    "description": "Handle mixed character encodings (UTF-8, Windows-1252, ISO-8859-1). Adversarial test on techmart.test, variation 9.",
+    "input": {
+      "url": "https://mock-techmart.test/adversarial/4008",
+      "targetSite": "techmart.test",
+      "extractionType": "encoding",
+      "adversarialType": "encoding",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "encoding"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "encoding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-190",
+    "domain": "web-scraping",
+    "name": "Time-based content changes (techmart.test v10)",
+    "description": "Detect that content changes based on time of day and capture consistent snapshot. Adversarial test on techmart.test, variation 10.",
+    "input": {
+      "url": "https://mock-techmart.test/adversarial/4009",
+      "targetSite": "techmart.test",
+      "extractionType": "time-based",
+      "adversarialType": "temporal",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "temporal"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "temporal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-191",
+    "domain": "web-scraping",
+    "name": "CSS content injection (localbiz.test v11)",
+    "description": "Detect fake content injected via CSS ::before/::after pseudo-elements. Adversarial test on localbiz.test, variation 11.",
+    "input": {
+      "url": "https://mock-localbiz.test/adversarial/4010",
+      "targetSite": "localbiz.test",
+      "extractionType": "css-injection",
+      "adversarialType": "css-injection",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "css-injection"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "css-injection"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-192",
+    "domain": "web-scraping",
+    "name": "Clickjacking overlay (fashionhub.test v12)",
+    "description": "Detect transparent overlay elements covering the real content. Adversarial test on fashionhub.test, variation 12.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4011",
+      "targetSite": "fashionhub.test",
+      "extractionType": "clickjack",
+      "adversarialType": "clickjacking",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "clickjacking"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "clickjacking"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-193",
+    "domain": "web-scraping",
+    "name": "Unicode homoglyph prices (craftbazaar.test v13)",
+    "description": "Detect prices using lookalike Unicode characters instead of ASCII digits. Adversarial test on craftbazaar.test, variation 13.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4012",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "homoglyphs",
+      "adversarialType": "obfuscation",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "obfuscation"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "obfuscation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-194",
+    "domain": "web-scraping",
+    "name": "Tar pit slow response (craftbazaar.test v14)",
+    "description": "Handle deliberately slow-drip responses designed to waste resources. Adversarial test on craftbazaar.test, variation 14.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4013",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "tar-pit",
+      "adversarialType": "tar-pit",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "tar-pit"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "tar-pit"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-195",
+    "domain": "web-scraping",
+    "name": "Mixed language content (technews.test v15)",
+    "description": "Extract content correctly from pages mixing multiple languages and scripts. Adversarial test on technews.test, variation 15.",
+    "input": {
+      "url": "https://mock-technews.test/adversarial/4014",
+      "targetSite": "technews.test",
+      "extractionType": "multi-lang",
+      "adversarialType": "i18n",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "i18n"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "i18n"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-196",
+    "domain": "web-scraping",
+    "name": "XSS in scraped content (fashionhub.test v16)",
+    "description": "Sanitize extracted content containing malicious script tags and event handlers. Adversarial test on fashionhub.test, variation 16.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4015",
+      "targetSite": "fashionhub.test",
+      "extractionType": "xss-sanitize",
+      "adversarialType": "xss",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "xss"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "xss"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-197",
+    "domain": "web-scraping",
+    "name": "Honeypot link trap (craftbazaar.test v17)",
+    "description": "Avoid hidden honeypot links designed to trap and identify bots. Adversarial test on craftbazaar.test, variation 17.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4016",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "honeypot",
+      "adversarialType": "honeypot",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "honeypot"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "honeypot"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-198",
+    "domain": "web-scraping",
+    "name": "Fake data in HTML comments (technews.test v18)",
+    "description": "Ignore misleading data embedded in HTML comments. Adversarial test on technews.test, variation 18.",
+    "input": {
+      "url": "https://mock-technews.test/adversarial/4017",
+      "targetSite": "technews.test",
+      "extractionType": "comment-injection",
+      "adversarialType": "injection",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "injection"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "injection"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-199",
+    "domain": "web-scraping",
+    "name": "Hidden element deception (fashionhub.test v19)",
+    "description": "Correctly skip elements hidden via CSS display:none or visibility:hidden. Adversarial test on fashionhub.test, variation 19.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4018",
+      "targetSite": "fashionhub.test",
+      "extractionType": "hidden-elements",
+      "adversarialType": "css-deception",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "css-deception"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "css-deception"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-200",
+    "domain": "web-scraping",
+    "name": "Price in image format (craftbazaar.test v20)",
+    "description": "Detect that price is rendered as an image and report inability to extract. Adversarial test on craftbazaar.test, variation 20.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4019",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "image-price",
+      "adversarialType": "obfuscation",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "obfuscation"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "obfuscation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-201",
+    "domain": "web-scraping",
+    "name": "JavaScript trap detection (techmart.test v21)",
+    "description": "Detect infinite loop or resource-exhaustion JavaScript traps. Adversarial test on techmart.test, variation 21.",
+    "input": {
+      "url": "https://mock-techmart.test/adversarial/4020",
+      "targetSite": "techmart.test",
+      "extractionType": "js-trap",
+      "adversarialType": "trap",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "trap"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "trap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-202",
+    "domain": "web-scraping",
+    "name": "DOM mutation after load (craftbazaar.test v22)",
+    "description": "Handle content that changes via JavaScript after initial page load. Adversarial test on craftbazaar.test, variation 22.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4021",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "dom-mutation",
+      "adversarialType": "mutation",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "mutation"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "mutation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-203",
+    "domain": "web-scraping",
+    "name": "Malformed HTML recovery (fashionhub.test v23)",
+    "description": "Extract data correctly from pages with broken/unclosed HTML tags. Adversarial test on fashionhub.test, variation 23.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4022",
+      "targetSite": "fashionhub.test",
+      "extractionType": "malformed-html",
+      "adversarialType": "malformed",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "malformed"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "malformed"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-204",
+    "domain": "web-scraping",
+    "name": "Encoding issues (craftbazaar.test v24)",
+    "description": "Handle mixed character encodings (UTF-8, Windows-1252, ISO-8859-1). Adversarial test on craftbazaar.test, variation 24.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4023",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "encoding",
+      "adversarialType": "encoding",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "encoding"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "encoding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-205",
+    "domain": "web-scraping",
+    "name": "Time-based content changes (fashionhub.test v25)",
+    "description": "Detect that content changes based on time of day and capture consistent snapshot. Adversarial test on fashionhub.test, variation 25.",
+    "input": {
+      "url": "https://mock-fashionhub.test/adversarial/4024",
+      "targetSite": "fashionhub.test",
+      "extractionType": "time-based",
+      "adversarialType": "temporal",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "temporal"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "temporal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-206",
+    "domain": "web-scraping",
+    "name": "CSS content injection (technews.test v26)",
+    "description": "Detect fake content injected via CSS ::before/::after pseudo-elements. Adversarial test on technews.test, variation 26.",
+    "input": {
+      "url": "https://mock-technews.test/adversarial/4025",
+      "targetSite": "technews.test",
+      "extractionType": "css-injection",
+      "adversarialType": "css-injection",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "css-injection"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "css-injection"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-207",
+    "domain": "web-scraping",
+    "name": "Clickjacking overlay (craftbazaar.test v27)",
+    "description": "Detect transparent overlay elements covering the real content. Adversarial test on craftbazaar.test, variation 27.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4026",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "clickjack",
+      "adversarialType": "clickjacking",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "clickjacking"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "clickjacking"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-208",
+    "domain": "web-scraping",
+    "name": "Unicode homoglyph prices (localbiz.test v28)",
+    "description": "Detect prices using lookalike Unicode characters instead of ASCII digits. Adversarial test on localbiz.test, variation 28.",
+    "input": {
+      "url": "https://mock-localbiz.test/adversarial/4027",
+      "targetSite": "localbiz.test",
+      "extractionType": "homoglyphs",
+      "adversarialType": "obfuscation",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "obfuscation"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "obfuscation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-209",
+    "domain": "web-scraping",
+    "name": "Tar pit slow response (technews.test v29)",
+    "description": "Handle deliberately slow-drip responses designed to waste resources. Adversarial test on technews.test, variation 29.",
+    "input": {
+      "url": "https://mock-technews.test/adversarial/4028",
+      "targetSite": "technews.test",
+      "extractionType": "tar-pit",
+      "adversarialType": "tar-pit",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "tar-pit"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "tar-pit"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "ws-210",
+    "domain": "web-scraping",
+    "name": "Mixed language content (craftbazaar.test v30)",
+    "description": "Extract content correctly from pages mixing multiple languages and scripts. Adversarial test on craftbazaar.test, variation 30.",
+    "input": {
+      "url": "https://mock-craftbazaar.test/adversarial/4029",
+      "targetSite": "craftbazaar.test",
+      "extractionType": "multi-lang",
+      "adversarialType": "i18n",
+      "timeout": 10000
+    },
+    "expected": {
+      "sanitized": true,
+      "noMaliciousContent": true,
+      "attackType": "i18n"
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "adversarial",
+        "i18n"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  }
+]

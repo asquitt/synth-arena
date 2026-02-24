@@ -1,0 +1,6482 @@
+[
+  {
+    "id": "eng-001",
+    "domain": "energy",
+    "name": "Forecast: Next-day residential load forecast",
+    "description": "Next-day residential load forecast for CAISO mixed sector. Weather: cold-snap.",
+    "input": {
+      "region": "CAISO",
+      "sector": "mixed",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-08-18T16:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.7240304560922157,
+        "daysOfHistory": 309
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "mixed",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-002",
+    "domain": "energy",
+    "name": "Forecast: Weekly peak demand prediction",
+    "description": "Weekly peak demand prediction for NYISO residential sector. Weather: cold-snap.",
+    "input": {
+      "region": "NYISO",
+      "sector": "residential",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-04-12T06:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 2.2258320057824794,
+        "daysOfHistory": 242
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "residential",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-003",
+    "domain": "energy",
+    "name": "Forecast: Weather-adjusted demand modeling",
+    "description": "Weather-adjusted demand modeling for ERCOT mixed sector. Weather: severe-storm.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "mixed",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-12-05T05:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.6616450830273435,
+        "daysOfHistory": 306
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "mixed",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-004",
+    "domain": "energy",
+    "name": "Forecast: Seasonal pattern recognition",
+    "description": "Seasonal pattern recognition for MISO industrial sector. Weather: severe-storm.",
+    "input": {
+      "region": "MISO",
+      "sector": "industrial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-09-20T13:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.5391000084437199,
+        "daysOfHistory": 223
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "miso",
+        "industrial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-005",
+    "domain": "energy",
+    "name": "Forecast: Industrial load scheduling optimiza",
+    "description": "Industrial load scheduling optimization for MISO commercial sector. Weather: normal.",
+    "input": {
+      "region": "MISO",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-10-05T11:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 2.0013274961387104,
+        "daysOfHistory": 274
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "miso",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-006",
+    "domain": "energy",
+    "name": "Forecast: Solar generation impact on net dema",
+    "description": "Solar generation impact on net demand for NYISO commercial sector. Weather: heat-wave.",
+    "input": {
+      "region": "NYISO",
+      "sector": "commercial",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-08-16T20:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.7936651978626998,
+        "daysOfHistory": 131
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "commercial",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-007",
+    "domain": "energy",
+    "name": "Forecast: EV charging load growth projection",
+    "description": "EV charging load growth projection for PJM industrial sector. Weather: cold-snap.",
+    "input": {
+      "region": "PJM",
+      "sector": "industrial",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-07-14T03:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.8266361205202146,
+        "daysOfHistory": 234
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "industrial",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-008",
+    "domain": "energy",
+    "name": "Forecast: Demand response event planning",
+    "description": "Demand response event planning for PJM industrial sector. Weather: heat-wave.",
+    "input": {
+      "region": "PJM",
+      "sector": "industrial",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-11-13T17:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.2051487321046062,
+        "daysOfHistory": 163
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "industrial",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-009",
+    "domain": "energy",
+    "name": "Forecast: Multi-zone aggregate forecasting",
+    "description": "Multi-zone aggregate forecasting for MISO residential sector. Weather: severe-storm.",
+    "input": {
+      "region": "MISO",
+      "sector": "residential",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-08-26T19:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.1479667065776806,
+        "daysOfHistory": 184
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "miso",
+        "residential",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-010",
+    "domain": "energy",
+    "name": "Forecast: Holiday demand adjustment predictio",
+    "description": "Holiday demand adjustment prediction for CAISO residential sector. Weather: severe-storm.",
+    "input": {
+      "region": "CAISO",
+      "sector": "residential",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-06-25T10:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.321195271406601,
+        "daysOfHistory": 130
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "residential",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-011",
+    "domain": "energy",
+    "name": "Forecast: Temperature-load correlation analys",
+    "description": "Temperature-load correlation analysis for ERCOT industrial sector. Weather: normal.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "industrial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-01-20T10:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 2.3774811862682648,
+        "daysOfHistory": 84
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "industrial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-012",
+    "domain": "energy",
+    "name": "Forecast: Renewable intermittency compensatio",
+    "description": "Renewable intermittency compensation for MISO industrial sector. Weather: severe-storm.",
+    "input": {
+      "region": "MISO",
+      "sector": "industrial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-07-10T23:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.186362312451555,
+        "daysOfHistory": 171
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "miso",
+        "industrial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-013",
+    "domain": "energy",
+    "name": "Forecast: Next-day residential load forecast",
+    "description": "Next-day residential load forecast for PJM mixed sector. Weather: heat-wave.",
+    "input": {
+      "region": "PJM",
+      "sector": "mixed",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-03-16T00:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.1725896884856255,
+        "daysOfHistory": 79
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "mixed",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-014",
+    "domain": "energy",
+    "name": "Forecast: Weekly peak demand prediction",
+    "description": "Weekly peak demand prediction for PJM residential sector. Weather: severe-storm.",
+    "input": {
+      "region": "PJM",
+      "sector": "residential",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-02-08T05:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.9014721105111465,
+        "daysOfHistory": 326
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "residential",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-015",
+    "domain": "energy",
+    "name": "Forecast: Weather-adjusted demand modeling",
+    "description": "Weather-adjusted demand modeling for SPP commercial sector. Weather: normal.",
+    "input": {
+      "region": "SPP",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-01-07T22:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.8359129678774422,
+        "daysOfHistory": 367
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "forecasting",
+        "spp",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-016",
+    "domain": "energy",
+    "name": "Forecast: Seasonal pattern recognition",
+    "description": "Seasonal pattern recognition for CAISO mixed sector. Weather: normal.",
+    "input": {
+      "region": "CAISO",
+      "sector": "mixed",
+      "weatherCondition": "normal",
+      "timestamp": "2026-10-10T10:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 2.3544647592013854,
+        "daysOfHistory": 104
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "mixed",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-017",
+    "domain": "energy",
+    "name": "Forecast: Industrial load scheduling optimiza",
+    "description": "Industrial load scheduling optimization for MISO industrial sector. Weather: normal.",
+    "input": {
+      "region": "MISO",
+      "sector": "industrial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-12-05T04:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.6525235739891704,
+        "daysOfHistory": 311
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "miso",
+        "industrial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-018",
+    "domain": "energy",
+    "name": "Forecast: Solar generation impact on net dema",
+    "description": "Solar generation impact on net demand for PJM commercial sector. Weather: heat-wave.",
+    "input": {
+      "region": "PJM",
+      "sector": "commercial",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-03-09T04:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 2.3914902246071703,
+        "daysOfHistory": 302
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "commercial",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-019",
+    "domain": "energy",
+    "name": "Forecast: EV charging load growth projection",
+    "description": "EV charging load growth projection for NYISO residential sector. Weather: normal.",
+    "input": {
+      "region": "NYISO",
+      "sector": "residential",
+      "weatherCondition": "normal",
+      "timestamp": "2026-01-19T08:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.2342289576153804,
+        "daysOfHistory": 105
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "residential",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-020",
+    "domain": "energy",
+    "name": "Forecast: Demand response event planning",
+    "description": "Demand response event planning for ERCOT commercial sector. Weather: heat-wave.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "commercial",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-01-15T16:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 2.0128950928367897,
+        "daysOfHistory": 44
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "commercial",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-021",
+    "domain": "energy",
+    "name": "Forecast: Multi-zone aggregate forecasting",
+    "description": "Multi-zone aggregate forecasting for SPP mixed sector. Weather: normal.",
+    "input": {
+      "region": "SPP",
+      "sector": "mixed",
+      "weatherCondition": "normal",
+      "timestamp": "2026-07-27T00:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.719468282586771,
+        "daysOfHistory": 102
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "spp",
+        "mixed",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-022",
+    "domain": "energy",
+    "name": "Forecast: Holiday demand adjustment predictio",
+    "description": "Holiday demand adjustment prediction for NYISO residential sector. Weather: cold-snap.",
+    "input": {
+      "region": "NYISO",
+      "sector": "residential",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-01-12T17:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 2.037646512742538,
+        "daysOfHistory": 131
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "residential",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-023",
+    "domain": "energy",
+    "name": "Forecast: Temperature-load correlation analys",
+    "description": "Temperature-load correlation analysis for NYISO mixed sector. Weather: cold-snap.",
+    "input": {
+      "region": "NYISO",
+      "sector": "mixed",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-11-20T09:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 2.3897970672440243,
+        "daysOfHistory": 350
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "mixed",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-024",
+    "domain": "energy",
+    "name": "Forecast: Renewable intermittency compensatio",
+    "description": "Renewable intermittency compensation for NYISO commercial sector. Weather: normal.",
+    "input": {
+      "region": "NYISO",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-01-06T21:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.5503412819351865,
+        "daysOfHistory": 316
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-025",
+    "domain": "energy",
+    "name": "Forecast: Next-day residential load forecast",
+    "description": "Next-day residential load forecast for PJM mixed sector. Weather: heat-wave.",
+    "input": {
+      "region": "PJM",
+      "sector": "mixed",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-10-18T09:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.0036798709779233,
+        "daysOfHistory": 295
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "mixed",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-026",
+    "domain": "energy",
+    "name": "Forecast: Weekly peak demand prediction",
+    "description": "Weekly peak demand prediction for MISO mixed sector. Weather: heat-wave.",
+    "input": {
+      "region": "MISO",
+      "sector": "mixed",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-08-14T12:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.046022246136801,
+        "daysOfHistory": 159
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "miso",
+        "mixed",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-027",
+    "domain": "energy",
+    "name": "Forecast: Weather-adjusted demand modeling",
+    "description": "Weather-adjusted demand modeling for PJM commercial sector. Weather: severe-storm.",
+    "input": {
+      "region": "PJM",
+      "sector": "commercial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-10-11T23:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.2591510854566357,
+        "daysOfHistory": 349
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "commercial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-028",
+    "domain": "energy",
+    "name": "Forecast: Seasonal pattern recognition",
+    "description": "Seasonal pattern recognition for CAISO commercial sector. Weather: severe-storm.",
+    "input": {
+      "region": "CAISO",
+      "sector": "commercial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-11-24T11:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 2.48831714654535,
+        "daysOfHistory": 383
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "commercial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-029",
+    "domain": "energy",
+    "name": "Forecast: Industrial load scheduling optimiza",
+    "description": "Industrial load scheduling optimization for CAISO residential sector. Weather: cold-snap.",
+    "input": {
+      "region": "CAISO",
+      "sector": "residential",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-05-12T09:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 2.3725874770601716,
+        "daysOfHistory": 279
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "residential",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-030",
+    "domain": "energy",
+    "name": "Forecast: Solar generation impact on net dema",
+    "description": "Solar generation impact on net demand for NYISO commercial sector. Weather: normal.",
+    "input": {
+      "region": "NYISO",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-11-06T14:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 2.2146767697331207,
+        "daysOfHistory": 322
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-031",
+    "domain": "energy",
+    "name": "Forecast: EV charging load growth projection",
+    "description": "EV charging load growth projection for MISO commercial sector. Weather: normal.",
+    "input": {
+      "region": "MISO",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-12-15T10:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.1451134836871906,
+        "daysOfHistory": 121
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "miso",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-032",
+    "domain": "energy",
+    "name": "Forecast: Demand response event planning",
+    "description": "Demand response event planning for MISO mixed sector. Weather: normal.",
+    "input": {
+      "region": "MISO",
+      "sector": "mixed",
+      "weatherCondition": "normal",
+      "timestamp": "2026-06-08T17:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.7274697301274795,
+        "daysOfHistory": 128
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "miso",
+        "mixed",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-033",
+    "domain": "energy",
+    "name": "Forecast: Multi-zone aggregate forecasting",
+    "description": "Multi-zone aggregate forecasting for CAISO industrial sector. Weather: normal.",
+    "input": {
+      "region": "CAISO",
+      "sector": "industrial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-04-12T16:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.6747813546505714,
+        "daysOfHistory": 343
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "industrial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-034",
+    "domain": "energy",
+    "name": "Forecast: Holiday demand adjustment predictio",
+    "description": "Holiday demand adjustment prediction for NYISO residential sector. Weather: severe-storm.",
+    "input": {
+      "region": "NYISO",
+      "sector": "residential",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-07-05T22:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 2.120140420068088,
+        "daysOfHistory": 172
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "residential",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-035",
+    "domain": "energy",
+    "name": "Forecast: Temperature-load correlation analys",
+    "description": "Temperature-load correlation analysis for NYISO commercial sector. Weather: severe-storm.",
+    "input": {
+      "region": "NYISO",
+      "sector": "commercial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-06-22T07:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.905383060082184,
+        "daysOfHistory": 295
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "commercial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-036",
+    "domain": "energy",
+    "name": "Forecast: Renewable intermittency compensatio",
+    "description": "Renewable intermittency compensation for ERCOT commercial sector. Weather: normal.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-01-28T09:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.6723046437074207,
+        "daysOfHistory": 210
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-037",
+    "domain": "energy",
+    "name": "Forecast: Next-day residential load forecast",
+    "description": "Next-day residential load forecast for SPP mixed sector. Weather: severe-storm.",
+    "input": {
+      "region": "SPP",
+      "sector": "mixed",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-11-04T04:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.0753095074499281,
+        "daysOfHistory": 373
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "spp",
+        "mixed",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-038",
+    "domain": "energy",
+    "name": "Forecast: Weekly peak demand prediction",
+    "description": "Weekly peak demand prediction for PJM residential sector. Weather: severe-storm.",
+    "input": {
+      "region": "PJM",
+      "sector": "residential",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-02-06T16:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.2252941662970218,
+        "daysOfHistory": 182
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "residential",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-039",
+    "domain": "energy",
+    "name": "Forecast: Weather-adjusted demand modeling",
+    "description": "Weather-adjusted demand modeling for ERCOT commercial sector. Weather: heat-wave.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "commercial",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-11-26T02:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.186024930022197,
+        "daysOfHistory": 30
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "commercial",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-040",
+    "domain": "energy",
+    "name": "Forecast: Seasonal pattern recognition",
+    "description": "Seasonal pattern recognition for SPP residential sector. Weather: heat-wave.",
+    "input": {
+      "region": "SPP",
+      "sector": "residential",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-05-12T20:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.7890168744579462,
+        "daysOfHistory": 70
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "spp",
+        "residential",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-041",
+    "domain": "energy",
+    "name": "Forecast: Industrial load scheduling optimiza",
+    "description": "Industrial load scheduling optimization for CAISO mixed sector. Weather: cold-snap.",
+    "input": {
+      "region": "CAISO",
+      "sector": "mixed",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-06-24T11:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.9432204119961756,
+        "daysOfHistory": 105
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "mixed",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-042",
+    "domain": "energy",
+    "name": "Forecast: Solar generation impact on net dema",
+    "description": "Solar generation impact on net demand for MISO residential sector. Weather: cold-snap.",
+    "input": {
+      "region": "MISO",
+      "sector": "residential",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-07-11T17:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.150823466980556,
+        "daysOfHistory": 221
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "miso",
+        "residential",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-043",
+    "domain": "energy",
+    "name": "Forecast: EV charging load growth projection",
+    "description": "EV charging load growth projection for NYISO industrial sector. Weather: normal.",
+    "input": {
+      "region": "NYISO",
+      "sector": "industrial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-02-13T20:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 2.078300361889019,
+        "daysOfHistory": 94
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "industrial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-044",
+    "domain": "energy",
+    "name": "Forecast: Demand response event planning",
+    "description": "Demand response event planning for PJM commercial sector. Weather: normal.",
+    "input": {
+      "region": "PJM",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-06-03T12:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.5261145656756392,
+        "daysOfHistory": 322
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-045",
+    "domain": "energy",
+    "name": "Forecast: Multi-zone aggregate forecasting",
+    "description": "Multi-zone aggregate forecasting for CAISO residential sector. Weather: normal.",
+    "input": {
+      "region": "CAISO",
+      "sector": "residential",
+      "weatherCondition": "normal",
+      "timestamp": "2026-11-18T01:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.1272893351566253,
+        "daysOfHistory": 62
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "residential",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-046",
+    "domain": "energy",
+    "name": "Forecast: Holiday demand adjustment predictio",
+    "description": "Holiday demand adjustment prediction for MISO commercial sector. Weather: normal.",
+    "input": {
+      "region": "MISO",
+      "sector": "commercial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-05-15T16:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.2274338454537639,
+        "daysOfHistory": 316
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "miso",
+        "commercial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-047",
+    "domain": "energy",
+    "name": "Forecast: Temperature-load correlation analys",
+    "description": "Temperature-load correlation analysis for NYISO industrial sector. Weather: normal.",
+    "input": {
+      "region": "NYISO",
+      "sector": "industrial",
+      "weatherCondition": "normal",
+      "timestamp": "2026-04-17T12:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 2.4722739523212134,
+        "daysOfHistory": 67
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "industrial",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-048",
+    "domain": "energy",
+    "name": "Forecast: Renewable intermittency compensatio",
+    "description": "Renewable intermittency compensation for PJM mixed sector. Weather: severe-storm.",
+    "input": {
+      "region": "PJM",
+      "sector": "mixed",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-04-15T13:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.402523265081114,
+        "daysOfHistory": 246
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "mixed",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-049",
+    "domain": "energy",
+    "name": "Forecast: Next-day residential load forecast",
+    "description": "Next-day residential load forecast for SPP mixed sector. Weather: severe-storm.",
+    "input": {
+      "region": "SPP",
+      "sector": "mixed",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-02-27T03:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.3308657486529243,
+        "daysOfHistory": 191
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "forecasting",
+        "spp",
+        "mixed",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-050",
+    "domain": "energy",
+    "name": "Forecast: Weekly peak demand prediction",
+    "description": "Weekly peak demand prediction for NYISO industrial sector. Weather: severe-storm.",
+    "input": {
+      "region": "NYISO",
+      "sector": "industrial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-08-28T09:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 2.3210156856386495,
+        "daysOfHistory": 148
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "industrial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-051",
+    "domain": "energy",
+    "name": "Forecast: Weather-adjusted demand modeling",
+    "description": "Weather-adjusted demand modeling for ERCOT mixed sector. Weather: severe-storm.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "mixed",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-06-16T03:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 1.755635649258186,
+        "daysOfHistory": 220
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "mixed",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-052",
+    "domain": "energy",
+    "name": "Forecast: Seasonal pattern recognition",
+    "description": "Seasonal pattern recognition for SPP residential sector. Weather: normal.",
+    "input": {
+      "region": "SPP",
+      "sector": "residential",
+      "weatherCondition": "normal",
+      "timestamp": "2026-07-06T10:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.4428581412515737,
+        "daysOfHistory": 225
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "spp",
+        "residential",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-053",
+    "domain": "energy",
+    "name": "Forecast: Industrial load scheduling optimiza",
+    "description": "Industrial load scheduling optimization for PJM industrial sector. Weather: severe-storm.",
+    "input": {
+      "region": "PJM",
+      "sector": "industrial",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-02-02T09:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 1.671779332722486,
+        "daysOfHistory": 236
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "pjm",
+        "industrial",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-054",
+    "domain": "energy",
+    "name": "Forecast: Solar generation impact on net dema",
+    "description": "Solar generation impact on net demand for CAISO industrial sector. Weather: cold-snap.",
+    "input": {
+      "region": "CAISO",
+      "sector": "industrial",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-04-23T22:00:00Z",
+      "historicalData": {
+        "baseloadMw": 300,
+        "peakMultiplier": 2.297945744660205,
+        "daysOfHistory": 393
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "industrial",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-055",
+    "domain": "energy",
+    "name": "Forecast: EV charging load growth projection",
+    "description": "EV charging load growth projection for CAISO mixed sector. Weather: heat-wave.",
+    "input": {
+      "region": "CAISO",
+      "sector": "mixed",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-05-24T23:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 2.3811751175395157,
+        "daysOfHistory": 119
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "caiso",
+        "mixed",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-056",
+    "domain": "energy",
+    "name": "Forecast: Demand response event planning",
+    "description": "Demand response event planning for ERCOT residential sector. Weather: severe-storm.",
+    "input": {
+      "region": "ERCOT",
+      "sector": "residential",
+      "weatherCondition": "severe-storm",
+      "timestamp": "2026-08-17T05:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 1.0145516691297647,
+        "daysOfHistory": 387
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "ercot",
+        "residential",
+        "severe-storm"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-057",
+    "domain": "energy",
+    "name": "Forecast: Multi-zone aggregate forecasting",
+    "description": "Multi-zone aggregate forecasting for NYISO residential sector. Weather: heat-wave.",
+    "input": {
+      "region": "NYISO",
+      "sector": "residential",
+      "weatherCondition": "heat-wave",
+      "timestamp": "2026-03-27T03:00:00Z",
+      "historicalData": {
+        "baseloadMw": 50,
+        "peakMultiplier": 2.388242076823544,
+        "daysOfHistory": 150
+      },
+      "forecastHorizon": "24h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "residential",
+        "heat-wave"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-058",
+    "domain": "energy",
+    "name": "Forecast: Holiday demand adjustment predictio",
+    "description": "Holiday demand adjustment prediction for MISO mixed sector. Weather: normal.",
+    "input": {
+      "region": "MISO",
+      "sector": "mixed",
+      "weatherCondition": "normal",
+      "timestamp": "2026-10-12T07:00:00Z",
+      "historicalData": {
+        "baseloadMw": 200,
+        "peakMultiplier": 2.3727128867462075,
+        "daysOfHistory": 339
+      },
+      "forecastHorizon": "30d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "miso",
+        "mixed",
+        "normal"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-059",
+    "domain": "energy",
+    "name": "Forecast: Temperature-load correlation analys",
+    "description": "Temperature-load correlation analysis for MISO commercial sector. Weather: cold-snap.",
+    "input": {
+      "region": "MISO",
+      "sector": "commercial",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-02-01T05:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 2.201345946104579,
+        "daysOfHistory": 325
+      },
+      "forecastHorizon": "1h"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "miso",
+        "commercial",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-060",
+    "domain": "energy",
+    "name": "Forecast: Renewable intermittency compensatio",
+    "description": "Renewable intermittency compensation for NYISO commercial sector. Weather: cold-snap.",
+    "input": {
+      "region": "NYISO",
+      "sector": "commercial",
+      "weatherCondition": "cold-snap",
+      "timestamp": "2026-01-08T02:00:00Z",
+      "historicalData": {
+        "baseloadMw": 120,
+        "peakMultiplier": 1.4965242849421978,
+        "daysOfHistory": 380
+      },
+      "forecastHorizon": "7d"
+    },
+    "expected": {
+      "forecastGenerated": true,
+      "unitsMw": true,
+      "confidenceInterval": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "forecasting",
+        "nyiso",
+        "commercial",
+        "cold-snap"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-061",
+    "domain": "energy",
+    "name": "Outage: Single equipment failure detection ",
+    "description": "Single equipment failure detection and dispatch in SPP. Type: vegetation. Affected: 32215 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "vegetation",
+      "affectedCustomers": 32215,
+      "reportTime": "2026-05-08T08:01:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 5,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "spp",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-062",
+    "domain": "energy",
+    "name": "Outage: Storm damage assessment and crew ro",
+    "description": "Storm damage assessment and crew routing in MISO. Type: weather-event. Affected: 13044 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "weather-event",
+      "affectedCustomers": 13044,
+      "reportTime": "2026-01-15T15:26:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 4,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "miso",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-063",
+    "domain": "energy",
+    "name": "Outage: Vegetation contact outage response",
+    "description": "Vegetation contact outage response in PJM. Type: vegetation. Affected: 36538 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "vegetation",
+      "affectedCustomers": 36538,
+      "reportTime": "2026-07-26T08:56:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 7,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "pjm",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-064",
+    "domain": "energy",
+    "name": "Outage: Transformer overload mitigation",
+    "description": "Transformer overload mitigation in PJM. Type: equipment-failure. Affected: 24869 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 24869,
+      "reportTime": "2026-05-06T15:27:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 6,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "pjm",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-065",
+    "domain": "energy",
+    "name": "Outage: Planned maintenance scheduling and ",
+    "description": "Planned maintenance scheduling and notification in NYISO. Type: equipment-failure. Affected: 10848 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 10848,
+      "reportTime": "2026-07-15T08:21:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 5,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "nyiso",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-066",
+    "domain": "energy",
+    "name": "Outage: Multi-zone simultaneous outage mana",
+    "description": "Multi-zone simultaneous outage management in ERCOT. Type: overload. Affected: 13403 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "overload",
+      "affectedCustomers": 13403,
+      "reportTime": "2026-11-02T03:49:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 6,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "ercot",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-067",
+    "domain": "energy",
+    "name": "Outage: Customer notification sequence exec",
+    "description": "Customer notification sequence execution in MISO. Type: vegetation. Affected: 16600 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 16600,
+      "reportTime": "2026-04-13T04:26:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 7,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "miso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-068",
+    "domain": "energy",
+    "name": "Outage: Estimated restoration time calculat",
+    "description": "Estimated restoration time calculation in NYISO. Type: overload. Affected: 41475 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "overload",
+      "affectedCustomers": 41475,
+      "reportTime": "2026-01-12T22:17:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 11,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "nyiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-069",
+    "domain": "energy",
+    "name": "Outage: Priority customer protection (hospi",
+    "description": "Priority customer protection (hospital/emergency) in SPP. Type: equipment-failure. Affected: 29284 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 29284,
+      "reportTime": "2026-09-22T03:13:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 9,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "spp",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-070",
+    "domain": "energy",
+    "name": "Outage: Post-outage root cause analysis",
+    "description": "Post-outage root cause analysis in PJM. Type: overload. Affected: 15780 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "overload",
+      "affectedCustomers": 15780,
+      "reportTime": "2026-07-28T17:02:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 8,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "pjm",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-071",
+    "domain": "energy",
+    "name": "Outage: Mutual aid crew coordination",
+    "description": "Mutual aid crew coordination in ERCOT. Type: planned-maintenance. Affected: 46837 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 46837,
+      "reportTime": "2026-09-05T00:03:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 9,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "ercot",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-072",
+    "domain": "energy",
+    "name": "Outage: Outage map and status reporting",
+    "description": "Outage map and status reporting in ERCOT. Type: overload. Affected: 19446 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "overload",
+      "affectedCustomers": 19446,
+      "reportTime": "2026-01-19T13:35:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 11,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "ercot",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-073",
+    "domain": "energy",
+    "name": "Outage: Single equipment failure detection ",
+    "description": "Single equipment failure detection and dispatch in CAISO. Type: planned-maintenance. Affected: 6700 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 6700,
+      "reportTime": "2026-02-17T05:53:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 6,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "caiso",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-074",
+    "domain": "energy",
+    "name": "Outage: Storm damage assessment and crew ro",
+    "description": "Storm damage assessment and crew routing in MISO. Type: overload. Affected: 44243 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "overload",
+      "affectedCustomers": 44243,
+      "reportTime": "2026-11-02T00:20:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 11,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "miso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-075",
+    "domain": "energy",
+    "name": "Outage: Vegetation contact outage response",
+    "description": "Vegetation contact outage response in MISO. Type: planned-maintenance. Affected: 46671 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 46671,
+      "reportTime": "2026-06-06T18:19:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 8,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "outage",
+        "miso",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-076",
+    "domain": "energy",
+    "name": "Outage: Transformer overload mitigation",
+    "description": "Transformer overload mitigation in NYISO. Type: vegetation. Affected: 38871 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 38871,
+      "reportTime": "2026-05-14T08:31:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 11,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-077",
+    "domain": "energy",
+    "name": "Outage: Planned maintenance scheduling and ",
+    "description": "Planned maintenance scheduling and notification in NYISO. Type: overload. Affected: 7220 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "overload",
+      "affectedCustomers": 7220,
+      "reportTime": "2026-12-12T14:32:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 4,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-078",
+    "domain": "energy",
+    "name": "Outage: Multi-zone simultaneous outage mana",
+    "description": "Multi-zone simultaneous outage management in NYISO. Type: planned-maintenance. Affected: 2209 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 2209,
+      "reportTime": "2026-03-20T19:22:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 3,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-079",
+    "domain": "energy",
+    "name": "Outage: Customer notification sequence exec",
+    "description": "Customer notification sequence execution in NYISO. Type: vegetation. Affected: 35404 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 35404,
+      "reportTime": "2026-10-07T21:44:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 10,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-080",
+    "domain": "energy",
+    "name": "Outage: Estimated restoration time calculat",
+    "description": "Estimated restoration time calculation in PJM. Type: weather-event. Affected: 12947 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "weather-event",
+      "affectedCustomers": 12947,
+      "reportTime": "2026-12-24T22:24:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 7,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "pjm",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-081",
+    "domain": "energy",
+    "name": "Outage: Priority customer protection (hospi",
+    "description": "Priority customer protection (hospital/emergency) in ERCOT. Type: weather-event. Affected: 13064 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "weather-event",
+      "affectedCustomers": 13064,
+      "reportTime": "2026-07-23T13:44:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 9,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "ercot",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-082",
+    "domain": "energy",
+    "name": "Outage: Post-outage root cause analysis",
+    "description": "Post-outage root cause analysis in SPP. Type: weather-event. Affected: 49496 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "weather-event",
+      "affectedCustomers": 49496,
+      "reportTime": "2026-07-12T14:18:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 4,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-083",
+    "domain": "energy",
+    "name": "Outage: Mutual aid crew coordination",
+    "description": "Mutual aid crew coordination in NYISO. Type: equipment-failure. Affected: 44428 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 44428,
+      "reportTime": "2026-02-20T19:32:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 7,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-084",
+    "domain": "energy",
+    "name": "Outage: Outage map and status reporting",
+    "description": "Outage map and status reporting in NYISO. Type: weather-event. Affected: 16593 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "weather-event",
+      "affectedCustomers": 16593,
+      "reportTime": "2026-08-22T02:06:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 7,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-085",
+    "domain": "energy",
+    "name": "Outage: Single equipment failure detection ",
+    "description": "Single equipment failure detection and dispatch in NYISO. Type: equipment-failure. Affected: 814 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 814,
+      "reportTime": "2026-12-05T21:14:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 10,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-086",
+    "domain": "energy",
+    "name": "Outage: Storm damage assessment and crew ro",
+    "description": "Storm damage assessment and crew routing in ERCOT. Type: overload. Affected: 7496 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "overload",
+      "affectedCustomers": 7496,
+      "reportTime": "2026-03-06T03:09:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 6,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "ercot",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-087",
+    "domain": "energy",
+    "name": "Outage: Vegetation contact outage response",
+    "description": "Vegetation contact outage response in CAISO. Type: weather-event. Affected: 32553 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "weather-event",
+      "affectedCustomers": 32553,
+      "reportTime": "2026-11-18T10:43:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 9,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "caiso",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-088",
+    "domain": "energy",
+    "name": "Outage: Transformer overload mitigation",
+    "description": "Transformer overload mitigation in NYISO. Type: weather-event. Affected: 43188 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "weather-event",
+      "affectedCustomers": 43188,
+      "reportTime": "2026-05-02T16:12:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 4,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "nyiso",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-089",
+    "domain": "energy",
+    "name": "Outage: Planned maintenance scheduling and ",
+    "description": "Planned maintenance scheduling and notification in SPP. Type: vegetation. Affected: 20813 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "vegetation",
+      "affectedCustomers": 20813,
+      "reportTime": "2026-12-04T19:40:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 8,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-090",
+    "domain": "energy",
+    "name": "Outage: Multi-zone simultaneous outage mana",
+    "description": "Multi-zone simultaneous outage management in ERCOT. Type: vegetation. Affected: 42479 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "vegetation",
+      "affectedCustomers": 42479,
+      "reportTime": "2026-02-09T10:58:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 6,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "ercot",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-091",
+    "domain": "energy",
+    "name": "Outage: Customer notification sequence exec",
+    "description": "Customer notification sequence execution in SPP. Type: vegetation. Affected: 4468 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "vegetation",
+      "affectedCustomers": 4468,
+      "reportTime": "2026-12-04T09:06:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 3,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-092",
+    "domain": "energy",
+    "name": "Outage: Estimated restoration time calculat",
+    "description": "Estimated restoration time calculation in SPP. Type: planned-maintenance. Affected: 39434 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 39434,
+      "reportTime": "2026-12-06T15:29:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 10,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-093",
+    "domain": "energy",
+    "name": "Outage: Priority customer protection (hospi",
+    "description": "Priority customer protection (hospital/emergency) in SPP. Type: weather-event. Affected: 29677 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "weather-event",
+      "affectedCustomers": 29677,
+      "reportTime": "2026-02-15T10:21:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 8,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-094",
+    "domain": "energy",
+    "name": "Outage: Post-outage root cause analysis",
+    "description": "Post-outage root cause analysis in SPP. Type: overload. Affected: 27014 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "overload",
+      "affectedCustomers": 27014,
+      "reportTime": "2026-01-16T23:25:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 8,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-095",
+    "domain": "energy",
+    "name": "Outage: Mutual aid crew coordination",
+    "description": "Mutual aid crew coordination in SPP. Type: overload. Affected: 32319 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "overload",
+      "affectedCustomers": 32319,
+      "reportTime": "2026-11-07T07:18:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 7,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "outage",
+        "spp",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-096",
+    "domain": "energy",
+    "name": "Outage: Outage map and status reporting",
+    "description": "Outage map and status reporting in MISO. Type: vegetation. Affected: 18345 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 18345,
+      "reportTime": "2026-08-09T17:09:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 3,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "miso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-097",
+    "domain": "energy",
+    "name": "Outage: Single equipment failure detection ",
+    "description": "Single equipment failure detection and dispatch in ERCOT. Type: equipment-failure. Affected: 25947 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 25947,
+      "reportTime": "2026-04-23T07:08:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 5,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "ercot",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-098",
+    "domain": "energy",
+    "name": "Outage: Storm damage assessment and crew ro",
+    "description": "Storm damage assessment and crew routing in CAISO. Type: overload. Affected: 29524 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "overload",
+      "affectedCustomers": 29524,
+      "reportTime": "2026-09-09T13:02:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 6,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "caiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-099",
+    "domain": "energy",
+    "name": "Outage: Vegetation contact outage response",
+    "description": "Vegetation contact outage response in PJM. Type: equipment-failure. Affected: 30420 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 30420,
+      "reportTime": "2026-01-11T06:59:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 7,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "pjm",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-100",
+    "domain": "energy",
+    "name": "Outage: Transformer overload mitigation",
+    "description": "Transformer overload mitigation in NYISO. Type: overload. Affected: 360 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "overload",
+      "affectedCustomers": 360,
+      "reportTime": "2026-05-27T22:33:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 2,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "nyiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-101",
+    "domain": "energy",
+    "name": "Outage: Planned maintenance scheduling and ",
+    "description": "Planned maintenance scheduling and notification in CAISO. Type: vegetation. Affected: 38855 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 38855,
+      "reportTime": "2026-09-03T19:23:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 6,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "caiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-102",
+    "domain": "energy",
+    "name": "Outage: Multi-zone simultaneous outage mana",
+    "description": "Multi-zone simultaneous outage management in PJM. Type: vegetation. Affected: 31962 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "vegetation",
+      "affectedCustomers": 31962,
+      "reportTime": "2026-07-01T23:54:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 10,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "pjm",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-103",
+    "domain": "energy",
+    "name": "Outage: Customer notification sequence exec",
+    "description": "Customer notification sequence execution in CAISO. Type: vegetation. Affected: 33081 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 33081,
+      "reportTime": "2026-09-17T21:04:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 3,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "caiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-104",
+    "domain": "energy",
+    "name": "Outage: Estimated restoration time calculat",
+    "description": "Estimated restoration time calculation in NYISO. Type: vegetation. Affected: 32581 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 32581,
+      "reportTime": "2026-08-08T21:28:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 3,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "nyiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-105",
+    "domain": "energy",
+    "name": "Outage: Priority customer protection (hospi",
+    "description": "Priority customer protection (hospital/emergency) in NYISO. Type: overload. Affected: 20219 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "overload",
+      "affectedCustomers": 20219,
+      "reportTime": "2026-11-22T02:57:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 10,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "nyiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-106",
+    "domain": "energy",
+    "name": "Outage: Post-outage root cause analysis",
+    "description": "Post-outage root cause analysis in CAISO. Type: vegetation. Affected: 25608 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 25608,
+      "reportTime": "2026-03-06T10:03:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 8,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "caiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-107",
+    "domain": "energy",
+    "name": "Outage: Mutual aid crew coordination",
+    "description": "Mutual aid crew coordination in CAISO. Type: vegetation. Affected: 25571 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "vegetation",
+      "affectedCustomers": 25571,
+      "reportTime": "2026-03-02T12:57:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 9,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "caiso",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-108",
+    "domain": "energy",
+    "name": "Outage: Outage map and status reporting",
+    "description": "Outage map and status reporting in CAISO. Type: overload. Affected: 36137 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "overload",
+      "affectedCustomers": 36137,
+      "reportTime": "2026-09-05T21:58:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 9,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "caiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-109",
+    "domain": "energy",
+    "name": "Outage: Single equipment failure detection ",
+    "description": "Single equipment failure detection and dispatch in MISO. Type: planned-maintenance. Affected: 39461 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 39461,
+      "reportTime": "2026-01-21T04:12:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 11,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "outage",
+        "miso",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-110",
+    "domain": "energy",
+    "name": "Outage: Storm damage assessment and crew ro",
+    "description": "Storm damage assessment and crew routing in CAISO. Type: overload. Affected: 34998 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "overload",
+      "affectedCustomers": 34998,
+      "reportTime": "2026-07-03T21:17:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 4,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "caiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-111",
+    "domain": "energy",
+    "name": "Outage: Vegetation contact outage response",
+    "description": "Vegetation contact outage response in ERCOT. Type: equipment-failure. Affected: 28191 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "equipment-failure",
+      "affectedCustomers": 28191,
+      "reportTime": "2026-01-09T20:51:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 2,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "ercot",
+        "equipment-failure"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-112",
+    "domain": "energy",
+    "name": "Outage: Transformer overload mitigation",
+    "description": "Transformer overload mitigation in NYISO. Type: planned-maintenance. Affected: 31671 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 31671,
+      "reportTime": "2026-06-04T02:49:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 4,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "nyiso",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-113",
+    "domain": "energy",
+    "name": "Outage: Planned maintenance scheduling and ",
+    "description": "Planned maintenance scheduling and notification in PJM. Type: weather-event. Affected: 31756 customers.",
+    "input": {
+      "region": "PJM",
+      "outageType": "weather-event",
+      "affectedCustomers": 31756,
+      "reportTime": "2026-01-26T07:12:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 10,
+      "priorityCustomers": 4
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "pjm",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-114",
+    "domain": "energy",
+    "name": "Outage: Multi-zone simultaneous outage mana",
+    "description": "Multi-zone simultaneous outage management in NYISO. Type: overload. Affected: 19974 customers.",
+    "input": {
+      "region": "NYISO",
+      "outageType": "overload",
+      "affectedCustomers": 19974,
+      "reportTime": "2026-03-23T04:40:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 9,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "nyiso",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-115",
+    "domain": "energy",
+    "name": "Outage: Customer notification sequence exec",
+    "description": "Customer notification sequence execution in CAISO. Type: weather-event. Affected: 33492 customers.",
+    "input": {
+      "region": "CAISO",
+      "outageType": "weather-event",
+      "affectedCustomers": 33492,
+      "reportTime": "2026-03-28T18:16:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 8,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "caiso",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-116",
+    "domain": "energy",
+    "name": "Outage: Estimated restoration time calculat",
+    "description": "Estimated restoration time calculation in MISO. Type: planned-maintenance. Affected: 42954 customers.",
+    "input": {
+      "region": "MISO",
+      "outageType": "planned-maintenance",
+      "affectedCustomers": 42954,
+      "reportTime": "2026-11-25T01:28:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 9,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "miso",
+        "planned-maintenance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-117",
+    "domain": "energy",
+    "name": "Outage: Priority customer protection (hospi",
+    "description": "Priority customer protection (hospital/emergency) in SPP. Type: overload. Affected: 49297 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "overload",
+      "affectedCustomers": 49297,
+      "reportTime": "2026-06-25T23:50:00Z",
+      "weatherCondition": "severe-storm",
+      "crewsAvailable": 5,
+      "priorityCustomers": 3
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "spp",
+        "overload"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-118",
+    "domain": "energy",
+    "name": "Outage: Post-outage root cause analysis",
+    "description": "Post-outage root cause analysis in SPP. Type: vegetation. Affected: 5859 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "vegetation",
+      "affectedCustomers": 5859,
+      "reportTime": "2026-05-04T00:32:00Z",
+      "weatherCondition": "cold-snap",
+      "crewsAvailable": 5,
+      "priorityCustomers": 2
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "spp",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-119",
+    "domain": "energy",
+    "name": "Outage: Mutual aid crew coordination",
+    "description": "Mutual aid crew coordination in ERCOT. Type: weather-event. Affected: 46596 customers.",
+    "input": {
+      "region": "ERCOT",
+      "outageType": "weather-event",
+      "affectedCustomers": 46596,
+      "reportTime": "2026-09-07T12:24:00Z",
+      "weatherCondition": "heat-wave",
+      "crewsAvailable": 4,
+      "priorityCustomers": 1
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "ercot",
+        "weather-event"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-120",
+    "domain": "energy",
+    "name": "Outage: Outage map and status reporting",
+    "description": "Outage map and status reporting in SPP. Type: vegetation. Affected: 28624 customers.",
+    "input": {
+      "region": "SPP",
+      "outageType": "vegetation",
+      "affectedCustomers": 28624,
+      "reportTime": "2026-11-08T08:36:00Z",
+      "weatherCondition": "normal",
+      "crewsAvailable": 2,
+      "priorityCustomers": 0
+    },
+    "expected": {
+      "crewsDispatched": true,
+      "etrCalculated": true,
+      "customersNotified": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "outage",
+        "spp",
+        "vegetation"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-121",
+    "domain": "energy",
+    "name": "Meter: AMI interval data validation",
+    "description": "AMI interval data validation for LEGACY meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "legacy",
+      "meterId": "MTR-ERCOT-031181",
+      "intervalMinutes": null,
+      "dataPoints": 6703,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-122",
+    "domain": "energy",
+    "name": "Meter: Meter read anomaly detection",
+    "description": "Meter read anomaly detection for LEGACY meter in CAISO region.",
+    "input": {
+      "region": "CAISO",
+      "meterType": "legacy",
+      "meterId": "MTR-CAISO-005039",
+      "intervalMinutes": null,
+      "dataPoints": 2284,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "caiso",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-123",
+    "domain": "energy",
+    "name": "Meter: Data gap interpolation",
+    "description": "Data gap interpolation for AMR meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "amr",
+      "meterId": "MTR-SPP-082857",
+      "intervalMinutes": 60,
+      "dataPoints": 7879,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "spp",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-124",
+    "domain": "energy",
+    "name": "Meter: Peak demand billing calculation",
+    "description": "Peak demand billing calculation for AMI meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "ami",
+      "meterId": "MTR-NYISO-077544",
+      "intervalMinutes": 15,
+      "dataPoints": 5059,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-125",
+    "domain": "energy",
+    "name": "Meter: Time-of-use rate analysis",
+    "description": "Time-of-use rate analysis for LEGACY meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "legacy",
+      "meterId": "MTR-ERCOT-038955",
+      "intervalMinutes": null,
+      "dataPoints": 4577,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-126",
+    "domain": "energy",
+    "name": "Meter: Net metering calculation for solar",
+    "description": "Net metering calculation for solar for AMR meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "amr",
+      "meterId": "MTR-NYISO-057124",
+      "intervalMinutes": 60,
+      "dataPoints": 1508,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-127",
+    "domain": "energy",
+    "name": "Meter: Meter swap data continuity",
+    "description": "Meter swap data continuity for AMI meter in CAISO region.",
+    "input": {
+      "region": "CAISO",
+      "meterType": "ami",
+      "meterId": "MTR-CAISO-066368",
+      "intervalMinutes": 15,
+      "dataPoints": 6522,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "caiso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-128",
+    "domain": "energy",
+    "name": "Meter: Monthly consumption trend analysis",
+    "description": "Monthly consumption trend analysis for AMR meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "amr",
+      "meterId": "MTR-NYISO-051838",
+      "intervalMinutes": 60,
+      "dataPoints": 5339,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-129",
+    "domain": "energy",
+    "name": "Meter: Power quality event detection",
+    "description": "Power quality event detection for AMR meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "amr",
+      "meterId": "MTR-SPP-085072",
+      "intervalMinutes": 60,
+      "dataPoints": 884,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "spp",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-130",
+    "domain": "energy",
+    "name": "Meter: Demand factor calculation",
+    "description": "Demand factor calculation for AMI meter in PJM region.",
+    "input": {
+      "region": "PJM",
+      "meterType": "ami",
+      "meterId": "MTR-PJM-040112",
+      "intervalMinutes": 15,
+      "dataPoints": 5177,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "meter-data",
+        "pjm",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-131",
+    "domain": "energy",
+    "name": "Meter: AMI interval data validation",
+    "description": "AMI interval data validation for AMI meter in CAISO region.",
+    "input": {
+      "region": "CAISO",
+      "meterType": "ami",
+      "meterId": "MTR-CAISO-066756",
+      "intervalMinutes": 15,
+      "dataPoints": 498,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "caiso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-132",
+    "domain": "energy",
+    "name": "Meter: Meter read anomaly detection",
+    "description": "Meter read anomaly detection for AMI meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "ami",
+      "meterId": "MTR-SPP-022496",
+      "intervalMinutes": 15,
+      "dataPoints": 1844,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "spp",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-133",
+    "domain": "energy",
+    "name": "Meter: Data gap interpolation",
+    "description": "Data gap interpolation for AMI meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "ami",
+      "meterId": "MTR-ERCOT-089711",
+      "intervalMinutes": 15,
+      "dataPoints": 5217,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-134",
+    "domain": "energy",
+    "name": "Meter: Peak demand billing calculation",
+    "description": "Peak demand billing calculation for LEGACY meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "legacy",
+      "meterId": "MTR-NYISO-029676",
+      "intervalMinutes": null,
+      "dataPoints": 8775,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-135",
+    "domain": "energy",
+    "name": "Meter: Time-of-use rate analysis",
+    "description": "Time-of-use rate analysis for LEGACY meter in PJM region.",
+    "input": {
+      "region": "PJM",
+      "meterType": "legacy",
+      "meterId": "MTR-PJM-049954",
+      "intervalMinutes": null,
+      "dataPoints": 6378,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "pjm",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-136",
+    "domain": "energy",
+    "name": "Meter: Net metering calculation for solar",
+    "description": "Net metering calculation for solar for AMI meter in PJM region.",
+    "input": {
+      "region": "PJM",
+      "meterType": "ami",
+      "meterId": "MTR-PJM-086725",
+      "intervalMinutes": 15,
+      "dataPoints": 5550,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "pjm",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-137",
+    "domain": "energy",
+    "name": "Meter: Meter swap data continuity",
+    "description": "Meter swap data continuity for LEGACY meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "legacy",
+      "meterId": "MTR-SPP-028619",
+      "intervalMinutes": null,
+      "dataPoints": 4406,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "spp",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-138",
+    "domain": "energy",
+    "name": "Meter: Monthly consumption trend analysis",
+    "description": "Monthly consumption trend analysis for AMI meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "ami",
+      "meterId": "MTR-ERCOT-033618",
+      "intervalMinutes": 15,
+      "dataPoints": 4555,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-139",
+    "domain": "energy",
+    "name": "Meter: Power quality event detection",
+    "description": "Power quality event detection for AMI meter in CAISO region.",
+    "input": {
+      "region": "CAISO",
+      "meterType": "ami",
+      "meterId": "MTR-CAISO-015584",
+      "intervalMinutes": 15,
+      "dataPoints": 9531,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "caiso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-140",
+    "domain": "energy",
+    "name": "Meter: Demand factor calculation",
+    "description": "Demand factor calculation for AMI meter in PJM region.",
+    "input": {
+      "region": "PJM",
+      "meterType": "ami",
+      "meterId": "MTR-PJM-001984",
+      "intervalMinutes": 15,
+      "dataPoints": 766,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "pjm",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-141",
+    "domain": "energy",
+    "name": "Meter: AMI interval data validation",
+    "description": "AMI interval data validation for AMI meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "ami",
+      "meterId": "MTR-MISO-089358",
+      "intervalMinutes": 15,
+      "dataPoints": 5641,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "miso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-142",
+    "domain": "energy",
+    "name": "Meter: Meter read anomaly detection",
+    "description": "Meter read anomaly detection for LEGACY meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "legacy",
+      "meterId": "MTR-SPP-048118",
+      "intervalMinutes": null,
+      "dataPoints": 4660,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "spp",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-143",
+    "domain": "energy",
+    "name": "Meter: Data gap interpolation",
+    "description": "Data gap interpolation for LEGACY meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "legacy",
+      "meterId": "MTR-ERCOT-053211",
+      "intervalMinutes": null,
+      "dataPoints": 7251,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-144",
+    "domain": "energy",
+    "name": "Meter: Peak demand billing calculation",
+    "description": "Peak demand billing calculation for AMR meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "amr",
+      "meterId": "MTR-MISO-042237",
+      "intervalMinutes": 60,
+      "dataPoints": 8252,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "miso",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-145",
+    "domain": "energy",
+    "name": "Meter: Time-of-use rate analysis",
+    "description": "Time-of-use rate analysis for AMI meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "ami",
+      "meterId": "MTR-SPP-027558",
+      "intervalMinutes": 15,
+      "dataPoints": 9601,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "spp",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-146",
+    "domain": "energy",
+    "name": "Meter: Net metering calculation for solar",
+    "description": "Net metering calculation for solar for AMI meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "ami",
+      "meterId": "MTR-SPP-013986",
+      "intervalMinutes": 15,
+      "dataPoints": 4253,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "spp",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-147",
+    "domain": "energy",
+    "name": "Meter: Meter swap data continuity",
+    "description": "Meter swap data continuity for AMI meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "ami",
+      "meterId": "MTR-MISO-098591",
+      "intervalMinutes": 15,
+      "dataPoints": 1879,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "miso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-148",
+    "domain": "energy",
+    "name": "Meter: Monthly consumption trend analysis",
+    "description": "Monthly consumption trend analysis for AMI meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "ami",
+      "meterId": "MTR-NYISO-054201",
+      "intervalMinutes": 15,
+      "dataPoints": 8353,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-149",
+    "domain": "energy",
+    "name": "Meter: Power quality event detection",
+    "description": "Power quality event detection for LEGACY meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "legacy",
+      "meterId": "MTR-SPP-023163",
+      "intervalMinutes": null,
+      "dataPoints": 3572,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "spp",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-150",
+    "domain": "energy",
+    "name": "Meter: Demand factor calculation",
+    "description": "Demand factor calculation for AMI meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "ami",
+      "meterId": "MTR-SPP-072911",
+      "intervalMinutes": 15,
+      "dataPoints": 4637,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "spp",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-151",
+    "domain": "energy",
+    "name": "Meter: AMI interval data validation",
+    "description": "AMI interval data validation for LEGACY meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "legacy",
+      "meterId": "MTR-ERCOT-089921",
+      "intervalMinutes": null,
+      "dataPoints": 3932,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-152",
+    "domain": "energy",
+    "name": "Meter: Meter read anomaly detection",
+    "description": "Meter read anomaly detection for AMR meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "amr",
+      "meterId": "MTR-MISO-013600",
+      "intervalMinutes": 60,
+      "dataPoints": 4115,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "miso",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-153",
+    "domain": "energy",
+    "name": "Meter: Data gap interpolation",
+    "description": "Data gap interpolation for LEGACY meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "legacy",
+      "meterId": "MTR-MISO-036686",
+      "intervalMinutes": null,
+      "dataPoints": 4579,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "meter-data",
+        "miso",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-154",
+    "domain": "energy",
+    "name": "Meter: Peak demand billing calculation",
+    "description": "Peak demand billing calculation for LEGACY meter in PJM region.",
+    "input": {
+      "region": "PJM",
+      "meterType": "legacy",
+      "meterId": "MTR-PJM-023711",
+      "intervalMinutes": null,
+      "dataPoints": 6385,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "pjm",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-155",
+    "domain": "energy",
+    "name": "Meter: Time-of-use rate analysis",
+    "description": "Time-of-use rate analysis for AMR meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "amr",
+      "meterId": "MTR-NYISO-024090",
+      "intervalMinutes": 60,
+      "dataPoints": 5223,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "amr"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-156",
+    "domain": "energy",
+    "name": "Meter: Net metering calculation for solar",
+    "description": "Net metering calculation for solar for AMI meter in ERCOT region.",
+    "input": {
+      "region": "ERCOT",
+      "meterType": "ami",
+      "meterId": "MTR-ERCOT-081408",
+      "intervalMinutes": 15,
+      "dataPoints": 4417,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "ercot",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-157",
+    "domain": "energy",
+    "name": "Meter: Meter swap data continuity",
+    "description": "Meter swap data continuity for LEGACY meter in NYISO region.",
+    "input": {
+      "region": "NYISO",
+      "meterType": "legacy",
+      "meterId": "MTR-NYISO-065455",
+      "intervalMinutes": null,
+      "dataPoints": 2510,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "nyiso",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-158",
+    "domain": "energy",
+    "name": "Meter: Monthly consumption trend analysis",
+    "description": "Monthly consumption trend analysis for AMI meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "ami",
+      "meterId": "MTR-MISO-078581",
+      "intervalMinutes": 15,
+      "dataPoints": 2462,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "miso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-159",
+    "domain": "energy",
+    "name": "Meter: Power quality event detection",
+    "description": "Power quality event detection for LEGACY meter in SPP region.",
+    "input": {
+      "region": "SPP",
+      "meterType": "legacy",
+      "meterId": "MTR-SPP-012928",
+      "intervalMinutes": null,
+      "dataPoints": 1993,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "spp",
+        "legacy"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-160",
+    "domain": "energy",
+    "name": "Meter: Demand factor calculation",
+    "description": "Demand factor calculation for AMI meter in MISO region.",
+    "input": {
+      "region": "MISO",
+      "meterType": "ami",
+      "meterId": "MTR-MISO-060104",
+      "intervalMinutes": 15,
+      "dataPoints": 7091,
+      "dateRange": {
+        "start": "2025-01-01",
+        "end": "2026-02-24"
+      }
+    },
+    "expected": {
+      "validationComplete": true,
+      "anomaliesChecked": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "meter-data",
+        "miso",
+        "ami"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-161",
+    "domain": "energy",
+    "name": "Cascading failure across zones",
+    "description": "Handle cascading equipment failures propagating across grid zones. Region: SPP. Variation 1.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "cascading-failure-across-zones",
+      "timestamp": "2026-12-28T07:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 717
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "spp",
+        "cascading"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-162",
+    "domain": "energy",
+    "name": "Simultaneous peak + generation loss",
+    "description": "Manage peak demand coinciding with major generation unit trip. Region: PJM. Variation 2.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "simultaneous-peak-+-generation-loss",
+      "timestamp": "2026-02-11T03:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 4463
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "simultaneous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-163",
+    "domain": "energy",
+    "name": "Renewable intermittency spike",
+    "description": "Handle rapid cloud cover causing 500MW solar generation drop. Region: MISO. Variation 3.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "renewable-intermittency-spike",
+      "timestamp": "2026-11-14T04:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4327
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "miso",
+        "renewable"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-164",
+    "domain": "energy",
+    "name": "Solar eclipse demand ramp",
+    "description": "Manage the rapid demand ramp during a solar eclipse. Region: NYISO. Variation 4.",
+    "input": {
+      "region": "NYISO",
+      "scenarioType": "solar-eclipse-demand-ramp",
+      "timestamp": "2026-02-25T20:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 536
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "nyiso",
+        "solar"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-165",
+    "domain": "energy",
+    "name": "Cyber attack on SCADA",
+    "description": "Detect and respond to simulated cyber attack on SCADA systems. Region: CAISO. Variation 5.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "cyber-attack-on-scada",
+      "timestamp": "2026-09-04T18:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 1868
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "cyber"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-166",
+    "domain": "energy",
+    "name": "Frequency deviation response",
+    "description": "Trigger frequency response when grid frequency drops below 59.95Hz. Region: ERCOT. Variation 6.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "frequency-deviation-response",
+      "timestamp": "2026-06-12T10:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 3070
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "frequency"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-167",
+    "domain": "energy",
+    "name": "Islanding event detection",
+    "description": "Detect and manage an islanding event in distributed generation. Region: NYISO. Variation 7.",
+    "input": {
+      "region": "NYISO",
+      "scenarioType": "islanding-event-detection",
+      "timestamp": "2026-04-21T18:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 1984
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "nyiso",
+        "islanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-168",
+    "domain": "energy",
+    "name": "Extreme weather forecast error",
+    "description": "Handle demand surge from 15F forecast error during heat wave. Region: PJM. Variation 8.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "extreme-weather-forecast-error",
+      "timestamp": "2026-12-25T18:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 4261
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "extreme"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-169",
+    "domain": "energy",
+    "name": "Cross-zone fault propagation",
+    "description": "Prevent fault in one zone from cascading to adjacent zones. Region: CAISO. Variation 9.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "cross-zone-fault-propagation",
+      "timestamp": "2026-01-06T14:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 3197
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "cross-zone"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-170",
+    "domain": "energy",
+    "name": "Demand response override",
+    "description": "Handle conflicting demand response signals from multiple programs. Region: ERCOT. Variation 10.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "demand-response-override",
+      "timestamp": "2026-10-26T01:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4676
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "demand"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-171",
+    "domain": "energy",
+    "name": "Battery storage dispatch failure",
+    "description": "Handle battery storage system failing to dispatch during peak. Region: MISO. Variation 11.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "battery-storage-dispatch-failure",
+      "timestamp": "2026-01-11T15:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 1807
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "miso",
+        "battery"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-172",
+    "domain": "energy",
+    "name": "Negative pricing event",
+    "description": "Manage grid operations during negative real-time pricing. Region: ERCOT. Variation 12.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "negative-pricing-event",
+      "timestamp": "2026-08-13T04:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 1833
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "negative"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-173",
+    "domain": "energy",
+    "name": "Nuclear plant trip scenario",
+    "description": "Handle sudden loss of 1200MW nuclear generation unit. Region: CAISO. Variation 13.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "nuclear-plant-trip-scenario",
+      "timestamp": "2026-11-07T23:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 3637
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "nuclear"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-174",
+    "domain": "energy",
+    "name": "Faulty sensor data injection",
+    "description": "Detect and isolate faulty SCADA sensor readings from valid data. Region: SPP. Variation 14.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "faulty-sensor-data-injection",
+      "timestamp": "2026-01-23T02:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4005
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "spp",
+        "faulty"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-175",
+    "domain": "energy",
+    "name": "Load shedding priority dispute",
+    "description": "Resolve conflicting load shedding priorities between zones. Region: CAISO. Variation 15.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "load-shedding-priority-dispute",
+      "timestamp": "2026-02-11T11:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 3931
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "load"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-176",
+    "domain": "energy",
+    "name": "Cascading failure across zones",
+    "description": "Handle cascading equipment failures propagating across grid zones. Region: ERCOT. Variation 16.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "cascading-failure-across-zones",
+      "timestamp": "2026-03-23T13:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4161
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "cascading"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-177",
+    "domain": "energy",
+    "name": "Simultaneous peak + generation loss",
+    "description": "Manage peak demand coinciding with major generation unit trip. Region: CAISO. Variation 17.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "simultaneous-peak-+-generation-loss",
+      "timestamp": "2026-11-25T16:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 949
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "simultaneous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-178",
+    "domain": "energy",
+    "name": "Renewable intermittency spike",
+    "description": "Handle rapid cloud cover causing 500MW solar generation drop. Region: SPP. Variation 18.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "renewable-intermittency-spike",
+      "timestamp": "2026-02-20T18:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 5223
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "spp",
+        "renewable"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-179",
+    "domain": "energy",
+    "name": "Solar eclipse demand ramp",
+    "description": "Manage the rapid demand ramp during a solar eclipse. Region: PJM. Variation 19.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "solar-eclipse-demand-ramp",
+      "timestamp": "2026-06-08T10:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 5050
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "solar"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-180",
+    "domain": "energy",
+    "name": "Cyber attack on SCADA",
+    "description": "Detect and respond to simulated cyber attack on SCADA systems. Region: PJM. Variation 20.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "cyber-attack-on-scada",
+      "timestamp": "2026-01-15T21:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 4054
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "cyber"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-181",
+    "domain": "energy",
+    "name": "Frequency deviation response",
+    "description": "Trigger frequency response when grid frequency drops below 59.95Hz. Region: NYISO. Variation 21.",
+    "input": {
+      "region": "NYISO",
+      "scenarioType": "frequency-deviation-response",
+      "timestamp": "2026-03-26T16:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 1321
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "nyiso",
+        "frequency"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-182",
+    "domain": "energy",
+    "name": "Islanding event detection",
+    "description": "Detect and manage an islanding event in distributed generation. Region: PJM. Variation 22.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "islanding-event-detection",
+      "timestamp": "2026-05-24T07:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 2862
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "islanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-183",
+    "domain": "energy",
+    "name": "Extreme weather forecast error",
+    "description": "Handle demand surge from 15F forecast error during heat wave. Region: NYISO. Variation 23.",
+    "input": {
+      "region": "NYISO",
+      "scenarioType": "extreme-weather-forecast-error",
+      "timestamp": "2026-11-24T17:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 5041
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "nyiso",
+        "extreme"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-184",
+    "domain": "energy",
+    "name": "Cross-zone fault propagation",
+    "description": "Prevent fault in one zone from cascading to adjacent zones. Region: ERCOT. Variation 24.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "cross-zone-fault-propagation",
+      "timestamp": "2026-01-07T12:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 2924
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "cross-zone"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-185",
+    "domain": "energy",
+    "name": "Demand response override",
+    "description": "Handle conflicting demand response signals from multiple programs. Region: MISO. Variation 25.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "demand-response-override",
+      "timestamp": "2026-11-12T22:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 528
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "miso",
+        "demand"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-186",
+    "domain": "energy",
+    "name": "Battery storage dispatch failure",
+    "description": "Handle battery storage system failing to dispatch during peak. Region: ERCOT. Variation 26.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "battery-storage-dispatch-failure",
+      "timestamp": "2026-01-19T06:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 1814
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "battery"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-187",
+    "domain": "energy",
+    "name": "Negative pricing event",
+    "description": "Manage grid operations during negative real-time pricing. Region: PJM. Variation 27.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "negative-pricing-event",
+      "timestamp": "2026-05-23T15:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 5166
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "negative"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-188",
+    "domain": "energy",
+    "name": "Nuclear plant trip scenario",
+    "description": "Handle sudden loss of 1200MW nuclear generation unit. Region: SPP. Variation 28.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "nuclear-plant-trip-scenario",
+      "timestamp": "2026-04-23T08:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 1559
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "spp",
+        "nuclear"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-189",
+    "domain": "energy",
+    "name": "Faulty sensor data injection",
+    "description": "Detect and isolate faulty SCADA sensor readings from valid data. Region: ERCOT. Variation 29.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "faulty-sensor-data-injection",
+      "timestamp": "2026-02-16T11:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 1661
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "faulty"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-190",
+    "domain": "energy",
+    "name": "Load shedding priority dispute",
+    "description": "Resolve conflicting load shedding priorities between zones. Region: PJM. Variation 30.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "load-shedding-priority-dispute",
+      "timestamp": "2026-02-07T23:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 1380
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "load"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-191",
+    "domain": "energy",
+    "name": "Cascading failure across zones",
+    "description": "Handle cascading equipment failures propagating across grid zones. Region: PJM. Variation 31.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "cascading-failure-across-zones",
+      "timestamp": "2026-03-16T18:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 2822
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "cascading"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-192",
+    "domain": "energy",
+    "name": "Simultaneous peak + generation loss",
+    "description": "Manage peak demand coinciding with major generation unit trip. Region: CAISO. Variation 32.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "simultaneous-peak-+-generation-loss",
+      "timestamp": "2026-12-28T01:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4958
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "simultaneous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-193",
+    "domain": "energy",
+    "name": "Renewable intermittency spike",
+    "description": "Handle rapid cloud cover causing 500MW solar generation drop. Region: NYISO. Variation 33.",
+    "input": {
+      "region": "NYISO",
+      "scenarioType": "renewable-intermittency-spike",
+      "timestamp": "2026-08-26T20:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4411
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "nyiso",
+        "renewable"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-194",
+    "domain": "energy",
+    "name": "Solar eclipse demand ramp",
+    "description": "Manage the rapid demand ramp during a solar eclipse. Region: CAISO. Variation 34.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "solar-eclipse-demand-ramp",
+      "timestamp": "2026-08-19T05:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 3387
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "solar"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-195",
+    "domain": "energy",
+    "name": "Cyber attack on SCADA",
+    "description": "Detect and respond to simulated cyber attack on SCADA systems. Region: SPP. Variation 35.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "cyber-attack-on-scada",
+      "timestamp": "2026-03-05T17:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 2861
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "spp",
+        "cyber"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-196",
+    "domain": "energy",
+    "name": "Frequency deviation response",
+    "description": "Trigger frequency response when grid frequency drops below 59.95Hz. Region: CAISO. Variation 36.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "frequency-deviation-response",
+      "timestamp": "2026-02-19T23:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 1229
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "frequency"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-197",
+    "domain": "energy",
+    "name": "Islanding event detection",
+    "description": "Detect and manage an islanding event in distributed generation. Region: MISO. Variation 37.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "islanding-event-detection",
+      "timestamp": "2026-04-10T21:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 917
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "miso",
+        "islanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-198",
+    "domain": "energy",
+    "name": "Extreme weather forecast error",
+    "description": "Handle demand surge from 15F forecast error during heat wave. Region: PJM. Variation 38.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "extreme-weather-forecast-error",
+      "timestamp": "2026-10-23T17:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 4366
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "extreme"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-199",
+    "domain": "energy",
+    "name": "Cross-zone fault propagation",
+    "description": "Prevent fault in one zone from cascading to adjacent zones. Region: MISO. Variation 39.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "cross-zone-fault-propagation",
+      "timestamp": "2026-04-28T18:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 5473
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "miso",
+        "cross-zone"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-200",
+    "domain": "energy",
+    "name": "Demand response override",
+    "description": "Handle conflicting demand response signals from multiple programs. Region: CAISO. Variation 40.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "demand-response-override",
+      "timestamp": "2026-09-23T04:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 4543
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "demand"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-201",
+    "domain": "energy",
+    "name": "Battery storage dispatch failure",
+    "description": "Handle battery storage system failing to dispatch during peak. Region: SPP. Variation 41.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "battery-storage-dispatch-failure",
+      "timestamp": "2026-03-06T19:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 3184
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "spp",
+        "battery"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-202",
+    "domain": "energy",
+    "name": "Negative pricing event",
+    "description": "Manage grid operations during negative real-time pricing. Region: PJM. Variation 42.",
+    "input": {
+      "region": "PJM",
+      "scenarioType": "negative-pricing-event",
+      "timestamp": "2026-02-23T05:00:00Z",
+      "weatherCondition": "cold-snap",
+      "currentLoad": 1793
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "pjm",
+        "negative"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-203",
+    "domain": "energy",
+    "name": "Nuclear plant trip scenario",
+    "description": "Handle sudden loss of 1200MW nuclear generation unit. Region: SPP. Variation 43.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "nuclear-plant-trip-scenario",
+      "timestamp": "2026-09-26T09:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 624
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "spp",
+        "nuclear"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-204",
+    "domain": "energy",
+    "name": "Faulty sensor data injection",
+    "description": "Detect and isolate faulty SCADA sensor readings from valid data. Region: ERCOT. Variation 44.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "faulty-sensor-data-injection",
+      "timestamp": "2026-12-24T16:00:00Z",
+      "weatherCondition": "heat-wave",
+      "currentLoad": 2161
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "faulty"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-205",
+    "domain": "energy",
+    "name": "Load shedding priority dispute",
+    "description": "Resolve conflicting load shedding priorities between zones. Region: CAISO. Variation 45.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "load-shedding-priority-dispute",
+      "timestamp": "2026-01-21T10:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 2050
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "load"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-206",
+    "domain": "energy",
+    "name": "Cascading failure across zones",
+    "description": "Handle cascading equipment failures propagating across grid zones. Region: SPP. Variation 46.",
+    "input": {
+      "region": "SPP",
+      "scenarioType": "cascading-failure-across-zones",
+      "timestamp": "2026-04-21T10:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 4390
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "spp",
+        "cascading"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-207",
+    "domain": "energy",
+    "name": "Simultaneous peak + generation loss",
+    "description": "Manage peak demand coinciding with major generation unit trip. Region: MISO. Variation 47.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "simultaneous-peak-+-generation-loss",
+      "timestamp": "2026-09-08T11:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 4067
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "miso",
+        "simultaneous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-208",
+    "domain": "energy",
+    "name": "Renewable intermittency spike",
+    "description": "Handle rapid cloud cover causing 500MW solar generation drop. Region: MISO. Variation 48.",
+    "input": {
+      "region": "MISO",
+      "scenarioType": "renewable-intermittency-spike",
+      "timestamp": "2026-04-18T05:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 512
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "miso",
+        "renewable"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-209",
+    "domain": "energy",
+    "name": "Solar eclipse demand ramp",
+    "description": "Manage the rapid demand ramp during a solar eclipse. Region: ERCOT. Variation 49.",
+    "input": {
+      "region": "ERCOT",
+      "scenarioType": "solar-eclipse-demand-ramp",
+      "timestamp": "2026-09-07T01:00:00Z",
+      "weatherCondition": "normal",
+      "currentLoad": 2732
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ercot",
+        "solar"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "eng-210",
+    "domain": "energy",
+    "name": "Cyber attack on SCADA",
+    "description": "Detect and respond to simulated cyber attack on SCADA systems. Region: CAISO. Variation 50.",
+    "input": {
+      "region": "CAISO",
+      "scenarioType": "cyber-attack-on-scada",
+      "timestamp": "2026-10-16T03:00:00Z",
+      "weatherCondition": "severe-storm",
+      "currentLoad": 1489
+    },
+    "expected": {
+      "issueDetected": true,
+      "safetyMaintained": true,
+      "nercCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "caiso",
+        "cyber"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  }
+]

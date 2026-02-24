@@ -1,0 +1,5860 @@
+[
+  {
+    "id": "gov-001",
+    "domain": "government",
+    "name": "RFP: Parse solicitation and extract all requi",
+    "description": "Parse solicitation and extract all requirements for HHS/NIH solicitation WHHS-2026-R-0001.",
+    "input": {
+      "solicitationNumber": "WHHS-2026-R-0001",
+      "agency": "HHS",
+      "subAgency": "NIH",
+      "naicsCode": "561110",
+      "setAside": "HUBZone",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WHHS-2026-R-0001"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 7
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-002",
+    "domain": "government",
+    "name": "RFP: Extract submission deadline and evaluati",
+    "description": "Extract submission deadline and evaluation criteria for VA/VHA solicitation WVA-2026-R-0002.",
+    "input": {
+      "solicitationNumber": "WVA-2026-R-0002",
+      "agency": "VA",
+      "subAgency": "VHA",
+      "naicsCode": "561110",
+      "setAside": "HUBZone",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WVA-2026-R-0002"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 23
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-003",
+    "domain": "government",
+    "name": "RFP: Identify all required FAR clauses in the",
+    "description": "Identify all required FAR clauses in the solicitation for HHS/CDC solicitation WHHS-2026-R-0003.",
+    "input": {
+      "solicitationNumber": "WHHS-2026-R-0003",
+      "agency": "HHS",
+      "subAgency": "CDC",
+      "naicsCode": "541511",
+      "setAside": "SDVOSB",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WHHS-2026-R-0003"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 21
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-004",
+    "domain": "government",
+    "name": "RFP: Match solicitation to correct NAICS code",
+    "description": "Match solicitation to correct NAICS code for NASA/JPL solicitation WNASA-2026-R-0004.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0004",
+      "agency": "NASA",
+      "subAgency": "JPL",
+      "naicsCode": "541519",
+      "setAside": "HUBZone",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0004"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 14
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-005",
+    "domain": "government",
+    "name": "RFP: Extract period of performance dates",
+    "description": "Extract period of performance dates for VA/VBA solicitation WVA-2026-R-0005.",
+    "input": {
+      "solicitationNumber": "WVA-2026-R-0005",
+      "agency": "VA",
+      "subAgency": "VBA",
+      "naicsCode": "518210",
+      "setAside": "Total Small Business",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WVA-2026-R-0005"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 14
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-006",
+    "domain": "government",
+    "name": "RFP: Inventory and download all attachments",
+    "description": "Inventory and download all attachments for DOE/EIA solicitation WDOE-2026-R-0006.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0006",
+      "agency": "DOE",
+      "subAgency": "EIA",
+      "naicsCode": "541330",
+      "setAside": "SDVOSB",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0006"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 21
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-007",
+    "domain": "government",
+    "name": "RFP: Track amendments and identify changes",
+    "description": "Track amendments and identify changes for DOD/Army solicitation WDOD-2026-R-0007.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0007",
+      "agency": "DOD",
+      "subAgency": "Army",
+      "naicsCode": "541690",
+      "setAside": "HUBZone",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0007"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 23
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-008",
+    "domain": "government",
+    "name": "RFP: Extract line item details and quantities",
+    "description": "Extract line item details and quantities for DOD/Army solicitation WDOD-2026-R-0008.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0008",
+      "agency": "DOD",
+      "subAgency": "Army",
+      "naicsCode": "541511",
+      "setAside": "Total Small Business",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0008"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 12
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-009",
+    "domain": "government",
+    "name": "RFP: Identify key personnel requirements",
+    "description": "Identify key personnel requirements for GSA/FAS solicitation WGSA-2026-R-0009.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0009",
+      "agency": "GSA",
+      "subAgency": "FAS",
+      "naicsCode": "518210",
+      "setAside": "Total Small Business",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0009"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 12
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-010",
+    "domain": "government",
+    "name": "RFP: Parse wage determination tables",
+    "description": "Parse wage determination tables for DOD/Army solicitation WDOD-2026-R-0010.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0010",
+      "agency": "DOD",
+      "subAgency": "Army",
+      "naicsCode": "561110",
+      "setAside": "SDVOSB",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0010"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 17
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-011",
+    "domain": "government",
+    "name": "RFP: Extract technical evaluation factors and",
+    "description": "Extract technical evaluation factors and weights for NASA/JPL solicitation WNASA-2026-R-0011.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0011",
+      "agency": "NASA",
+      "subAgency": "JPL",
+      "naicsCode": "541511",
+      "setAside": "Total Small Business",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0011"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 20
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-012",
+    "domain": "government",
+    "name": "RFP: Identify security clearance requirements",
+    "description": "Identify security clearance requirements for DOE/EIA solicitation WDOE-2026-R-0012.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0012",
+      "agency": "DOE",
+      "subAgency": "EIA",
+      "naicsCode": "541519",
+      "setAside": "Unrestricted",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0012"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 22
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-013",
+    "domain": "government",
+    "name": "RFP: Parse solicitation and extract all requi",
+    "description": "Parse solicitation and extract all requirements for VA/VHA solicitation WVA-2026-R-0013.",
+    "input": {
+      "solicitationNumber": "WVA-2026-R-0013",
+      "agency": "VA",
+      "subAgency": "VHA",
+      "naicsCode": "541512",
+      "setAside": "Total Small Business",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WVA-2026-R-0013"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 18
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-014",
+    "domain": "government",
+    "name": "RFP: Extract submission deadline and evaluati",
+    "description": "Extract submission deadline and evaluation criteria for DOE/ARPA-E solicitation WDOE-2026-R-0014.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0014",
+      "agency": "DOE",
+      "subAgency": "ARPA-E",
+      "naicsCode": "541690",
+      "setAside": "HUBZone",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0014"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 23
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-015",
+    "domain": "government",
+    "name": "RFP: Identify all required FAR clauses in the",
+    "description": "Identify all required FAR clauses in the solicitation for GSA/18F solicitation WGSA-2026-R-0015.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0015",
+      "agency": "GSA",
+      "subAgency": "18F",
+      "naicsCode": "561110",
+      "setAside": "Total Small Business",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0015"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 22
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-016",
+    "domain": "government",
+    "name": "RFP: Match solicitation to correct NAICS code",
+    "description": "Match solicitation to correct NAICS code for HHS/NIH solicitation WHHS-2026-R-0016.",
+    "input": {
+      "solicitationNumber": "WHHS-2026-R-0016",
+      "agency": "HHS",
+      "subAgency": "NIH",
+      "naicsCode": "541690",
+      "setAside": "Unrestricted",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WHHS-2026-R-0016"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 18
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-017",
+    "domain": "government",
+    "name": "RFP: Extract period of performance dates",
+    "description": "Extract period of performance dates for DOE/ARPA-E solicitation WDOE-2026-R-0017.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0017",
+      "agency": "DOE",
+      "subAgency": "ARPA-E",
+      "naicsCode": "541511",
+      "setAside": "WOSB",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0017"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 5
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-018",
+    "domain": "government",
+    "name": "RFP: Inventory and download all attachments",
+    "description": "Inventory and download all attachments for DOD/DISA solicitation WDOD-2026-R-0018.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0018",
+      "agency": "DOD",
+      "subAgency": "DISA",
+      "naicsCode": "541519",
+      "setAside": "SDVOSB",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0018"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 19
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-019",
+    "domain": "government",
+    "name": "RFP: Track amendments and identify changes",
+    "description": "Track amendments and identify changes for DOE/NNSA solicitation WDOE-2026-R-0019.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0019",
+      "agency": "DOE",
+      "subAgency": "NNSA",
+      "naicsCode": "518210",
+      "setAside": "WOSB",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0019"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 7
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-020",
+    "domain": "government",
+    "name": "RFP: Extract line item details and quantities",
+    "description": "Extract line item details and quantities for NASA/GSFC solicitation WNASA-2026-R-0020.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0020",
+      "agency": "NASA",
+      "subAgency": "GSFC",
+      "naicsCode": "518210",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0020"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 15
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-021",
+    "domain": "government",
+    "name": "RFP: Identify key personnel requirements",
+    "description": "Identify key personnel requirements for HHS/FDA solicitation WHHS-2026-R-0021.",
+    "input": {
+      "solicitationNumber": "WHHS-2026-R-0021",
+      "agency": "HHS",
+      "subAgency": "FDA",
+      "naicsCode": "541512",
+      "setAside": "HUBZone",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WHHS-2026-R-0021"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 14
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-022",
+    "domain": "government",
+    "name": "RFP: Parse wage determination tables",
+    "description": "Parse wage determination tables for HHS/CMS solicitation WHHS-2026-R-0022.",
+    "input": {
+      "solicitationNumber": "WHHS-2026-R-0022",
+      "agency": "HHS",
+      "subAgency": "CMS",
+      "naicsCode": "541512",
+      "setAside": "Unrestricted",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WHHS-2026-R-0022"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 17
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-023",
+    "domain": "government",
+    "name": "RFP: Extract technical evaluation factors and",
+    "description": "Extract technical evaluation factors and weights for DHS/CBP solicitation WDHS-2026-R-0023.",
+    "input": {
+      "solicitationNumber": "WDHS-2026-R-0023",
+      "agency": "DHS",
+      "subAgency": "CBP",
+      "naicsCode": "561110",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDHS-2026-R-0023"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 8
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-024",
+    "domain": "government",
+    "name": "RFP: Identify security clearance requirements",
+    "description": "Identify security clearance requirements for DOD/Air Force solicitation WDOD-2026-R-0024.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0024",
+      "agency": "DOD",
+      "subAgency": "Air Force",
+      "naicsCode": "541519",
+      "setAside": "HUBZone",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0024"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 19
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-025",
+    "domain": "government",
+    "name": "RFP: Parse solicitation and extract all requi",
+    "description": "Parse solicitation and extract all requirements for GSA/18F solicitation WGSA-2026-R-0025.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0025",
+      "agency": "GSA",
+      "subAgency": "18F",
+      "naicsCode": "541330",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0025"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 12
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-026",
+    "domain": "government",
+    "name": "RFP: Extract submission deadline and evaluati",
+    "description": "Extract submission deadline and evaluation criteria for GSA/18F solicitation WGSA-2026-R-0026.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0026",
+      "agency": "GSA",
+      "subAgency": "18F",
+      "naicsCode": "518210",
+      "setAside": "Unrestricted",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0026"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 11
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-027",
+    "domain": "government",
+    "name": "RFP: Identify all required FAR clauses in the",
+    "description": "Identify all required FAR clauses in the solicitation for DHS/CISA solicitation WDHS-2026-R-0027.",
+    "input": {
+      "solicitationNumber": "WDHS-2026-R-0027",
+      "agency": "DHS",
+      "subAgency": "CISA",
+      "naicsCode": "541690",
+      "setAside": "WOSB",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDHS-2026-R-0027"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 11
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-028",
+    "domain": "government",
+    "name": "RFP: Match solicitation to correct NAICS code",
+    "description": "Match solicitation to correct NAICS code for NASA/JPL solicitation WNASA-2026-R-0028.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0028",
+      "agency": "NASA",
+      "subAgency": "JPL",
+      "naicsCode": "541330",
+      "setAside": "Unrestricted",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0028"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 19
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-029",
+    "domain": "government",
+    "name": "RFP: Extract period of performance dates",
+    "description": "Extract period of performance dates for NASA/JPL solicitation WNASA-2026-R-0029.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0029",
+      "agency": "NASA",
+      "subAgency": "JPL",
+      "naicsCode": "541519",
+      "setAside": "SDVOSB",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0029"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 22
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-030",
+    "domain": "government",
+    "name": "RFP: Inventory and download all attachments",
+    "description": "Inventory and download all attachments for GSA/PBS solicitation WGSA-2026-R-0030.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0030",
+      "agency": "GSA",
+      "subAgency": "PBS",
+      "naicsCode": "518210",
+      "setAside": "HUBZone",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0030"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 18
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-031",
+    "domain": "government",
+    "name": "RFP: Track amendments and identify changes",
+    "description": "Track amendments and identify changes for DOE/EIA solicitation WDOE-2026-R-0031.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0031",
+      "agency": "DOE",
+      "subAgency": "EIA",
+      "naicsCode": "541512",
+      "setAside": "WOSB",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0031"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 11
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-032",
+    "domain": "government",
+    "name": "RFP: Extract line item details and quantities",
+    "description": "Extract line item details and quantities for DHS/TSA solicitation WDHS-2026-R-0032.",
+    "input": {
+      "solicitationNumber": "WDHS-2026-R-0032",
+      "agency": "DHS",
+      "subAgency": "TSA",
+      "naicsCode": "541690",
+      "setAside": "WOSB",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDHS-2026-R-0032"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 19
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "rfp-processing",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-033",
+    "domain": "government",
+    "name": "RFP: Identify key personnel requirements",
+    "description": "Identify key personnel requirements for DHS/FEMA solicitation WDHS-2026-R-0033.",
+    "input": {
+      "solicitationNumber": "WDHS-2026-R-0033",
+      "agency": "DHS",
+      "subAgency": "FEMA",
+      "naicsCode": "541512",
+      "setAside": "WOSB",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDHS-2026-R-0033"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 9
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-034",
+    "domain": "government",
+    "name": "RFP: Parse wage determination tables",
+    "description": "Parse wage determination tables for VA/VHA solicitation WVA-2026-R-0034.",
+    "input": {
+      "solicitationNumber": "WVA-2026-R-0034",
+      "agency": "VA",
+      "subAgency": "VHA",
+      "naicsCode": "518210",
+      "setAside": "Total Small Business",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WVA-2026-R-0034"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 15
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-035",
+    "domain": "government",
+    "name": "RFP: Extract technical evaluation factors and",
+    "description": "Extract technical evaluation factors and weights for DOD/Air Force solicitation WDOD-2026-R-0035.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0035",
+      "agency": "DOD",
+      "subAgency": "Air Force",
+      "naicsCode": "541690",
+      "setAside": "WOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0035"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 10
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-036",
+    "domain": "government",
+    "name": "RFP: Identify security clearance requirements",
+    "description": "Identify security clearance requirements for NASA/JPL solicitation WNASA-2026-R-0036.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0036",
+      "agency": "NASA",
+      "subAgency": "JPL",
+      "naicsCode": "541512",
+      "setAside": "Total Small Business",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0036"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 15
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-037",
+    "domain": "government",
+    "name": "RFP: Parse solicitation and extract all requi",
+    "description": "Parse solicitation and extract all requirements for DOD/DLA solicitation WDOD-2026-R-0037.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0037",
+      "agency": "DOD",
+      "subAgency": "DLA",
+      "naicsCode": "561110",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0037"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 5
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-038",
+    "domain": "government",
+    "name": "RFP: Extract submission deadline and evaluati",
+    "description": "Extract submission deadline and evaluation criteria for GSA/PBS solicitation WGSA-2026-R-0038.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0038",
+      "agency": "GSA",
+      "subAgency": "PBS",
+      "naicsCode": "541330",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0038"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 19
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-039",
+    "domain": "government",
+    "name": "RFP: Identify all required FAR clauses in the",
+    "description": "Identify all required FAR clauses in the solicitation for DOD/Navy solicitation WDOD-2026-R-0039.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0039",
+      "agency": "DOD",
+      "subAgency": "Navy",
+      "naicsCode": "541330",
+      "setAside": "SDVOSB",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0039"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 15
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-040",
+    "domain": "government",
+    "name": "RFP: Match solicitation to correct NAICS code",
+    "description": "Match solicitation to correct NAICS code for DHS/CBP solicitation WDHS-2026-R-0040.",
+    "input": {
+      "solicitationNumber": "WDHS-2026-R-0040",
+      "agency": "DHS",
+      "subAgency": "CBP",
+      "naicsCode": "541690",
+      "setAside": "SDVOSB",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDHS-2026-R-0040"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 5
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-041",
+    "domain": "government",
+    "name": "RFP: Extract period of performance dates",
+    "description": "Extract period of performance dates for GSA/FAS solicitation WGSA-2026-R-0041.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0041",
+      "agency": "GSA",
+      "subAgency": "FAS",
+      "naicsCode": "541512",
+      "setAside": "WOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0041"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 23
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-042",
+    "domain": "government",
+    "name": "RFP: Inventory and download all attachments",
+    "description": "Inventory and download all attachments for DOD/Navy solicitation WDOD-2026-R-0042.",
+    "input": {
+      "solicitationNumber": "WDOD-2026-R-0042",
+      "agency": "DOD",
+      "subAgency": "Navy",
+      "naicsCode": "541519",
+      "setAside": "SDVOSB",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOD-2026-R-0042"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 6
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-043",
+    "domain": "government",
+    "name": "RFP: Track amendments and identify changes",
+    "description": "Track amendments and identify changes for NASA/GSFC solicitation WNASA-2026-R-0043.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0043",
+      "agency": "NASA",
+      "subAgency": "GSFC",
+      "naicsCode": "518210",
+      "setAside": "SDVOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0043"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 18
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-044",
+    "domain": "government",
+    "name": "RFP: Extract line item details and quantities",
+    "description": "Extract line item details and quantities for GSA/18F solicitation WGSA-2026-R-0044.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0044",
+      "agency": "GSA",
+      "subAgency": "18F",
+      "naicsCode": "561110",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0044"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 13
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-045",
+    "domain": "government",
+    "name": "RFP: Identify key personnel requirements",
+    "description": "Identify key personnel requirements for VA/VHA solicitation WVA-2026-R-0045.",
+    "input": {
+      "solicitationNumber": "WVA-2026-R-0045",
+      "agency": "VA",
+      "subAgency": "VHA",
+      "naicsCode": "541512",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfi",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WVA-2026-R-0045"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 6
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "rfp-processing",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-046",
+    "domain": "government",
+    "name": "RFP: Parse wage determination tables",
+    "description": "Parse wage determination tables for GSA/PBS solicitation WGSA-2026-R-0046.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0046",
+      "agency": "GSA",
+      "subAgency": "PBS",
+      "naicsCode": "541512",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "rfq",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0046"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 20
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-047",
+    "domain": "government",
+    "name": "RFP: Extract technical evaluation factors and",
+    "description": "Extract technical evaluation factors and weights for VA/VBA solicitation WVA-2026-R-0047.",
+    "input": {
+      "solicitationNumber": "WVA-2026-R-0047",
+      "agency": "VA",
+      "subAgency": "VBA",
+      "naicsCode": "541690",
+      "setAside": "WOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WVA-2026-R-0047"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 19
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-048",
+    "domain": "government",
+    "name": "RFP: Identify security clearance requirements",
+    "description": "Identify security clearance requirements for NASA/GSFC solicitation WNASA-2026-R-0048.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0048",
+      "agency": "NASA",
+      "subAgency": "GSFC",
+      "naicsCode": "561110",
+      "setAside": "8(a) Set-Aside",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0048"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 18
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-049",
+    "domain": "government",
+    "name": "RFP: Parse solicitation and extract all requi",
+    "description": "Parse solicitation and extract all requirements for NASA/JPL solicitation WNASA-2026-R-0049.",
+    "input": {
+      "solicitationNumber": "WNASA-2026-R-0049",
+      "agency": "NASA",
+      "subAgency": "JPL",
+      "naicsCode": "541511",
+      "setAside": "Unrestricted",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WNASA-2026-R-0049"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 16
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-050",
+    "domain": "government",
+    "name": "RFP: Extract submission deadline and evaluati",
+    "description": "Extract submission deadline and evaluation criteria for GSA/PBS solicitation WGSA-2026-R-0050.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0050",
+      "agency": "GSA",
+      "subAgency": "PBS",
+      "naicsCode": "541330",
+      "setAside": "SDVOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0050"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 7
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-051",
+    "domain": "government",
+    "name": "RFP: Identify all required FAR clauses in the",
+    "description": "Identify all required FAR clauses in the solicitation for GSA/PBS solicitation WGSA-2026-R-0051.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0051",
+      "agency": "GSA",
+      "subAgency": "PBS",
+      "naicsCode": "541512",
+      "setAside": "WOSB",
+      "solicitationType": "combined-synopsis",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0051"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 7
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-052",
+    "domain": "government",
+    "name": "RFP: Match solicitation to correct NAICS code",
+    "description": "Match solicitation to correct NAICS code for HHS/FDA solicitation WHHS-2026-R-0052.",
+    "input": {
+      "solicitationNumber": "WHHS-2026-R-0052",
+      "agency": "HHS",
+      "subAgency": "FDA",
+      "naicsCode": "561110",
+      "setAside": "HUBZone",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WHHS-2026-R-0052"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 5
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-053",
+    "domain": "government",
+    "name": "RFP: Extract period of performance dates",
+    "description": "Extract period of performance dates for DOE/EIA solicitation WDOE-2026-R-0053.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0053",
+      "agency": "DOE",
+      "subAgency": "EIA",
+      "naicsCode": "541511",
+      "setAside": "WOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0053"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 15
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-054",
+    "domain": "government",
+    "name": "RFP: Inventory and download all attachments",
+    "description": "Inventory and download all attachments for DOE/EIA solicitation WDOE-2026-R-0054.",
+    "input": {
+      "solicitationNumber": "WDOE-2026-R-0054",
+      "agency": "DOE",
+      "subAgency": "EIA",
+      "naicsCode": "541519",
+      "setAside": "HUBZone",
+      "solicitationType": "rfp",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WDOE-2026-R-0054"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 7
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-055",
+    "domain": "government",
+    "name": "RFP: Track amendments and identify changes",
+    "description": "Track amendments and identify changes for GSA/PBS solicitation WGSA-2026-R-0055.",
+    "input": {
+      "solicitationNumber": "WGSA-2026-R-0055",
+      "agency": "GSA",
+      "subAgency": "PBS",
+      "naicsCode": "541512",
+      "setAside": "WOSB",
+      "solicitationType": "sources-sought",
+      "document": "https://sam.gov/api/prod/opps/v2/opportunities/WGSA-2026-R-0055"
+    },
+    "expected": {
+      "fieldsExtracted": true,
+      "deadlineFound": true,
+      "requirementsCount": 24
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "rfp-processing",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-056",
+    "domain": "government",
+    "name": "Compliance: Validate all required FAR clauses a",
+    "description": "Validate all required FAR clauses are included for a VA sources-sought solicitation.",
+    "input": {
+      "agency": "VA",
+      "naicsCode": "541519",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-057",
+    "domain": "government",
+    "name": "Compliance: Check DFARS supplement compliance f",
+    "description": "Check DFARS supplement compliance for DOD solicitation for a DOD sources-sought solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "541519",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-058",
+    "domain": "government",
+    "name": "Compliance: Assess set-aside eligibility based ",
+    "description": "Assess set-aside eligibility based on company profile for a GSA rfq solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "541330",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-059",
+    "domain": "government",
+    "name": "Compliance: Verify ITAR/EAR restriction complia",
+    "description": "Verify ITAR/EAR restriction compliance for a DHS rfq solicitation.",
+    "input": {
+      "agency": "DHS",
+      "naicsCode": "561110",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-060",
+    "domain": "government",
+    "name": "Compliance: Check past performance requirements",
+    "description": "Check past performance requirements against company history for a HHS sources-sought solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "518210",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-061",
+    "domain": "government",
+    "name": "Compliance: Validate small business subcontract",
+    "description": "Validate small business subcontracting plan requirements for a HHS combined-synopsis solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "541511",
+      "setAside": "Total Small Business",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-062",
+    "domain": "government",
+    "name": "Compliance: Verify insurance and bonding requir",
+    "description": "Verify insurance and bonding requirements for a DOD combined-synopsis solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "541511",
+      "setAside": "Total Small Business",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-063",
+    "domain": "government",
+    "name": "Compliance: Check Section 508 accessibility com",
+    "description": "Check Section 508 accessibility compliance for a NASA rfi solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541512",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-064",
+    "domain": "government",
+    "name": "Compliance: Validate cost accounting standards ",
+    "description": "Validate cost accounting standards applicability for a DHS rfi solicitation.",
+    "input": {
+      "agency": "DHS",
+      "naicsCode": "518210",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-065",
+    "domain": "government",
+    "name": "Compliance: Verify organizational conflict of i",
+    "description": "Verify organizational conflict of interest requirements for a DOD rfq solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "541330",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-066",
+    "domain": "government",
+    "name": "Compliance: Validate all required FAR clauses a",
+    "description": "Validate all required FAR clauses are included for a VA sources-sought solicitation.",
+    "input": {
+      "agency": "VA",
+      "naicsCode": "541519",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-067",
+    "domain": "government",
+    "name": "Compliance: Check DFARS supplement compliance f",
+    "description": "Check DFARS supplement compliance for DOD solicitation for a NASA sources-sought solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "561110",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-068",
+    "domain": "government",
+    "name": "Compliance: Assess set-aside eligibility based ",
+    "description": "Assess set-aside eligibility based on company profile for a DOD combined-synopsis solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "518210",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-069",
+    "domain": "government",
+    "name": "Compliance: Verify ITAR/EAR restriction complia",
+    "description": "Verify ITAR/EAR restriction compliance for a DOD rfi solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "561110",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-070",
+    "domain": "government",
+    "name": "Compliance: Check past performance requirements",
+    "description": "Check past performance requirements against company history for a NASA rfp solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541690",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-071",
+    "domain": "government",
+    "name": "Compliance: Validate small business subcontract",
+    "description": "Validate small business subcontracting plan requirements for a DOD rfp solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "541330",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-072",
+    "domain": "government",
+    "name": "Compliance: Verify insurance and bonding requir",
+    "description": "Verify insurance and bonding requirements for a DOD sources-sought solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "541511",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-073",
+    "domain": "government",
+    "name": "Compliance: Check Section 508 accessibility com",
+    "description": "Check Section 508 accessibility compliance for a HHS rfq solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "541519",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-074",
+    "domain": "government",
+    "name": "Compliance: Validate cost accounting standards ",
+    "description": "Validate cost accounting standards applicability for a DOE rfq solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541512",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-075",
+    "domain": "government",
+    "name": "Compliance: Verify organizational conflict of i",
+    "description": "Verify organizational conflict of interest requirements for a NASA combined-synopsis solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541512",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-076",
+    "domain": "government",
+    "name": "Compliance: Validate all required FAR clauses a",
+    "description": "Validate all required FAR clauses are included for a NASA combined-synopsis solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541519",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-077",
+    "domain": "government",
+    "name": "Compliance: Check DFARS supplement compliance f",
+    "description": "Check DFARS supplement compliance for DOD solicitation for a DHS sources-sought solicitation.",
+    "input": {
+      "agency": "DHS",
+      "naicsCode": "541330",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-078",
+    "domain": "government",
+    "name": "Compliance: Assess set-aside eligibility based ",
+    "description": "Assess set-aside eligibility based on company profile for a GSA rfq solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "541512",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-079",
+    "domain": "government",
+    "name": "Compliance: Verify ITAR/EAR restriction complia",
+    "description": "Verify ITAR/EAR restriction compliance for a VA rfi solicitation.",
+    "input": {
+      "agency": "VA",
+      "naicsCode": "541512",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-080",
+    "domain": "government",
+    "name": "Compliance: Check past performance requirements",
+    "description": "Check past performance requirements against company history for a DHS rfq solicitation.",
+    "input": {
+      "agency": "DHS",
+      "naicsCode": "541519",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-081",
+    "domain": "government",
+    "name": "Compliance: Validate small business subcontract",
+    "description": "Validate small business subcontracting plan requirements for a GSA rfq solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "561110",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-082",
+    "domain": "government",
+    "name": "Compliance: Verify insurance and bonding requir",
+    "description": "Verify insurance and bonding requirements for a HHS combined-synopsis solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "541512",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-083",
+    "domain": "government",
+    "name": "Compliance: Check Section 508 accessibility com",
+    "description": "Check Section 508 accessibility compliance for a NASA rfq solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541511",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-084",
+    "domain": "government",
+    "name": "Compliance: Validate cost accounting standards ",
+    "description": "Validate cost accounting standards applicability for a VA rfp solicitation.",
+    "input": {
+      "agency": "VA",
+      "naicsCode": "541511",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-085",
+    "domain": "government",
+    "name": "Compliance: Verify organizational conflict of i",
+    "description": "Verify organizational conflict of interest requirements for a DOE combined-synopsis solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541511",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-086",
+    "domain": "government",
+    "name": "Compliance: Validate all required FAR clauses a",
+    "description": "Validate all required FAR clauses are included for a HHS combined-synopsis solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "541511",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-087",
+    "domain": "government",
+    "name": "Compliance: Check DFARS supplement compliance f",
+    "description": "Check DFARS supplement compliance for DOD solicitation for a GSA rfp solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "541512",
+      "setAside": "Total Small Business",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-088",
+    "domain": "government",
+    "name": "Compliance: Assess set-aside eligibility based ",
+    "description": "Assess set-aside eligibility based on company profile for a DOE rfp solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541519",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-089",
+    "domain": "government",
+    "name": "Compliance: Verify ITAR/EAR restriction complia",
+    "description": "Verify ITAR/EAR restriction compliance for a DOE rfq solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541330",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-090",
+    "domain": "government",
+    "name": "Compliance: Check past performance requirements",
+    "description": "Check past performance requirements against company history for a NASA rfq solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "518210",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-091",
+    "domain": "government",
+    "name": "Compliance: Validate small business subcontract",
+    "description": "Validate small business subcontracting plan requirements for a NASA rfq solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541511",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-092",
+    "domain": "government",
+    "name": "Compliance: Verify insurance and bonding requir",
+    "description": "Verify insurance and bonding requirements for a VA rfp solicitation.",
+    "input": {
+      "agency": "VA",
+      "naicsCode": "541519",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-093",
+    "domain": "government",
+    "name": "Compliance: Check Section 508 accessibility com",
+    "description": "Check Section 508 accessibility compliance for a DOE rfp solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "518210",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-094",
+    "domain": "government",
+    "name": "Compliance: Validate cost accounting standards ",
+    "description": "Validate cost accounting standards applicability for a DOE rfi solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541690",
+      "setAside": "Total Small Business",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-095",
+    "domain": "government",
+    "name": "Compliance: Verify organizational conflict of i",
+    "description": "Verify organizational conflict of interest requirements for a HHS sources-sought solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "541519",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-096",
+    "domain": "government",
+    "name": "Compliance: Validate all required FAR clauses a",
+    "description": "Validate all required FAR clauses are included for a GSA rfi solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "541690",
+      "setAside": "Total Small Business",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-097",
+    "domain": "government",
+    "name": "Compliance: Check DFARS supplement compliance f",
+    "description": "Check DFARS supplement compliance for DOD solicitation for a GSA rfi solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "541519",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-098",
+    "domain": "government",
+    "name": "Compliance: Assess set-aside eligibility based ",
+    "description": "Assess set-aside eligibility based on company profile for a DHS combined-synopsis solicitation.",
+    "input": {
+      "agency": "DHS",
+      "naicsCode": "561110",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-099",
+    "domain": "government",
+    "name": "Compliance: Verify ITAR/EAR restriction complia",
+    "description": "Verify ITAR/EAR restriction compliance for a NASA rfp solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541690",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-100",
+    "domain": "government",
+    "name": "Compliance: Check past performance requirements",
+    "description": "Check past performance requirements against company history for a DOE rfi solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541512",
+      "setAside": "Unrestricted",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-101",
+    "domain": "government",
+    "name": "Compliance: Validate small business subcontract",
+    "description": "Validate small business subcontracting plan requirements for a DOE rfp solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541330",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-102",
+    "domain": "government",
+    "name": "Compliance: Verify insurance and bonding requir",
+    "description": "Verify insurance and bonding requirements for a HHS sources-sought solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "561110",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-103",
+    "domain": "government",
+    "name": "Compliance: Check Section 508 accessibility com",
+    "description": "Check Section 508 accessibility compliance for a GSA rfi solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "541690",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-104",
+    "domain": "government",
+    "name": "Compliance: Validate cost accounting standards ",
+    "description": "Validate cost accounting standards applicability for a NASA rfi solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541511",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-105",
+    "domain": "government",
+    "name": "Compliance: Verify organizational conflict of i",
+    "description": "Verify organizational conflict of interest requirements for a HHS rfp solicitation.",
+    "input": {
+      "agency": "HHS",
+      "naicsCode": "561110",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-106",
+    "domain": "government",
+    "name": "Compliance: Validate all required FAR clauses a",
+    "description": "Validate all required FAR clauses are included for a GSA rfi solicitation.",
+    "input": {
+      "agency": "GSA",
+      "naicsCode": "518210",
+      "setAside": "8(a) Set-Aside",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-107",
+    "domain": "government",
+    "name": "Compliance: Check DFARS supplement compliance f",
+    "description": "Check DFARS supplement compliance for DOD solicitation for a DOD rfp solicitation.",
+    "input": {
+      "agency": "DOD",
+      "naicsCode": "518210",
+      "setAside": "SDVOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6",
+        "52.219-14"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-108",
+    "domain": "government",
+    "name": "Compliance: Assess set-aside eligibility based ",
+    "description": "Assess set-aside eligibility based on company profile for a NASA rfp solicitation.",
+    "input": {
+      "agency": "NASA",
+      "naicsCode": "541511",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1"
+      ],
+      "companySize": "large"
+    },
+    "expected": {
+      "complianceStatus": "non-compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-109",
+    "domain": "government",
+    "name": "Compliance: Verify ITAR/EAR restriction complia",
+    "description": "Verify ITAR/EAR restriction compliance for a DOE rfi solicitation.",
+    "input": {
+      "agency": "DOE",
+      "naicsCode": "541690",
+      "setAside": "HUBZone",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-110",
+    "domain": "government",
+    "name": "Compliance: Check past performance requirements",
+    "description": "Check past performance requirements against company history for a DHS rfq solicitation.",
+    "input": {
+      "agency": "DHS",
+      "naicsCode": "541519",
+      "setAside": "WOSB",
+      "farClauses": [
+        "52.212-1",
+        "52.212-2",
+        "52.212-3",
+        "52.212-4",
+        "52.219-1",
+        "52.219-6"
+      ],
+      "companySize": "other-than-small"
+    },
+    "expected": {
+      "complianceStatus": "compliant",
+      "findings": []
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "compliance",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-111",
+    "domain": "government",
+    "name": "Proposal: Generate technical volume outline f",
+    "description": "Generate technical volume outline from evaluation criteria for DOD contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 22,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-112",
+    "domain": "government",
+    "name": "Proposal: Structure price/cost volume per sol",
+    "description": "Structure price/cost volume per solicitation instructions for VA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 57,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-113",
+    "domain": "government",
+    "name": "Proposal: Format past performance references ",
+    "description": "Format past performance references to match requirements for GSA contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 66,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-114",
+    "domain": "government",
+    "name": "Proposal: Create compliance matrix mapping re",
+    "description": "Create compliance matrix mapping requirements to responses for GSA contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 33,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-115",
+    "domain": "government",
+    "name": "Proposal: Check proposal against page limit r",
+    "description": "Check proposal against page limit requirements for HHS contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "best-value",
+      "pageLimit": 25,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-116",
+    "domain": "government",
+    "name": "Proposal: Extract and organize key personnel ",
+    "description": "Extract and organize key personnel qualifications for VA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 42,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-117",
+    "domain": "government",
+    "name": "Proposal: Generate executive summary from tec",
+    "description": "Generate executive summary from technical approach for GSA contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 20,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-118",
+    "domain": "government",
+    "name": "Proposal: Create risk assessment matrix for i",
+    "description": "Create risk assessment matrix for identified risks for HHS contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 37,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-119",
+    "domain": "government",
+    "name": "Proposal: Build work breakdown structure from",
+    "description": "Build work breakdown structure from SOW for DHS contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DHS",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 54,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-120",
+    "domain": "government",
+    "name": "Proposal: Calculate and format pricing using ",
+    "description": "Calculate and format pricing using rate schedules for NASA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "NASA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 59,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-121",
+    "domain": "government",
+    "name": "Proposal: Generate technical volume outline f",
+    "description": "Generate technical volume outline from evaluation criteria for NASA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "NASA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 43,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-122",
+    "domain": "government",
+    "name": "Proposal: Structure price/cost volume per sol",
+    "description": "Structure price/cost volume per solicitation instructions for GSA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 34,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-123",
+    "domain": "government",
+    "name": "Proposal: Format past performance references ",
+    "description": "Format past performance references to match requirements for HHS contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 65,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-124",
+    "domain": "government",
+    "name": "Proposal: Create compliance matrix mapping re",
+    "description": "Create compliance matrix mapping requirements to responses for DOE contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DOE",
+      "evaluationMethod": "best-value",
+      "pageLimit": 51,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-125",
+    "domain": "government",
+    "name": "Proposal: Check proposal against page limit r",
+    "description": "Check proposal against page limit requirements for HHS contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 47,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-126",
+    "domain": "government",
+    "name": "Proposal: Extract and organize key personnel ",
+    "description": "Extract and organize key personnel qualifications for DOD contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 63,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-127",
+    "domain": "government",
+    "name": "Proposal: Generate executive summary from tec",
+    "description": "Generate executive summary from technical approach for DOD contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 62,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-128",
+    "domain": "government",
+    "name": "Proposal: Create risk assessment matrix for i",
+    "description": "Create risk assessment matrix for identified risks for DOD contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "best-value",
+      "pageLimit": 25,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-129",
+    "domain": "government",
+    "name": "Proposal: Build work breakdown structure from",
+    "description": "Build work breakdown structure from SOW for DOD contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 29,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-130",
+    "domain": "government",
+    "name": "Proposal: Calculate and format pricing using ",
+    "description": "Calculate and format pricing using rate schedules for DHS contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DHS",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 64,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-131",
+    "domain": "government",
+    "name": "Proposal: Generate technical volume outline f",
+    "description": "Generate technical volume outline from evaluation criteria for HHS contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 31,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-132",
+    "domain": "government",
+    "name": "Proposal: Structure price/cost volume per sol",
+    "description": "Structure price/cost volume per solicitation instructions for DOD contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 38,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-133",
+    "domain": "government",
+    "name": "Proposal: Format past performance references ",
+    "description": "Format past performance references to match requirements for HHS contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "best-value",
+      "pageLimit": 68,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-134",
+    "domain": "government",
+    "name": "Proposal: Create compliance matrix mapping re",
+    "description": "Create compliance matrix mapping requirements to responses for NASA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "NASA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 59,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-135",
+    "domain": "government",
+    "name": "Proposal: Check proposal against page limit r",
+    "description": "Check proposal against page limit requirements for DOE contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "DOE",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 64,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-136",
+    "domain": "government",
+    "name": "Proposal: Extract and organize key personnel ",
+    "description": "Extract and organize key personnel qualifications for DOD contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 45,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-137",
+    "domain": "government",
+    "name": "Proposal: Generate executive summary from tec",
+    "description": "Generate executive summary from technical approach for VA contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 33,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-138",
+    "domain": "government",
+    "name": "Proposal: Create risk assessment matrix for i",
+    "description": "Create risk assessment matrix for identified risks for DOE contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "DOE",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 43,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-139",
+    "domain": "government",
+    "name": "Proposal: Build work breakdown structure from",
+    "description": "Build work breakdown structure from SOW for NASA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "NASA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 20,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "proposal-prep",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-140",
+    "domain": "government",
+    "name": "Proposal: Calculate and format pricing using ",
+    "description": "Calculate and format pricing using rate schedules for GSA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 62,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-141",
+    "domain": "government",
+    "name": "Proposal: Generate technical volume outline f",
+    "description": "Generate technical volume outline from evaluation criteria for GSA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 44,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-142",
+    "domain": "government",
+    "name": "Proposal: Structure price/cost volume per sol",
+    "description": "Structure price/cost volume per solicitation instructions for DOD contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "best-value",
+      "pageLimit": 47,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-143",
+    "domain": "government",
+    "name": "Proposal: Format past performance references ",
+    "description": "Format past performance references to match requirements for HHS contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "best-value",
+      "pageLimit": 44,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-144",
+    "domain": "government",
+    "name": "Proposal: Create compliance matrix mapping re",
+    "description": "Create compliance matrix mapping requirements to responses for DOE contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DOE",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 68,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-145",
+    "domain": "government",
+    "name": "Proposal: Check proposal against page limit r",
+    "description": "Check proposal against page limit requirements for VA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 58,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-146",
+    "domain": "government",
+    "name": "Proposal: Extract and organize key personnel ",
+    "description": "Extract and organize key personnel qualifications for GSA contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 37,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-147",
+    "domain": "government",
+    "name": "Proposal: Generate executive summary from tec",
+    "description": "Generate executive summary from technical approach for DOD contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DOD",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 57,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "dod"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-148",
+    "domain": "government",
+    "name": "Proposal: Create risk assessment matrix for i",
+    "description": "Create risk assessment matrix for identified risks for NASA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "NASA",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 29,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-149",
+    "domain": "government",
+    "name": "Proposal: Build work breakdown structure from",
+    "description": "Build work breakdown structure from SOW for DOE contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "DOE",
+      "evaluationMethod": "best-value",
+      "pageLimit": 58,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "doe"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-150",
+    "domain": "government",
+    "name": "Proposal: Calculate and format pricing using ",
+    "description": "Calculate and format pricing using rate schedules for HHS contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 62,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-151",
+    "domain": "government",
+    "name": "Proposal: Generate technical volume outline f",
+    "description": "Generate technical volume outline from evaluation criteria for NASA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "NASA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 58,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "proposal-prep",
+        "nasa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-152",
+    "domain": "government",
+    "name": "Proposal: Structure price/cost volume per sol",
+    "description": "Structure price/cost volume per solicitation instructions for HHS contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "best-value",
+      "pageLimit": 34,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-153",
+    "domain": "government",
+    "name": "Proposal: Format past performance references ",
+    "description": "Format past performance references to match requirements for GSA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 34,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-154",
+    "domain": "government",
+    "name": "Proposal: Create compliance matrix mapping re",
+    "description": "Create compliance matrix mapping requirements to responses for VA contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 20,
+      "volumeType": "past-performance"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-155",
+    "domain": "government",
+    "name": "Proposal: Check proposal against page limit r",
+    "description": "Check proposal against page limit requirements for GSA contract. Evaluation method: best-value.",
+    "input": {
+      "agency": "GSA",
+      "evaluationMethod": "trade-off",
+      "pageLimit": 27,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "gsa"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-156",
+    "domain": "government",
+    "name": "Proposal: Extract and organize key personnel ",
+    "description": "Extract and organize key personnel qualifications for HHS contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "HHS",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 45,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "hhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-157",
+    "domain": "government",
+    "name": "Proposal: Generate executive summary from tec",
+    "description": "Generate executive summary from technical approach for VA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 65,
+      "volumeType": "technical"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-158",
+    "domain": "government",
+    "name": "Proposal: Create risk assessment matrix for i",
+    "description": "Create risk assessment matrix for identified risks for DHS contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DHS",
+      "evaluationMethod": "LPTA",
+      "pageLimit": 36,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-159",
+    "domain": "government",
+    "name": "Proposal: Build work breakdown structure from",
+    "description": "Build work breakdown structure from SOW for VA contract. Evaluation method: LPTA.",
+    "input": {
+      "agency": "VA",
+      "evaluationMethod": "best-value",
+      "pageLimit": 53,
+      "volumeType": "cost"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "va"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-160",
+    "domain": "government",
+    "name": "Proposal: Calculate and format pricing using ",
+    "description": "Calculate and format pricing using rate schedules for DHS contract. Evaluation method: trade-off.",
+    "input": {
+      "agency": "DHS",
+      "evaluationMethod": "best-value",
+      "pageLimit": 53,
+      "volumeType": "management"
+    },
+    "expected": {
+      "structureGenerated": true,
+      "withinPageLimit": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "proposal-prep",
+        "dhs"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-161",
+    "domain": "government",
+    "name": "Amended solicitation processing",
+    "description": "Handle a solicitation with 3 amendments changing key requirements. Agency: VA, variation 1.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "amended-solicitation-processing",
+      "naicsCode": "541512",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "amended"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-162",
+    "domain": "government",
+    "name": "Cancelled solicitation detection",
+    "description": "Detect that a solicitation has been cancelled and halt processing. Agency: VA, variation 2.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "cancelled-solicitation-detection",
+      "naicsCode": "541512",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "cancelled"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-163",
+    "domain": "government",
+    "name": "Conflicting FAR/DFARS clauses",
+    "description": "Identify and flag conflicting requirements between FAR and DFARS clauses. Agency: NASA, variation 3.",
+    "input": {
+      "agency": "NASA",
+      "scenarioType": "conflicting-far/dfars-clauses",
+      "naicsCode": "518210",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-164",
+    "domain": "government",
+    "name": "Incomplete solicitation documents",
+    "description": "Handle a solicitation package with missing attachments. Agency: NASA, variation 4.",
+    "input": {
+      "agency": "NASA",
+      "scenarioType": "incomplete-solicitation-documents",
+      "naicsCode": "518210",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "incomplete"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-165",
+    "domain": "government",
+    "name": "Multiple NAICS codes",
+    "description": "Handle solicitation listing multiple applicable NAICS codes. Agency: DOD, variation 5.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "multiple-naics-codes",
+      "naicsCode": "518210",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "multiple"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-166",
+    "domain": "government",
+    "name": "Sole source justification review",
+    "description": "Analyze a sole source justification for completeness. Agency: DHS, variation 6.",
+    "input": {
+      "agency": "DHS",
+      "scenarioType": "sole-source-justification-review",
+      "naicsCode": "541519",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "sole"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-167",
+    "domain": "government",
+    "name": "Protest scenario handling",
+    "description": "Assess impact of a filed protest on proposal timeline. Agency: GSA, variation 7.",
+    "input": {
+      "agency": "GSA",
+      "scenarioType": "protest-scenario-handling",
+      "naicsCode": "541690",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "protest"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-168",
+    "domain": "government",
+    "name": "Government shutdown impact",
+    "description": "Handle a pending solicitation during government shutdown. Agency: DOD, variation 8.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "government-shutdown-impact",
+      "naicsCode": "541690",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "government"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-169",
+    "domain": "government",
+    "name": "Ambiguous evaluation criteria",
+    "description": "Flag vague or contradictory evaluation criteria for clarification. Agency: DOD, variation 9.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "ambiguous-evaluation-criteria",
+      "naicsCode": "518210",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "ambiguous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-170",
+    "domain": "government",
+    "name": "Cross-referenced solicitations",
+    "description": "Identify and link related solicitations from the same program. Agency: VA, variation 10.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "cross-referenced-solicitations",
+      "naicsCode": "518210",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "cross-referenced"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-171",
+    "domain": "government",
+    "name": "Missing wage determination",
+    "description": "Detect missing Service Contract Act wage determination. Agency: HHS, variation 11.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "missing-wage-determination",
+      "naicsCode": "541512",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "missing"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-172",
+    "domain": "government",
+    "name": "Contradictory scope and requirements",
+    "description": "Identify scope inconsistencies between SOW and evaluation factors. Agency: HHS, variation 12.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "contradictory-scope-and-requirements",
+      "naicsCode": "541330",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "contradictory"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-173",
+    "domain": "government",
+    "name": "Classification level mismatch",
+    "description": "Flag discrepancy between stated and required security levels. Agency: VA, variation 13.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "classification-level-mismatch",
+      "naicsCode": "518210",
+      "solicitationType": "rfp"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "classification"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-174",
+    "domain": "government",
+    "name": "Budget exceeds ceiling",
+    "description": "Detect when calculated costs exceed contract ceiling price. Agency: DOD, variation 14.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "budget-exceeds-ceiling",
+      "naicsCode": "518210",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "budget"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-175",
+    "domain": "government",
+    "name": "Expired registration",
+    "description": "Detect that required SAM.gov registration has expired. Agency: VA, variation 15.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "expired-registration",
+      "naicsCode": "541519",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "expired"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-176",
+    "domain": "government",
+    "name": "Amended solicitation processing",
+    "description": "Handle a solicitation with 3 amendments changing key requirements. Agency: HHS, variation 16.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "amended-solicitation-processing",
+      "naicsCode": "541690",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "amended"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-177",
+    "domain": "government",
+    "name": "Cancelled solicitation detection",
+    "description": "Detect that a solicitation has been cancelled and halt processing. Agency: DOD, variation 17.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "cancelled-solicitation-detection",
+      "naicsCode": "518210",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "cancelled"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-178",
+    "domain": "government",
+    "name": "Conflicting FAR/DFARS clauses",
+    "description": "Identify and flag conflicting requirements between FAR and DFARS clauses. Agency: DOE, variation 18.",
+    "input": {
+      "agency": "DOE",
+      "scenarioType": "conflicting-far/dfars-clauses",
+      "naicsCode": "541511",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-179",
+    "domain": "government",
+    "name": "Incomplete solicitation documents",
+    "description": "Handle a solicitation package with missing attachments. Agency: DHS, variation 19.",
+    "input": {
+      "agency": "DHS",
+      "scenarioType": "incomplete-solicitation-documents",
+      "naicsCode": "541512",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "incomplete"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-180",
+    "domain": "government",
+    "name": "Multiple NAICS codes",
+    "description": "Handle solicitation listing multiple applicable NAICS codes. Agency: VA, variation 20.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "multiple-naics-codes",
+      "naicsCode": "518210",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "multiple"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-181",
+    "domain": "government",
+    "name": "Sole source justification review",
+    "description": "Analyze a sole source justification for completeness. Agency: DOE, variation 21.",
+    "input": {
+      "agency": "DOE",
+      "scenarioType": "sole-source-justification-review",
+      "naicsCode": "541519",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "sole"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-182",
+    "domain": "government",
+    "name": "Protest scenario handling",
+    "description": "Assess impact of a filed protest on proposal timeline. Agency: GSA, variation 22.",
+    "input": {
+      "agency": "GSA",
+      "scenarioType": "protest-scenario-handling",
+      "naicsCode": "541519",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "protest"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-183",
+    "domain": "government",
+    "name": "Government shutdown impact",
+    "description": "Handle a pending solicitation during government shutdown. Agency: HHS, variation 23.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "government-shutdown-impact",
+      "naicsCode": "541519",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "government"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-184",
+    "domain": "government",
+    "name": "Ambiguous evaluation criteria",
+    "description": "Flag vague or contradictory evaluation criteria for clarification. Agency: VA, variation 24.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "ambiguous-evaluation-criteria",
+      "naicsCode": "561110",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ambiguous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-185",
+    "domain": "government",
+    "name": "Cross-referenced solicitations",
+    "description": "Identify and link related solicitations from the same program. Agency: VA, variation 25.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "cross-referenced-solicitations",
+      "naicsCode": "541519",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "cross-referenced"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-186",
+    "domain": "government",
+    "name": "Missing wage determination",
+    "description": "Detect missing Service Contract Act wage determination. Agency: VA, variation 26.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "missing-wage-determination",
+      "naicsCode": "561110",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "missing"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-187",
+    "domain": "government",
+    "name": "Contradictory scope and requirements",
+    "description": "Identify scope inconsistencies between SOW and evaluation factors. Agency: DOD, variation 27.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "contradictory-scope-and-requirements",
+      "naicsCode": "561110",
+      "solicitationType": "rfp"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "contradictory"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-188",
+    "domain": "government",
+    "name": "Classification level mismatch",
+    "description": "Flag discrepancy between stated and required security levels. Agency: NASA, variation 28.",
+    "input": {
+      "agency": "NASA",
+      "scenarioType": "classification-level-mismatch",
+      "naicsCode": "541519",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "classification"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-189",
+    "domain": "government",
+    "name": "Budget exceeds ceiling",
+    "description": "Detect when calculated costs exceed contract ceiling price. Agency: HHS, variation 29.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "budget-exceeds-ceiling",
+      "naicsCode": "541330",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "budget"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-190",
+    "domain": "government",
+    "name": "Expired registration",
+    "description": "Detect that required SAM.gov registration has expired. Agency: HHS, variation 30.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "expired-registration",
+      "naicsCode": "541690",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "expired"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-191",
+    "domain": "government",
+    "name": "Amended solicitation processing",
+    "description": "Handle a solicitation with 3 amendments changing key requirements. Agency: HHS, variation 31.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "amended-solicitation-processing",
+      "naicsCode": "541690",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "amended"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-192",
+    "domain": "government",
+    "name": "Cancelled solicitation detection",
+    "description": "Detect that a solicitation has been cancelled and halt processing. Agency: DOE, variation 32.",
+    "input": {
+      "agency": "DOE",
+      "scenarioType": "cancelled-solicitation-detection",
+      "naicsCode": "541690",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "cancelled"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-193",
+    "domain": "government",
+    "name": "Conflicting FAR/DFARS clauses",
+    "description": "Identify and flag conflicting requirements between FAR and DFARS clauses. Agency: HHS, variation 33.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "conflicting-far/dfars-clauses",
+      "naicsCode": "541690",
+      "solicitationType": "rfp"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-194",
+    "domain": "government",
+    "name": "Incomplete solicitation documents",
+    "description": "Handle a solicitation package with missing attachments. Agency: DOE, variation 34.",
+    "input": {
+      "agency": "DOE",
+      "scenarioType": "incomplete-solicitation-documents",
+      "naicsCode": "561110",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "incomplete"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-195",
+    "domain": "government",
+    "name": "Multiple NAICS codes",
+    "description": "Handle solicitation listing multiple applicable NAICS codes. Agency: HHS, variation 35.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "multiple-naics-codes",
+      "naicsCode": "541511",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "multiple"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-196",
+    "domain": "government",
+    "name": "Sole source justification review",
+    "description": "Analyze a sole source justification for completeness. Agency: DHS, variation 36.",
+    "input": {
+      "agency": "DHS",
+      "scenarioType": "sole-source-justification-review",
+      "naicsCode": "541512",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "sole"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-197",
+    "domain": "government",
+    "name": "Protest scenario handling",
+    "description": "Assess impact of a filed protest on proposal timeline. Agency: DOE, variation 37.",
+    "input": {
+      "agency": "DOE",
+      "scenarioType": "protest-scenario-handling",
+      "naicsCode": "541330",
+      "solicitationType": "rfp"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "protest"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-198",
+    "domain": "government",
+    "name": "Government shutdown impact",
+    "description": "Handle a pending solicitation during government shutdown. Agency: DOD, variation 38.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "government-shutdown-impact",
+      "naicsCode": "541519",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "government"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-199",
+    "domain": "government",
+    "name": "Ambiguous evaluation criteria",
+    "description": "Flag vague or contradictory evaluation criteria for clarification. Agency: DOD, variation 39.",
+    "input": {
+      "agency": "DOD",
+      "scenarioType": "ambiguous-evaluation-criteria",
+      "naicsCode": "541519",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "ambiguous"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-200",
+    "domain": "government",
+    "name": "Cross-referenced solicitations",
+    "description": "Identify and link related solicitations from the same program. Agency: DHS, variation 40.",
+    "input": {
+      "agency": "DHS",
+      "scenarioType": "cross-referenced-solicitations",
+      "naicsCode": "541519",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "cross-referenced"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-201",
+    "domain": "government",
+    "name": "Missing wage determination",
+    "description": "Detect missing Service Contract Act wage determination. Agency: VA, variation 41.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "missing-wage-determination",
+      "naicsCode": "541330",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "missing"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-202",
+    "domain": "government",
+    "name": "Contradictory scope and requirements",
+    "description": "Identify scope inconsistencies between SOW and evaluation factors. Agency: VA, variation 42.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "contradictory-scope-and-requirements",
+      "naicsCode": "541519",
+      "solicitationType": "combined-synopsis"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "contradictory"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-203",
+    "domain": "government",
+    "name": "Classification level mismatch",
+    "description": "Flag discrepancy between stated and required security levels. Agency: HHS, variation 43.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "classification-level-mismatch",
+      "naicsCode": "541512",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "classification"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-204",
+    "domain": "government",
+    "name": "Budget exceeds ceiling",
+    "description": "Detect when calculated costs exceed contract ceiling price. Agency: GSA, variation 44.",
+    "input": {
+      "agency": "GSA",
+      "scenarioType": "budget-exceeds-ceiling",
+      "naicsCode": "541690",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "budget"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-205",
+    "domain": "government",
+    "name": "Expired registration",
+    "description": "Detect that required SAM.gov registration has expired. Agency: VA, variation 45.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "expired-registration",
+      "naicsCode": "541690",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "expired"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-206",
+    "domain": "government",
+    "name": "Amended solicitation processing",
+    "description": "Handle a solicitation with 3 amendments changing key requirements. Agency: NASA, variation 46.",
+    "input": {
+      "agency": "NASA",
+      "scenarioType": "amended-solicitation-processing",
+      "naicsCode": "541511",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "amended"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-207",
+    "domain": "government",
+    "name": "Cancelled solicitation detection",
+    "description": "Detect that a solicitation has been cancelled and halt processing. Agency: HHS, variation 47.",
+    "input": {
+      "agency": "HHS",
+      "scenarioType": "cancelled-solicitation-detection",
+      "naicsCode": "541511",
+      "solicitationType": "rfi"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "cancelled"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-208",
+    "domain": "government",
+    "name": "Conflicting FAR/DFARS clauses",
+    "description": "Identify and flag conflicting requirements between FAR and DFARS clauses. Agency: DHS, variation 48.",
+    "input": {
+      "agency": "DHS",
+      "scenarioType": "conflicting-far/dfars-clauses",
+      "naicsCode": "541330",
+      "solicitationType": "sources-sought"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-209",
+    "domain": "government",
+    "name": "Incomplete solicitation documents",
+    "description": "Handle a solicitation package with missing attachments. Agency: VA, variation 49.",
+    "input": {
+      "agency": "VA",
+      "scenarioType": "incomplete-solicitation-documents",
+      "naicsCode": "541511",
+      "solicitationType": "rfq"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "incomplete"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "gov-210",
+    "domain": "government",
+    "name": "Multiple NAICS codes",
+    "description": "Handle solicitation listing multiple applicable NAICS codes. Agency: DOE, variation 50.",
+    "input": {
+      "agency": "DOE",
+      "scenarioType": "multiple-naics-codes",
+      "naicsCode": "541690",
+      "solicitationType": "rfp"
+    },
+    "expected": {
+      "issueDetected": true,
+      "handledCorrectly": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "multiple"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  }
+]

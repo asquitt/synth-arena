@@ -1,0 +1,5982 @@
+[
+  {
+    "id": "hc-001",
+    "domain": "healthcare",
+    "name": "Reactivation: 6-month recall outbound call",
+    "description": "6-month recall outbound call for new-referral patient. Insurance: HMO. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00000",
+      "patientName": "Sarah Jones-Mock",
+      "patientType": "new-referral",
+      "insuranceType": "HMO",
+      "lastVisit": "2023-01-01",
+      "phone": "555-693-4718",
+      "objectionLikely": "ready-to-book"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-002",
+    "domain": "healthcare",
+    "name": "Reactivation: 12-month lapsed patient reactivatio",
+    "description": "12-month lapsed patient reactivation for lapsed-1yr patient. Insurance: Medicaid. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00001",
+      "patientName": "John Jones-Mock",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2024-07-01",
+      "phone": "555-796-2119",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-003",
+    "domain": "healthcare",
+    "name": "Reactivation: 24-month lapsed patient with treatm",
+    "description": "24-month lapsed patient with treatment plan for lapsed-6mo patient. Insurance: Medicaid. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00002",
+      "patientName": "Jane Davis-Test",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2023-02-01",
+      "phone": "555-881-3346",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-004",
+    "domain": "healthcare",
+    "name": "Reactivation: New referral intake call",
+    "description": "New referral intake call for lapsed-6mo patient. Insurance: Self-Pay. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00003",
+      "patientName": "James Garcia-Mock",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2022-05-01",
+      "phone": "555-374-5169",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-005",
+    "domain": "healthcare",
+    "name": "Reactivation: Recall-due reminder with scheduling",
+    "description": "Recall-due reminder with scheduling for recall-due patient. Insurance: PPO. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00004",
+      "patientName": "Michael Brown-Synth",
+      "patientType": "recall-due",
+      "insuranceType": "PPO",
+      "lastVisit": "2022-02-01",
+      "phone": "555-734-1533",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-006",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with insurance verific",
+    "description": "Reactivation with insurance verification for lapsed-6mo patient. Insurance: Medicare. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00005",
+      "patientName": "John Wilson-Synth",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Medicare",
+      "lastVisit": "2025-06-01",
+      "phone": "555-344-9367",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-007",
+    "domain": "healthcare",
+    "name": "Reactivation: Post-treatment follow-up scheduling",
+    "description": "Post-treatment follow-up scheduling for new-referral patient. Insurance: PPO. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00006",
+      "patientName": "Carlos Miller-Demo",
+      "patientType": "new-referral",
+      "insuranceType": "PPO",
+      "lastVisit": "2025-04-01",
+      "phone": "555-224-2722",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-008",
+    "domain": "healthcare",
+    "name": "Reactivation: Family scheduling - book multiple m",
+    "description": "Family scheduling - book multiple members for new-referral patient. Insurance: PPO. Objection: switched-dentist.",
+    "input": {
+      "patientId": "SYNTH-PAT-00007",
+      "patientName": "Patricia Doe-Test",
+      "patientType": "new-referral",
+      "insuranceType": "PPO",
+      "lastVisit": "2022-06-01",
+      "phone": "555-308-8892",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-009",
+    "domain": "healthcare",
+    "name": "Reactivation: Patient with outstanding balance ca",
+    "description": "Patient with outstanding balance call for recall-due patient. Insurance: Self-Pay. Objection: busy.",
+    "input": {
+      "patientId": "SYNTH-PAT-00008",
+      "patientName": "John Doe-Test",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2022-03-01",
+      "phone": "555-960-2139",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-010",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with objection handlin",
+    "description": "Reactivation with objection handling for lapsed-1yr patient. Insurance: Self-Pay. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00009",
+      "patientName": "Aisha Wilson-Synth",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2023-01-01",
+      "phone": "555-157-1624",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-011",
+    "domain": "healthcare",
+    "name": "Reactivation: 6-month recall outbound call",
+    "description": "6-month recall outbound call for recall-due patient. Insurance: Self-Pay. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00010",
+      "patientName": "Jane Brown-Synth",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2023-03-01",
+      "phone": "555-113-2214",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-012",
+    "domain": "healthcare",
+    "name": "Reactivation: 12-month lapsed patient reactivatio",
+    "description": "12-month lapsed patient reactivation for lapsed-1yr patient. Insurance: HMO. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00011",
+      "patientName": "David Wilson-Synth",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2023-07-01",
+      "phone": "555-564-1568",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-013",
+    "domain": "healthcare",
+    "name": "Reactivation: 24-month lapsed patient with treatm",
+    "description": "24-month lapsed patient with treatment plan for lapsed-2yr patient. Insurance: HMO. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00012",
+      "patientName": "Patricia Brown-Synth",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2023-02-01",
+      "phone": "555-355-9315",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-014",
+    "domain": "healthcare",
+    "name": "Reactivation: New referral intake call",
+    "description": "New referral intake call for lapsed-2yr patient. Insurance: HMO. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00013",
+      "patientName": "Emily Doe-Test",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2024-03-01",
+      "phone": "555-982-1859",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-015",
+    "domain": "healthcare",
+    "name": "Reactivation: Recall-due reminder with scheduling",
+    "description": "Recall-due reminder with scheduling for lapsed-2yr patient. Insurance: PPO. Objection: no-insurance.",
+    "input": {
+      "patientId": "SYNTH-PAT-00014",
+      "patientName": "Wei Doe-Test",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "PPO",
+      "lastVisit": "2022-10-01",
+      "phone": "555-426-9388",
+      "objectionLikely": "anxiety"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-016",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with insurance verific",
+    "description": "Reactivation with insurance verification for lapsed-2yr patient. Insurance: Medicaid. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00015",
+      "patientName": "Patricia Davis-Test",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2025-06-01",
+      "phone": "555-370-8572",
+      "objectionLikely": "anxiety"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-017",
+    "domain": "healthcare",
+    "name": "Reactivation: Post-treatment follow-up scheduling",
+    "description": "Post-treatment follow-up scheduling for lapsed-1yr patient. Insurance: PPO. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00016",
+      "patientName": "Maria Jones-Mock",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "PPO",
+      "lastVisit": "2025-09-01",
+      "phone": "555-464-3383",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-018",
+    "domain": "healthcare",
+    "name": "Reactivation: Family scheduling - book multiple m",
+    "description": "Family scheduling - book multiple members for recall-due patient. Insurance: PPO. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00017",
+      "patientName": "Patricia Johnson-Demo",
+      "patientType": "recall-due",
+      "insuranceType": "PPO",
+      "lastVisit": "2024-01-01",
+      "phone": "555-685-6841",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-019",
+    "domain": "healthcare",
+    "name": "Reactivation: Patient with outstanding balance ca",
+    "description": "Patient with outstanding balance call for lapsed-2yr patient. Insurance: HMO. Objection: busy.",
+    "input": {
+      "patientId": "SYNTH-PAT-00018",
+      "patientName": "Emily Smith-Synth",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2024-08-01",
+      "phone": "555-634-5550",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-020",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with objection handlin",
+    "description": "Reactivation with objection handling for new-referral patient. Insurance: Self-Pay. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00019",
+      "patientName": "Patricia Miller-Demo",
+      "patientType": "new-referral",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2023-07-01",
+      "phone": "555-811-1997",
+      "objectionLikely": "anxiety"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-021",
+    "domain": "healthcare",
+    "name": "Reactivation: 6-month recall outbound call",
+    "description": "6-month recall outbound call for lapsed-6mo patient. Insurance: Medicare. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00020",
+      "patientName": "Jane Williams-Test",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Medicare",
+      "lastVisit": "2022-01-01",
+      "phone": "555-653-8990",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-022",
+    "domain": "healthcare",
+    "name": "Reactivation: 12-month lapsed patient reactivatio",
+    "description": "12-month lapsed patient reactivation for lapsed-6mo patient. Insurance: Medicare. Objection: busy.",
+    "input": {
+      "patientId": "SYNTH-PAT-00021",
+      "patientName": "Carlos Davis-Test",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Medicare",
+      "lastVisit": "2023-02-01",
+      "phone": "555-313-1738",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-023",
+    "domain": "healthcare",
+    "name": "Reactivation: 24-month lapsed patient with treatm",
+    "description": "24-month lapsed patient with treatment plan for recall-due patient. Insurance: Self-Pay. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00022",
+      "patientName": "Maria Williams-Test",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-04-01",
+      "phone": "555-816-6054",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-024",
+    "domain": "healthcare",
+    "name": "Reactivation: New referral intake call",
+    "description": "New referral intake call for lapsed-1yr patient. Insurance: Self-Pay. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00023",
+      "patientName": "David Smith-Synth",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-04-01",
+      "phone": "555-238-5539",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-025",
+    "domain": "healthcare",
+    "name": "Reactivation: Recall-due reminder with scheduling",
+    "description": "Recall-due reminder with scheduling for recall-due patient. Insurance: Medicare. Objection: switched-dentist.",
+    "input": {
+      "patientId": "SYNTH-PAT-00024",
+      "patientName": "John Garcia-Mock",
+      "patientType": "recall-due",
+      "insuranceType": "Medicare",
+      "lastVisit": "2022-02-01",
+      "phone": "555-835-9450",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-026",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with insurance verific",
+    "description": "Reactivation with insurance verification for recall-due patient. Insurance: PPO. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00025",
+      "patientName": "Michael Johnson-Demo",
+      "patientType": "recall-due",
+      "insuranceType": "PPO",
+      "lastVisit": "2025-07-01",
+      "phone": "555-998-6796",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-027",
+    "domain": "healthcare",
+    "name": "Reactivation: Post-treatment follow-up scheduling",
+    "description": "Post-treatment follow-up scheduling for new-referral patient. Insurance: HMO. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00026",
+      "patientName": "John Brown-Synth",
+      "patientType": "new-referral",
+      "insuranceType": "HMO",
+      "lastVisit": "2024-04-01",
+      "phone": "555-264-4178",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-028",
+    "domain": "healthcare",
+    "name": "Reactivation: Family scheduling - book multiple m",
+    "description": "Family scheduling - book multiple members for recall-due patient. Insurance: Self-Pay. Objection: no-insurance.",
+    "input": {
+      "patientId": "SYNTH-PAT-00027",
+      "patientName": "Emily Brown-Synth",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2023-02-01",
+      "phone": "555-309-6453",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-029",
+    "domain": "healthcare",
+    "name": "Reactivation: Patient with outstanding balance ca",
+    "description": "Patient with outstanding balance call for lapsed-6mo patient. Insurance: Medicare. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00028",
+      "patientName": "Emily Williams-Test",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Medicare",
+      "lastVisit": "2022-09-01",
+      "phone": "555-886-5643",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-030",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with objection handlin",
+    "description": "Reactivation with objection handling for recall-due patient. Insurance: HMO. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00029",
+      "patientName": "James Smith-Synth",
+      "patientType": "recall-due",
+      "insuranceType": "HMO",
+      "lastVisit": "2025-06-01",
+      "phone": "555-678-3064",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-031",
+    "domain": "healthcare",
+    "name": "Reactivation: 6-month recall outbound call",
+    "description": "6-month recall outbound call for recall-due patient. Insurance: Self-Pay. Objection: no-insurance.",
+    "input": {
+      "patientId": "SYNTH-PAT-00030",
+      "patientName": "Patricia Williams-Test",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2024-02-01",
+      "phone": "555-856-5557",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-032",
+    "domain": "healthcare",
+    "name": "Reactivation: 12-month lapsed patient reactivatio",
+    "description": "12-month lapsed patient reactivation for lapsed-2yr patient. Insurance: HMO. Objection: busy.",
+    "input": {
+      "patientId": "SYNTH-PAT-00031",
+      "patientName": "John Williams-Test",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2025-03-01",
+      "phone": "555-152-7563",
+      "objectionLikely": "ready-to-book"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-033",
+    "domain": "healthcare",
+    "name": "Reactivation: 24-month lapsed patient with treatm",
+    "description": "24-month lapsed patient with treatment plan for lapsed-6mo patient. Insurance: HMO. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00032",
+      "patientName": "Sarah Williams-Test",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "HMO",
+      "lastVisit": "2024-08-01",
+      "phone": "555-344-3490",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-034",
+    "domain": "healthcare",
+    "name": "Reactivation: New referral intake call",
+    "description": "New referral intake call for lapsed-1yr patient. Insurance: PPO. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00033",
+      "patientName": "John Wilson-Synth",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "PPO",
+      "lastVisit": "2025-12-01",
+      "phone": "555-567-7191",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-035",
+    "domain": "healthcare",
+    "name": "Reactivation: Recall-due reminder with scheduling",
+    "description": "Recall-due reminder with scheduling for lapsed-2yr patient. Insurance: HMO. Objection: ready-to-book.",
+    "input": {
+      "patientId": "SYNTH-PAT-00034",
+      "patientName": "Wei Smith-Synth",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2023-08-01",
+      "phone": "555-823-9183",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-036",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with insurance verific",
+    "description": "Reactivation with insurance verification for lapsed-2yr patient. Insurance: PPO. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00035",
+      "patientName": "David Smith-Synth",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "PPO",
+      "lastVisit": "2023-08-01",
+      "phone": "555-274-3340",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-037",
+    "domain": "healthcare",
+    "name": "Reactivation: Post-treatment follow-up scheduling",
+    "description": "Post-treatment follow-up scheduling for lapsed-1yr patient. Insurance: Medicare. Objection: busy.",
+    "input": {
+      "patientId": "SYNTH-PAT-00036",
+      "patientName": "Sarah Doe-Test",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Medicare",
+      "lastVisit": "2022-03-01",
+      "phone": "555-185-1976",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-038",
+    "domain": "healthcare",
+    "name": "Reactivation: Family scheduling - book multiple m",
+    "description": "Family scheduling - book multiple members for lapsed-1yr patient. Insurance: Medicare. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00037",
+      "patientName": "Olga Jones-Mock",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Medicare",
+      "lastVisit": "2025-06-01",
+      "phone": "555-635-7286",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-039",
+    "domain": "healthcare",
+    "name": "Reactivation: Patient with outstanding balance ca",
+    "description": "Patient with outstanding balance call for lapsed-2yr patient. Insurance: HMO. Objection: ready-to-book.",
+    "input": {
+      "patientId": "SYNTH-PAT-00038",
+      "patientName": "Wei Brown-Synth",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2024-06-01",
+      "phone": "555-490-6964",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-040",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with objection handlin",
+    "description": "Reactivation with objection handling for new-referral patient. Insurance: Self-Pay. Objection: busy.",
+    "input": {
+      "patientId": "SYNTH-PAT-00039",
+      "patientName": "Jane Miller-Demo",
+      "patientType": "new-referral",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-03-01",
+      "phone": "555-886-6042",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-041",
+    "domain": "healthcare",
+    "name": "Reactivation: 6-month recall outbound call",
+    "description": "6-month recall outbound call for recall-due patient. Insurance: Self-Pay. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00040",
+      "patientName": "Sarah Wilson-Synth",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2024-06-01",
+      "phone": "555-379-8742",
+      "objectionLikely": "anxiety"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-042",
+    "domain": "healthcare",
+    "name": "Reactivation: 12-month lapsed patient reactivatio",
+    "description": "12-month lapsed patient reactivation for lapsed-6mo patient. Insurance: Self-Pay. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00041",
+      "patientName": "John Johnson-Demo",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-01-01",
+      "phone": "555-339-2834",
+      "objectionLikely": "ready-to-book"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-043",
+    "domain": "healthcare",
+    "name": "Reactivation: 24-month lapsed patient with treatm",
+    "description": "24-month lapsed patient with treatment plan for new-referral patient. Insurance: Medicare. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00042",
+      "patientName": "Carlos Williams-Test",
+      "patientType": "new-referral",
+      "insuranceType": "Medicare",
+      "lastVisit": "2024-10-01",
+      "phone": "555-199-1846",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-044",
+    "domain": "healthcare",
+    "name": "Reactivation: New referral intake call",
+    "description": "New referral intake call for new-referral patient. Insurance: Medicaid. Objection: no-insurance.",
+    "input": {
+      "patientId": "SYNTH-PAT-00043",
+      "patientName": "Robert Garcia-Mock",
+      "patientType": "new-referral",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2025-05-01",
+      "phone": "555-966-4910",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-045",
+    "domain": "healthcare",
+    "name": "Reactivation: Recall-due reminder with scheduling",
+    "description": "Recall-due reminder with scheduling for recall-due patient. Insurance: Medicare. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00044",
+      "patientName": "James Williams-Test",
+      "patientType": "recall-due",
+      "insuranceType": "Medicare",
+      "lastVisit": "2024-09-01",
+      "phone": "555-431-2244",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-046",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with insurance verific",
+    "description": "Reactivation with insurance verification for new-referral patient. Insurance: HMO. Objection: ready-to-book.",
+    "input": {
+      "patientId": "SYNTH-PAT-00045",
+      "patientName": "Michael Jones-Mock",
+      "patientType": "new-referral",
+      "insuranceType": "HMO",
+      "lastVisit": "2025-04-01",
+      "phone": "555-972-4683",
+      "objectionLikely": "ready-to-book"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-047",
+    "domain": "healthcare",
+    "name": "Reactivation: Post-treatment follow-up scheduling",
+    "description": "Post-treatment follow-up scheduling for lapsed-2yr patient. Insurance: Self-Pay. Objection: no-insurance.",
+    "input": {
+      "patientId": "SYNTH-PAT-00046",
+      "patientName": "John Johnson-Demo",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-09-01",
+      "phone": "555-315-8502",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-048",
+    "domain": "healthcare",
+    "name": "Reactivation: Family scheduling - book multiple m",
+    "description": "Family scheduling - book multiple members for lapsed-2yr patient. Insurance: PPO. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00047",
+      "patientName": "Aisha Garcia-Mock",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "PPO",
+      "lastVisit": "2025-06-01",
+      "phone": "555-761-2437",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-049",
+    "domain": "healthcare",
+    "name": "Reactivation: Patient with outstanding balance ca",
+    "description": "Patient with outstanding balance call for lapsed-2yr patient. Insurance: Medicaid. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00048",
+      "patientName": "Emily Brown-Synth",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2023-11-01",
+      "phone": "555-205-2466",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-050",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with objection handlin",
+    "description": "Reactivation with objection handling for new-referral patient. Insurance: HMO. Objection: cost-concern.",
+    "input": {
+      "patientId": "SYNTH-PAT-00049",
+      "patientName": "Wei Davis-Test",
+      "patientType": "new-referral",
+      "insuranceType": "HMO",
+      "lastVisit": "2025-05-01",
+      "phone": "555-652-4084",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-051",
+    "domain": "healthcare",
+    "name": "Reactivation: 6-month recall outbound call",
+    "description": "6-month recall outbound call for lapsed-1yr patient. Insurance: Self-Pay. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00050",
+      "patientName": "Patricia Wilson-Synth",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-09-01",
+      "phone": "555-613-9579",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-052",
+    "domain": "healthcare",
+    "name": "Reactivation: 12-month lapsed patient reactivatio",
+    "description": "12-month lapsed patient reactivation for lapsed-1yr patient. Insurance: Medicaid. Objection: will-schedule-later.",
+    "input": {
+      "patientId": "SYNTH-PAT-00051",
+      "patientName": "Jane Smith-Synth",
+      "patientType": "lapsed-1yr",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2025-09-01",
+      "phone": "555-503-1693",
+      "objectionLikely": "no-insurance"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "lapsed-1yr",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-053",
+    "domain": "healthcare",
+    "name": "Reactivation: 24-month lapsed patient with treatm",
+    "description": "24-month lapsed patient with treatment plan for new-referral patient. Insurance: Medicaid. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00052",
+      "patientName": "Patricia Williams-Test",
+      "patientType": "new-referral",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2022-04-01",
+      "phone": "555-119-7199",
+      "objectionLikely": "busy"
+    },
+    "expected": {
+      "outcome": "callback_scheduled",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-054",
+    "domain": "healthcare",
+    "name": "Reactivation: New referral intake call",
+    "description": "New referral intake call for lapsed-6mo patient. Insurance: HMO. Objection: forgot.",
+    "input": {
+      "patientId": "SYNTH-PAT-00053",
+      "patientName": "Linda Miller-Demo",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "HMO",
+      "lastVisit": "2023-08-01",
+      "phone": "555-833-9801",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "voicemail_left",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-055",
+    "domain": "healthcare",
+    "name": "Reactivation: Recall-due reminder with scheduling",
+    "description": "Recall-due reminder with scheduling for recall-due patient. Insurance: Self-Pay. Objection: no-insurance.",
+    "input": {
+      "patientId": "SYNTH-PAT-00054",
+      "patientName": "James Williams-Test",
+      "patientType": "recall-due",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2022-04-01",
+      "phone": "555-846-2506",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-056",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with insurance verific",
+    "description": "Reactivation with insurance verification for new-referral patient. Insurance: HMO. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00055",
+      "patientName": "Michael Davis-Test",
+      "patientType": "new-referral",
+      "insuranceType": "HMO",
+      "lastVisit": "2025-02-01",
+      "phone": "555-771-7711",
+      "objectionLikely": "cost-concern"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-057",
+    "domain": "healthcare",
+    "name": "Reactivation: Post-treatment follow-up scheduling",
+    "description": "Post-treatment follow-up scheduling for lapsed-2yr patient. Insurance: HMO. Objection: ready-to-book.",
+    "input": {
+      "patientId": "SYNTH-PAT-00056",
+      "patientName": "Aisha Jones-Mock",
+      "patientType": "lapsed-2yr",
+      "insuranceType": "HMO",
+      "lastVisit": "2024-10-01",
+      "phone": "555-738-9885",
+      "objectionLikely": "ready-to-book"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "lapsed-2yr",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-058",
+    "domain": "healthcare",
+    "name": "Reactivation: Family scheduling - book multiple m",
+    "description": "Family scheduling - book multiple members for new-referral patient. Insurance: Self-Pay. Objection: ready-to-book.",
+    "input": {
+      "patientId": "SYNTH-PAT-00057",
+      "patientName": "John Brown-Synth",
+      "patientType": "new-referral",
+      "insuranceType": "Self-Pay",
+      "lastVisit": "2025-04-01",
+      "phone": "555-957-9283",
+      "objectionLikely": "will-schedule-later"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "new-referral",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-059",
+    "domain": "healthcare",
+    "name": "Reactivation: Patient with outstanding balance ca",
+    "description": "Patient with outstanding balance call for lapsed-6mo patient. Insurance: Medicare. Objection: anxiety.",
+    "input": {
+      "patientId": "SYNTH-PAT-00058",
+      "patientName": "Patricia Miller-Demo",
+      "patientType": "lapsed-6mo",
+      "insuranceType": "Medicare",
+      "lastVisit": "2025-12-01",
+      "phone": "555-693-1869",
+      "objectionLikely": "switched-dentist"
+    },
+    "expected": {
+      "outcome": "appointment_booked",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "lapsed-6mo",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-060",
+    "domain": "healthcare",
+    "name": "Reactivation: Reactivation with objection handlin",
+    "description": "Reactivation with objection handling for recall-due patient. Insurance: Medicaid. Objection: switched-dentist.",
+    "input": {
+      "patientId": "SYNTH-PAT-00059",
+      "patientName": "Maria Williams-Test",
+      "patientType": "recall-due",
+      "insuranceType": "Medicaid",
+      "lastVisit": "2022-06-01",
+      "phone": "555-880-6941",
+      "objectionLikely": "forgot"
+    },
+    "expected": {
+      "outcome": "declined",
+      "hipaaCompliant": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "reactivation",
+        "recall-due",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-061",
+    "domain": "healthcare",
+    "name": "Scheduling: New patient intake scheduling",
+    "description": "New patient intake scheduling. Procedure: Adult Prophylaxis (D1110). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00100",
+      "patientName": "Jane Doe-Test",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Tuesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D1110",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-062",
+    "domain": "healthcare",
+    "name": "Scheduling: Cleaning and exam scheduling",
+    "description": "Cleaning and exam scheduling. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00101",
+      "patientName": "Michael Jones-Mock",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "PPO",
+      "preferredDay": "Thursday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-063",
+    "domain": "healthcare",
+    "name": "Scheduling: Crown procedure scheduling with pre",
+    "description": "Crown procedure scheduling with pre-auth. Procedure: Surgical Extraction (D7210). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00102",
+      "patientName": "Patricia Davis-Test",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Medicare",
+      "preferredDay": "Thursday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-064",
+    "domain": "healthcare",
+    "name": "Scheduling: Root canal emergency scheduling",
+    "description": "Root canal emergency scheduling. Procedure: Surgical Extraction (D7210). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00103",
+      "patientName": "Wei Brown-Synth",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "PPO",
+      "preferredDay": "Wednesday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-065",
+    "domain": "healthcare",
+    "name": "Scheduling: Multi-visit treatment plan scheduli",
+    "description": "Multi-visit treatment plan scheduling. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00104",
+      "patientName": "Olga Brown-Synth",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-066",
+    "domain": "healthcare",
+    "name": "Scheduling: Rescheduling existing appointment",
+    "description": "Rescheduling existing appointment. Procedure: Surgical Extraction (D7210). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00105",
+      "patientName": "Carlos Brown-Synth",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Medicare",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-067",
+    "domain": "healthcare",
+    "name": "Scheduling: Cancellation processing",
+    "description": "Cancellation processing. Procedure: Surgical Extraction (D7210). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00106",
+      "patientName": "Wei Johnson-Demo",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "HMO",
+      "preferredDay": "Tuesday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-068",
+    "domain": "healthcare",
+    "name": "Scheduling: Waitlist management for preferred t",
+    "description": "Waitlist management for preferred time. Procedure: Full Mouth X-Rays (D0210). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00107",
+      "patientName": "Carlos Wilson-Synth",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-069",
+    "domain": "healthcare",
+    "name": "Scheduling: Emergency appointment triage",
+    "description": "Emergency appointment triage. Procedure: Surgical Extraction (D7210). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00108",
+      "patientName": "Emily Doe-Test",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Tuesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-070",
+    "domain": "healthcare",
+    "name": "Scheduling: Insurance pre-authorization check",
+    "description": "Insurance pre-authorization check. Procedure: Root Canal - Anterior (D3310). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00109",
+      "patientName": "Michael Brown-Synth",
+      "appointmentCode": "D3310",
+      "appointmentName": "Root Canal - Anterior",
+      "duration": 90,
+      "insuranceType": "HMO",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D3310",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D3310",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-071",
+    "domain": "healthcare",
+    "name": "Scheduling: Provider preference matching",
+    "description": "Provider preference matching. Procedure: Periodic Oral Evaluation (D0120). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00110",
+      "patientName": "Carlos Johnson-Demo",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "HMO",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D0120",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-072",
+    "domain": "healthcare",
+    "name": "Scheduling: After-hours scheduling request",
+    "description": "After-hours scheduling request. Procedure: Full Mouth X-Rays (D0210). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00111",
+      "patientName": "Wei Wilson-Synth",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-073",
+    "domain": "healthcare",
+    "name": "Scheduling: New patient intake scheduling",
+    "description": "New patient intake scheduling. Procedure: Root Canal - Anterior (D3310). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00112",
+      "patientName": "Robert Miller-Demo",
+      "appointmentCode": "D3310",
+      "appointmentName": "Root Canal - Anterior",
+      "duration": 90,
+      "insuranceType": "Medicare",
+      "preferredDay": "Wednesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D3310",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D3310",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-074",
+    "domain": "healthcare",
+    "name": "Scheduling: Cleaning and exam scheduling",
+    "description": "Cleaning and exam scheduling. Procedure: Adult Prophylaxis (D1110). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00113",
+      "patientName": "David Jones-Mock",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Monday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D1110",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-075",
+    "domain": "healthcare",
+    "name": "Scheduling: Crown procedure scheduling with pre",
+    "description": "Crown procedure scheduling with pre-auth. Procedure: Periodic Oral Evaluation (D0120). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00114",
+      "patientName": "Aisha Brown-Synth",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Wednesday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0120",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-076",
+    "domain": "healthcare",
+    "name": "Scheduling: Root canal emergency scheduling",
+    "description": "Root canal emergency scheduling. Procedure: Root Canal - Anterior (D3310). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00115",
+      "patientName": "Carlos Williams-Test",
+      "appointmentCode": "D3310",
+      "appointmentName": "Root Canal - Anterior",
+      "duration": 90,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Thursday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D3310",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D3310",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-077",
+    "domain": "healthcare",
+    "name": "Scheduling: Multi-visit treatment plan scheduli",
+    "description": "Multi-visit treatment plan scheduling. Procedure: Root Canal - Anterior (D3310). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00116",
+      "patientName": "David Miller-Demo",
+      "appointmentCode": "D3310",
+      "appointmentName": "Root Canal - Anterior",
+      "duration": 90,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Tuesday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D3310",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D3310",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-078",
+    "domain": "healthcare",
+    "name": "Scheduling: Rescheduling existing appointment",
+    "description": "Rescheduling existing appointment. Procedure: Surgical Extraction (D7210). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00117",
+      "patientName": "Michael Jones-Mock",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Thursday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-079",
+    "domain": "healthcare",
+    "name": "Scheduling: Cancellation processing",
+    "description": "Cancellation processing. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00118",
+      "patientName": "Michael Davis-Test",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "HMO",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-080",
+    "domain": "healthcare",
+    "name": "Scheduling: Waitlist management for preferred t",
+    "description": "Waitlist management for preferred time. Procedure: Root Canal - Anterior (D3310). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00119",
+      "patientName": "John Garcia-Mock",
+      "appointmentCode": "D3310",
+      "appointmentName": "Root Canal - Anterior",
+      "duration": 90,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D3310",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D3310",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-081",
+    "domain": "healthcare",
+    "name": "Scheduling: Emergency appointment triage",
+    "description": "Emergency appointment triage. Procedure: Adult Prophylaxis (D1110). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00120",
+      "patientName": "Olga Miller-Demo",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "HMO",
+      "preferredDay": "Monday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D1110",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-082",
+    "domain": "healthcare",
+    "name": "Scheduling: Insurance pre-authorization check",
+    "description": "Insurance pre-authorization check. Procedure: Surgical Extraction (D7210). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00121",
+      "patientName": "Sarah Johnson-Demo",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "HMO",
+      "preferredDay": "Thursday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-083",
+    "domain": "healthcare",
+    "name": "Scheduling: Provider preference matching",
+    "description": "Provider preference matching. Procedure: Periodic Oral Evaluation (D0120). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00122",
+      "patientName": "John Jones-Mock",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Tuesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0120",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-084",
+    "domain": "healthcare",
+    "name": "Scheduling: After-hours scheduling request",
+    "description": "After-hours scheduling request. Procedure: Full Mouth X-Rays (D0210). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00123",
+      "patientName": "Patricia Miller-Demo",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-085",
+    "domain": "healthcare",
+    "name": "Scheduling: New patient intake scheduling",
+    "description": "New patient intake scheduling. Procedure: Crown - Porcelain (D2740). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00124",
+      "patientName": "David Johnson-Demo",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "PPO",
+      "preferredDay": "Tuesday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-086",
+    "domain": "healthcare",
+    "name": "Scheduling: Cleaning and exam scheduling",
+    "description": "Cleaning and exam scheduling. Procedure: Periodic Oral Evaluation (D0120). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00125",
+      "patientName": "Robert Williams-Test",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Friday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D0120",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-087",
+    "domain": "healthcare",
+    "name": "Scheduling: Crown procedure scheduling with pre",
+    "description": "Crown procedure scheduling with pre-auth. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00126",
+      "patientName": "Carlos Miller-Demo",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Thursday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-088",
+    "domain": "healthcare",
+    "name": "Scheduling: Root canal emergency scheduling",
+    "description": "Root canal emergency scheduling. Procedure: Crown - Porcelain (D2740). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00127",
+      "patientName": "James Brown-Synth",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "Medicare",
+      "preferredDay": "Monday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-089",
+    "domain": "healthcare",
+    "name": "Scheduling: Multi-visit treatment plan scheduli",
+    "description": "Multi-visit treatment plan scheduling. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00128",
+      "patientName": "James Doe-Test",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-090",
+    "domain": "healthcare",
+    "name": "Scheduling: Rescheduling existing appointment",
+    "description": "Rescheduling existing appointment. Procedure: Crown - Porcelain (D2740). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00129",
+      "patientName": "James Johnson-Demo",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Tuesday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-091",
+    "domain": "healthcare",
+    "name": "Scheduling: Cancellation processing",
+    "description": "Cancellation processing. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00130",
+      "patientName": "Linda Davis-Test",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Thursday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D0150",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-092",
+    "domain": "healthcare",
+    "name": "Scheduling: Waitlist management for preferred t",
+    "description": "Waitlist management for preferred time. Procedure: Periodic Oral Evaluation (D0120). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00131",
+      "patientName": "Wei Jones-Mock",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "HMO",
+      "preferredDay": "Monday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0120",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-093",
+    "domain": "healthcare",
+    "name": "Scheduling: Emergency appointment triage",
+    "description": "Emergency appointment triage. Procedure: Crown - Porcelain (D2740). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00132",
+      "patientName": "John Wilson-Synth",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "Medicare",
+      "preferredDay": "Monday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-094",
+    "domain": "healthcare",
+    "name": "Scheduling: Insurance pre-authorization check",
+    "description": "Insurance pre-authorization check. Procedure: Crown - Porcelain (D2740). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00133",
+      "patientName": "Robert Johnson-Demo",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "Medicare",
+      "preferredDay": "Friday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-095",
+    "domain": "healthcare",
+    "name": "Scheduling: Provider preference matching",
+    "description": "Provider preference matching. Procedure: Full Mouth X-Rays (D0210). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00134",
+      "patientName": "Maria Williams-Test",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "PPO",
+      "preferredDay": "Thursday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-096",
+    "domain": "healthcare",
+    "name": "Scheduling: After-hours scheduling request",
+    "description": "After-hours scheduling request. Procedure: Adult Prophylaxis (D1110). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00135",
+      "patientName": "James Brown-Synth",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "PPO",
+      "preferredDay": "Thursday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D1110",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-097",
+    "domain": "healthcare",
+    "name": "Scheduling: New patient intake scheduling",
+    "description": "New patient intake scheduling. Procedure: Full Mouth X-Rays (D0210). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00136",
+      "patientName": "Aisha Wilson-Synth",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "Medicare",
+      "preferredDay": "Monday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-098",
+    "domain": "healthcare",
+    "name": "Scheduling: Cleaning and exam scheduling",
+    "description": "Cleaning and exam scheduling. Procedure: Surgical Extraction (D7210). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00137",
+      "patientName": "David Brown-Synth",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Monday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-099",
+    "domain": "healthcare",
+    "name": "Scheduling: Crown procedure scheduling with pre",
+    "description": "Crown procedure scheduling with pre-auth. Procedure: Adult Prophylaxis (D1110). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00138",
+      "patientName": "David Wilson-Synth",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Thursday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D1110",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-100",
+    "domain": "healthcare",
+    "name": "Scheduling: Root canal emergency scheduling",
+    "description": "Root canal emergency scheduling. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00139",
+      "patientName": "David Garcia-Mock",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-101",
+    "domain": "healthcare",
+    "name": "Scheduling: Multi-visit treatment plan scheduli",
+    "description": "Multi-visit treatment plan scheduling. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00140",
+      "patientName": "Patricia Davis-Test",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Medicare",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-102",
+    "domain": "healthcare",
+    "name": "Scheduling: Rescheduling existing appointment",
+    "description": "Rescheduling existing appointment. Procedure: Adult Prophylaxis (D1110). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00141",
+      "patientName": "Wei Smith-Synth",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Wednesday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D1110",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-103",
+    "domain": "healthcare",
+    "name": "Scheduling: Cancellation processing",
+    "description": "Cancellation processing. Procedure: Adult Prophylaxis (D1110). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00142",
+      "patientName": "Michael Davis-Test",
+      "appointmentCode": "D1110",
+      "appointmentName": "Adult Prophylaxis",
+      "duration": 60,
+      "insuranceType": "PPO",
+      "preferredDay": "Thursday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D1110",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D1110",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-104",
+    "domain": "healthcare",
+    "name": "Scheduling: Waitlist management for preferred t",
+    "description": "Waitlist management for preferred time. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00143",
+      "patientName": "Emily Doe-Test",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "PPO",
+      "preferredDay": "Thursday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-105",
+    "domain": "healthcare",
+    "name": "Scheduling: Emergency appointment triage",
+    "description": "Emergency appointment triage. Procedure: Surgical Extraction (D7210). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00144",
+      "patientName": "Emily Johnson-Demo",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Friday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-106",
+    "domain": "healthcare",
+    "name": "Scheduling: Insurance pre-authorization check",
+    "description": "Insurance pre-authorization check. Procedure: Periodic Oral Evaluation (D0120). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00145",
+      "patientName": "Wei Smith-Synth",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "Medicare",
+      "preferredDay": "Tuesday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D0120",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-107",
+    "domain": "healthcare",
+    "name": "Scheduling: Provider preference matching",
+    "description": "Provider preference matching. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00146",
+      "patientName": "Jane Davis-Test",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "HMO",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-108",
+    "domain": "healthcare",
+    "name": "Scheduling: After-hours scheduling request",
+    "description": "After-hours scheduling request. Procedure: Crown - Porcelain (D2740). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00147",
+      "patientName": "Sarah Davis-Test",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Thursday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-109",
+    "domain": "healthcare",
+    "name": "Scheduling: New patient intake scheduling",
+    "description": "New patient intake scheduling. Procedure: Surgical Extraction (D7210). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00148",
+      "patientName": "Patricia Johnson-Demo",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Medicare",
+      "preferredDay": "Monday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-110",
+    "domain": "healthcare",
+    "name": "Scheduling: Cleaning and exam scheduling",
+    "description": "Cleaning and exam scheduling. Procedure: Full Mouth X-Rays (D0210). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00149",
+      "patientName": "Michael Miller-Demo",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Tuesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-111",
+    "domain": "healthcare",
+    "name": "Scheduling: Crown procedure scheduling with pre",
+    "description": "Crown procedure scheduling with pre-auth. Procedure: Full Mouth X-Rays (D0210). Insurance: HMO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00150",
+      "patientName": "Jane Wilson-Synth",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "HMO",
+      "preferredDay": "Monday",
+      "preferredTime": "afternoon"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D0210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "hmo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-112",
+    "domain": "healthcare",
+    "name": "Scheduling: Root canal emergency scheduling",
+    "description": "Root canal emergency scheduling. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00151",
+      "patientName": "Emily Wilson-Synth",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Monday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-113",
+    "domain": "healthcare",
+    "name": "Scheduling: Multi-visit treatment plan scheduli",
+    "description": "Multi-visit treatment plan scheduling. Procedure: Surgical Extraction (D7210). Insurance: Self-Pay.",
+    "input": {
+      "patientId": "SYNTH-PAT-00152",
+      "patientName": "Linda Miller-Demo",
+      "appointmentCode": "D7210",
+      "appointmentName": "Surgical Extraction",
+      "duration": 60,
+      "insuranceType": "Self-Pay",
+      "preferredDay": "Thursday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D7210",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D7210",
+        "self-pay"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-114",
+    "domain": "healthcare",
+    "name": "Scheduling: Rescheduling existing appointment",
+    "description": "Rescheduling existing appointment. Procedure: Periodic Oral Evaluation (D0120). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00153",
+      "patientName": "Michael Brown-Synth",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0120",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-115",
+    "domain": "healthcare",
+    "name": "Scheduling: Cancellation processing",
+    "description": "Cancellation processing. Procedure: Periodic Oral Evaluation (D0120). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00154",
+      "patientName": "Linda Johnson-Demo",
+      "appointmentCode": "D0120",
+      "appointmentName": "Periodic Oral Evaluation",
+      "duration": 30,
+      "insuranceType": "PPO",
+      "preferredDay": "Tuesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0120",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0120",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-116",
+    "domain": "healthcare",
+    "name": "Scheduling: Waitlist management for preferred t",
+    "description": "Waitlist management for preferred time. Procedure: Crown - Porcelain (D2740). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00155",
+      "patientName": "Robert Miller-Demo",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "Medicare",
+      "preferredDay": "Monday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": false,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-117",
+    "domain": "healthcare",
+    "name": "Scheduling: Emergency appointment triage",
+    "description": "Emergency appointment triage. Procedure: Crown - Porcelain (D2740). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00156",
+      "patientName": "Carlos Garcia-Mock",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "PPO",
+      "preferredDay": "Monday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-118",
+    "domain": "healthcare",
+    "name": "Scheduling: Insurance pre-authorization check",
+    "description": "Insurance pre-authorization check. Procedure: Comprehensive Oral Evaluation (D0150). Insurance: Medicare.",
+    "input": {
+      "patientId": "SYNTH-PAT-00157",
+      "patientName": "Michael Smith-Synth",
+      "appointmentCode": "D0150",
+      "appointmentName": "Comprehensive Oral Evaluation",
+      "duration": 60,
+      "insuranceType": "Medicare",
+      "preferredDay": "Tuesday",
+      "preferredTime": "evening"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0150",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0150",
+        "medicare"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-119",
+    "domain": "healthcare",
+    "name": "Scheduling: Provider preference matching",
+    "description": "Provider preference matching. Procedure: Crown - Porcelain (D2740). Insurance: PPO.",
+    "input": {
+      "patientId": "SYNTH-PAT-00158",
+      "patientName": "Patricia Brown-Synth",
+      "appointmentCode": "D2740",
+      "appointmentName": "Crown - Porcelain",
+      "duration": 90,
+      "insuranceType": "PPO",
+      "preferredDay": "Tuesday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D2740",
+      "preAuthRequired": false
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D2740",
+        "ppo"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-120",
+    "domain": "healthcare",
+    "name": "Scheduling: After-hours scheduling request",
+    "description": "After-hours scheduling request. Procedure: Full Mouth X-Rays (D0210). Insurance: Medicaid.",
+    "input": {
+      "patientId": "SYNTH-PAT-00159",
+      "patientName": "Carlos Johnson-Demo",
+      "appointmentCode": "D0210",
+      "appointmentName": "Full Mouth X-Rays",
+      "duration": 30,
+      "insuranceType": "Medicaid",
+      "preferredDay": "Friday",
+      "preferredTime": "morning"
+    },
+    "expected": {
+      "scheduled": true,
+      "appointmentCode": "D0210",
+      "preAuthRequired": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "scheduling",
+        "D0210",
+        "medicaid"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-121",
+    "domain": "healthcare",
+    "name": "HIPAA: Patient identity verification",
+    "description": "Patient identity verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00200",
+      "patientName": "Wei Jones-Mock",
+      "callerType": "spouse",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-122",
+    "domain": "healthcare",
+    "name": "HIPAA: PHI handling in conversation",
+    "description": "PHI handling in conversation during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00201",
+      "patientName": "Sarah Garcia-Mock",
+      "callerType": "guardian",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "phi"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-123",
+    "domain": "healthcare",
+    "name": "HIPAA: Consent confirmation before schedul",
+    "description": "Consent confirmation before scheduling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00202",
+      "patientName": "Emily Miller-Demo",
+      "callerType": "spouse",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "consent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-124",
+    "domain": "healthcare",
+    "name": "HIPAA: Minor patient - guardian verificati",
+    "description": "Minor patient - guardian verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00203",
+      "patientName": "Wei Wilson-Synth",
+      "callerType": "unknown",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "minor"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-125",
+    "domain": "healthcare",
+    "name": "HIPAA: Third-party caller handling",
+    "description": "Third-party caller handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00204",
+      "patientName": "Maria Doe-Test",
+      "callerType": "patient",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "third-party"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-126",
+    "domain": "healthcare",
+    "name": "HIPAA: Voicemail compliance - no PHI",
+    "description": "Voicemail compliance - no PHI during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00205",
+      "patientName": "Jane Doe-Test",
+      "callerType": "unknown",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "voicemail"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-127",
+    "domain": "healthcare",
+    "name": "HIPAA: Record access audit logging",
+    "description": "Record access audit logging during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00206",
+      "patientName": "Robert Davis-Test",
+      "callerType": "patient",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "record"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-128",
+    "domain": "healthcare",
+    "name": "HIPAA: Data minimization in responses",
+    "description": "Data minimization in responses during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00207",
+      "patientName": "Wei Davis-Test",
+      "callerType": "parent",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "data"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-129",
+    "domain": "healthcare",
+    "name": "HIPAA: Insurance information handling",
+    "description": "Insurance information handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00208",
+      "patientName": "Carlos Wilson-Synth",
+      "callerType": "patient",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-130",
+    "domain": "healthcare",
+    "name": "HIPAA: Transfer to provider - secure hando",
+    "description": "Transfer to provider - secure handoff during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00209",
+      "patientName": "Olga Smith-Synth",
+      "callerType": "parent",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "low",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "transfer"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-131",
+    "domain": "healthcare",
+    "name": "HIPAA: Patient identity verification",
+    "description": "Patient identity verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00210",
+      "patientName": "Jane Johnson-Demo",
+      "callerType": "parent",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-132",
+    "domain": "healthcare",
+    "name": "HIPAA: PHI handling in conversation",
+    "description": "PHI handling in conversation during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00211",
+      "patientName": "Michael Garcia-Mock",
+      "callerType": "patient",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "phi"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-133",
+    "domain": "healthcare",
+    "name": "HIPAA: Consent confirmation before schedul",
+    "description": "Consent confirmation before scheduling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00212",
+      "patientName": "James Doe-Test",
+      "callerType": "unknown",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "consent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-134",
+    "domain": "healthcare",
+    "name": "HIPAA: Minor patient - guardian verificati",
+    "description": "Minor patient - guardian verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00213",
+      "patientName": "Linda Smith-Synth",
+      "callerType": "unknown",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "minor"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-135",
+    "domain": "healthcare",
+    "name": "HIPAA: Third-party caller handling",
+    "description": "Third-party caller handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00214",
+      "patientName": "Carlos Smith-Synth",
+      "callerType": "unknown",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "third-party"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-136",
+    "domain": "healthcare",
+    "name": "HIPAA: Voicemail compliance - no PHI",
+    "description": "Voicemail compliance - no PHI during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00215",
+      "patientName": "Patricia Doe-Test",
+      "callerType": "spouse",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "voicemail"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-137",
+    "domain": "healthcare",
+    "name": "HIPAA: Record access audit logging",
+    "description": "Record access audit logging during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00216",
+      "patientName": "James Williams-Test",
+      "callerType": "unknown",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "record"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-138",
+    "domain": "healthcare",
+    "name": "HIPAA: Data minimization in responses",
+    "description": "Data minimization in responses during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00217",
+      "patientName": "Aisha Miller-Demo",
+      "callerType": "spouse",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "data"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-139",
+    "domain": "healthcare",
+    "name": "HIPAA: Insurance information handling",
+    "description": "Insurance information handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00218",
+      "patientName": "David Johnson-Demo",
+      "callerType": "spouse",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-140",
+    "domain": "healthcare",
+    "name": "HIPAA: Transfer to provider - secure hando",
+    "description": "Transfer to provider - secure handoff during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00219",
+      "patientName": "Carlos Wilson-Synth",
+      "callerType": "guardian",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "transfer"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-141",
+    "domain": "healthcare",
+    "name": "HIPAA: Patient identity verification",
+    "description": "Patient identity verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00220",
+      "patientName": "Aisha Brown-Synth",
+      "callerType": "spouse",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-142",
+    "domain": "healthcare",
+    "name": "HIPAA: PHI handling in conversation",
+    "description": "PHI handling in conversation during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00221",
+      "patientName": "Wei Davis-Test",
+      "callerType": "guardian",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "phi"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-143",
+    "domain": "healthcare",
+    "name": "HIPAA: Consent confirmation before schedul",
+    "description": "Consent confirmation before scheduling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00222",
+      "patientName": "Jane Miller-Demo",
+      "callerType": "patient",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "medium",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "consent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-144",
+    "domain": "healthcare",
+    "name": "HIPAA: Minor patient - guardian verificati",
+    "description": "Minor patient - guardian verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00223",
+      "patientName": "Michael Wilson-Synth",
+      "callerType": "patient",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "minor"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-145",
+    "domain": "healthcare",
+    "name": "HIPAA: Third-party caller handling",
+    "description": "Third-party caller handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00224",
+      "patientName": "Jane Johnson-Demo",
+      "callerType": "patient",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "third-party"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-146",
+    "domain": "healthcare",
+    "name": "HIPAA: Voicemail compliance - no PHI",
+    "description": "Voicemail compliance - no PHI during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00225",
+      "patientName": "David Smith-Synth",
+      "callerType": "guardian",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "voicemail"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-147",
+    "domain": "healthcare",
+    "name": "HIPAA: Record access audit logging",
+    "description": "Record access audit logging during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00226",
+      "patientName": "Carlos Williams-Test",
+      "callerType": "unknown",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "record"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-148",
+    "domain": "healthcare",
+    "name": "HIPAA: Data minimization in responses",
+    "description": "Data minimization in responses during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00227",
+      "patientName": "Michael Wilson-Synth",
+      "callerType": "guardian",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "data"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-149",
+    "domain": "healthcare",
+    "name": "HIPAA: Insurance information handling",
+    "description": "Insurance information handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00228",
+      "patientName": "Sarah Miller-Demo",
+      "callerType": "guardian",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-150",
+    "domain": "healthcare",
+    "name": "HIPAA: Transfer to provider - secure hando",
+    "description": "Transfer to provider - secure handoff during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00229",
+      "patientName": "Aisha Williams-Test",
+      "callerType": "guardian",
+      "verificationMethod": "ssn-last4"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "transfer"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-151",
+    "domain": "healthcare",
+    "name": "HIPAA: Patient identity verification",
+    "description": "Patient identity verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00230",
+      "patientName": "James Miller-Demo",
+      "callerType": "parent",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-152",
+    "domain": "healthcare",
+    "name": "HIPAA: PHI handling in conversation",
+    "description": "PHI handling in conversation during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00231",
+      "patientName": "Robert Smith-Synth",
+      "callerType": "guardian",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "phi"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-153",
+    "domain": "healthcare",
+    "name": "HIPAA: Consent confirmation before schedul",
+    "description": "Consent confirmation before scheduling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00232",
+      "patientName": "Maria Davis-Test",
+      "callerType": "patient",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "consent"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-154",
+    "domain": "healthcare",
+    "name": "HIPAA: Minor patient - guardian verificati",
+    "description": "Minor patient - guardian verification during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00233",
+      "patientName": "Jane Garcia-Mock",
+      "callerType": "spouse",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "minor"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-155",
+    "domain": "healthcare",
+    "name": "HIPAA: Third-party caller handling",
+    "description": "Third-party caller handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00234",
+      "patientName": "John Smith-Synth",
+      "callerType": "spouse",
+      "verificationMethod": "phone"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "third-party"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-156",
+    "domain": "healthcare",
+    "name": "HIPAA: Voicemail compliance - no PHI",
+    "description": "Voicemail compliance - no PHI during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00235",
+      "patientName": "David Jones-Mock",
+      "callerType": "parent",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "voicemail"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-157",
+    "domain": "healthcare",
+    "name": "HIPAA: Record access audit logging",
+    "description": "Record access audit logging during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00236",
+      "patientName": "Emily Jones-Mock",
+      "callerType": "guardian",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "record"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-158",
+    "domain": "healthcare",
+    "name": "HIPAA: Data minimization in responses",
+    "description": "Data minimization in responses during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00237",
+      "patientName": "Maria Smith-Synth",
+      "callerType": "spouse",
+      "verificationMethod": "address"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "data"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-159",
+    "domain": "healthcare",
+    "name": "HIPAA: Insurance information handling",
+    "description": "Insurance information handling during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00238",
+      "patientName": "Michael Doe-Test",
+      "callerType": "patient",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": false,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-160",
+    "domain": "healthcare",
+    "name": "HIPAA: Transfer to provider - secure hando",
+    "description": "Transfer to provider - secure handoff during patient interaction. Must maintain HIPAA compliance throughout.",
+    "input": {
+      "patientId": "SYNTH-PAT-00239",
+      "patientName": "Linda Wilson-Synth",
+      "callerType": "guardian",
+      "verificationMethod": "dob"
+    },
+    "expected": {
+      "hipaaCompliant": true,
+      "identityVerified": true,
+      "phiProtected": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "hipaa",
+        "compliance",
+        "transfer"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-161",
+    "domain": "healthcare",
+    "name": "Wrong number reached",
+    "description": "Handle reaching a wrong phone number gracefully. Patient: Robert Johnson-Demo. Variation 1.",
+    "input": {
+      "patientId": "SYNTH-PAT-00300",
+      "patientName": "Robert Johnson-Demo",
+      "scenarioType": "wrong-number-reached",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "wrong"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-162",
+    "domain": "healthcare",
+    "name": "Language barrier",
+    "description": "Detect language barrier and arrange interpreter or transfer. Patient: Maria Garcia-Mock. Variation 2.",
+    "input": {
+      "patientId": "SYNTH-PAT-00301",
+      "patientName": "Maria Garcia-Mock",
+      "scenarioType": "language-barrier",
+      "insuranceType": "PPO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "language"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-163",
+    "domain": "healthcare",
+    "name": "Hostile patient",
+    "description": "De-escalate interaction with angry or hostile patient. Patient: Maria Doe-Test. Variation 3.",
+    "input": {
+      "patientId": "SYNTH-PAT-00302",
+      "patientName": "Maria Doe-Test",
+      "scenarioType": "hostile-patient",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "hostile"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-164",
+    "domain": "healthcare",
+    "name": "Insurance expired mid-call",
+    "description": "Handle discovering patient's insurance has expired during scheduling. Patient: Emily Smith-Synth. Variation 4.",
+    "input": {
+      "patientId": "SYNTH-PAT-00303",
+      "patientName": "Emily Smith-Synth",
+      "scenarioType": "insurance-expired-mid-call",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-165",
+    "domain": "healthcare",
+    "name": "Outstanding balance blocks scheduling",
+    "description": "Navigate outstanding balance requirement before allowing booking. Patient: Maria Davis-Test. Variation 5.",
+    "input": {
+      "patientId": "SYNTH-PAT-00304",
+      "patientName": "Maria Davis-Test",
+      "scenarioType": "outstanding-balance-blocks-scheduling",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "outstanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-166",
+    "domain": "healthcare",
+    "name": "Medical emergency disclosed",
+    "description": "Properly triage a medical emergency disclosed during routine call. Patient: Emily Garcia-Mock. Variation 6.",
+    "input": {
+      "patientId": "SYNTH-PAT-00305",
+      "patientName": "Emily Garcia-Mock",
+      "scenarioType": "medical-emergency-disclosed",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "medical"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-167",
+    "domain": "healthcare",
+    "name": "Patient requests medical advice",
+    "description": "Redirect patient requesting medical advice to appropriate provider. Patient: Michael Miller-Demo. Variation 7.",
+    "input": {
+      "patientId": "SYNTH-PAT-00306",
+      "patientName": "Michael Miller-Demo",
+      "scenarioType": "patient-requests-medical-advice",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-168",
+    "domain": "healthcare",
+    "name": "Social engineering attempt",
+    "description": "Detect and refuse attempt to extract other patient's data. Patient: Robert Garcia-Mock. Variation 8.",
+    "input": {
+      "patientId": "SYNTH-PAT-00307",
+      "patientName": "Robert Garcia-Mock",
+      "scenarioType": "social-engineering-attempt",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "social"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-169",
+    "domain": "healthcare",
+    "name": "Double-booking prevention",
+    "description": "Detect and prevent scheduling conflict for provider or room. Patient: Patricia Brown-Synth. Variation 9.",
+    "input": {
+      "patientId": "SYNTH-PAT-00308",
+      "patientName": "Patricia Brown-Synth",
+      "scenarioType": "double-booking-prevention",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "double-booking"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-170",
+    "domain": "healthcare",
+    "name": "Patient deceased notification",
+    "description": "Handle learning that patient is deceased during outbound call. Patient: Wei Wilson-Synth. Variation 10.",
+    "input": {
+      "patientId": "SYNTH-PAT-00309",
+      "patientName": "Wei Wilson-Synth",
+      "scenarioType": "patient-deceased-notification",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-171",
+    "domain": "healthcare",
+    "name": "Conflicting insurance records",
+    "description": "Handle patient with two conflicting insurance records on file. Patient: Robert Jones-Mock. Variation 11.",
+    "input": {
+      "patientId": "SYNTH-PAT-00310",
+      "patientName": "Robert Jones-Mock",
+      "scenarioType": "conflicting-insurance-records",
+      "insuranceType": "PPO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-172",
+    "domain": "healthcare",
+    "name": "No available slots this month",
+    "description": "Handle fully booked schedule with waitlist offer. Patient: John Miller-Demo. Variation 12.",
+    "input": {
+      "patientId": "SYNTH-PAT-00311",
+      "patientName": "John Miller-Demo",
+      "scenarioType": "no-available-slots-this-month",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "no"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-173",
+    "domain": "healthcare",
+    "name": "Child aging out of parent insurance",
+    "description": "Handle scheduling for patient aging out of parent's coverage. Patient: Olga Davis-Test. Variation 13.",
+    "input": {
+      "patientId": "SYNTH-PAT-00312",
+      "patientName": "Olga Davis-Test",
+      "scenarioType": "child-aging-out-of-parent-insurance",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "child"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-174",
+    "domain": "healthcare",
+    "name": "Patient on do-not-call list",
+    "description": "Detect and respect do-not-call flag in patient record. Patient: Emily Jones-Mock. Variation 14.",
+    "input": {
+      "patientId": "SYNTH-PAT-00313",
+      "patientName": "Emily Jones-Mock",
+      "scenarioType": "patient-on-do-not-call-list",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-175",
+    "domain": "healthcare",
+    "name": "Power of attorney caller",
+    "description": "Verify and handle call from patient's power of attorney. Patient: Sarah Johnson-Demo. Variation 15.",
+    "input": {
+      "patientId": "SYNTH-PAT-00314",
+      "patientName": "Sarah Johnson-Demo",
+      "scenarioType": "power-of-attorney-caller",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "power"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-176",
+    "domain": "healthcare",
+    "name": "Wrong number reached",
+    "description": "Handle reaching a wrong phone number gracefully. Patient: Michael Doe-Test. Variation 16.",
+    "input": {
+      "patientId": "SYNTH-PAT-00315",
+      "patientName": "Michael Doe-Test",
+      "scenarioType": "wrong-number-reached",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "wrong"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-177",
+    "domain": "healthcare",
+    "name": "Language barrier",
+    "description": "Detect language barrier and arrange interpreter or transfer. Patient: Michael Doe-Test. Variation 17.",
+    "input": {
+      "patientId": "SYNTH-PAT-00316",
+      "patientName": "Michael Doe-Test",
+      "scenarioType": "language-barrier",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "language"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-178",
+    "domain": "healthcare",
+    "name": "Hostile patient",
+    "description": "De-escalate interaction with angry or hostile patient. Patient: David Jones-Mock. Variation 18.",
+    "input": {
+      "patientId": "SYNTH-PAT-00317",
+      "patientName": "David Jones-Mock",
+      "scenarioType": "hostile-patient",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "hostile"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-179",
+    "domain": "healthcare",
+    "name": "Insurance expired mid-call",
+    "description": "Handle discovering patient's insurance has expired during scheduling. Patient: John Smith-Synth. Variation 19.",
+    "input": {
+      "patientId": "SYNTH-PAT-00318",
+      "patientName": "John Smith-Synth",
+      "scenarioType": "insurance-expired-mid-call",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-180",
+    "domain": "healthcare",
+    "name": "Outstanding balance blocks scheduling",
+    "description": "Navigate outstanding balance requirement before allowing booking. Patient: John Doe-Test. Variation 20.",
+    "input": {
+      "patientId": "SYNTH-PAT-00319",
+      "patientName": "John Doe-Test",
+      "scenarioType": "outstanding-balance-blocks-scheduling",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "high",
+      "tags": [
+        "edge-case",
+        "outstanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-181",
+    "domain": "healthcare",
+    "name": "Medical emergency disclosed",
+    "description": "Properly triage a medical emergency disclosed during routine call. Patient: Michael Smith-Synth. Variation 21.",
+    "input": {
+      "patientId": "SYNTH-PAT-00320",
+      "patientName": "Michael Smith-Synth",
+      "scenarioType": "medical-emergency-disclosed",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "medical"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-182",
+    "domain": "healthcare",
+    "name": "Patient requests medical advice",
+    "description": "Redirect patient requesting medical advice to appropriate provider. Patient: Jane Davis-Test. Variation 22.",
+    "input": {
+      "patientId": "SYNTH-PAT-00321",
+      "patientName": "Jane Davis-Test",
+      "scenarioType": "patient-requests-medical-advice",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-183",
+    "domain": "healthcare",
+    "name": "Social engineering attempt",
+    "description": "Detect and refuse attempt to extract other patient's data. Patient: James Garcia-Mock. Variation 23.",
+    "input": {
+      "patientId": "SYNTH-PAT-00322",
+      "patientName": "James Garcia-Mock",
+      "scenarioType": "social-engineering-attempt",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "social"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-184",
+    "domain": "healthcare",
+    "name": "Double-booking prevention",
+    "description": "Detect and prevent scheduling conflict for provider or room. Patient: Olga Doe-Test. Variation 24.",
+    "input": {
+      "patientId": "SYNTH-PAT-00323",
+      "patientName": "Olga Doe-Test",
+      "scenarioType": "double-booking-prevention",
+      "insuranceType": "PPO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "double-booking"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-185",
+    "domain": "healthcare",
+    "name": "Patient deceased notification",
+    "description": "Handle learning that patient is deceased during outbound call. Patient: Linda Davis-Test. Variation 25.",
+    "input": {
+      "patientId": "SYNTH-PAT-00324",
+      "patientName": "Linda Davis-Test",
+      "scenarioType": "patient-deceased-notification",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-186",
+    "domain": "healthcare",
+    "name": "Conflicting insurance records",
+    "description": "Handle patient with two conflicting insurance records on file. Patient: Wei Johnson-Demo. Variation 26.",
+    "input": {
+      "patientId": "SYNTH-PAT-00325",
+      "patientName": "Wei Johnson-Demo",
+      "scenarioType": "conflicting-insurance-records",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-187",
+    "domain": "healthcare",
+    "name": "No available slots this month",
+    "description": "Handle fully booked schedule with waitlist offer. Patient: Patricia Jones-Mock. Variation 27.",
+    "input": {
+      "patientId": "SYNTH-PAT-00326",
+      "patientName": "Patricia Jones-Mock",
+      "scenarioType": "no-available-slots-this-month",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "no"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-188",
+    "domain": "healthcare",
+    "name": "Child aging out of parent insurance",
+    "description": "Handle scheduling for patient aging out of parent's coverage. Patient: Maria Williams-Test. Variation 28.",
+    "input": {
+      "patientId": "SYNTH-PAT-00327",
+      "patientName": "Maria Williams-Test",
+      "scenarioType": "child-aging-out-of-parent-insurance",
+      "insuranceType": "PPO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "child"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-189",
+    "domain": "healthcare",
+    "name": "Patient on do-not-call list",
+    "description": "Detect and respect do-not-call flag in patient record. Patient: Carlos Doe-Test. Variation 29.",
+    "input": {
+      "patientId": "SYNTH-PAT-00328",
+      "patientName": "Carlos Doe-Test",
+      "scenarioType": "patient-on-do-not-call-list",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-190",
+    "domain": "healthcare",
+    "name": "Power of attorney caller",
+    "description": "Verify and handle call from patient's power of attorney. Patient: Emily Brown-Synth. Variation 30.",
+    "input": {
+      "patientId": "SYNTH-PAT-00329",
+      "patientName": "Emily Brown-Synth",
+      "scenarioType": "power-of-attorney-caller",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "power"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-191",
+    "domain": "healthcare",
+    "name": "Wrong number reached",
+    "description": "Handle reaching a wrong phone number gracefully. Patient: Emily Garcia-Mock. Variation 31.",
+    "input": {
+      "patientId": "SYNTH-PAT-00330",
+      "patientName": "Emily Garcia-Mock",
+      "scenarioType": "wrong-number-reached",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "wrong"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-192",
+    "domain": "healthcare",
+    "name": "Language barrier",
+    "description": "Detect language barrier and arrange interpreter or transfer. Patient: Patricia Garcia-Mock. Variation 32.",
+    "input": {
+      "patientId": "SYNTH-PAT-00331",
+      "patientName": "Patricia Garcia-Mock",
+      "scenarioType": "language-barrier",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "language"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-193",
+    "domain": "healthcare",
+    "name": "Hostile patient",
+    "description": "De-escalate interaction with angry or hostile patient. Patient: Aisha Doe-Test. Variation 33.",
+    "input": {
+      "patientId": "SYNTH-PAT-00332",
+      "patientName": "Aisha Doe-Test",
+      "scenarioType": "hostile-patient",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "hostile"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-194",
+    "domain": "healthcare",
+    "name": "Insurance expired mid-call",
+    "description": "Handle discovering patient's insurance has expired during scheduling. Patient: James Garcia-Mock. Variation 34.",
+    "input": {
+      "patientId": "SYNTH-PAT-00333",
+      "patientName": "James Garcia-Mock",
+      "scenarioType": "insurance-expired-mid-call",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-195",
+    "domain": "healthcare",
+    "name": "Outstanding balance blocks scheduling",
+    "description": "Navigate outstanding balance requirement before allowing booking. Patient: Jane Jones-Mock. Variation 35.",
+    "input": {
+      "patientId": "SYNTH-PAT-00334",
+      "patientName": "Jane Jones-Mock",
+      "scenarioType": "outstanding-balance-blocks-scheduling",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "outstanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-196",
+    "domain": "healthcare",
+    "name": "Medical emergency disclosed",
+    "description": "Properly triage a medical emergency disclosed during routine call. Patient: Maria Brown-Synth. Variation 36.",
+    "input": {
+      "patientId": "SYNTH-PAT-00335",
+      "patientName": "Maria Brown-Synth",
+      "scenarioType": "medical-emergency-disclosed",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "medical"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-197",
+    "domain": "healthcare",
+    "name": "Patient requests medical advice",
+    "description": "Redirect patient requesting medical advice to appropriate provider. Patient: Aisha Johnson-Demo. Variation 37.",
+    "input": {
+      "patientId": "SYNTH-PAT-00336",
+      "patientName": "Aisha Johnson-Demo",
+      "scenarioType": "patient-requests-medical-advice",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-198",
+    "domain": "healthcare",
+    "name": "Social engineering attempt",
+    "description": "Detect and refuse attempt to extract other patient's data. Patient: John Brown-Synth. Variation 38.",
+    "input": {
+      "patientId": "SYNTH-PAT-00337",
+      "patientName": "John Brown-Synth",
+      "scenarioType": "social-engineering-attempt",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "social"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-199",
+    "domain": "healthcare",
+    "name": "Double-booking prevention",
+    "description": "Detect and prevent scheduling conflict for provider or room. Patient: Olga Williams-Test. Variation 39.",
+    "input": {
+      "patientId": "SYNTH-PAT-00338",
+      "patientName": "Olga Williams-Test",
+      "scenarioType": "double-booking-prevention",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "double-booking"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-200",
+    "domain": "healthcare",
+    "name": "Patient deceased notification",
+    "description": "Handle learning that patient is deceased during outbound call. Patient: Carlos Davis-Test. Variation 40.",
+    "input": {
+      "patientId": "SYNTH-PAT-00339",
+      "patientName": "Carlos Davis-Test",
+      "scenarioType": "patient-deceased-notification",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-201",
+    "domain": "healthcare",
+    "name": "Conflicting insurance records",
+    "description": "Handle patient with two conflicting insurance records on file. Patient: Jane Doe-Test. Variation 41.",
+    "input": {
+      "patientId": "SYNTH-PAT-00340",
+      "patientName": "Jane Doe-Test",
+      "scenarioType": "conflicting-insurance-records",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "conflicting"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-202",
+    "domain": "healthcare",
+    "name": "No available slots this month",
+    "description": "Handle fully booked schedule with waitlist offer. Patient: Robert Wilson-Synth. Variation 42.",
+    "input": {
+      "patientId": "SYNTH-PAT-00341",
+      "patientName": "Robert Wilson-Synth",
+      "scenarioType": "no-available-slots-this-month",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "no"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-203",
+    "domain": "healthcare",
+    "name": "Child aging out of parent insurance",
+    "description": "Handle scheduling for patient aging out of parent's coverage. Patient: Patricia Davis-Test. Variation 43.",
+    "input": {
+      "patientId": "SYNTH-PAT-00342",
+      "patientName": "Patricia Davis-Test",
+      "scenarioType": "child-aging-out-of-parent-insurance",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "child"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-204",
+    "domain": "healthcare",
+    "name": "Patient on do-not-call list",
+    "description": "Detect and respect do-not-call flag in patient record. Patient: Sarah Smith-Synth. Variation 44.",
+    "input": {
+      "patientId": "SYNTH-PAT-00343",
+      "patientName": "Sarah Smith-Synth",
+      "scenarioType": "patient-on-do-not-call-list",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "patient"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-205",
+    "domain": "healthcare",
+    "name": "Power of attorney caller",
+    "description": "Verify and handle call from patient's power of attorney. Patient: James Doe-Test. Variation 45.",
+    "input": {
+      "patientId": "SYNTH-PAT-00344",
+      "patientName": "James Doe-Test",
+      "scenarioType": "power-of-attorney-caller",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "power"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-206",
+    "domain": "healthcare",
+    "name": "Wrong number reached",
+    "description": "Handle reaching a wrong phone number gracefully. Patient: Aisha Garcia-Mock. Variation 46.",
+    "input": {
+      "patientId": "SYNTH-PAT-00345",
+      "patientName": "Aisha Garcia-Mock",
+      "scenarioType": "wrong-number-reached",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "wrong"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-207",
+    "domain": "healthcare",
+    "name": "Language barrier",
+    "description": "Detect language barrier and arrange interpreter or transfer. Patient: Aisha Smith-Synth. Variation 47.",
+    "input": {
+      "patientId": "SYNTH-PAT-00346",
+      "patientName": "Aisha Smith-Synth",
+      "scenarioType": "language-barrier",
+      "insuranceType": "Medicaid"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "language"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-208",
+    "domain": "healthcare",
+    "name": "Hostile patient",
+    "description": "De-escalate interaction with angry or hostile patient. Patient: Michael Williams-Test. Variation 48.",
+    "input": {
+      "patientId": "SYNTH-PAT-00347",
+      "patientName": "Michael Williams-Test",
+      "scenarioType": "hostile-patient",
+      "insuranceType": "Medicare"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "hostile"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-209",
+    "domain": "healthcare",
+    "name": "Insurance expired mid-call",
+    "description": "Handle discovering patient's insurance has expired during scheduling. Patient: Robert Johnson-Demo. Variation 49.",
+    "input": {
+      "patientId": "SYNTH-PAT-00348",
+      "patientName": "Robert Johnson-Demo",
+      "scenarioType": "insurance-expired-mid-call",
+      "insuranceType": "HMO"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "insurance"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  },
+  {
+    "id": "hc-210",
+    "domain": "healthcare",
+    "name": "Outstanding balance blocks scheduling",
+    "description": "Navigate outstanding balance requirement before allowing booking. Patient: Linda Johnson-Demo. Variation 50.",
+    "input": {
+      "patientId": "SYNTH-PAT-00349",
+      "patientName": "Linda Johnson-Demo",
+      "scenarioType": "outstanding-balance-blocks-scheduling",
+      "insuranceType": "Self-Pay"
+    },
+    "expected": {
+      "handledCorrectly": true,
+      "hipaaCompliant": true,
+      "escalatedIfNeeded": true
+    },
+    "metadata": {
+      "complexity": "adversarial",
+      "tags": [
+        "edge-case",
+        "outstanding"
+      ],
+      "generatedAt": "2026-02-24T00:00:00Z",
+      "generatorVersion": "manual-v1"
+    }
+  }
+]
