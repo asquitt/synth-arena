@@ -78,8 +78,8 @@ async function removeRun(id: string): Promise<boolean> {
 export const evaluationRoutes = new Hono();
 
 evaluationRoutes.get("/", async (c) => {
-  const limit = Math.min(parseInt(c.req.query("limit") ?? "50", 10), 200);
-  const offset = parseInt(c.req.query("offset") ?? "0", 10);
+  const limit = Math.min(Math.max(parseInt(c.req.query("limit") ?? "50", 10) || 50, 1), 200);
+  const offset = Math.max(parseInt(c.req.query("offset") ?? "0", 10) || 0, 0);
   const domain = c.req.query("domain") || undefined;
   const status = c.req.query("status") || undefined;
   const { runs, total } = await getAllRuns({ limit, offset, domain, status });

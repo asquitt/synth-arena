@@ -10,6 +10,15 @@ const CLICKHOUSE_URL = process.env["CLICKHOUSE_URL"] ?? "";
 const CLICKHOUSE_USER = process.env["CLICKHOUSE_USER"] ?? "syntharena";
 const CLICKHOUSE_PASSWORD = process.env["CLICKHOUSE_PASSWORD"] ?? "syntharena";
 
+/** Safely parse JSON from ClickHouse, throwing a descriptive error on failure. */
+function parseClickHouseJson<T>(raw: string, context: string): T {
+  try {
+    return JSON.parse(raw) as T;
+  } catch (err) {
+    throw new Error(`Failed to parse ClickHouse response for ${context}: ${err instanceof Error ? err.message : String(err)}`);
+  }
+}
+
 export interface TraceSpanRow {
   trace_id: string;
   span_id: string;
@@ -84,7 +93,7 @@ export async function getSpansByRunId(runId: string, limit: number = 1000): Prom
     "SELECT * FROM trace_spans WHERE run_id = {run_id:String} ORDER BY start_time LIMIT {lim:UInt32} FORMAT JSON",
     { run_id: runId, lim: limit },
   );
-  const parsed = JSON.parse(result) as { data: TraceSpanRow[] };
+  const parsed = parseClickHouseJson<{ data: TraceSpanRow[] }>(result, "getSpans");
   return parsed.data;
 }
 
@@ -94,7 +103,7 @@ export async function getSpansByTraceId(traceId: string): Promise<TraceSpanRow[]
     "SELECT * FROM trace_spans WHERE trace_id = {trace_id:String} ORDER BY start_time FORMAT JSON",
     { trace_id: traceId },
   );
-  const parsed = JSON.parse(result) as { data: TraceSpanRow[] };
+  const parsed = parseClickHouseJson<{ data: TraceSpanRow[] }>(result, "getSpans");
   return parsed.data;
 }
 
@@ -111,7 +120,7 @@ export async function getCostAnalytics(runId: string): Promise<Array<{
     "SELECT model, provider, count() as total_calls, sum(input_tokens) as total_input_tokens, sum(output_tokens) as total_output_tokens, sum(cost) as total_cost FROM trace_spans WHERE run_id = {run_id:String} AND type = 'llm_call' GROUP BY model, provider FORMAT JSON",
     { run_id: runId },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getCostAnalytics");
   return parsed.data.map((row) => ({
     model: row["model"] as string,
     provider: row["provider"] as string,
@@ -153,7 +162,7 @@ export async function getLatencyPercentiles(runId: string): Promise<LatencyPerce
     FORMAT JSON`,
     { run_id: runId },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getLatencyPercentiles");
   return parsed.data.map((row) => ({
     model: row["model"] as string,
     provider: row["provider"] as string,
@@ -191,7 +200,7 @@ export async function getErrorAnalytics(runId: string): Promise<ErrorAnalytics[]
     FORMAT JSON`,
     { run_id: runId },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getErrorAnalytics");
   return parsed.data.map((row) => ({
     scenarioId: row["scenario_id"] as string,
     model: row["model"] as string,
@@ -232,7 +241,7 @@ export async function getTokenUsageTrends(
     FORMAT JSON`,
     { run_id: runId, interval_h: intervalHours },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getTokenUsageTrends");
   return parsed.data.map((row) => ({
     bucket: String(row["bucket"]),
     model: row["model"] as string,
@@ -271,7 +280,7 @@ export async function getScenarioPerformance(scenarioId: string, limit: number =
     FORMAT JSON`,
     { scenario_id: scenarioId, lim: limit },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getScenarioPerformance");
   return parsed.data.map((row) => ({
     scenarioId: row["scenario_id"] as string,
     runId: row["run_id"] as string,
@@ -313,7 +322,7 @@ export async function getModelComparison(runId: string): Promise<ModelComparison
     FORMAT JSON`,
     { run_id: runId },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getModelComparison");
   return parsed.data.map((row) => ({
     model: row["model"] as string,
     provider: row["provider"] as string,
@@ -349,7 +358,7 @@ export async function getSlowestSpans(runId: string, limit: number = 20): Promis
     FORMAT JSON`,
     { run_id: runId, lim: limit },
   );
-  const parsed = JSON.parse(result) as { data: Array<Record<string, unknown>> };
+  const parsed = parseClickHouseJson<{ data: Array<Record<string, unknown>> }>(result, "getSlowestSpans");
   return parsed.data.map((row) => ({
     spanId: row["span_id"] as string,
     traceId: row["trace_id"] as string,

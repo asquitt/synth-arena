@@ -19,7 +19,7 @@ traceRoutes.get("/run/:runId", async (c) => {
   }
 
   const runId = c.req.param("runId");
-  const limit = parseInt(c.req.query("limit") ?? "1000", 10);
+  const limit = Math.min(Math.max(parseInt(c.req.query("limit") ?? "1000", 10) || 1000, 1), 10000);
 
   const spans = await traceRepo.getSpansByRunId(runId, limit);
   return c.json({ data: spans, metadata: { total: spans.length } });
@@ -72,7 +72,7 @@ traceRoutes.get("/run/:runId/tokens", async (c) => {
   }
 
   const runId = c.req.param("runId");
-  const intervalHours = parseInt(c.req.query("interval") ?? "1", 10);
+  const intervalHours = Math.max(parseInt(c.req.query("interval") ?? "1", 10) || 1, 1);
   const trends = await traceRepo.getTokenUsageTrends(runId, intervalHours);
   return c.json({ data: trends });
 });
@@ -93,7 +93,7 @@ traceRoutes.get("/run/:runId/slowest", async (c) => {
   }
 
   const runId = c.req.param("runId");
-  const limit = parseInt(c.req.query("limit") ?? "20", 10);
+  const limit = Math.min(Math.max(parseInt(c.req.query("limit") ?? "20", 10) || 20, 1), 1000);
   const slowest = await traceRepo.getSlowestSpans(runId, limit);
   return c.json({ data: slowest });
 });
@@ -104,7 +104,7 @@ traceRoutes.get("/scenario/:scenarioId/performance", async (c) => {
   }
 
   const scenarioId = c.req.param("scenarioId");
-  const limit = parseInt(c.req.query("limit") ?? "50", 10);
+  const limit = Math.min(Math.max(parseInt(c.req.query("limit") ?? "50", 10) || 50, 1), 1000);
   const performance = await traceRepo.getScenarioPerformance(scenarioId, limit);
   return c.json({ data: performance });
 });

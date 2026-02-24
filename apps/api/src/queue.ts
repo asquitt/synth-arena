@@ -91,10 +91,19 @@ export async function readJobs(count: number = 5, blockMs: number = 2000): Promi
         const payloadIdx = fields.indexOf("payload");
         const payload = payloadIdx >= 0 ? fields[payloadIdx + 1] : undefined;
         if (payload) {
-          jobs.push({
-            streamId,
-            job: JSON.parse(payload) as EvalJob,
-          });
+          try {
+            jobs.push({
+              streamId,
+              job: JSON.parse(payload) as EvalJob,
+            });
+          } catch (err) {
+            console.error(JSON.stringify({
+              level: "error",
+              message: "Failed to parse job payload from Redis stream",
+              streamId,
+              error: err instanceof Error ? err.message : String(err),
+            }));
+          }
         }
       }
     }
@@ -176,7 +185,16 @@ export async function claimStalePending(idleTimeMs: number = 60_000, count: numb
     const payloadIdx = fields.indexOf("payload");
     const payload = payloadIdx >= 0 ? fields[payloadIdx + 1] : undefined;
     if (payload) {
-      jobs.push({ streamId, job: JSON.parse(payload) as EvalJob });
+      try {
+        jobs.push({ streamId, job: JSON.parse(payload) as EvalJob });
+      } catch (err) {
+        console.error(JSON.stringify({
+          level: "error",
+          message: "Failed to parse stale job payload from Redis stream",
+          streamId,
+          error: err instanceof Error ? err.message : String(err),
+        }));
+      }
     }
   }
   return jobs;
