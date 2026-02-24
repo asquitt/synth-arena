@@ -29,6 +29,21 @@ export { runArena } from "@syntharena/core";
 export { generateScorer, generateScorerSuite } from "@syntharena/core";
 export type { ScorerGeneratorConfig } from "@syntharena/core";
 
+// Agent wrapper
+export {
+  createAgent,
+  createAgentTask,
+  createClaudeProvider,
+  createOpenAIProvider,
+  createDemoProvider,
+} from "@syntharena/core";
+export type {
+  AgentProvider,
+  AgentResponse,
+  AgentWrapperConfig,
+  AutoAgentConfig,
+} from "@syntharena/core";
+
 // Red team presets
 export {
   OWASP_LLM_TOP10,
