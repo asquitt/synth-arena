@@ -32,13 +32,50 @@ from syntharena.types import (
     CostEstimate,
 )
 from syntharena import scorers
+from syntharena.scenarios import (
+    GenerationConfig,
+    QualityReport,
+    load_scenarios,
+    save_scenarios,
+    generate_scenarios,
+    validate_scenarios,
+    filter_scenarios,
+    deduplicate_scenarios,
+)
+from syntharena.replay import (
+    RegressionSummary,
+    RegressionReport,
+    RegressionThresholds,
+    ScenarioComparison,
+    compare_runs,
+    save_baseline,
+    load_baseline,
+    format_report,
+)
+from syntharena.batch import (
+    BatchConfig,
+    BatchProgress,
+    BatchResult,
+    run_batch,
+    run_batch_multi,
+)
+from syntharena.webhooks import (
+    WebhookEvent,
+    WebhookConfig,
+    WebhookReceiver,
+    sign_payload,
+    create_event,
+    serialize_event,
+)
 
 __version__ = "0.1.0"
 __all__ = [
+    # Client
     "SynthArenaClient",
     "SynthArenaError",
     "evaluate",
     "scorers",
+    # Types
     "Scenario",
     "ScenarioMetadata",
     "EvaluationConfig",
@@ -49,4 +86,35 @@ __all__ = [
     "ScorerResult",
     "TokenUsage",
     "CostEstimate",
+    # Scenarios
+    "GenerationConfig",
+    "QualityReport",
+    "load_scenarios",
+    "save_scenarios",
+    "generate_scenarios",
+    "validate_scenarios",
+    "filter_scenarios",
+    "deduplicate_scenarios",
+    # Replay / Regression
+    "RegressionSummary",
+    "RegressionReport",
+    "RegressionThresholds",
+    "ScenarioComparison",
+    "compare_runs",
+    "save_baseline",
+    "load_baseline",
+    "format_report",
+    # Batch
+    "BatchConfig",
+    "BatchProgress",
+    "BatchResult",
+    "run_batch",
+    "run_batch_multi",
+    # Webhooks
+    "WebhookEvent",
+    "WebhookConfig",
+    "WebhookReceiver",
+    "sign_payload",
+    "create_event",
+    "serialize_event",
 ]
