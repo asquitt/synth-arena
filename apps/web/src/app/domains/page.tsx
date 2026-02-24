@@ -59,6 +59,7 @@ const FALLBACK_DOMAINS: DomainInfo[] = [
 
 export default function DomainsPage() {
   const [domains, setDomains] = useState<DomainInfo[]>(FALLBACK_DOMAINS);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${API_BASE}/domains`)
@@ -68,7 +69,8 @@ export default function DomainsPage() {
       })
       .catch(() => {
         // API unavailable — keep fallback data
-      });
+      })
+      .finally(() => setLoading(false));
   }, []);
 
   return (
@@ -80,6 +82,9 @@ export default function DomainsPage() {
         <p className="mt-2 text-gray-400">Pre-built evaluation templates for specific industries</p>
 
         <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {loading && domains.length === 0 && (
+            <div className="col-span-full text-center text-gray-500 py-8">Loading domains...</div>
+          )}
           {domains.map((d) => (
             <div key={d.name} className="rounded-xl border border-gray-800 bg-gray-900/50 p-6">
               <div className="flex items-start justify-between">

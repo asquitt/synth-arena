@@ -233,6 +233,12 @@ export default function ScenariosPage() {
             </div>
           </div>
         )}
+        {scenarios.length === 0 && !loading && (
+          <div className="mt-12 text-center text-gray-500">
+            <p className="text-lg">No scenarios generated yet</p>
+            <p className="mt-2 text-sm">Select a domain, set the count, and click Generate</p>
+          </div>
+        )}
       </main>
     </div>
   );

@@ -25,12 +25,14 @@ interface ArenaRun {
 export default function ArenaPage() {
   const [runs, setRuns] = useState<ArenaRun[]>([]);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [domain, setDomain] = useState("web-scraping");
   const [scenarios, setScenarios] = useState("10");
   const [agentNames, setAgentNames] = useState("agent-v1,agent-v2");
 
   async function startArena() {
     setLoading(true);
+    setError(null);
     try {
       // Demo arena results (API integration ready)
       const agents = agentNames.split(",").map((name) => name.trim());
@@ -64,6 +66,8 @@ export default function ArenaPage() {
       };
 
       setRuns((prev) => [run, ...prev]);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Arena battle failed");
     } finally {
       setLoading(false);
     }
@@ -112,6 +116,12 @@ export default function ArenaPage() {
             </div>
           </div>
         </div>
+
+        {error && (
+          <div className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 px-4 py-3 text-sm text-red-400">
+            {error}
+          </div>
+        )}
 
         {/* Leaderboard */}
         {runs.map((run) => (
