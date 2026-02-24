@@ -135,7 +135,15 @@ evaluationRoutes.post("/",
       await persistRun(run);
 
       // Fire webhooks (non-blocking)
-      deliverWebhook("evaluation.completed", run, body.domain).catch(() => {});
+      deliverWebhook("evaluation.completed", run, body.domain).catch((err) => {
+        console.error(JSON.stringify({
+          level: "error",
+          message: "Webhook delivery failed",
+          event: "evaluation.completed",
+          runId: run.id,
+          error: err instanceof Error ? err.message : String(err),
+        }));
+      });
 
       return c.json({ data: run }, 201);
     } catch (err) {
@@ -199,7 +207,15 @@ evaluationRoutes.post("/stream",
         await persistRun(run);
 
         // Fire webhooks (non-blocking)
-        deliverWebhook("evaluation.completed", run, body.domain).catch(() => {});
+        deliverWebhook("evaluation.completed", run, body.domain).catch((err) => {
+        console.error(JSON.stringify({
+          level: "error",
+          message: "Webhook delivery failed",
+          event: "evaluation.completed",
+          runId: run.id,
+          error: err instanceof Error ? err.message : String(err),
+        }));
+      });
 
         await stream.writeSSE({
           id: String(eventId++),

@@ -170,7 +170,135 @@ async function getMatchingWebhooks(event: WebhookEvent): Promise<WebhookConfig[]
   );
 }
 
-/** Deliver a webhook event to all registered endpoints. */
+const MAX_WEBHOOK_RETRIES = 3;
+const RETRY_BASE_DELAY_MS = 1000; // 1s, 2s, 4s exponential backoff
+
+/** Attempt a single webhook POST. Returns status code or throws. */
+async function attemptDelivery(
+  url: string,
+  body: string,
+  signature: string,
+  event: WebhookEvent,
+): Promise<{ statusCode: number; responseBody: string | null }> {
+  const res = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-SynthArena-Signature": `sha256=${signature}`,
+      "X-SynthArena-Event": event,
+      "X-SynthArena-Delivery": randomBytes(8).toString("hex"),
+    },
+    body,
+    signal: AbortSignal.timeout(10_000),
+  });
+
+  const responseBody = await res.text().catch(() => null);
+  return { statusCode: res.status, responseBody };
+}
+
+/** Deliver to a single endpoint with retry and exponential backoff. */
+async function deliverToEndpoint(
+  webhook: WebhookConfig,
+  event: WebhookEvent,
+  payload: WebhookPayload,
+  body: string,
+): Promise<void> {
+  const signature = signPayload(body, webhook.secret);
+  const start = Date.now();
+  let statusCode: number | null = null;
+  let responseBody: string | null = null;
+  let lastError: string | null = null;
+
+  for (let attempt = 1; attempt <= MAX_WEBHOOK_RETRIES; attempt++) {
+    try {
+      const result = await attemptDelivery(webhook.url, body, signature, event);
+      statusCode = result.statusCode;
+      responseBody = result.responseBody;
+
+      if (result.statusCode >= 200 && result.statusCode < 300) {
+        break; // Success
+      }
+
+      // 4xx errors are not retryable (except 429)
+      if (result.statusCode >= 400 && result.statusCode < 500 && result.statusCode !== 429) {
+        lastError = `HTTP ${result.statusCode}`;
+        console.error(JSON.stringify({
+          level: "warn",
+          message: "Webhook delivery rejected (not retryable)",
+          webhookId: webhook.id,
+          url: webhook.url,
+          status: result.statusCode,
+          attempt,
+        }));
+        break;
+      }
+
+      // 5xx or 429 — retryable
+      lastError = `HTTP ${result.statusCode}`;
+      if (attempt < MAX_WEBHOOK_RETRIES) {
+        const delay = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+        console.error(JSON.stringify({
+          level: "warn",
+          message: "Webhook delivery failed, retrying",
+          webhookId: webhook.id,
+          url: webhook.url,
+          status: result.statusCode,
+          attempt,
+          nextRetryMs: delay,
+        }));
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    } catch (err) {
+      lastError = err instanceof Error ? err.message : String(err);
+      if (attempt < MAX_WEBHOOK_RETRIES) {
+        const delay = RETRY_BASE_DELAY_MS * Math.pow(2, attempt - 1);
+        console.error(JSON.stringify({
+          level: "warn",
+          message: "Webhook delivery error, retrying",
+          webhookId: webhook.id,
+          url: webhook.url,
+          error: lastError,
+          attempt,
+          nextRetryMs: delay,
+        }));
+        await new Promise((resolve) => setTimeout(resolve, delay));
+      }
+    }
+  }
+
+  if (lastError && (!statusCode || statusCode >= 300)) {
+    console.error(JSON.stringify({
+      level: "error",
+      message: "Webhook delivery failed after all retries",
+      webhookId: webhook.id,
+      url: webhook.url,
+      error: lastError,
+      attempts: MAX_WEBHOOK_RETRIES,
+    }));
+  }
+
+  // Log delivery to database if available
+  if (useDb) {
+    await webhookRepo.logDelivery({
+      webhookId: webhook.id,
+      event,
+      payload: payload as unknown as Record<string, unknown>,
+      statusCode,
+      responseBody,
+      error: lastError,
+      durationMs: Date.now() - start,
+    }).catch((logErr) => {
+      console.error(JSON.stringify({
+        level: "error",
+        message: "Failed to log webhook delivery",
+        webhookId: webhook.id,
+        error: String(logErr),
+      }));
+    });
+  }
+}
+
+/** Deliver a webhook event to all registered endpoints with retry. */
 export async function deliverWebhook(
   event: WebhookEvent,
   run: EvaluationRun,
@@ -182,68 +310,7 @@ export async function deliverWebhook(
   const payload = buildPayload(event, run, domain);
   const body = JSON.stringify(payload);
 
-  const deliveries = matching.map(async (webhook) => {
-    const signature = signPayload(body, webhook.secret);
-    const start = Date.now();
-    let statusCode: number | null = null;
-    let responseBody: string | null = null;
-    let error: string | null = null;
-
-    try {
-      const res = await fetch(webhook.url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "X-SynthArena-Signature": `sha256=${signature}`,
-          "X-SynthArena-Event": event,
-          "X-SynthArena-Delivery": randomBytes(8).toString("hex"),
-        },
-        body,
-        signal: AbortSignal.timeout(10_000),
-      });
-
-      statusCode = res.status;
-      responseBody = await res.text().catch(() => null);
-
-      if (!res.ok) {
-        console.error(JSON.stringify({
-          level: "warn",
-          message: "Webhook delivery failed",
-          webhookId: webhook.id,
-          url: webhook.url,
-          status: res.status,
-        }));
-      }
-    } catch (err) {
-      error = err instanceof Error ? err.message : String(err);
-      console.error(JSON.stringify({
-        level: "error",
-        message: "Webhook delivery error",
-        webhookId: webhook.id,
-        url: webhook.url,
-        error,
-      }));
-    }
-
-    // Log delivery to database if available
-    if (useDb) {
-      await webhookRepo.logDelivery({
-        webhookId: webhook.id,
-        event,
-        payload: payload as unknown as Record<string, unknown>,
-        statusCode,
-        responseBody,
-        error,
-        durationMs: Date.now() - start,
-      }).catch((logErr) => {
-        console.error(JSON.stringify({
-          level: "error",
-          message: "Failed to log webhook delivery",
-          error: String(logErr),
-        }));
-      });
-    }
-  });
-
-  await Promise.allSettled(deliveries);
+  await Promise.allSettled(
+    matching.map((webhook) => deliverToEndpoint(webhook, event, payload, body)),
+  );
 }

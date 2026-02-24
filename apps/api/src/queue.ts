@@ -1,10 +1,12 @@
 import Redis from "ioredis";
+import { CircuitBreaker } from "./circuit-breaker.js";
 
 /**
  * Redis-based job queue using Redis Streams.
  *
  * Provides async evaluation job submission and processing
  * with consumer groups for reliable delivery.
+ * Protected by a circuit breaker to fail fast when Redis is down.
  */
 
 const REDIS_URL = process.env["REDIS_URL"] ?? "redis://localhost:6379";
@@ -13,6 +15,12 @@ const GROUP_NAME = "eval-workers";
 const CONSUMER_NAME = `worker-${process.pid}`;
 
 let redis: Redis | null = null;
+
+export const redisCircuitBreaker = new CircuitBreaker({
+  name: "redis-queue",
+  failureThreshold: 5,
+  cooldownMs: 30_000,
+});
 
 function getRedis(): Redis {
   if (!redis) {
@@ -35,7 +43,13 @@ export interface EvalJob {
 /** Initialize the consumer group (idempotent). */
 export async function initQueue(): Promise<void> {
   const r = getRedis();
-  await r.connect().catch(() => {});
+  await r.connect().catch((err) => {
+    console.error(JSON.stringify({
+      level: "error",
+      message: "Redis connection failed during queue init",
+      error: err instanceof Error ? err.message : String(err),
+    }));
+  });
   try {
     await r.xgroup("CREATE", STREAM_KEY, GROUP_NAME, "0", "MKSTREAM");
   } catch (err) {
@@ -46,42 +60,46 @@ export async function initQueue(): Promise<void> {
 
 /** Submit an evaluation job to the queue. Returns the stream entry ID. */
 export async function submitJob(job: EvalJob): Promise<string> {
-  const r = getRedis();
-  const entryId = await r.xadd(
-    STREAM_KEY,
-    "*",
-    "payload", JSON.stringify(job),
-  );
-  if (!entryId) throw new Error("Failed to submit job to Redis stream");
-  return entryId;
+  return redisCircuitBreaker.execute(async () => {
+    const r = getRedis();
+    const entryId = await r.xadd(
+      STREAM_KEY,
+      "*",
+      "payload", JSON.stringify(job),
+    );
+    if (!entryId) throw new Error("Failed to submit job to Redis stream");
+    return entryId;
+  });
 }
 
 /** Read pending jobs from the stream. Returns parsed jobs with their stream IDs. */
 export async function readJobs(count: number = 5, blockMs: number = 2000): Promise<Array<{ streamId: string; job: EvalJob }>> {
-  const r = getRedis();
-  const results = await r.xreadgroup(
-    "GROUP", GROUP_NAME, CONSUMER_NAME,
-    "COUNT", count,
-    "BLOCK", blockMs,
-    "STREAMS", STREAM_KEY, ">"
-  ) as Array<[string, Array<[string, string[]]>]> | null;
+  return redisCircuitBreaker.execute(async () => {
+    const r = getRedis();
+    const results = await r.xreadgroup(
+      "GROUP", GROUP_NAME, CONSUMER_NAME,
+      "COUNT", count,
+      "BLOCK", blockMs,
+      "STREAMS", STREAM_KEY, ">"
+    ) as Array<[string, Array<[string, string[]]>]> | null;
 
-  if (!results) return [];
+    if (!results) return [];
 
-  const jobs: Array<{ streamId: string; job: EvalJob }> = [];
-  for (const [, entries] of results) {
-    for (const [streamId, fields] of entries) {
-      const payloadIdx = fields.indexOf("payload");
-      const payload = payloadIdx >= 0 ? fields[payloadIdx + 1] : undefined;
-      if (payload) {
-        jobs.push({
-          streamId,
-          job: JSON.parse(payload) as EvalJob,
-        });
+    const jobs: Array<{ streamId: string; job: EvalJob }> = [];
+    for (const [, entries] of results) {
+      for (const [streamId, fields] of entries) {
+        const payloadIdx = fields.indexOf("payload");
+        const payload = payloadIdx >= 0 ? fields[payloadIdx + 1] : undefined;
+        if (payload) {
+          jobs.push({
+            streamId,
+            job: JSON.parse(payload) as EvalJob,
+          });
+        }
       }
     }
-  }
-  return jobs;
+    return jobs;
+  });
 }
 
 /** Acknowledge a processed job. */

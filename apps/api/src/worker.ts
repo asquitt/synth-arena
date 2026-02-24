@@ -71,9 +71,18 @@ async function processJob(job: EvalJob): Promise<void> {
     }
   }
 
-  // Deliver webhook notifications (fire and forget)
+  // Deliver webhook notifications (fire and forget, log on failure)
   const event = run.status === "completed" ? "evaluation.completed" : "evaluation.failed";
-  deliverWebhook(event, run, job.domain).catch(() => {});
+  deliverWebhook(event, run, job.domain).catch((err) => {
+    console.error(JSON.stringify({
+      level: "error",
+      message: "Webhook delivery failed",
+      event,
+      jobId: job.id,
+      runId: run.id,
+      error: err instanceof Error ? err.message : String(err),
+    }));
+  });
 
   await setJobStatus(job.id, {
     status: "completed",
@@ -201,8 +210,12 @@ async function shutdown() {
   console.log(JSON.stringify({ level: "info", message: "Worker shutting down" }));
   running = false;
   await Promise.all([
-    closeRedis().catch(() => {}),
-    closeDatabase().catch(() => {}),
+    closeRedis().catch((err) => {
+      console.error(JSON.stringify({ level: "error", message: "Redis close failed during shutdown", error: String(err) }));
+    }),
+    closeDatabase().catch((err) => {
+      console.error(JSON.stringify({ level: "error", message: "Database close failed during shutdown", error: String(err) }));
+    }),
   ]);
   process.exit(0);
 }

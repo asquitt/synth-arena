@@ -56,8 +56,14 @@ export async function authenticate(c: Context, next: Next) {
     c.set("apiKeyPermissions", keyRecord.permissions);
     c.set("apiKeyRateLimit", keyRecord.rateLimitPerMinute);
 
-    // Update last_used_at (fire-and-forget)
-    apiKeyRepo.touchKey(keyHash).catch(() => {});
+    // Update last_used_at (fire-and-forget, log on failure)
+    apiKeyRepo.touchKey(keyHash).catch((err) => {
+      console.error(JSON.stringify({
+        level: "error",
+        message: "Failed to update API key last_used_at",
+        error: err instanceof Error ? err.message : String(err),
+      }));
+    });
 
     return next();
   }

@@ -21,7 +21,7 @@ import { redTeamPresetRoutes } from "./routes/red-team-presets.js";
 import { checkClickHouse } from "./repositories/traces.js";
 import { validateEnv } from "./middleware/env.js";
 import { checkDatabase, closeDatabase } from "./db.js";
-import { checkRedis, closeRedis, initQueue } from "./queue.js";
+import { checkRedis, closeRedis, initQueue, redisCircuitBreaker } from "./queue.js";
 import { ApiError } from "./errors.js";
 import { trackHttpRequest, renderMetrics } from "./metrics.js";
 import { timeout } from "./middleware/timeout.js";
@@ -123,11 +123,12 @@ app.get("/health/deep", shortCache, async (c) => {
     }
   }
 
-  // Redis check
+  // Redis check (includes circuit breaker state)
   if (process.env["REDIS_URL"]) {
+    const cb = redisCircuitBreaker.getState();
     try {
       const redisLatency = await checkRedis();
-      checks["redis"] = { status: "healthy", latency: redisLatency };
+      checks["redis"] = { status: cb.state === "open" ? "degraded" : "healthy", latency: redisLatency };
     } catch {
       checks["redis"] = { status: "unhealthy", latency: -1 };
     }
@@ -251,9 +252,15 @@ function shutdown(signal: string) {
   console.log(JSON.stringify({ level: "info", message: `Received ${signal}, shutting down` }));
   server?.close(async () => {
     await Promise.all([
-      closeDatabase().catch(() => {}),
-      closeRedis().catch(() => {}),
-      shutdownTracing().catch(() => {}),
+      closeDatabase().catch((err) => {
+        console.error(JSON.stringify({ level: "error", message: "Database close failed during shutdown", error: String(err) }));
+      }),
+      closeRedis().catch((err) => {
+        console.error(JSON.stringify({ level: "error", message: "Redis close failed during shutdown", error: String(err) }));
+      }),
+      shutdownTracing().catch((err) => {
+        console.error(JSON.stringify({ level: "error", message: "OTel shutdown failed", error: String(err) }));
+      }),
     ]);
     console.log(JSON.stringify({ level: "info", message: "Server closed" }));
     process.exit(0);

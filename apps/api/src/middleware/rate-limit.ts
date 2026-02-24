@@ -19,7 +19,12 @@ function getRedis(): Redis | null {
   const url = process.env["REDIS_URL"];
   if (!url) return null;
   redis = new Redis(url, { maxRetriesPerRequest: 1, lazyConnect: true });
-  redis.connect().catch(() => {
+  redis.connect().catch((err) => {
+    console.error(JSON.stringify({
+      level: "warn",
+      message: "Rate limiter Redis connection failed, falling back to in-memory",
+      error: err instanceof Error ? err.message : String(err),
+    }));
     redis = null;
   });
   return redis;
