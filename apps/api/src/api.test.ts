@@ -381,7 +381,7 @@ describe("Red Team Presets", () => {
   });
 
   it("returns OWASP preset details with attack patterns", async () => {
-    const res = await request("/api/v1/red-team/presets/owasp-llm-top10");
+    const res = await request("/api/v1/red-team/presets/owasp-llm-top10-2025");
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.data.framework).toBe("owasp-llm-top10");
@@ -393,7 +393,7 @@ describe("Red Team Presets", () => {
   });
 
   it("returns NIST preset details", async () => {
-    const res = await request("/api/v1/red-team/presets/nist-ai-rmf");
+    const res = await request("/api/v1/red-team/presets/nist-ai-rmf-1.0");
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.data.framework).toBe("nist-ai-rmf");
@@ -406,7 +406,7 @@ describe("Red Team Presets", () => {
   });
 
   it("returns attack patterns for a preset", async () => {
-    const res = await request("/api/v1/red-team/presets/owasp-llm-top10/patterns");
+    const res = await request("/api/v1/red-team/presets/owasp-llm-top10-2025/patterns");
     expect(res.status).toBe(200);
     const body = await res.json();
     expect(body.data.length).toBeGreaterThan(0);

@@ -355,8 +355,8 @@ export const NIST_AI_RMF: RedTeamPreset = {
 // ─── Preset Registry ─────────────────────────────────────────────
 
 export const RED_TEAM_PRESETS: Record<string, RedTeamPreset> = {
-  "owasp-llm-top10": OWASP_LLM_TOP10,
-  "nist-ai-rmf": NIST_AI_RMF,
+  "owasp-llm-top10-2025": OWASP_LLM_TOP10,
+  "nist-ai-rmf-1.0": NIST_AI_RMF,
 };
 
 /** Get all available presets. */
