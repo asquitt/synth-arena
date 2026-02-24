@@ -7,3 +7,6 @@ dist/
 .DS_Store
 coverage/
 .next/
+__pycache__/
+*.pyc
+*.egg-info/
