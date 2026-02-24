@@ -10,3 +10,9 @@ coverage/
 __pycache__/
 *.pyc
 *.egg-info/
+
+# Claude Code / Codex artifacts
+CLAUDE.md
+AGENTS.md
+.claude/
+.codex/
