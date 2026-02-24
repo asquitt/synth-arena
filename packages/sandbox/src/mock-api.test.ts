@@ -216,6 +216,7 @@ describe("createSamGovMockApi", () => {
 
   it("SAM.gov opportunities endpoint returns data", () => {
     const config = createSamGovMockApi();
+    config.errorRate = 0; // Disable random errors for deterministic test
     const state = createRequestState();
     const response = handleMockRequest(
       config, "GET", "/api/v1/opportunities",
@@ -230,6 +231,7 @@ describe("createSamGovMockApi", () => {
 
   it("SAM.gov single opportunity endpoint works", () => {
     const config = createSamGovMockApi();
+    config.errorRate = 0; // Disable random errors for deterministic test
     const state = createRequestState();
     const response = handleMockRequest(
       config, "GET", "/api/v1/opportunities/123",

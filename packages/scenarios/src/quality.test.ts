@@ -184,7 +184,7 @@ describe("formatQualityReport", () => {
 
   it("truncates issues at 10 and shows remainder count", () => {
     // Create scenarios that generate many issues
-    const scenarios = Array.from({ length: 15 }, (_, i) =>
+    const scenarios = Array.from({ length: 15 }, () =>
       makeScenario({ id: "", description: "", input: {}, expected: undefined }),
     );
 

@@ -171,10 +171,22 @@ function parseCriteriaToChecks(criteria: string): Check[] {
   for (const line of lines) {
     const lower = line.toLowerCase();
 
+    // "must not be empty" / "non-empty" — check BEFORE notContains to avoid false match
+    if (lower.includes("not be empty") || lower.includes("non-empty")) {
+      checks.push({
+        description: "Must not be empty",
+        fn: (output) => output.trim().length > 0,
+      });
+      continue;
+    }
+
     // "must contain X" / "should include X" / "output should have X"
     const containsMatch = lower.match(/(?:must|should|needs? to)\s+(?:contain|include|have|mention)\s+["""]?(.+?)["""]?\s*$/);
     if (containsMatch?.[1]) {
-      const target = containsMatch[1].replace(/[""'"]/g, "").trim();
+      const target = containsMatch[1]
+        .replace(/[""'"]/g, "")
+        .replace(/^(?:the\s+(?:word|phrase|text|string|term)\s+)/i, "")
+        .trim();
       checks.push({
         description: `Must contain "${target}"`,
         fn: (output) => output.toLowerCase().includes(target.toLowerCase()),
@@ -239,14 +251,6 @@ function parseCriteriaToChecks(criteria: string): Check[] {
       continue;
     }
 
-    // "must not be empty"
-    if (lower.includes("not be empty") || lower.includes("non-empty")) {
-      checks.push({
-        description: "Must not be empty",
-        fn: (output) => output.trim().length > 0,
-      });
-      continue;
-    }
   }
 
   return checks;

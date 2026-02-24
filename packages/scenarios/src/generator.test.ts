@@ -81,7 +81,7 @@ describe("generateScenarios", () => {
 
     mockCreate.mockResolvedValue(makeLLMResponse(batch));
 
-    const scenarios = await generateScenarios({
+    await generateScenarios({
       template: SAMPLE_TEMPLATE,
       count: 15,
     });
