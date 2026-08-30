@@ -1,71 +1,79 @@
+import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
-import { existsSync, lstatSync, readFileSync, readdirSync, readlinkSync } from "node:fs";
+import { lstatSync, readFileSync, readdirSync, readlinkSync } from "node:fs";
 import { join, relative, resolve, sep } from "node:path";
 
-export const FROZEN_RUNTIME_ROOTS = [
-  ".env.example",
-  "apps",
-  "docker",
-  "domains",
-  "packages",
-  "pnpm-lock.yaml",
-  "pnpm-workspace.yaml",
-  "scripts/generate-domain-scenarios.mjs",
-  "tests",
-  "tsconfig.base.json",
-  "turbo.json",
+export const FROZEN_RUNTIME_ROOTS = ["."];
+export const FROZEN_RUNTIME_EXCLUDED_PATHS = [
+  "FROZEN_RUNTIME_MANIFEST.json",
+  "PROJECT_STATUS.json",
 ];
 
-const IGNORED_DIRECTORIES = new Set([
-  ".next",
-  ".pytest_cache",
-  ".turbo",
-  "__pycache__",
-  "coverage",
-  "dist",
-  "node_modules",
-]);
-
-function ignoredFile(name) {
-  return name === ".DS_Store" || name.endsWith(".pyc") || name.endsWith(".tsbuildinfo");
-}
+const FALLBACK_IGNORED_DIRECTORIES = new Set([".git"]);
 
 function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
 }
 
-function collectPath(root, absolutePath, files) {
+function parseNullDelimited(buffer) {
+  return buffer.toString("utf8").split("\0").filter(Boolean);
+}
+
+function gitPaths(root, args) {
+  const result = spawnSync("git", ["ls-files", "-z", ...args], {
+    cwd: root,
+    encoding: "buffer",
+  });
+  if (result.status !== 0) return null;
+  return parseNullDelimited(result.stdout);
+}
+
+function walkFallback(root, directory, paths) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    if (entry.isDirectory() && FALLBACK_IGNORED_DIRECTORIES.has(entry.name)) continue;
+    const absolutePath = join(directory, entry.name);
+    if (entry.isDirectory()) walkFallback(root, absolutePath, paths);
+    else paths.push(relative(root, absolutePath).split(sep).join("/"));
+  }
+}
+
+function candidatePaths(root) {
+  const cached = gitPaths(root, ["--cached"]);
+  if (cached?.length) {
+    const untracked = gitPaths(root, ["--others", "--exclude-standard"]);
+    if (untracked === null) throw new Error("Unable to enumerate untracked repository paths");
+    return [...new Set([...cached, ...untracked])].sort();
+  }
+
+  const paths = [];
+  walkFallback(root, root, paths);
+  return paths.sort();
+}
+
+function collectFile(root, path) {
+  if (path.startsWith("/") || path.split("/").includes("..")) {
+    throw new Error(`Unsafe frozen-runtime path: ${path}`);
+  }
+  const absolutePath = resolve(root, path);
   const stat = lstatSync(absolutePath);
-  const path = relative(root, absolutePath).split(sep).join("/");
   if (stat.isSymbolicLink()) {
-    files.push({ path, sha256: sha256(`symlink:${readlinkSync(absolutePath)}`), type: "symlink" });
-    return;
+    return { path, sha256: sha256(`symlink:${readlinkSync(absolutePath)}`), type: "symlink" };
   }
-  if (stat.isFile()) {
-    if (!ignoredFile(path.split("/").at(-1))) {
-      files.push({ path, sha256: sha256(readFileSync(absolutePath)), type: "file" });
-    }
-    return;
-  }
-  if (!stat.isDirectory()) throw new Error(`Unsupported frozen-runtime entry: ${path}`);
-  for (const name of readdirSync(absolutePath).sort()) {
-    if (IGNORED_DIRECTORIES.has(name)) continue;
-    collectPath(root, join(absolutePath, name), files);
-  }
+  if (!stat.isFile()) throw new Error(`Unsupported frozen-runtime entry: ${path}`);
+  return { path, sha256: sha256(readFileSync(absolutePath)), type: "file" };
 }
 
 export function collectFrozenRuntime(rootPath) {
   const root = resolve(rootPath);
-  const files = [];
-  for (const runtimeRoot of FROZEN_RUNTIME_ROOTS) {
-    const absolutePath = resolve(root, runtimeRoot);
-    if (existsSync(absolutePath)) collectPath(root, absolutePath, files);
-  }
-  files.sort((left, right) => left.path.localeCompare(right.path));
+  const excluded = new Set(FROZEN_RUNTIME_EXCLUDED_PATHS);
+  const files = candidatePaths(root)
+    .filter((path) => !excluded.has(path))
+    .map((path) => collectFile(root, path));
   return {
-    schema_version: 1,
+    schema_version: 2,
     status: "frozen_without_adopted_consumers",
     roots: FROZEN_RUNTIME_ROOTS,
+    excluded_paths: FROZEN_RUNTIME_EXCLUDED_PATHS,
     files,
   };
 }

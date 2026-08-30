@@ -11,6 +11,8 @@ const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const read = (path) => readFileSync(resolve(root, path), "utf8");
 const readJson = (path) => JSON.parse(read(path));
 const sha256 = (value) => createHash("sha256").update(value).digest("hex");
+const actualStatus = readJson("PROJECT_STATUS.json");
+assert.match(actualStatus.frozen_runtime_manifest_sha256, /^[0-9a-f]{64}$/u);
 
 const expectedStatus = {
   schema_version: 1,
@@ -18,7 +20,7 @@ const expectedStatus = {
   effective_date: "2026-08-30",
   status: "internal_evaluation_tooling",
   release_status: "hold",
-  frozen_runtime_manifest_sha256: "90e7e94d92830340c4ba7658bf15da784953ba80c2a377182a795d2b6a7a5ae1",
+  frozen_runtime_manifest_sha256: actualStatus.frozen_runtime_manifest_sha256,
   standalone_product: {
     company: false,
     customer_saas: false,
@@ -76,7 +78,7 @@ const expectedStatus = {
   ],
 };
 
-assert.deepEqual(readJson("PROJECT_STATUS.json"), expectedStatus);
+assert.deepEqual(actualStatus, expectedStatus);
 
 const packageJson = readJson("package.json");
 assert.equal(packageJson.private, true);
@@ -121,7 +123,7 @@ for (const retiredPath of [
 }
 assert.equal(existsSync(resolve(root, "action")), false, "the distributable action directory must remain retired");
 
-const ignoredScanDirectories = new Set([".git", ".next", ".turbo", "coverage", "dist", "node_modules"]);
+const ignoredScanDirectories = new Set([".git", "node_modules"]);
 function findActionMetadata(directory, matches = []) {
   for (const entry of readdirSync(directory, { withFileTypes: true })) {
     const path = join(directory, entry.name);
@@ -171,9 +173,28 @@ assert.equal(sha256(frozenRuntimeRaw), expectedStatus.frozen_runtime_manifest_sh
 const frozenRuntimeManifest = JSON.parse(frozenRuntimeRaw);
 assert.equal(canonicalFrozenRuntimeManifest(frozenRuntimeManifest), frozenRuntimeRaw);
 assert.deepEqual(collectFrozenRuntime(root), frozenRuntimeManifest);
+assert.deepEqual(frozenRuntimeManifest.roots, ["."]);
+assert.deepEqual(frozenRuntimeManifest.excluded_paths, [
+  "FROZEN_RUNTIME_MANIFEST.json",
+  "PROJECT_STATUS.json",
+]);
 
-const workspaceManifests = frozenRuntimeManifest.files
-  .map((entry) => entry.path)
+const frozenRuntimePaths = frozenRuntimeManifest.files.map((entry) => entry.path);
+for (const authorityPath of [
+  "package.json",
+  "scripts/frozen-runtime.mjs",
+  "scripts/test-portfolio-status.mjs",
+  "scripts/verify-portfolio-status.mjs",
+]) {
+  assert.ok(frozenRuntimePaths.includes(authorityPath), `${authorityPath} must be frozen`);
+}
+assert.deepEqual(
+  frozenRuntimePaths.filter((path) => /^action\.ya?ml$/u.test(basename(path))),
+  [],
+  "tracked GitHub Action metadata must remain absent even under ignored directories",
+);
+
+const workspaceManifests = frozenRuntimePaths
   .filter((path) => /^(?:apps|packages)\/[^/]+\/package\.json$/u.test(path));
 assert.ok(workspaceManifests.length > 0, "workspace package manifests must be inventoried");
 for (const path of workspaceManifests) {

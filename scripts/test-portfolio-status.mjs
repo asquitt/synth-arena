@@ -9,38 +9,20 @@ import { fileURLToPath } from "node:url";
 
 const sourceRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const tempRoot = mkdtempSync(join(tmpdir(), "syntharena-status-"));
-const fixturePaths = [
-  "PROJECT_STATUS.json",
-  "FROZEN_RUNTIME_MANIFEST.json",
-  "package.json",
-  "README.md",
-  "GRAND_PLAN.md",
-  "OVERNIGHT_PROGRESS.md",
-  "AGENTS.md",
-  "CLAUDE.md",
-  "scripts/verify-portfolio-status.mjs",
-  "scripts/frozen-runtime.mjs",
-  ".github/workflows/internal-tooling-verification.yml",
-  ".codex/hooks.json",
-  ".codex/hooks/arch-review-inject.sh",
-  ".codex/hooks/stop-quality-prompt.sh",
-  ".codex/hooks/test-hooks.sh",
-  ".github/ai-review/review.schema.json",
-  ".github/ai-review/senior-review.md",
-  ".agents/skills",
-  ".claude/skills",
-  "docs/historical",
-  ".env.example",
-  "apps",
-  "docker",
-  "domains",
-  "packages",
-  "pnpm-lock.yaml",
-  "pnpm-workspace.yaml",
-  "scripts/generate-domain-scenarios.mjs",
-  "tsconfig.base.json",
-  "turbo.json",
-];
+const trackedResult = spawnSync("git", ["ls-files", "-z", "--cached"], {
+  cwd: sourceRoot,
+  encoding: "buffer",
+});
+assert.equal(trackedResult.status, 0, trackedResult.stderr?.toString("utf8"));
+let fixturePaths = trackedResult.stdout.toString("utf8").split("\0").filter(Boolean);
+if (fixturePaths.length === 0) {
+  const manifest = JSON.parse(readFileSync(join(sourceRoot, "FROZEN_RUNTIME_MANIFEST.json"), "utf8"));
+  fixturePaths = [
+    ...manifest.files.map((entry) => entry.path),
+    ...manifest.excluded_paths,
+  ];
+}
+fixturePaths.sort();
 
 function makeFixture(name) {
   const root = join(tempRoot, name);
@@ -50,6 +32,10 @@ function makeFixture(name) {
     mkdirSync(dirname(destination), { recursive: true });
     cpSync(source, destination, { recursive: true, preserveTimestamps: true });
   }
+  const init = spawnSync("git", ["init", "-q"], { cwd: root, encoding: "utf8" });
+  assert.equal(init.status, 0, init.stderr);
+  const add = spawnSync("git", ["add", "-f", "--all"], { cwd: root, encoding: "utf8" });
+  assert.equal(add.status, 0, add.stderr);
   return root;
 }
 
@@ -101,6 +87,11 @@ try {
     mkdirSync(dirname(file), { recursive: true });
     writeFileSync(file, "name: Still executable\nruns:\n  using: composite\n");
   });
+  expectRejected("ignored-directory-action-metadata", (root) => {
+    const file = join(root, "docs/dist/action.yml");
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, "name: Ignored but executable\nruns:\n  using: composite\n");
+  });
   expectRejected("historical-tamper", (root) => {
     const file = join(root, "docs/historical/action/action.yml.txt");
     writeFileSync(file, `${readFileSync(file, "utf8")}\n# changed\n`);
@@ -138,6 +129,24 @@ try {
   expectRejected("runtime-modification", (root) => {
     const file = join(root, "apps/api/src/index.ts");
     writeFileSync(file, `${readFileSync(file, "utf8")}\n// unadopted runtime change\n`);
+  });
+  expectRejected("root-script-authority-revival", (root) => {
+    const script = join(root, "scripts/revive-standalone.mjs");
+    writeFileSync(script, "console.log('revived');\n");
+    const packageFile = join(root, "package.json");
+    const packageJson = JSON.parse(readFileSync(packageFile, "utf8"));
+    packageJson.scripts.postinstall = "node scripts/revive-standalone.mjs";
+    writeFileSync(packageFile, `${JSON.stringify(packageJson, null, 2)}\n`);
+  });
+  expectRejected("tracked-ignored-runtime-expansion", (root) => {
+    const script = join(root, "scripts/dist/revive-standalone.mjs");
+    mkdirSync(dirname(script), { recursive: true });
+    writeFileSync(script, "console.log('tracked ignored runtime');\n");
+    const add = spawnSync("git", ["add", "-f", "scripts/dist/revive-standalone.mjs"], {
+      cwd: root,
+      encoding: "utf8",
+    });
+    assert.equal(add.status, 0, add.stderr);
   });
 
   console.log("SynthArena portfolio-status adversarial checks passed");

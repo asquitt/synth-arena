@@ -1,23 +1,127 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "status": "frozen_without_adopted_consumers",
   "roots": [
-    ".env.example",
-    "apps",
-    "docker",
-    "domains",
-    "packages",
-    "pnpm-lock.yaml",
-    "pnpm-workspace.yaml",
-    "scripts/generate-domain-scenarios.mjs",
-    "tests",
-    "tsconfig.base.json",
-    "turbo.json"
+    "."
+  ],
+  "excluded_paths": [
+    "FROZEN_RUNTIME_MANIFEST.json",
+    "PROJECT_STATUS.json"
   ],
   "files": [
     {
+      "path": ".agents/skills/independent-review/SKILL.md",
+      "sha256": "06337a2de9472110938cb877889e54d2d5ce7e37d44f610734e249d756b0ca51",
+      "type": "file"
+    },
+    {
+      "path": ".agents/skills/pr-lifecycle/SKILL.md",
+      "sha256": "2f09e4996f638acb81fb3c9a92607e0993fc23677c370e147247c28adacdc756",
+      "type": "file"
+    },
+    {
+      "path": ".agents/skills/project-quality/SKILL.md",
+      "sha256": "c51bd3cd0aec88be059e0c31eeb6297871e4c7855818d56805ad376a554dbd96",
+      "type": "file"
+    },
+    {
+      "path": ".agents/skills/ship/SKILL.md",
+      "sha256": "2331ee387e5736700fe1b897f0e88ec4ffe228b31322599edf0cb68b9d177307",
+      "type": "file"
+    },
+    {
+      "path": ".claude/skills/independent-review/SKILL.md",
+      "sha256": "06337a2de9472110938cb877889e54d2d5ce7e37d44f610734e249d756b0ca51",
+      "type": "file"
+    },
+    {
+      "path": ".claude/skills/pr-lifecycle/SKILL.md",
+      "sha256": "2f09e4996f638acb81fb3c9a92607e0993fc23677c370e147247c28adacdc756",
+      "type": "file"
+    },
+    {
+      "path": ".claude/skills/project-quality/SKILL.md",
+      "sha256": "c51bd3cd0aec88be059e0c31eeb6297871e4c7855818d56805ad376a554dbd96",
+      "type": "file"
+    },
+    {
+      "path": ".claude/skills/ship/SKILL.md",
+      "sha256": "2331ee387e5736700fe1b897f0e88ec4ffe228b31322599edf0cb68b9d177307",
+      "type": "file"
+    },
+    {
+      "path": ".codex/hooks.json",
+      "sha256": "9e2bf4a8f915a9cbebf7a68249a53289e01d185e0e4116ad11f7a664071815a1",
+      "type": "file"
+    },
+    {
+      "path": ".codex/hooks/arch-review-inject.sh",
+      "sha256": "42b23b1dfb16f4e5ba4e991bf9a89637f0cac0a3fff7f4b5ecf53ed1f807c96b",
+      "type": "file"
+    },
+    {
+      "path": ".codex/hooks/stop-quality-prompt.sh",
+      "sha256": "45e35b07cb7e15a0a381572ad0cbe8d0b39450820d6e4814669b4397a16d7691",
+      "type": "file"
+    },
+    {
+      "path": ".codex/hooks/test-hooks.sh",
+      "sha256": "7bdc387287c149d75de141a069524b970e16f330a44997a884943e0c15c2e54f",
+      "type": "file"
+    },
+    {
       "path": ".env.example",
       "sha256": "8892e5a007dfd96ba0c55e88e0d5856ef99fce764427c970f4196c0e1f8065ad",
+      "type": "file"
+    },
+    {
+      "path": ".github/ai-review/review.schema.json",
+      "sha256": "6a69c7db5f6ec25200933b668406ca774cb366eddd471110d5542d078ec28719",
+      "type": "file"
+    },
+    {
+      "path": ".github/ai-review/senior-review.md",
+      "sha256": "f0f0e69791ac569d5e398f404a75a592e1313a10072b5dd1c31284b017dcaff0",
+      "type": "file"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "1747e6c01e05c6a5a4757be86687734f6a5e3e713cef5126e6b3aa4391986e6d",
+      "type": "file"
+    },
+    {
+      "path": ".github/workflows/internal-tooling-verification.yml",
+      "sha256": "6d4c39dddb5321bea5e03482872273ac805b7b380c4a03a7fc31de6c350eb06b",
+      "type": "file"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "83e3b1d4b8cc1b387538185c972caf840e746d0e1c947a06dfe0de80e90289b3",
+      "type": "file"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "8d8b966c698d31affe65aa0d1989d57a2ac40e47510f915874be1eccbf55b02e",
+      "type": "file"
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "96503c5179d7115096a9c2f491fa339984219430858aeb29b62a7d2e7f1b92b6",
+      "type": "file"
+    },
+    {
+      "path": "GRAND_PLAN.md",
+      "sha256": "e6a62e61f969c8df6ec7f055296d7e4dfd340b4ed7c26cfd68ddc5f804500a13",
+      "type": "file"
+    },
+    {
+      "path": "OVERNIGHT_PROGRESS.md",
+      "sha256": "9b8c323d05fb5093a5f659da4c3e18e5986c67e9e9380300bd34303c3dcf4a81",
+      "type": "file"
+    },
+    {
+      "path": "README.md",
+      "sha256": "9179cbfce189f3b24fe60105960c63c9477c3a5f430fb9de334a7227001643eb",
       "type": "file"
     },
     {
@@ -861,11 +965,6 @@
       "type": "file"
     },
     {
-      "path": "docker/docker-compose.yml",
-      "sha256": "3a07cea00f4f333b9a221ac90d1a058889a3300108521cc4e56b33a4e99807e8",
-      "type": "file"
-    },
-    {
       "path": "docker/Dockerfile.api",
       "sha256": "be3057de4940a5178ddd02bb891d6638af6a34ae711ec05da2daf5098a9112ea",
       "type": "file"
@@ -873,6 +972,11 @@
     {
       "path": "docker/Dockerfile.web",
       "sha256": "157968b4e5560f5cb1875f6cefedb2cd16d3c12811f058606a37680081c0f4f6",
+      "type": "file"
+    },
+    {
+      "path": "docker/docker-compose.yml",
+      "sha256": "3a07cea00f4f333b9a221ac90d1a058889a3300108521cc4e56b33a4e99807e8",
       "type": "file"
     },
     {
@@ -888,6 +992,61 @@
     {
       "path": "docker/init/seed.sql",
       "sha256": "6d83c57dfde7007017796b431c67064a4408a92626d40c233473a9cd70ad1626",
+      "type": "file"
+    },
+    {
+      "path": "docs/INTERNAL_TOOLING_BOUNDARY.md",
+      "sha256": "6268096a619346443f9047636cdc8e1504107fd1d430d264faa146b77ca3230d",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/README.md",
+      "sha256": "2f3d1fb55e752d4c93b073db516305d721ed4f6ad92fd8054f9e020900bfc8d3",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/SHA256SUMS",
+      "sha256": "f442df90cd2f9fc31077af0a255c9e526ff66dd6915f7a2e750b603fc53782dd",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/action/action.yml.txt",
+      "sha256": "e08288a596c786ba7c8051f3d76ec1f05ca89ace6c185869d2af954f852596ca",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/packaging/sdk-python.pyproject.toml",
+      "sha256": "b6c74569ff75844712a6c7112e4699cbbb701cb58b2cec6abd00c0f6032c292f",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/packaging/sdk-ts.package.json",
+      "sha256": "e895781415ad0ee1306a79847be72491f86986a4dd133c9420e83bfb44b96de5",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/plans/GRAND_PLAN.md",
+      "sha256": "b8ff5959553cfa69f2907bde765d1696525833a1ca1d0e3b952935476bf8d802",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/plans/OVERNIGHT_PROGRESS.md",
+      "sha256": "2dcd8edafeda74f666174399bba24eeccd814da235a13cd1a0b35e9da3dac574",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/workflows/ci.yml",
+      "sha256": "9a075a5c2f6834e38739fa329077cfb5b8704f64b1fbeabec991da04f0e18c94",
+      "type": "file"
+    },
+    {
+      "path": "docs/historical/workflows/eval-gate.yml",
+      "sha256": "62588953de53bb2e9f3f74f75a0778874b21441e7b6ebf18d40763464441bf00",
+      "type": "file"
+    },
+    {
+      "path": "docs/research-hold/2026-08-30-truth-lockdown-audit.md",
+      "sha256": "6a025a0e5abde0afd495919649ce658ddf2e55702f8ba287c478fa29930d7bda",
       "type": "file"
     },
     {
@@ -963,6 +1122,11 @@
     {
       "path": "domains/web-scraping/template.json",
       "sha256": "7556a82bf73ef579d51a3f9b87e0dd9bb20b107828df98cfbd0e6dc2c2343a43",
+      "type": "file"
+    },
+    {
+      "path": "package.json",
+      "sha256": "ca93bfdf6be83e383cbcb27e59693f40a8cd1cc95463fbd5baed9f015758a26e",
       "type": "file"
     },
     {
@@ -1486,8 +1650,28 @@
       "type": "file"
     },
     {
+      "path": "scripts/frozen-runtime.mjs",
+      "sha256": "3c02e45a31cc6b24c90804e4b068747b801e2b5c3a584ee71b3f5f3a379da1c2",
+      "type": "file"
+    },
+    {
       "path": "scripts/generate-domain-scenarios.mjs",
       "sha256": "56ae0b8742948e9afe494cd7b8edbc5e59a977398c021595e412a033c3ff7a47",
+      "type": "file"
+    },
+    {
+      "path": "scripts/generate-frozen-runtime-manifest.mjs",
+      "sha256": "f45d4601c7608609d654b102299083ff2399512a31a2688a03922884ea5bc3e2",
+      "type": "file"
+    },
+    {
+      "path": "scripts/test-portfolio-status.mjs",
+      "sha256": "048499a62ed55fae6ea7a95f802999cd529685be4f2615f5e169d317d1c25bb3",
+      "type": "file"
+    },
+    {
+      "path": "scripts/verify-portfolio-status.mjs",
+      "sha256": "e918d0acdb68fb29d0bc6623953a310dcaaecad045e6711f05bde8d410012ba1",
       "type": "file"
     },
     {
