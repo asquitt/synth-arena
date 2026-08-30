@@ -11,6 +11,7 @@ const sourceRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const tempRoot = mkdtempSync(join(tmpdir(), "syntharena-status-"));
 const fixturePaths = [
   "PROJECT_STATUS.json",
+  "FROZEN_RUNTIME_MANIFEST.json",
   "package.json",
   "README.md",
   "GRAND_PLAN.md",
@@ -18,6 +19,7 @@ const fixturePaths = [
   "AGENTS.md",
   "CLAUDE.md",
   "scripts/verify-portfolio-status.mjs",
+  "scripts/frozen-runtime.mjs",
   ".github/workflows/internal-tooling-verification.yml",
   ".codex/hooks.json",
   ".codex/hooks/arch-review-inject.sh",
@@ -28,6 +30,16 @@ const fixturePaths = [
   ".agents/skills",
   ".claude/skills",
   "docs/historical",
+  ".env.example",
+  "apps",
+  "docker",
+  "domains",
+  "packages",
+  "pnpm-lock.yaml",
+  "pnpm-workspace.yaml",
+  "scripts/generate-domain-scenarios.mjs",
+  "tsconfig.base.json",
+  "turbo.json",
 ];
 
 function makeFixture(name) {
@@ -84,8 +96,13 @@ try {
     mkdirSync(dirname(file), { recursive: true });
     writeFileSync(file, "name: Restored action\n");
   });
+  expectRejected("nested-action-metadata", (root) => {
+    const file = join(root, "docs/archive-copy/action.yaml");
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, "name: Still executable\nruns:\n  using: composite\n");
+  });
   expectRejected("historical-tamper", (root) => {
-    const file = join(root, "docs/historical/action/action.yml");
+    const file = join(root, "docs/historical/action/action.yml.txt");
     writeFileSync(file, `${readFileSync(file, "utf8")}\n# changed\n`);
   });
   expectRejected("restored-roadmap-claims", (root) => {
@@ -100,6 +117,27 @@ try {
   expectRejected("skill-drift", (root) => {
     const file = join(root, ".claude/skills/ship/SKILL.md");
     writeFileSync(file, `${readFileSync(file, "utf8")}\nDrift.\n`);
+  });
+  expectRejected("publishable-typescript-sdk", (root) => {
+    const file = join(root, "packages/sdk-ts/package.json");
+    const manifest = JSON.parse(readFileSync(file, "utf8"));
+    manifest.private = false;
+    manifest.version = "0.1.0";
+    manifest.scripts.prepublishOnly = "npm run build";
+    writeFileSync(file, `${JSON.stringify(manifest, null, 2)}\n`);
+  });
+  expectRejected("publishable-python-sdk", (root) => {
+    const file = join(root, "packages/sdk-python/pyproject.toml");
+    writeFileSync(file, `${readFileSync(file, "utf8")}\n[build-system]\nbuild-backend = "setuptools.build_meta"\n`);
+  });
+  expectRejected("runtime-expansion", (root) => {
+    const file = join(root, "apps/research-stack/src/controller.ts");
+    mkdirSync(dirname(file), { recursive: true });
+    writeFileSync(file, "export const revived = true;\n");
+  });
+  expectRejected("runtime-modification", (root) => {
+    const file = join(root, "apps/api/src/index.ts");
+    writeFileSync(file, `${readFileSync(file, "utf8")}\n// unadopted runtime change\n`);
   });
 
   console.log("SynthArena portfolio-status adversarial checks passed");

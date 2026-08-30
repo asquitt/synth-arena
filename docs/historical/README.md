@@ -6,6 +6,7 @@ Current authority is `../../PROJECT_STATUS.json` and `../INTERNAL_TOOLING_BOUNDA
 
 - `plans/`: superseded standalone roadmap and progress notes
 - `workflows/`: retired automatic GitHub workflows
-- `action/`: retired distributable GitHub Action with no adopted consumer contract
+- `action/`: retired distributable GitHub Action stored under a non-executable filename
+- `packaging/`: superseded SDK publication metadata retained for provenance
 
 Do not execute or restore these assets without satisfying the adoption gates and completing independent exact-commit review.

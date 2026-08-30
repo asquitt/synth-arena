@@ -3,8 +3,9 @@
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
-import { resolve } from "node:path";
+import { basename, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { canonicalFrozenRuntimeManifest, collectFrozenRuntime } from "./frozen-runtime.mjs";
 
 const root = resolve(fileURLToPath(new URL("..", import.meta.url)));
 const read = (path) => readFileSync(resolve(root, path), "utf8");
@@ -17,6 +18,7 @@ const expectedStatus = {
   effective_date: "2026-08-30",
   status: "internal_evaluation_tooling",
   release_status: "hold",
+  frozen_runtime_manifest_sha256: "90e7e94d92830340c4ba7658bf15da784953ba80c2a377182a795d2b6a7a5ae1",
   standalone_product: {
     company: false,
     customer_saas: false,
@@ -119,6 +121,17 @@ for (const retiredPath of [
 }
 assert.equal(existsSync(resolve(root, "action")), false, "the distributable action directory must remain retired");
 
+const ignoredScanDirectories = new Set([".git", ".next", ".turbo", "coverage", "dist", "node_modules"]);
+function findActionMetadata(directory, matches = []) {
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const path = join(directory, entry.name);
+    if (/^action\.ya?ml$/u.test(basename(path))) matches.push(path);
+    if (entry.isDirectory() && !ignoredScanDirectories.has(entry.name)) findActionMetadata(path, matches);
+  }
+  return matches;
+}
+assert.deepEqual(findActionMetadata(root), [], "recognized GitHub Action metadata must remain absent");
+
 const expectedPlanTombstone = `# SynthArena Plan Status
 
 The standalone SynthArena plan is superseded by \`PROJECT_STATUS.json\` and \`docs/INTERNAL_TOOLING_BOUNDARY.md\`.
@@ -135,7 +148,9 @@ assert.equal(read("GRAND_PLAN.md"), expectedPlanTombstone);
 assert.equal(read("OVERNIGHT_PROGRESS.md"), expectedProgressTombstone);
 
 const expectedHistorical = [
-  "docs/historical/action/action.yml",
+  "docs/historical/action/action.yml.txt",
+  "docs/historical/packaging/sdk-python.pyproject.toml",
+  "docs/historical/packaging/sdk-ts.package.json",
   "docs/historical/plans/GRAND_PLAN.md",
   "docs/historical/plans/OVERNIGHT_PROGRESS.md",
   "docs/historical/workflows/ci.yml",
@@ -150,6 +165,33 @@ const manifest = new Map(manifestLines.map((line) => {
 }));
 assert.deepEqual([...manifest.keys()].sort(), expectedHistorical);
 for (const [path, digest] of manifest) assert.equal(sha256(read(path)), digest, path);
+
+const frozenRuntimeRaw = read("FROZEN_RUNTIME_MANIFEST.json");
+assert.equal(sha256(frozenRuntimeRaw), expectedStatus.frozen_runtime_manifest_sha256);
+const frozenRuntimeManifest = JSON.parse(frozenRuntimeRaw);
+assert.equal(canonicalFrozenRuntimeManifest(frozenRuntimeManifest), frozenRuntimeRaw);
+assert.deepEqual(collectFrozenRuntime(root), frozenRuntimeManifest);
+
+const workspaceManifests = frozenRuntimeManifest.files
+  .map((entry) => entry.path)
+  .filter((path) => /^(?:apps|packages)\/[^/]+\/package\.json$/u.test(path));
+assert.ok(workspaceManifests.length > 0, "workspace package manifests must be inventoried");
+for (const path of workspaceManifests) {
+  const workspacePackage = readJson(path);
+  assert.equal(workspacePackage.private, true, `${path} must disable registry publication`);
+  assert.equal("publishConfig" in workspacePackage, false, `${path} must not define publishConfig`);
+  for (const script of ["prepublish", "prepublishOnly", "publish", "prepack", "postpack"]) {
+    assert.equal(script in (workspacePackage.scripts ?? {}), false, `${path} must not define ${script}`);
+  }
+}
+assert.equal("version" in readJson("packages/sdk-ts/package.json"), false);
+assert.equal(
+  read("packages/sdk-python/pyproject.toml"),
+  '# Internal test configuration only. Packaging metadata is intentionally archived.\n\n[tool.pytest.ini_options]\nasyncio_mode = "auto"\ntestpaths = ["tests"]\n',
+);
+assert.equal(existsSync(resolve(root, "packages/sdk-python/setup.py")), false);
+assert.equal(existsSync(resolve(root, "packages/sdk-python/setup.cfg")), false);
+assert.equal(existsSync(resolve(root, "packages/sdk-python/MANIFEST.in")), false);
 
 for (const authorityFile of ["README.md", "AGENTS.md", "CLAUDE.md"]) {
   const contents = read(authorityFile);
