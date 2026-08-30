@@ -84,6 +84,8 @@ const packageJson = readJson("package.json");
 assert.equal(packageJson.private, true);
 assert.equal(packageJson.description, "Private internal agent-evaluation tooling; not a standalone product");
 assert.equal(packageJson.scripts["status:verify"], "node scripts/verify-portfolio-status.mjs");
+assert.equal(packageJson.scripts["status:test"], "node scripts/test-portfolio-status.mjs");
+assert.equal(packageJson.scripts["status:archive-test"], "node scripts/test-source-archive.mjs");
 assert.equal(Object.keys(packageJson.scripts).some((name) => name.startsWith("release:")), false);
 for (const prohibitedScript of ["dev", "cli", "db:migrate", "db:seed"]) {
   assert.equal(prohibitedScript in packageJson.scripts, false, `${prohibitedScript} must not be an active root command`);
@@ -105,6 +107,10 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
       - name: Verify internal-tooling boundary
         run: node scripts/verify-portfolio-status.mjs
+      - name: Verify no-index source archive
+        run: node scripts/test-source-archive.mjs
+      - name: Verify hook contract
+        run: .codex/hooks/test-hooks.sh
 `;
 
 const workflowDir = resolve(root, ".github/workflows");
@@ -184,6 +190,7 @@ for (const authorityPath of [
   "package.json",
   "scripts/frozen-runtime.mjs",
   "scripts/test-portfolio-status.mjs",
+  "scripts/test-source-archive.mjs",
   "scripts/verify-portfolio-status.mjs",
 ]) {
   assert.ok(frozenRuntimePaths.includes(authorityPath), `${authorityPath} must be frozen`);

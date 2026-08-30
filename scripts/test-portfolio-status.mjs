@@ -13,8 +13,16 @@ const trackedResult = spawnSync("git", ["ls-files", "-z", "--cached"], {
   cwd: sourceRoot,
   encoding: "buffer",
 });
-assert.equal(trackedResult.status, 0, trackedResult.stderr?.toString("utf8"));
-let fixturePaths = trackedResult.stdout.toString("utf8").split("\0").filter(Boolean);
+const untrackedResult = spawnSync("git", ["ls-files", "-z", "--others", "--exclude-standard"], {
+  cwd: sourceRoot,
+  encoding: "buffer",
+});
+let fixturePaths = trackedResult.status === 0 && untrackedResult.status === 0
+  ? [...new Set([
+    ...trackedResult.stdout.toString("utf8").split("\0").filter(Boolean),
+    ...untrackedResult.stdout.toString("utf8").split("\0").filter(Boolean),
+  ])]
+  : [];
 if (fixturePaths.length === 0) {
   const manifest = JSON.parse(readFileSync(join(sourceRoot, "FROZEN_RUNTIME_MANIFEST.json"), "utf8"));
   fixturePaths = [

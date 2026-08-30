@@ -6,6 +6,7 @@
   "scripts": {
     "status:verify": "node scripts/verify-portfolio-status.mjs",
     "status:test": "node scripts/test-portfolio-status.mjs",
+    "status:archive-test": "node scripts/test-source-archive.mjs",
     "lab:dev": "turbo dev",
     "build": "turbo build",
     "typecheck": "turbo typecheck",
