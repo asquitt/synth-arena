@@ -114,12 +114,25 @@ for (const retiredPath of [
   ".github/workflows/ci.yml",
   ".github/workflows/eval-gate.yml",
   "action/action.yml",
-  "GRAND_PLAN.md",
-  "OVERNIGHT_PROGRESS.md",
 ]) {
   assert.equal(existsSync(resolve(root, retiredPath)), false, `${retiredPath} must remain retired`);
 }
 assert.equal(existsSync(resolve(root, "action")), false, "the distributable action directory must remain retired");
+
+const expectedPlanTombstone = `# SynthArena Plan Status
+
+The standalone SynthArena plan is superseded by \`PROJECT_STATUS.json\` and \`docs/INTERNAL_TOOLING_BOUNDARY.md\`.
+
+The original plan is preserved without modification at \`docs/historical/plans/GRAND_PLAN.md\`. It is historical material, not current roadmap, product, deployment, pricing, marketplace, or capability authority.
+`;
+const expectedProgressTombstone = `# SynthArena Progress Status
+
+The previous completion report is superseded by \`PROJECT_STATUS.json\` and does not establish current product, runtime, deployment, customer, or adoption status.
+
+The original report is preserved without modification at \`docs/historical/plans/OVERNIGHT_PROGRESS.md\`.
+`;
+assert.equal(read("GRAND_PLAN.md"), expectedPlanTombstone);
+assert.equal(read("OVERNIGHT_PROGRESS.md"), expectedProgressTombstone);
 
 const expectedHistorical = [
   "docs/historical/action/action.yml",

@@ -13,6 +13,8 @@ const fixturePaths = [
   "PROJECT_STATUS.json",
   "package.json",
   "README.md",
+  "GRAND_PLAN.md",
+  "OVERNIGHT_PROGRESS.md",
   "AGENTS.md",
   "CLAUDE.md",
   "scripts/verify-portfolio-status.mjs",
@@ -85,6 +87,9 @@ try {
   expectRejected("historical-tamper", (root) => {
     const file = join(root, "docs/historical/action/action.yml");
     writeFileSync(file, `${readFileSync(file, "utf8")}\n# changed\n`);
+  });
+  expectRejected("restored-roadmap-claims", (root) => {
+    writeFileSync(join(root, "GRAND_PLAN.md"), "# Standalone product roadmap\n\nLaunch the marketplace.\n");
   });
   expectRejected("host-specific-hook", (root) => {
     const file = join(root, ".codex/hooks.json");
