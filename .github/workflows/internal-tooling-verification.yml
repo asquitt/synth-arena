@@ -1,0 +1,20 @@
+name: Verify Internal Tooling Contract
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Verify portfolio disposition
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Verify internal-tooling boundary
+        run: node scripts/verify-portfolio-status.mjs
+      - name: Verify no-index source archive
+        run: node scripts/test-source-archive.mjs
+      - name: Verify hook contract
+        run: .codex/hooks/test-hooks.sh

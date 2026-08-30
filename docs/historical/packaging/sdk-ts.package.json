@@ -1,7 +1,6 @@
 {
   "name": "syntharena",
-  "private": true,
-  "description": "Private internal SynthArena TypeScript SDK; publication disabled",
+  "version": "0.1.0",
   "description": "SynthArena TypeScript SDK - Pre-deployment agent simulation",
   "type": "module",
   "main": "dist/index.js",
@@ -17,7 +16,8 @@
     "build": "tsc",
     "typecheck": "tsc --noEmit",
     "dev": "tsc --watch",
-    "test": "vitest run"
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
   },
   "keywords": ["ai", "agents", "evaluation", "testing", "simulation", "synthetic-data", "llm", "benchmark"],
   "license": "MIT",

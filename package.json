@@ -2,17 +2,18 @@
   "name": "synth-arena",
   "version": "0.1.0",
   "private": true,
-  "description": "Pre-deployment simulation platform for AI agents",
+  "description": "Private internal agent-evaluation tooling; not a standalone product",
   "scripts": {
-    "dev": "turbo dev",
+    "status:verify": "node scripts/verify-portfolio-status.mjs",
+    "status:test": "node scripts/test-portfolio-status.mjs",
+    "status:archive-test": "node scripts/test-source-archive.mjs",
+    "lab:dev": "turbo dev",
     "build": "turbo build",
     "typecheck": "turbo typecheck",
     "lint": "turbo lint",
     "test:core": "turbo test --filter=@syntharena/core",
     "test:scenarios": "turbo test --filter=@syntharena/scenarios",
-    "cli": "pnpm --filter=@syntharena/cli exec synth-arena",
-    "db:migrate": "pnpm --filter=@syntharena/api run migrate",
-    "db:seed": "psql $DATABASE_URL -f docker/init/seed.sql"
+    "lab:cli": "pnpm --filter=@syntharena/cli exec synth-arena"
   },
   "devDependencies": {
     "turbo": "^2.4.0",

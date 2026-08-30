@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "project": "SynthArena",
+  "effective_date": "2026-08-30",
+  "status": "internal_evaluation_tooling",
+  "release_status": "hold",
+  "frozen_runtime_manifest_sha256": "77e444d1c1f7b82af2ef97a7cb2c0e827838e8bbc1d01b1de37798c483ae3665",
+  "standalone_product": {
+    "company": false,
+    "customer_saas": false,
+    "marketplace": false,
+    "billing": false,
+    "customer_acquisition": "stopped",
+    "deployments": "not_authorized",
+    "runtime_state": "unverified"
+  },
+  "hosted_workflows": "manual_only",
+  "allowed_work": [
+    "preservation",
+    "archive_security_fix",
+    "read_only_research",
+    "named_consumer_contract_discovery",
+    "bounded_asset_extraction_with_named_consumer"
+  ],
+  "prohibited_without_adoption": [
+    "standalone_feature_development",
+    "customer_or_pilot_claims",
+    "deployment_or_provider_spend",
+    "marketplace_or_billing",
+    "production_or_compliance_claims",
+    "automatic_workflow_restoration",
+    "shared_platform_expansion"
+  ],
+  "shared_infrastructure": {
+    "adopted": false,
+    "minimum_independent_consumers": 2,
+    "requires_named_consumer": true,
+    "requires_versioned_contract": true,
+    "consumers": []
+  },
+  "adoption_gates": [
+    {
+      "id": "named_consumer",
+      "requirement": "A bounded extraction names the active product, accountable owner, repository, exact asset, and user outcome it supports."
+    },
+    {
+      "id": "versioned_contract",
+      "requirement": "The consuming product owns a versioned input, output, error, provenance, security, and rollback contract with executable conformance evidence."
+    },
+    {
+      "id": "two_product_shared_need",
+      "requirement": "Shared-platform development remains frozen until two independent active products adopt the same contract and prove that duplication is materially harmful."
+    },
+    {
+      "id": "runtime_truth",
+      "requirement": "Any claimed sandbox, evaluator, trace, replay, cost, or deployment property is proven through the real producer and consumer boundary at an exact revision."
+    },
+    {
+      "id": "outcome_and_economics",
+      "requirement": "Observed product outcomes justify the maintenance, infrastructure, provider, support, and security cost of the shared asset."
+    }
+  ]
+}
