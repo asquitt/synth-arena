@@ -4,7 +4,7 @@
   "effective_date": "2026-08-30",
   "status": "internal_evaluation_tooling",
   "release_status": "hold",
-  "frozen_runtime_manifest_sha256": "0c353265b7321757cc419482f779021a2c6165cdfa668133dfdbbd3e89ce9827",
+  "frozen_runtime_manifest_sha256": "c75310872de1dce7c6e6664c8d741c7d84b57ac4acdb23d8331805963f11ed16",
   "standalone_product": {
     "company": false,
     "customer_saas": false,
